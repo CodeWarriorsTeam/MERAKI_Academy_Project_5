@@ -29,6 +29,12 @@ app.use("/role", roleRouter)
 
 
 /////naamneh
+const casesRouter = require("./routes/cases");
+
+app.use("/",casesRouter);
+
+
+app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
