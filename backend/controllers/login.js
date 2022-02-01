@@ -40,8 +40,6 @@ const options = {
 expiresIn: "60h",
 };
 
-console.log("soso");
-
 const token = await jwt.sign(payload,process.env.SECRET, options);
 res.status(200).json({
 success: true,
