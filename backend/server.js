@@ -8,8 +8,30 @@ app.use(cors());
 
 app.use(express.json());
 
-const PORT = 5000;
+app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
+
+////batool
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////naamneh
+
+
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`SERVER WORKING ON PORT: ${PORT}`);
 });
