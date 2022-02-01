@@ -39,7 +39,10 @@ role: result[0].role_id,
 const options = {
 expiresIn: "60h",
 };
-const token = await jwt.sign(payload, process.env.SECRET, options);
+
+console.log("soso");
+
+const token = await jwt.sign(payload,process.env.SECRET, options);
 res.status(200).json({
 success: true,
 message: `Valid login credentials`,
