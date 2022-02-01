@@ -14,6 +14,8 @@ app.use(express.json());
 const roleRouter = require("./routes/role")
 app.use("/role", roleRouter) 
 
+const userRouter = require("./routes/user")
+app.use("/user", userRouter) 
 
 
 
