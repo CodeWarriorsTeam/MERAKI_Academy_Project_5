@@ -24,9 +24,8 @@ const createNewCase = (req, res) => {
 const getAllCases = (req, res) => {
     const query = `SELECT * FROM cases`;
 
-    const data = [req.params];
 
-    connection.query(query,data,(err,result)=>{
+    connection.query(query,(err,result)=>{
 
         if (err){
             res.status(500).json({
