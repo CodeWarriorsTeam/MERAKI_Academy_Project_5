@@ -26,6 +26,7 @@ CREATE TABLE users(
 
 CREATE TABLE cases (
     id INT AUTO_INCREMENT NOT NULL,
+    category VARCHAR(255),
     case_image VARCHAR(255),
     title VARCHAR(255),
     case_description VARCHAR(255),
