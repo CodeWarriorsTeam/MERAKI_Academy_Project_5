@@ -1,9 +1,18 @@
+import React from "react";
 import "./App.css";
+import Navigation from "./component/Navigation";
+import { Routes, Route } from "react-router-dom";
+import Register from "./component/Register";
 
 function App() {
   return (
     <div className="App">
-      <h1>Start project 5</h1>
+      <Navigation
+      />
+      <Routes>
+        <Route path="/register" element={<Register />} />
+        </Routes>
+
     </div>
   );
 }
