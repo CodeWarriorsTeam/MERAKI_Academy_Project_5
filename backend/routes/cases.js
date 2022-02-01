@@ -7,6 +7,7 @@ const casesRouter = express.Router()
 
 
 casesRouter.post("/cases",createNewCase);
+casesRouter.get("/cases",getAllCases);
 
 
 
