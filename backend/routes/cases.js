@@ -1,14 +1,13 @@
-const express = require('express');
+const express = require("express");
 
-const {createNewCase,getAllCases} = require("../controllers/cases")
+const {createNewCase,getAllCases,getCaseById,updateCaseById} = require("../controllers/cases")
 
+const casesRouter = express.Router();
 
-const casesRouter = express.Router()
-
-
-casesRouter.post("/cases",createNewCase);
-casesRouter.get("/cases",getAllCases);
-
+casesRouter.post("/",createNewCase);
+casesRouter.get("/",getAllCases);
+casesRouter.get("/:id",getCaseById)
+casesRouter.put("/:id",updateCaseById)
 
 
 module.exports = casesRouter;
