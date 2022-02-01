@@ -38,7 +38,30 @@ const getAllCases = (req, res) => {
   });
 };
 
+const updateCaseById = (req,res)=>{
+const query = `UPDATE cases SET? WHERE id=?`
+
+const data = [req.body,req.params.id]
+
+connection.query(query,data,(err,result)=>{
+
+if (err){
+    res.status(404).json({
+        success:false,
+        message:`The Case is not Found`
+    })
+}
+
+    res.status(201).json({
+        success:true,
+        message:`Case Updated `
+    })
+})
+}
+
+
 module.exports = {
   createNewCase,
   getAllCases,
+  updateCaseById
 };
