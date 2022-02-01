@@ -19,7 +19,7 @@ app.use("/login", loginRouter);
 /////naamneh
 const casesRouter = require("./routes/cases");
 
-app.use("/", casesRouter);
+app.use("/cases", casesRouter);
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
