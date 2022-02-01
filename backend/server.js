@@ -8,11 +8,11 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
 
 ////batool
-
+const roleRouter = require("./routes/role")
+app.use("/role", roleRouter) 
 
 
 
@@ -30,6 +30,7 @@ app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
 /////naamneh
 
+app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
 const PORT = 5000;
 app.listen(PORT, () => {
