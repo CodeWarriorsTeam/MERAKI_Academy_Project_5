@@ -9,6 +9,13 @@ app.use(cors());
 app.use(express.json());
 
 ////batool
+const roleRouter = require("./routes/role")
+app.use("/role", roleRouter) 
+
+const userRouter = require("./routes/user")
+app.use("/user", userRouter) 
+
+
 const roleRouter = require("./routes/role");
 app.use("/role", roleRouter);
 
