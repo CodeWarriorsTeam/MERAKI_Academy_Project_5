@@ -20,30 +20,25 @@ const createNewCase = (req, res) => {
   });
 };
 
-
 const getAllCases = (req, res) => {
-    const query = `SELECT * FROM cases`;
+  const query = `SELECT * FROM cases`;
 
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+      });
+    }
 
-    connection.query(query,(err,result)=>{
-
-        if (err){
-            res.status(500).json({
-                success:false,
-                message:`Server Error`
-            })
-        }
-
-      res.status(200).json({
-          success:true,
-          message:[result]
-      })
-
-
-    })
+    res.status(200).json({
+      success: true,
+      message: [result],
+    });
+  });
 };
 
 module.exports = {
   createNewCase,
-  getAllCases
+  getAllCases,
 };
