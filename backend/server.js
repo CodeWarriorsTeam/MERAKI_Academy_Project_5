@@ -21,6 +21,15 @@ const casesRouter = require("./routes/cases");
 
 app.use("/cases", casesRouter);
 
+
+
+
+
+
+const donationRouter = require("./routes/donation");
+
+app.use("/donation",donationRouter)
+
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
 const PORT = 5000;
