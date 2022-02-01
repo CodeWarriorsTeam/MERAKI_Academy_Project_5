@@ -138,10 +138,46 @@ return res.status(404).json({
 }
 
 
+const getCasesByCategory=(req,res)=>{ 
+  console.log(555);
+  const limit=10
+  const page =req.query.page
+  
+  const offset  = (page - 1) * limit
+  
+  const data=[req.query.category]
+
+  const query = `SELECT * FROM cases WHERE is_deleted=0 AND category=? limit ${limit} OFFSET ${offset} `;
+
+connection.query(query,data, (err, result) => {
+  if (err) {
+  
+  return  res.status(500).json({
+      success: false,
+      message: `Server Error`,
+    });
+  }
+
+if (!result[0]){
+return res.status(200).json({
+  success:false,
+  message: `no cases in this category ==>${data} `
+})
+}
+
+
+  res.status(200).json({
+    success: true,
+    message: result
+  });
+});
+
+}
 module.exports = {
   createNewCase,
   getAllCases,
   getCaseById,
   updateCaseById,
-  deleteCaseById
+  deleteCaseById,
+  getCasesByCategory
 };
