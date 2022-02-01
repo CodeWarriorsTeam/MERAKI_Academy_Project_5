@@ -22,10 +22,15 @@ const createNewCase = (req, res) => {
 };
 
 const getAllCases = (req, res) => {
-  const query = `SELECT * FROM cases WHERE is_deleted=0`;
+  const limit=10
+  const page =req.query.page
+  console.log(page);
+  const offset  = (page - 1) * limit
+  const query = `SELECT * FROM cases WHERE is_deleted=0 limit ${limit} OFFSET ${offset} `;
 
   connection.query(query, (err, result) => {
     if (err) {
+      console.log(err);
     return  res.status(500).json({
         success: false,
         message: `Server Error`,
