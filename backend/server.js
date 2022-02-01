@@ -11,7 +11,8 @@ app.use(express.json());
 
 
 ////batool
-
+const roleRouter = require("./routes/role")
+app.use("/role", roleRouter) 
 
 
 
@@ -35,6 +36,7 @@ app.use("/",casesRouter);
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
+app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
 const PORT = 5000;
 app.listen(PORT, () => {
