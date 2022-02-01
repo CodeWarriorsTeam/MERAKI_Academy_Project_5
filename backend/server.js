@@ -11,13 +11,10 @@ app.use(express.json());
 ////batool
 const roleRouter = require("./routes/role")
 app.use("/role", roleRouter) 
-
 const userRouter = require("./routes/user")
 app.use("/user", userRouter) 
-
-
-const roleRouter = require("./routes/role");
-app.use("/role", roleRouter);
+const loginRouter = require("./routes/login");
+app.use("/login", loginRouter);
 
 /////naamneh
 const casesRouter = require("./routes/cases");
