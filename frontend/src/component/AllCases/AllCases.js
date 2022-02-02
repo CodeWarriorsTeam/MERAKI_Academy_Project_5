@@ -28,7 +28,7 @@ const AllCases = (token) => {
       const res = await axios.get(
         `http://localhost:5000/cases/page?page=${num}
  `,
-        { headers: { Authoriztion: `bearer ${token}` } }
+        { headers: { Authoriztion: `bearer ${state.token}` } }
       );
       if (res.data.success) {
         dispatch(setCases(res.date.message));
