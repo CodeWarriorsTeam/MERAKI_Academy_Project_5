@@ -3,12 +3,12 @@ const connection = require("../database/db");
 
 const createDonation = (req, res) => {
     // console.log(token);
-
+   const casesId=req.params.case_id
     const { IBAN, amount } = req.body;
     // const donor_id = req.token.userId;
-    const query = `INSERT INTO donation (IBAN, amount) VALUES (?,?);`;
+    const query = `INSERT INTO donation (IBAN, amount,case_id) VALUES (?,?,?);`;
   
-    const data = [IBAN, amount];
+    const data = [IBAN, amount,casesId];
   
     connection.query(query, data, (err, result) => {
       if (err) {
