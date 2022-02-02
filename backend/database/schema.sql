@@ -23,16 +23,18 @@ CREATE TABLE users(
     PRIMARY KEY (id)
 );
 
-
 CREATE TABLE cases (
     id INT AUTO_INCREMENT NOT NULL,
     category VARCHAR(255),
     case_image VARCHAR(255),
     title VARCHAR(255),
     case_description VARCHAR(255),
+    donor INT,
+    FOREIGN KEY(donor) REFERENCES users(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
 
 CREATE TABLE donation(
 id INT AUTO_INCREMENT NOT NULL,
@@ -45,3 +47,4 @@ FOREIGN KEY (donor_id) REFERENCES users(id),
 is_deleted TINYINT DEFAULT 0,
 PRIMARY KEY (id)
 );
+

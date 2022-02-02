@@ -7,6 +7,7 @@ const createNewCase = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
+      console.log(err);
      return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -26,7 +27,7 @@ const getAllCases = (req, res) => {
   const page =req.query.page
   console.log(page);
   const offset  = (page - 1) * limit
-  const query = `SELECT * FROM cases WHERE is_deleted=0 limit ${limit} OFFSET ${offset} `;
+  const query = `SELECT * FROM cases INNER JOIN donation ON case_id=cases.id  WHERE cases.is_deleted=0 limit ${limit} OFFSET ${offset} `;
 
   connection.query(query, (err, result) => {
     if (err) {
@@ -53,7 +54,7 @@ if (!result[0]){
 };
 
 const getCaseById = (req, res) => {
-  const query = `SELECT * FROM cases WHERE id=? and is_deleted=0`;
+  const query = `SELECT * FROM cases LEFT JOIN donation ON cases.donor = donation.id WHERE id=? and is_deleted=0`;
 
   const data = [req.params.id];
   connection.query(query, data, (err, result) => {

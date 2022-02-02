@@ -5,7 +5,7 @@ const authentication=require("../middleware/authentication")
 
 const donationRouter = express.Router();
 
-donationRouter.post("/",authentication,createDonation);
+donationRouter.post("/:case_id",authentication,createDonation);
 
 
 module.exports = donationRouter;
