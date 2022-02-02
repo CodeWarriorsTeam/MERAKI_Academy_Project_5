@@ -3,11 +3,11 @@ import axios from "axios";
 import { setCases, updateCases } from "../../reducer/cases";
 import { useDispatch, useSelector } from "react-redux";
 const AllCases = (token) => {
-  const [casee, setCase] = useState("");
+  const [casee, setCase] = useState([]);
   const [category, setCategory] = useState("");
-  const [image, setImage] = useState("");
+  const [case_image, setCase_Image] = useState("");
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [case_description, setCase_Description] = useState("");
   const [message, setMessage] = useState("");
   const [updateBox, setUpdateBox] = useState(false);
   const [caseId, setCaseId] = useState(false);
@@ -20,9 +20,7 @@ const AllCases = (token) => {
       cases: state.casesReducer.cases,
     };
   });
-  useEffect(() => {
-    getAllCases();
-  }, []);
+
   const getAllCases = async (num = 1) => {
     try {
       const res = await axios.get(
@@ -31,8 +29,8 @@ const AllCases = (token) => {
         { headers: { Authoriztion: `bearer ${state.token}` } }
       );
       if (res.data.success) {
-        dispatch(setCases(res.date.message));
-        setCase(res.data.cases);
+        console.log(res.data.message);
+        dispatch(setCases(res.data.message));
       } else throw Error;
     } catch (error) {
       if (!error) {
@@ -40,14 +38,16 @@ const AllCases = (token) => {
       }
       setMessage("Error happened while Get Data, please try again");
     }
-    
   };
+  useEffect(() => {
+    getAllCases();
+  }, []);
   const handleUpdateClick = (casee) => {
     setUpdateBox(!updateBox);
     setCaseId(casee.id);
     setTitle(casee.title);
-    setImage(casee.image);
-    setDescription(casee.description);
+    setCase_Image(casee.image);
+    setCase_Description(casee.description);
     if (updateBox) updateCases(casee.id);
   };
 
@@ -56,8 +56,8 @@ const AllCases = (token) => {
       await axios
         .put(`http://localhost:5000/cases/${id}`, {
           title,
-          image,
-          description,
+          case_image,
+          case_description,
         })
         .then((result) => {
           dispatch(updateCases(result.data.results));
@@ -67,14 +67,18 @@ const AllCases = (token) => {
       console.log(error);
     }
   };
+  console.log(state.cases);
   return (
     <>
-      {state.cases &&
-        state.cases.map((casee, i) => {
+      {state.cases.map((element, i) => (
+        // console.log(element.title);
+
+        <>
           <div key={i} className="case">
-            <div>{casee.title}</div>
-            <div>{casee.case_image}</div>
-            <div>{casee.case_description}</div>
+            <p>{element.title}</p>
+            <p>{element.case_image}</p>
+            <p>{element.case_description}</p>
+
             {casee.author === userId && (
               <>
                 {updateBox && caseId === casee.id && (
@@ -91,16 +95,16 @@ const AllCases = (token) => {
                     <textarea
                       placeholder="case description here"
                       defaultValue={casee.description}
-                      onChange={(e) => setDescription(e.target.value)}
+                      onChange={(e) => setCase_Description(e.target.value)}
                     ></textarea>
                   </form>
                 )}
                 <button onClick={() => handleUpdateClick(casee)}>update</button>
               </>
             )}
-          </div>;
-        })}
-
+          </div>
+        </>
+      ))}
       {message && <div>{message}</div>}
     </>
   );
