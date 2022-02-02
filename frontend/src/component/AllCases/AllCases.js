@@ -29,6 +29,7 @@ const AllCases = (token) => {
         { headers: { Authoriztion: `bearer ${state.token}` } }
       );
       if (res.data.success) {
+        console.log("res",res);
         console.log(res.data.message);
         dispatch(setCases(res.data.message));
         setCase(res.data.cases);
@@ -42,31 +43,7 @@ const AllCases = (token) => {
     }
   };
  
-  const handleUpdateClick = (casee) => {
-    setUpdateBox(!updateBox);
-    setCaseId(casee.id);
-    setTitle(casee.title);
-    setCase_Image(casee.image);
-    setCase_Description(casee.description);
-    if (updateBox) updateCases(casee.id);
-  };
-
-  const updateCaseById = async (id) => {
-    try {
-      await axios
-        .put(`http://localhost:5000/cases/${id}`, {
-          title,
-          case_image,
-          case_description,
-        })
-        .then((result) => {
-          dispatch(updateCases(result.data.results));
-          getAllCases();
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ 
 
 
 
@@ -75,8 +52,10 @@ const AllCases = (token) => {
     console.log(id);
     try {
       await axios.delete(`http://localhost:5000/cases/${id}`);
-      getAllCases();
       dispatch(deleteCase(id));
+      getAllCases();
+
+
     } catch (error) {
       console.log(error);
     }
@@ -102,39 +81,19 @@ const AllCases = (token) => {
             <p>{element.case_image}</p>
             <p>{element.case_description}</p>
 
-            {casee.author === userId && (
-              <>
-                {updateBox && caseId === casee.id && (
-                  <form>
-                    <br />
-                    <input
-                      type="text"
-                      defaultValue={casee.title}
-                      placeholder="case title here"
-                      onChange={(e) => setTitle(e.target.value)}
-                    />
-                    <br />
-
-                    <textarea
-                      placeholder="case description here"
-                      defaultValue={casee.description}
-                      onChange={(e) => setCase_Description(e.target.value)}
-                    ></textarea>
-                  </form>
-                )}
-                <button onClick={() => handleUpdateClick(casee)}>update</button>
+              
+              
 
 
                 <button
                   className="delete"
-                  onClick={() => deleteCseById(casee.id)}
+                  onClick={() => deleteCseById(element.id)}
                 >
                   X
                 </button>
-              </>
             
             
-            )}
+            
           </div>
         </>
       ))}
