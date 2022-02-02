@@ -19,7 +19,7 @@ const createDonation = (req, res) => {
         });
       }
   
-   return   res.status(201).json({
+   return res.status(201).json({
         success: true,
         message: `A donation has been successful, the donation value will be deducted from your account, thank you very much`,
         result:result

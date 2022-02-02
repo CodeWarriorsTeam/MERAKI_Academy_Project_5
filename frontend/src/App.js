@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Navigation from "./component/Navigation";
 import { Routes, Route } from "react-router-dom";
-import Register from "./component/Register";
+import Register from "./component/register/Register";
 
 function App() {
   return (

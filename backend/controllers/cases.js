@@ -7,7 +7,7 @@ const createNewCase = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(500).json({
+     return res.status(500).json({
         success: false,
         message: `Server Error`,
       });
@@ -139,7 +139,6 @@ return res.status(404).json({
 
 
 const getCasesByCategory=(req,res)=>{ 
-  console.log(555);
   const limit=10
   const page =req.query.page
   
