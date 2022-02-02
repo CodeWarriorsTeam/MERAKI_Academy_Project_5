@@ -5,8 +5,18 @@ const initialState = {
 const casesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "SET_CASES":
-return {cases: payload};
-   default: return state;
+      return { cases: payload };
+    case "UPDATE_CASES":
+      return {
+        cases: state.cases.map((ele) => {
+          if (payload.id == ele.id) {
+            return payload;
+          }
+          return ele;
+        }),
+      };
+    default:
+      return state;
   }
 };
 
@@ -19,3 +29,6 @@ export const setCases = (cases) => {
   };
 };
 
+export const updateCases = (updateCase) => {
+  return { type: "UPDATE_CASES", payload: updateCase };
+};
