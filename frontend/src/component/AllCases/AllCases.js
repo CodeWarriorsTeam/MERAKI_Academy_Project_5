@@ -45,7 +45,6 @@ const AllCases = (token) => {
           <div key={i} className="case">
             <div>{casee.title}</div>
             <div>{casee.case_image}</div>
-            <div>{casee.category}</div>
             <div>{casee.case_description}</div>
           </div>;
         })}
