@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { setCases, updateCases } from "../../reducer/cases";
+import { setCases, updateCases,deleteCase } from "../../reducer/cases";
 import { useDispatch, useSelector } from "react-redux";
 const AllCases = (token) => {
   const [casee, setCase] = useState("");
@@ -20,9 +20,7 @@ const AllCases = (token) => {
       cases: state.casesReducer.cases,
     };
   });
-  useEffect(() => {
-    getAllCases();
-  }, []);
+
   const getAllCases = async (num = 1) => {
     try {
       const res = await axios.get(
@@ -31,14 +29,16 @@ const AllCases = (token) => {
         { headers: { Authoriztion: `bearer ${state.token}` } }
       );
       if (res.data.success) {
-        dispatch(setCases(res.date.message));
+        console.log(res.data.message);
+        dispatch(setCases(res.data.message));
         setCase(res.data.cases);
       } else throw Error;
     } catch (error) {
+      console.log(error);
       if (!error) {
         return setMessage(error.response.data.message);
       }
-      setMessage("Error happened while Get Data, please try again");
+     
     }
     
   };
@@ -67,6 +67,28 @@ const AllCases = (token) => {
       console.log(error);
     }
   };
+
+
+
+
+  const deleteCseById = async (id) => {
+    console.log(id);
+    try {
+      await axios.delete(`http://localhost:5000/cases/${id}`);
+      getAllCases();
+      dispatch(deleteCase(id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+
+  useEffect(() => {
+    getAllCases();
+  }, []);
+
+
   return (
     <>
       {state.cases &&
@@ -96,7 +118,17 @@ const AllCases = (token) => {
                   </form>
                 )}
                 <button onClick={() => handleUpdateClick(casee)}>update</button>
+
+
+                <button
+                  className="delete"
+                  onClick={() => deleteCseById(casee.id)}
+                >
+                  X
+                </button>
               </>
+            
+            
             )}
           </div>;
         })}
