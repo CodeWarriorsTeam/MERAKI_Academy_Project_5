@@ -8,6 +8,9 @@ const Navigation = () => {
             </Link>
             <Link className="home" to="/allcases">
               Home
+
+            <Link className="login" to="/login">
+              Login
             </Link>
         </>
     )
