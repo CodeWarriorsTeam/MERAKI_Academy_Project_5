@@ -3,6 +3,7 @@ import "./App.css";
 import Navigation from "./component/Navigation";
 import { Routes, Route } from "react-router-dom";
 import Register from "./component/register/Register";
+import AllCases from "./component/AllCases/AllCases";
 import Login from "./component/login/Login";
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         
         <Route path="/register" element={<Register />} />
-
+        <Route path="/allcases" element={<AllCases />} />
         <Route path="/login" element={<Login />} />
 
         

@@ -25,9 +25,12 @@ const Navigation = () => {
         </>
       ) : (
         <>
-          <Link className="register" to="/register">
-            Register
-          </Link>
+        <Link className="register" to="/register">
+              Register
+            </Link>
+            <Link className="home" to="/allcases">
+              Home
+       
 
           <Link className="login" to="/login">
             Login
