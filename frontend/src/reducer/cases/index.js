@@ -17,6 +17,12 @@ const casesReducer = (state = initialState, { type, payload }) => {
       };
     default:
       return state;
+return {cases: payload};
+  case "ADD_CASE":
+return {cases:[...state.cases,payload]};
+
+
+   default: return state;
   }
 };
 
@@ -32,3 +38,7 @@ export const setCases = (cases) => {
 export const updateCases = (updateCase) => {
   return { type: "UPDATE_CASES", payload: updateCase };
 };
+export const AddCase = (newCase)=>{
+return {type:"ADD_CASE" , payload:newCase};
+}
+
