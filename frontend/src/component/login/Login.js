@@ -26,6 +26,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.data.token);
         dispatch(loginUser(result.data.token));
+        navigate("/allcases");
         localStorage.setItem("token", result.data.token);
       })
 
@@ -47,7 +48,7 @@ const Login = () => {
       ></input>
       <br />
       <input
-        type="text"
+        type="password"
         placeholder="Password"
         onChange={(e) => {
           setPass(e.target.value);
