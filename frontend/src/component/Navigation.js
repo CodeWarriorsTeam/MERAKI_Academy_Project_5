@@ -21,6 +21,7 @@ const Navigation = () => {
       {state.isLoggedIn ? (
         <>
           <button onClick={logout}>Logout</button>
+       
         </>
       ) : (
         <>

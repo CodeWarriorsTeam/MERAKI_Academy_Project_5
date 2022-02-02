@@ -24,6 +24,7 @@ const Login = () => {
       .post("http://localhost:5000/login", userLogin)
 
       .then((result) => {
+        console.log(result.data.token);
         dispatch(loginUser(result.data.token));
         localStorage.setItem("token", result.data.token);
       })
