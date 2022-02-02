@@ -11,6 +11,8 @@ const Login = () => {
     return { isLoggedIn: state.loginReducer.isLoggedIn };
   });
 
+console.log(state.isLoggedIn);
+
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -24,14 +26,13 @@ const Login = () => {
       .post("http://localhost:5000/login", userLogin)
 
       .then((result) => {
-        console.log(result.data.token);
         dispatch(loginUser(result.data.token));
         localStorage.setItem("token", result.data.token);
       })
 
       .catch((err) => {
         console.log(err);
-      return  setMessage(err.response.data.message);
+        return setMessage(err.response.data.message);
       });
   };
 

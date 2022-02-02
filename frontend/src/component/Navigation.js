@@ -1,16 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Navigation = () => {
-    return (
-        <>
-        <Link className="register" to="/register">
-              Register
-            </Link>
+import { useDispatch, useSelector } from "react-redux";
+import loginReducer from "../reducer/login";
+import { logoutUser } from "../reducer/login";
 
-            <Link className="login" to="/login">
-              Login
-            </Link>
+const Navigation = () => {
+  const dispatch = useDispatch();
+
+  const state = useSelector((state) => {
+    return { isLoggedIn: state.loginReducer.isLoggedIn };
+  });
+
+  const logout = () => {
+    state.isLoggedIn = false;
+    localStorage.clear();
+    dispatch(logoutUser());
+  };
+
+  return (
+    <>
+      {state.isLoggedIn ? (
+        <>
+          <button onClick={logout}>Logout</button>
         </>
-    )
-}
-export default Navigation
+      ) : (
+        <>
+          <Link className="register" to="/register">
+            Register
+          </Link>
+
+          <Link className="login" to="/login">
+            Login
+          </Link>
+        </>
+      )}
+    </>
+  );
+};
+export default Navigation;
