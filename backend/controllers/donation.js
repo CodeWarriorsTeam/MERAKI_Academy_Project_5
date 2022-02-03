@@ -2,7 +2,6 @@ const connection = require("../database/db");
 
 
 const createDonation = (req, res) => {
-    // console.log(token);
    const casesId=req.params.case_id
     const { IBAN, amount } = req.body;
     // const donor_id = req.token.userId;
@@ -12,7 +11,6 @@ const createDonation = (req, res) => {
   
     connection.query(query, data, (err, result) => {
       if (err) {
-          console.log(err);
       return  res.status(500).json({
           success: false,
           message: `Server Error`,
