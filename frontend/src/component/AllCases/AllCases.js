@@ -45,6 +45,7 @@ const AllCases = () => {
       }
     } catch (error) {
       console.log(error);
+      setMessage("no cases yet");
       if (!error) {
         return setMessage(error.response.data.message);
       }
@@ -98,16 +99,18 @@ const AllCases = () => {
   console.log(state.cases);
   return (
     <>
-      {state.cases.map((element, i) => (
-        // console.log(element.title);
+      {state.cases &&
+        state.cases.map((element, i) => (
+          // console.log(element.title);
 
         <>
           <div key={i} className="case">
-            <p>{element.title}</p>
-            <p>{element.case_image}</p>
+              <img src={element.case_image} />
+               <p>{element.title}</p>
+
             <p>{element.case_description}</p>
             <p>TheAmountRequired:{element.TheAmountRequired}</p>
-            <p>donations:{element.donations}</p>
+              {/* <p>donations:{element.donations}</p> */}
             {/* {casee.user === userId && ( */}
               <>
                 {/* {updateBox && caseId === casee.id && ( */}
@@ -148,6 +151,7 @@ const AllCases = () => {
           </div>
         </>
       ))}
+
       {message && <div>{message}</div>}
     </>
   );
