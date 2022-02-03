@@ -9,7 +9,6 @@ const createNewCase = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      console.log(err);
      return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -27,14 +26,12 @@ const createNewCase = (req, res) => {
 const getAllCases = (req, res) => {
   const limit=10
   const page =req.query.page
-  // console.log(page);
   const offset  = (page - 1) * limit
   const query = `SELECT * FROM cases  WHERE cases.is_deleted=0 limit ${limit} OFFSET ${offset} `;
 
   connection.query(query, (err, result) => {
-    // console.log(result);
+
     if (err) {
-     console.log(err);
     return  res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -73,7 +70,6 @@ let resultUpdate=[]
   // }
 let f=[]
  result.forEach((element)=>{
-  //  console.log(element);
   if(!array.includes(element.case_id)){
     array.push(element.case_id)
     element.donations+=element.amount
@@ -88,13 +84,6 @@ resultUpdate.forEach((ele)=>{
   }
 })
 
-// console.log(array);
-// console.log(`-----`);
-// console.log(result);
-// const resultUpdate=array.filter((element)=>{
-
-// })
-// console.log(array);
     res.status(200).json({
       success: true,
       message: `all cases`,
@@ -153,6 +142,7 @@ const updateCaseById = (req, res) => {
     res.status(201).json({
       success: true,
       message: `Case Updated `,
+      results:result
     });
   });
 };
@@ -165,7 +155,6 @@ const data = [req.params.id];
 
 connection.query(query,data,(err,result)=>{
   if (err){
-    console.log(err);
    return res.status(500).json({
       success:false,
       message: `Server Error`

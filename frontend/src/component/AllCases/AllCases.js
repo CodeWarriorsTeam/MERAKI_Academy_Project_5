@@ -13,11 +13,7 @@ const AllCases = () => {
 
   const dispatch = useDispatch();
 
-  //  category VARCHAR(255),
-  // case_image VARCHAR(255),
-  // title VARCHAR(255),
-  // case_description VARCHAR(255)
-  const [casee, setCasee] = useState("");
+
   const [category, setCategory] = useState("");
   const [case_image, setCase_image] = useState("");
   const [title, setTitle] = useState("");
@@ -29,22 +25,20 @@ const AllCases = () => {
   const [userId, setUserId] = useState("");
 
   const getAllCases = async (num = 1) => {
-    console.log(state.token);
+   
     try {
-      console.log(999988);
+      
       const res = await axios.get(
         `http://localhost:5000/cases/page?page=${1}
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
       if (res.data.success) {
-        console.log(6666);
-        console.log("res", res);
-        console.log(res.data.message);
+      
         dispatch(setCases(res.data.result));
       }
     } catch (error) {
-      console.log(error);
+     
       setMessage("no cases yet");
       if (!error) {
         return setMessage(error.response.data.message);
@@ -63,26 +57,26 @@ const AllCases = () => {
   const updateCaseById = async (id) => {
  
     try {
-      await axios
+     const result =await axios
         .put(`http://localhost:5000/cases/${id}`, {
           case_image,
           title,
           case_description,
           category,
         })
-        .then((result) => {
-          console.log(result);
+      
+        
           dispatch(updateCases(result.data.results));
-          console.log(result.data);
+      
           getAllCases();
-        });
+        
     } catch (error) {
       console.log(error);
     }
   };
 
   const deleteCseById = async (id) => {
-    console.log(id);
+   
     try {
       await axios.delete(`http://localhost:5000/cases/${id}`);
       dispatch(deleteCase(id));
@@ -96,12 +90,12 @@ const AllCases = () => {
     getAllCases();
   }, []);
 
-  console.log(state.cases);
+ 
   return (
     <>
       {state.cases &&
         state.cases.map((element, i) => (
-          // console.log(element.title);
+      
 
         <>
           <div key={i} className="case">
@@ -117,22 +111,22 @@ const AllCases = () => {
                 <form>
                     <input
                       type="text"
-                      defaultValue={casee.case_description}
+                      defaultValue={state.cases.case_description}
                       onChange={(e) => setCase_Description(e.target.value)}
                     ></input>
                     <input
                       type="text"
-                      defaultValue={casee.title}
+                      defaultValue={state.cases.title}
                       onChange={(e) => setTitle(e.target.value)}
                     ></input>
                     <input
                       type="text"
-                      defaultValue={casee.category}
+                      defaultValue={state.cases.category}
                       onChange={(e) => setCategory(e.target.value)}
                     ></input>
                     <input
                       type="text"
-                      defaultValue={casee.case_image}
+                      defaultValue={state.cases.case_image}
                       onChange={(e) => setCase_image(e.target.value)}
                     ></input>
                 </form>
