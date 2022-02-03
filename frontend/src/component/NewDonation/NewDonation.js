@@ -62,6 +62,9 @@ const NewDonation = () => {
       {details &&
         details.map((element) => (
           <>
+          <br></br>
+          <img 
+              src={element.case_image} />
             <p> {element.category}</p>
             <p> {element.case_description}</p>
           </>

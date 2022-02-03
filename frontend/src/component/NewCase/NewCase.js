@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddCase } from "../../reducer/cases";
 
 const NewCase = () => {
+const navigate=useNavigate()
   const [case_image, setCase_Image] = useState("");
   const [category, setCategory] = useState("");
 
@@ -20,7 +21,7 @@ const dispatch = useDispatch();
 const state = useSelector((state)=>{
     return {cases: state.casesReducer.cases,token:state.loginReducer.token}
 })
-console.log(state.cases);  
+
 
   const addNewCase = ()=>{
       axios
@@ -31,7 +32,7 @@ console.log(state.cases);
       .then((result)=>{
           dispatch(AddCase({category,case_image,title,case_description,TheAmountRequired}))
           setMessage("the case has been created successfully")
-          
+          navigate(`/allcases`)
 
       }).catch((err)=>{
         setMessage(err.response.data.message)
