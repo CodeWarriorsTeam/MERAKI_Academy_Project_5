@@ -3,7 +3,8 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
-const AllCases = () => {
+
+const AllCases = ({searchCase}) => {
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
@@ -105,7 +106,14 @@ const convertToCase = (id)=>{
   return (
     <>
       {state.cases &&
-        state.cases.map((element, i) => (
+        state.cases.filter((caseInformation)=>{
+          if(searchCase==""){
+            return caseInformation
+          }else if(caseInformation.category .toLowerCase()
+          .includes(searchCase.toLowerCase())||caseInformation.title .toLowerCase()
+          .includes(searchCase.toLowerCase())
+          ){return caseInformation}
+        }).map((element, i) => (
       
 
         <>
