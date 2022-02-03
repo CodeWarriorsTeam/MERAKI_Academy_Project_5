@@ -14,29 +14,26 @@ const NewDonation = () => {
     };
   });
 
-const {id} = useParams();
-
+  const { id } = useParams();
 
   const dispatch = useDispatch();
 
   const [IBAN, setIBAN] = useState("");
   const [amount, setAmount] = useState("");
   const [message, setMessage] = useState("");
-  const [details,setDetails] = useState([])
-const getbyid = async()=>{
-
-    try{
-       const result = await axios.get(`http://localhost:5000/cases/${id}`)
-       setDetails(result.data.result)
+  const [details, setDetails] = useState([]);
+  const getbyid = async () => {
+    try {
+      const result = await axios.get(`http://localhost:5000/cases/${id}`);
+      setDetails(result.data.result);
+    } catch (error) {
+      console.log(error.response);
     }
-    catch (error){
-console.log(error.response);
-    }
-}
+  };
 
-useEffect(()=>{
-    getbyid()
-},[])
+  useEffect(() => {
+    getbyid();
+  }, []);
 
   const addNewDonation = () => {
     axios
@@ -55,23 +52,20 @@ useEffect(()=>{
         setMessage(" the donation has been created successfully");
       })
       .catch((err) => {
-          console.log(err.response.data);
+        console.log(err.response.data);
         setMessage(err.response.data.message);
       });
   };
 
   return (
     <>
-{details && details.map((element)=>(
-    <>
-   <p> {element.category}</p>
-   <p> gggggg</p>
-
-  <p onClick={()=>{
-      console.log(element.category)
-  }}>test</p>
-</>
-))}
+      {details &&
+        details.map((element) => (
+          <>
+            <p> {element.category}</p>
+            <p> {element.case_description}</p>
+          </>
+        ))}
 
       <br />
       <input
@@ -91,11 +85,15 @@ useEffect(()=>{
         }}
       ></input>
       <br />
-      
+
       {/* need to put case_id as argument in line 57 */}
-      <button onClick={()=>{
-          addNewDonation()
-      }}>Donate</button>
+      <button
+        onClick={() => {
+          addNewDonation();
+        }}
+      >
+        Donate
+      </button>
       {message}
     </>
   );
