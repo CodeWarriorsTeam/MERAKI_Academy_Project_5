@@ -123,7 +123,6 @@ const convertToCase = (id)=>{
               }} src={element.case_image} />
                <p>{element.title}</p>
 
-            <p>{element.case_description}</p>
             <p>TheAmountRequired:{element.TheAmountRequired}</p>
               {/* <p>donations:{element.donations}</p> */}
             {/* {casee.user === userId && ( */}
