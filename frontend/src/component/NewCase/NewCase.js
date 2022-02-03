@@ -6,8 +6,12 @@ import { AddCase } from "../../reducer/cases";
 
 const NewCase = () => {
   const [case_image, setCase_Image] = useState("");
+  const [category, setCategory] = useState("");
+
   const [title, setTitle] = useState("");
+  const [TheAmountRequired,setTheAmountRequired] = useState("");
   const [case_description, setCase_Description] = useState("");
+
   const [message,setMessage] = useState("")
 
 
@@ -19,7 +23,7 @@ const state = useSelector((state)=>{
 
   const addNewCase = ()=>{
       axios
-      .post("http://localhost:5000/cases",{case_image,title,case_description},{ headers: {
+      .post("http://localhost:5000/cases",{case_image,title,case_description,TheAmountRequired},{ headers: {
         Authorization: `Bearer ${state.token}`,
       }})
 
@@ -33,9 +37,14 @@ const state = useSelector((state)=>{
       })
   }
 
-
   return (
     <>
+<br/>
+<input type="text" placeholder="category" onChange={(e)=>{
+
+setCategory(e.target.value);
+    }}></input>
+
       <br />
       <input type="text" placeholder="Image" onChange={(e)=>{
 
@@ -48,6 +57,11 @@ const state = useSelector((state)=>{
       }}></input>
       <br />
 
+      <input type="number" placeholder="Amount Required" onChange={(e)=>{
+  setTheAmountRequired(e.target.value)
+      }}></input>
+      <br />
+      
       <textarea type="text" placeholder="Description" onChange={(e)=>{
           setCase_Description(e.target.value);
       }}></textarea>
