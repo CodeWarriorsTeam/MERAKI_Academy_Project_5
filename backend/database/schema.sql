@@ -29,6 +29,8 @@ CREATE TABLE cases (
     case_image VARCHAR(255),
     title VARCHAR(255),
     case_description VARCHAR(255),
+    TheAmountRequired INT,
+    donations INT,
     donor INT,
     FOREIGN KEY(donor) REFERENCES users(id),
     is_deleted TINYINT DEFAULT 0,
