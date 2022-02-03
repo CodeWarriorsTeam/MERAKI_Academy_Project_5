@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../reducer/login";
 
-const Navigation = () => {
+const Navigation = ({setSearchCase}) => {
   const dispatch = useDispatch();
 
   const state = useSelector((state) => {
@@ -18,6 +18,15 @@ const Navigation = () => {
 
   return (
     <>
+
+<input
+          id="searchInput"
+          type="text"
+          placeholder="Search here ...."
+          onChange={(e) => {
+            setSearchCase(e.target.value);
+          }}
+        />
       {state.isLoggedIn ? (
         <>
          <Link className="home" to="/allcases">
