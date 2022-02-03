@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
-
+import { useNavigate } from "react-router-dom";
 const AllCases = () => {
   const state = useSelector((state) => {
     return {
@@ -12,6 +12,8 @@ const AllCases = () => {
   });
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate()
 
 
   const [category, setCategory] = useState("");
@@ -86,6 +88,15 @@ const AllCases = () => {
     }
   };
 
+
+const convertToCase = (id)=>{
+
+
+  navigate(`/casedetails/${id}`)
+}
+
+
+
   useEffect(() => {
     getAllCases();
   }, []);
@@ -99,7 +110,9 @@ const AllCases = () => {
 
         <>
           <div key={i} className="case">
-              <img src={element.case_image} />
+              <img onClick={()=>{
+                convertToCase(element.id)
+              }} src={element.case_image} />
                <p>{element.title}</p>
 
             <p>{element.case_description}</p>

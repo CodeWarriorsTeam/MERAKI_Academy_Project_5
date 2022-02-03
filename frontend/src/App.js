@@ -6,6 +6,7 @@ import Register from "./component/register/Register";
 import AllCases from "./component/AllCases/AllCases";
 import Login from "./component/login/Login";
 import NewCase from "./component/NewCase/NewCase";
+import NewDonation from "./component/NewDonation/NewDonation";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route path="/allcases" element={<AllCases />} />
         <Route path="/login" element={<Login />} />
         <Route path="/newcase" element={<NewCase />} />
-        
+        <Route path="/casedetails/:id" element={<NewDonation />} />
+
 
         
       </Routes>

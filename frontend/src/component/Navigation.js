@@ -20,9 +20,10 @@ const Navigation = () => {
     <>
       {state.isLoggedIn ? (
         <>
-         <Link className="home" to="/allcases">
+          <Link className="home" to="/allcases">
             Cases
-          </Link>  <Link className="newcase" to="/newcase">
+          </Link>{" "}
+          <Link className="newcase" to="/newcase">
             New Case
           </Link>
           <button onClick={logout}>Logout</button>
