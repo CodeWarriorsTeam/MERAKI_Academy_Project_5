@@ -1,9 +1,11 @@
 const connection = require("../database/db");
 
 const createNewCase = (req, res) => {
-  const query = `INSERT INTO cases SET?`;
 
-  const data = [req.body];
+  const {category,case_image,title,case_description,TheAmountRequired,donations}=req.body
+  const query = `INSERT INTO cases (category, case_image,title, case_description,TheAmountRequired,donations) VALUES (?,?,?,?,?,?); `;
+
+  const data = [category,case_image,title,case_description,TheAmountRequired,donations];
 
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -25,13 +27,14 @@ const createNewCase = (req, res) => {
 const getAllCases = (req, res) => {
   const limit=10
   const page =req.query.page
-  console.log(page);
+  // console.log(page);
   const offset  = (page - 1) * limit
-  const query = `SELECT * FROM cases INNER JOIN donation ON case_id=cases.id  WHERE cases.is_deleted=0 limit ${limit} OFFSET ${offset} `;
+  const query = `SELECT * FROM cases  WHERE cases.is_deleted=0 limit ${limit} OFFSET ${offset} `;
 
   connection.query(query, (err, result) => {
+    // console.log(result);
     if (err) {
-      console.log(err);
+     console.log(err);
     return  res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -39,16 +42,63 @@ const getAllCases = (req, res) => {
     }
 
 if (!result[0]){
-  return res.status(200).json({
+  return res.status(404).json({
     success:false,
     message: `no cases yet`
   })
 }
 
+let array=[]
+let resultUpdate=[]
+//  result.forEach((element)=>{
+//  array.forEach((element2)=>{
+//     if(!element.case_id==element2.case_id){
+//     resultUpdate.push(element)
+//     }
+//   })
+//   // return resultUpdate
+// })
+// console.log(result.length);
+  // for (let i = 0; i < result.length; i++) {
+  //   if(result[i].case_id==array[i].case_id){
+  //     resultUpdate.push(result[i])
+  //   }
+  //   return resultUpdate
+  // }
 
+  // console.log(element);
+  // console.log(array.includes(element.case_id));
+  // if(!array.includes(element.case_id)){
+  //   array.push(element)
+  // }
+let f=[]
+ result.forEach((element)=>{
+  //  console.log(element);
+  if(!array.includes(element.case_id)){
+    array.push(element.case_id)
+    element.donations+=element.amount
+    resultUpdate.push(element)
+  }
+  else{
+resultUpdate.forEach((ele)=>{
+  if(ele.case_id==element.case_id){
+    ele.donations+=element.amount+ele.amount
+  }
+})
+  }
+})
+
+// console.log(array);
+// console.log(`-----`);
+// console.log(result);
+// const resultUpdate=array.filter((element)=>{
+
+// })
+// console.log(array);
     res.status(200).json({
       success: true,
-      message: result
+      message: `all cases`,
+      result:result
     });
   });
 };
