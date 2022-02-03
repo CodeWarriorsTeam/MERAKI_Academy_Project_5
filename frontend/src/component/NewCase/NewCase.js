@@ -20,15 +20,16 @@ const dispatch = useDispatch();
 const state = useSelector((state)=>{
     return {cases: state.casesReducer.cases,token:state.loginReducer.token}
 })
+console.log(state.cases);  
 
   const addNewCase = ()=>{
       axios
-      .post("http://localhost:5000/cases",{case_image,title,case_description,TheAmountRequired},{ headers: {
+      .post("http://localhost:5000/cases",{category,case_image,title,case_description,TheAmountRequired},{ headers: {
         Authorization: `Bearer ${state.token}`,
       }})
 
       .then((result)=>{
-          dispatch(AddCase({case_image,title,case_description}))
+          dispatch(AddCase({category,case_image,title,case_description,TheAmountRequired}))
           setMessage("the case has been created successfully")
           
 

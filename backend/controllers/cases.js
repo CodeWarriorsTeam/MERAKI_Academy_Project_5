@@ -93,7 +93,10 @@ resultUpdate.forEach((ele)=>{
 };
 
 const getCaseById = (req, res) => {
-  const query = `SELECT * FROM cases LEFT JOIN donation ON cases.donor = donation.id WHERE id=? and is_deleted=0`;
+  const query = `SELECT * FROM cases  WHERE id=? and is_deleted=0`;
+
+  
+
 
   const data = [req.params.id];
   connection.query(query, data, (err, result) => {

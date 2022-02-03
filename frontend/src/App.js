@@ -7,6 +7,7 @@ import Register from "./component/register/Register";
 import AllCases from "./component/AllCases/AllCases";
 import Login from "./component/login/Login";
 import NewCase from "./component/NewCase/NewCase";
+import NewDonation from "./component/NewDonation/NewDonation";
 
 function App() {
   const [searchCase, setSearchCase] = useState("");
@@ -19,7 +20,8 @@ function App() {
         <Route path="/allcases" element={<AllCases searchCase={searchCase}/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/newcase" element={<NewCase />} />
-        
+        <Route path="/casedetails/:id" element={<NewDonation />} />
+
 
         
       </Routes>
