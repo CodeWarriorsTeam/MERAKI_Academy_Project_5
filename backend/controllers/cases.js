@@ -210,7 +210,8 @@ return res.status(200).json({
 
   res.status(200).json({
     success: true,
-    message: result
+    message: `all cases by category`,
+    result:result
   });
 });
 

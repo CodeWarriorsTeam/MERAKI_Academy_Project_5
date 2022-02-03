@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
 
-const AllCases = ({searchCase}) => {
+const AllCases = ({searchCase,categoryNav,allCase}) => {
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
@@ -18,6 +18,8 @@ const AllCases = ({searchCase}) => {
 
 
   const [category, setCategory] = useState("");
+  
+  const [num, setNum] = useState(0);
   const [case_image, setCase_image] = useState("");
   const [title, setTitle] = useState("");
   const [case_description, setCase_Description] = useState("");
@@ -27,12 +29,12 @@ const AllCases = ({searchCase}) => {
   const [caseId, setCaseId] = useState(false);
   const [userId, setUserId] = useState("");
 
-  const getAllCases = async (num = 1) => {
+  const getAllCases = async (num=1) => {
    
     try {
       
       const res = await axios.get(
-        `http://localhost:5000/cases/page?page=${1}
+        `http://localhost:5000/cases/page?page=${num}
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
@@ -98,11 +100,41 @@ const convertToCase = (id)=>{
 
 
 
-  useEffect(() => {
-    getAllCases();
-  }, []);
+ 
 
  
+
+
+  const getAllCasesByCategory = async (num = 1) => {
+   
+    try {
+     
+      const res = await axios.get(
+        `http://localhost:5000/cases/page/category?page=${num}&category=${categoryNav}
+ `,
+        { headers: { Authorization: `Bearer ${state.token}` } }
+      );
+      if (res.data.success) {
+      
+        dispatch(setCases(res.data.result));
+      }
+    } catch (error) {
+     
+      setMessage("no cases yet");
+      if (!error) {
+        return setMessage(error.response.data.message);
+      }
+    }
+  };
+
+
+  useEffect(() => {
+    getAllCasesByCategory();
+  }, [categoryNav]);
+
+  useEffect(() => {
+   if(allCase){getAllCases()} ;
+  }, [allCase]);
   return (
     <>
       {state.cases &&
@@ -165,6 +197,17 @@ const convertToCase = (id)=>{
           </div>
         </>
       ))}
+              <button onClick={()=>{ setNum(1)
+       getAllCases(num)}
+       
+      
+     }>back</button>
+      <button onClick={()=>{
+       
+        setNum(2)
+        getAllCases(num)
+      }}>next</button>
+  
 
       {message && <div>{message}</div>}
     </>

@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../reducer/login";
-
-const Navigation = ({setSearchCase}) => {
+import { useNavigate } from "react-router-dom";
+const Navigation = ({setSearchCase,setCategory,setAllCase}) => {
   const dispatch = useDispatch();
-
+const navigate=useNavigate()
   const state = useSelector((state) => {
     return { isLoggedIn: state.loginReducer.isLoggedIn };
   });
@@ -14,7 +14,10 @@ const Navigation = ({setSearchCase}) => {
     state.isLoggedIn = false;
     localStorage.clear();
     dispatch(logoutUser());
+    navigate(`/login`)
+
   };
+
 
   return (
     <>
@@ -29,10 +32,23 @@ const Navigation = ({setSearchCase}) => {
         />
       {state.isLoggedIn ? (
         <>
-          <Link className="home" to="/allcases">
+           <Link to="/allcases" onClick={()=>{
+             setAllCase(true)
+             setCategory(false)
+           }}>  AllCases     </Link>
+        <Link to="/allcases"  onClick={()=>{
+             setCategory(`education`)
+             setAllCase(false)
+           }}>education    </Link>
+        
+        <Link to="/allcases" onClick={()=>{
+             setCategory(`kids`)
+             setAllCase(false)
+           }}>kids    </Link>
+          {/* <Link className="home" to="/allcases">
             Cases
-          </Link>{" "}
-          <Link className="newcase" to="/newcase">
+          </Link>{" "} */}
+          <Link  className="newcase" to="/newcase">
             New Case
           </Link>
           <button onClick={logout}>Logout</button>

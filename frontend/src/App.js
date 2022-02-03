@@ -11,13 +11,16 @@ import NewDonation from "./component/NewDonation/NewDonation";
 
 function App() {
   const [searchCase, setSearchCase] = useState("");
+  const [categoryNav, setCategory] = useState("");
+  const [allCase, setAllCase] = useState("");
+  
   return (
     <div className="App">
-      <Navigation setSearchCase={setSearchCase} />
+      <Navigation setSearchCase={setSearchCase} setCategory={setCategory} setAllCase={setAllCase} />
       <Routes>
         
         <Route path="/register" element={<Register />} />
-        <Route path="/allcases" element={<AllCases searchCase={searchCase}/>} />
+        <Route path="/allcases" element={<AllCases searchCase={searchCase} categoryNav={categoryNav} allCase={allCase}/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/newcase" element={<NewCase />} />
         <Route path="/casedetails/:id" element={<NewDonation />} />
