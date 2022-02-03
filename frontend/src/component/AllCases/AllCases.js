@@ -42,19 +42,15 @@ const AllCases = () => {
         console.log("res", res);
         console.log(res.data.message);
         dispatch(setCases(res.data.result));
-       
-      } 
+      }
     } catch (error) {
-
-      console.log(error);
+      setMessage("no cases yet");
       if (!error) {
         return setMessage(error.response.data.message);
       }
     }
   };
 
-
-  
   const deleteCseById = async (id) => {
     console.log(id);
     try {
@@ -73,26 +69,27 @@ const AllCases = () => {
   console.log(state.cases);
   return (
     <>
-      {state.cases.map((element, i) => (
-        // console.log(element.title);
+      {state.cases &&
+        state.cases.map((element, i) => (
+          // console.log(element.title);
 
-        <>
-          <div key={i} className="case">
-            <p>{element.title}</p>
-            <p>{element.case_image}</p>
-            <p>{element.case_description}</p>
-            <p>TheAmountRequired:{element.TheAmountRequired}</p>
-            <p>donations:{element.donations}</p>
+          <>
+            <div key={i} className="case">
+              <img src={element.case_image} />
+              <p>{element.title}</p>
+              <p>{element.case_description}</p>
+              <p>TheAmountRequired:{element.TheAmountRequired}$</p>
+              {/* <p>donations:{element.donations}</p> */}
 
-            <button
-              className="delete"
-              onClick={() => deleteCseById(element.id)}
-            >
-              X
-            </button>
-          </div>
-        </>
-      ))}
+              <button
+                className="delete"
+                onClick={() => deleteCseById(element.id)}
+              >
+                X
+              </button>
+            </div>
+          </>
+        ))}
       {message && <div>{message}</div>}
     </>
   );
