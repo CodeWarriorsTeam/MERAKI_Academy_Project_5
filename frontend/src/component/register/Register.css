@@ -1,15 +1,12 @@
 .registerPage {
-  display: grid;
+  /* display: grid; */
   height: 100%;
   width: 100%;
-  /* background-color: #E9E9ED ; */
-  margin-top: 2%;
 }
 
-.registerWord {
-  display: grid;
-  justify-content: center;
-
+.signup {
+  font-size: 3.7ch;
+  font-family: "Gill Sans", sans-serif;
 }
 
 .firstNameLabel {
@@ -17,88 +14,121 @@
       
   }
 
-.firstName {
-    height: 80%;
-    width: 30%;
-  margin-left: 35%;
-  font-size: large;
-  margin-top: 0.5%;
-  border-radius: 6px;
+  .firstName:hover {
+    border-top: 1px rgb(0, 0, 0) solid;
+    border-right: 1px rgb(0, 0, 0) solid;
+    border-left: 1px rgb(0, 0, 0) solid;
+    border-bottom: 1px rgb(0, 0, 0) solid;
+  }
+  .firstName {
+    height: 30px;
+    width: 20%;
+    border-top: 1px rgba(116, 105, 105, 0.342) solid;
+    border-right: 1px rgba(138, 127, 127, 0.342) solid;
+    border-left: 1px rgba(138, 127, 127, 0.342) solid;
+    border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+    color: black;
+    border-radius: 5px;
+  }
+  
 
+
+.password:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
 }
-
-
-
-
-.lastName {
-    height: 80%;
-    width: 30%;
-  margin-left: 35%;
-  font-size: large;
-  margin-top: 0.5%;
-  border-radius: 6px;
-
-
-}
-
-.lastNameLabel {
-  font-size: larger;
-}
-
-.country {
-    height: 80%;
-    width: 30%;
-  margin-left: 35%;
-  font-size: large;
-  margin-top: 0.5%;
-  border-radius: 6px;
-
-
-}
-
-.countryLabel {
-  font-size: larger;
-}
-
-.email {
-    height: 80%;
-  width: 30%;
-  margin-left: 35%;
-  font-size: large;
-  margin-top: 0.5%;
-  border-radius: 6px;
-
-
-}
-
-.emailLabel {
-  font-size: larger;
-}
-
 .password {
-    height: 80%;
-    width: 30%;
-  margin-left: 35%;
-  font-size: large;
-  margin-top: 0.5%;
-  border-radius: 6px;
-
-
+  height: 30px;
+  width: 20%;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
 }
 
-.passwordLabel {
-  font-size: larger;
+.lastName:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
 }
-.registerButton {
-  height: 150%;
-  width: 30.7%;
-  margin-left: 35%;
-  font-size: large;
-  background-color: #65a1cc;
-  border-radius: 6px;
-
+.lastName {
+  height: 30px;
+  width: 20%;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
 }
 
+.country:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+}
+.country {
+  height: 30px;
+  width: 20%;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+}
+
+.email:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+}
+.email {
+  height: 30px;
+  width: 20%;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+}
+.link {
+  color: rgb(41, 41, 153);
+  text-decoration: none;
+}
+.sent {
+  font-size: 1.5ch;
+  font-family: system-ui;
+  color: rgb(117, 117, 117);
+}
 .registerButton:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
   cursor: pointer;
 }
+
+.registerButton {
+  height: 30px;
+  width: 20%;
+  border-radius: 5px;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  background-color: #f5c323;
+  color: black;
+  font-size: 2.2ch;
+}
+
+
+
