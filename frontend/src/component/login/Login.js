@@ -35,7 +35,7 @@ const Login = ({ setIsAdmin }) => {
 
   const userLogin = { email, pass };
 
-  const login = ({ setIsAdmin }) => {
+  const login = () => {
     axios
       .post("http://localhost:5000/login", userLogin)
 
@@ -43,7 +43,7 @@ const Login = ({ setIsAdmin }) => {
         dispatch(loginUser(result.data.token));
         navigate("/allcases");
         localStorage.setItem("token", result.data.token);
-        setIsAdmin(result.data.role_Name === "ADMIN");
+        setIsAdmin(result.data.role_name === "ADMIN");
       })
 
       .catch((err) => {
