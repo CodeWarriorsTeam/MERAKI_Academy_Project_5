@@ -4,7 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
 
-const AllCases = ({searchCase,categoryNav,allCase}) => {
+const AllCases = ({
+  searchCase,
+  categoryNav,
+  allCase,
+  isAdmin
+}) => {
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
@@ -14,11 +19,10 @@ const AllCases = ({searchCase,categoryNav,allCase}) => {
 
   const dispatch = useDispatch();
 
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const [category, setCategory] = useState("");
-  
+
   const [num, setNum] = useState(0);
   const [case_image, setCase_image] = useState("");
   const [title, setTitle] = useState("");
@@ -29,59 +33,50 @@ const AllCases = ({searchCase,categoryNav,allCase}) => {
   const [caseId, setCaseId] = useState(false);
   const [userId, setUserId] = useState("");
 
-  const getAllCases = async (num=1) => {
-   
+  const getAllCases = async (num = 1) => {
     try {
-      
       const res = await axios.get(
         `http://localhost:5000/cases/page?page=${num}
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
       if (res.data.success) {
-      
         dispatch(setCases(res.data.result));
       }
     } catch (error) {
-     
       setMessage("no cases yet");
       if (!error) {
         return setMessage(error.response.data.message);
       }
     }
   };
-  // const handleUpdateClick = (casee) => {
-  //   setUpdateBox(!updateBox);
-  //   setCaseId(casee.id);
-  //   setCategory(casee.category)
-  //   setTitle(casee.title);
-  //   setCase_image(casee.case_image);
-  //   setCase_Description(casee.case_description);
-  //   if (updateBox) updateCaseById(casee.id);
-  // };
+  const handleUpdateClick = (element) => {
+    setUpdateBox(!updateBox);
+    setCaseId(element.id);
+    setCategory(element.category);
+    setTitle(element.title);
+    setCase_image(element.case_image);
+    setCase_Description(element.case_description);
+    if (updateBox) updateCaseById(element.id);
+  };
   const updateCaseById = async (id) => {
- 
     try {
-     const result =await axios
-        .put(`http://localhost:5000/cases/${id}`, {
-          case_image,
-          title,
-          case_description,
-          category,
-        })
-      
-        
-          dispatch(updateCases(result.data.results));
-      
-          getAllCases();
-        
+      const result = await axios.put(`http://localhost:5000/cases/${id}`, {
+        case_image,
+        title,
+        case_description,
+        category,
+      });
+
+      dispatch(updateCases(result.data.results));
+
+      getAllCases();
     } catch (error) {
       console.log(error);
     }
   };
 
   const deleteCseById = async (id) => {
-   
     try {
       await axios.delete(`http://localhost:5000/cases/${id}`);
       dispatch(deleteCase(id));
@@ -91,35 +86,21 @@ const AllCases = ({searchCase,categoryNav,allCase}) => {
     }
   };
 
-
-const convertToCase = (id)=>{
-
-
-  navigate(`/casedetails/${id}`)
-}
-
-
-
- 
-
- 
-
+  const convertToCase = (id) => {
+    navigate(`/casedetails/${id}`);
+  };
 
   const getAllCasesByCategory = async (num = 1) => {
-   
     try {
-     
       const res = await axios.get(
         `http://localhost:5000/cases/page/category?page=${num}&category=${categoryNav}
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
       if (res.data.success) {
-      
         dispatch(setCases(res.data.result));
       }
     } catch (error) {
-     
       setMessage("no cases yet");
       if (!error) {
         return setMessage(error.response.data.message);
@@ -127,87 +108,112 @@ const convertToCase = (id)=>{
     }
   };
 
-
   useEffect(() => {
     getAllCasesByCategory();
   }, [categoryNav]);
 
   useEffect(() => {
-   if(allCase){getAllCases()} ;
+    if (allCase) {
+      getAllCases();
+    }
   }, [allCase]);
   return (
     <>
       {state.cases &&
-        state.cases.filter((caseInformation)=>{
-          if(searchCase==""){
-            return caseInformation
-          }else if(caseInformation.category .toLowerCase()
-          .includes(searchCase.toLowerCase())||caseInformation.title .toLowerCase()
-          .includes(searchCase.toLowerCase())
-          ){return caseInformation}
-        }).map((element, i) => (
-      
+        state.cases
+          .filter((caseInformation) => {
+            if (searchCase == "") {
+              return caseInformation;
+            } else if (
+              caseInformation.category
+                .toLowerCase()
+                .includes(searchCase.toLowerCase()) ||
+              caseInformation.title
+                .toLowerCase()
+                .includes(searchCase.toLowerCase())
+            ) {
+              return caseInformation;
+            }
+          })
+          .map((element, i) => (
+            <>
+              <div key={i} className="case">
+                <img
+                  onClick={() => {
+                    convertToCase(element.id);
+                  }}
+                  src={element.case_image}
+                />
+                <p>{element.title}</p>
 
-        <>
-          <div key={i} className="case">
-              <img onClick={()=>{
-                convertToCase(element.id)
-              }} src={element.case_image} />
-               <p>{element.title}</p>
-
-            <p>TheAmountRequired:{element.TheAmountRequired}</p>
-              {/* <p>donations:{element.donations}</p> */}
-            {/* {casee.user === userId && ( */}
-              <>
-                {/* {updateBox && caseId === casee.id && ( */}
-                <form>
-                    <input
-                      type="text"
-                      defaultValue={state.cases.case_description}
-                      onChange={(e) => setCase_Description(e.target.value)}
-                    ></input>
-                    <input
-                      type="text"
-                      defaultValue={state.cases.title}
-                      onChange={(e) => setTitle(e.target.value)}
-                    ></input>
-                    <input
-                      type="text"
-                      defaultValue={state.cases.category}
-                      onChange={(e) => setCategory(e.target.value)}
-                    ></input>
-                    <input
-                      type="text"
-                      defaultValue={state.cases.case_image}
-                      onChange={(e) => setCase_image(e.target.value)}
-                    ></input>
-                </form>
+                <p>TheAmountRequired:{element.TheAmountRequired}</p>
+                {/* <p>donations:{element.donations}</p> */}
+                {/* {casee.user === userId && ( */}
+          {/* {isAdmin ? ( */}
+            <>
+                <>
+                  {updateBox && caseId === element.id && (
+                    <form>
+                      <input
+                        type="text"
+                        defaultValue={element.case_description}
+                        onChange={(e) => setCase_Description(e.target.value)}
+                      ></input>
+                      <input
+                        type="text"
+                        defaultValue={element.title}
+                        onChange={(e) => setTitle(e.target.value)}
+                      ></input>
+                      <input
+                        type="text"
+                        defaultValue={element.category}
+                        onChange={(e) => setCategory(e.target.value)}
+                      ></input>
+                      <input
+                        type="text"
+                        defaultValue={element.case_image}
+                        onChange={(e) => setCase_image(e.target.value)}
+                      ></input>
+                    </form>
+                  )}
+                </>
                 {/* )} */}
-              </>
-            {/* )} */}
-            <button className="update" onClick={() => updateCaseById(element.id)}>
-              update
-            </button>
-            <button
-              className="delete"
-              onClick={() => deleteCseById(element.id)}
-            >
-              X
-            </button>
-          </div>
-        </>
-      ))}
-              <button onClick={()=>{ setNum(1)
-       getAllCases(num)}
-       
-      
-     }>back</button>
-      <button onClick={()=>{
-       
-        setNum(2)
-        getAllCases(num)
-      }}>next</button>
-  
+                <button
+                  className="update"
+                  onClick={() => handleUpdateClick(element)}
+                >
+                  update
+                </button>
+                <button
+                  className="delete"
+                  onClick={() => deleteCseById(element.id)}
+                >
+                  X
+                </button>
+                </>
+          {/* ) : (
+            <></> */}
+          {/* )} */}
+              </div>
+            </>
+            
+          ))}
+      <button
+        onClick={() => {
+          setNum(1);
+          getAllCases(num);
+        }}
+      >
+        back
+      </button>
+      <button
+        onClick={() => {
+          setNum(2);
+          getAllCases(num);
+        }}
+      >
+        next
+      </button>
 
       {message && <div>{message}</div>}
     </>

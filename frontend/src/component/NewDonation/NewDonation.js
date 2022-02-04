@@ -4,8 +4,9 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addDonation } from "../../reducer/donation";
 import { useParams } from "react-router-dom";
+import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 
-const NewDonation = () => {
+const NewDonation = ({ isAdmin }) => {
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
@@ -17,6 +18,13 @@ const NewDonation = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
+  const [updateBox, setUpdateBox] = useState(false);
+  const [caseId, setCaseId] = useState(false);
+  const [userId, setUserId] = useState("");
+  const [case_image, setCase_image] = useState("");
+  const [title, setTitle] = useState("");
+  const [case_description, setCase_Description] = useState("");
+  const [category, setCategory] = useState("");
 
   const [IBAN, setIBAN] = useState("");
   const [amount, setAmount] = useState("");
@@ -35,7 +43,64 @@ const NewDonation = () => {
     getbyid();
   }, []);
 
-  const addNewDonation = () => {
+  const getAllCases = async (num = 1) => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/cases/page?page=${num}
+ `,
+        { headers: { Authorization: `Bearer ${state.token}` } }
+      );
+      if (res.data.success) {
+        dispatch(setCases(res.data.result));
+      }
+    } catch (error) {
+      setMessage("no cases yet");
+      if (!error) {
+        return setMessage(error.response.data.message);
+      }
+    }
+  };
+
+  const handleUpdateClick = (element) => {
+    setUpdateBox(!updateBox);
+    setCaseId(element.id);
+    setCategory(element.category);
+    setTitle(element.title);
+    setCase_image(element.case_image);
+    setCase_Description(element.case_description);
+    if (updateBox) updateCaseById(element.id);
+  };
+  const updateCaseById = async (id) => {
+    console.log("res", id);
+    console.log("gggg");
+    console.log(id);
+    try {
+      const result = await axios.put(`http://localhost:5000/cases/${id}`, {
+        case_image,
+        title,
+        case_description,
+        category,
+      });
+      console.log(result.data.results);
+      dispatch(updateCases(result.data.results));
+
+      getAllCases();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteCseById = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/cases/${id}`);
+      dispatch(deleteCase(id));
+      getAllCases();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const addNewDonation = (id) => {
     axios
       .post(
         `http://localhost:5000/donation/${id}`,
@@ -60,16 +125,69 @@ const NewDonation = () => {
   return (
     <>
       {details &&
-        details.map((element) => (
+        details.map((element, i) => (
           <>
-          <br></br>
-          <img 
-              src={element.case_image} />
-            <p> {element.category}</p>
-            <p> {element.case_description}</p>
+            <div key={i}>
+              <br></br>
+              <img src={element.case_image} />
+              <p> {element.category}</p>
+              <p> {element.case_description}</p>
+              {/* {isAdmin? (
+                <> */}
+ 
+              {updateBox && caseId === element.id && (
+                <form>
+                  <input
+                    type="text"
+                    defaultValue={element.case_description}
+                    onChange={(e) => setCase_Description(e.target.value)}
+                  ></input>
+                  <input
+                    type="text"
+                    defaultValue={element.title}
+                    onChange={(e) => setTitle(e.target.value)}
+                  ></input>
+                  <input
+                    type="text"
+                    defaultValue={element.category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  ></input>
+                  <input
+                    type="text"
+                    defaultValue={element.case_image}
+                    onChange={(e) => setCase_image(e.target.value)}
+                  ></input>
+                </form>
+              )}
+              <button
+                className="update"
+                onClick={() => handleUpdateClick(element)}
+              >
+                update
+              </button>
+              <button
+                className="delete"
+                onClick={() => deleteCseById(element.id)}
+              >
+                X
+              </button>
+                {/* </>
+              ) : (
+                <></>
+              )} */}
+            </div>
+            
           </>
         ))}
 
+      {/* ) : (  */}
+      <></>
+      {/* )} */}
+      {/* </div> */}
+      {/* //  })} */}
+
+      {/* ))} */}
+      
       <br />
       <input
         type="text"

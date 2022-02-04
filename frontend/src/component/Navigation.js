@@ -4,10 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../reducer/login";
 import { useNavigate } from "react-router-dom";
 const Navigation = ({setSearchCase,setCategory,setAllCase}) => {
+  
   const dispatch = useDispatch();
 const navigate=useNavigate()
   const state = useSelector((state) => {
-    return { isLoggedIn: state.loginReducer.isLoggedIn };
+    return { isLoggedIn: state.loginReducer.isLoggedIn ,
+    };
   });
 
   const logout = () => {
