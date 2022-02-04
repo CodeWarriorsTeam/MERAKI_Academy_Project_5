@@ -3,13 +3,9 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
+import "./AllCases.css";
 
-const AllCases = ({
-  searchCase,
-  categoryNav,
-  allCase,
-  isAdmin
-}) => {
+const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
@@ -119,6 +115,7 @@ const AllCases = ({
   }, [allCase]);
   return (
     <>
+    <div className="case">
       {state.cases &&
         state.cases
           .filter((caseInformation) => {
@@ -137,67 +134,75 @@ const AllCases = ({
           })
           .map((element, i) => (
             <>
-              <div key={i} className="case">
-                <img
-                  onClick={() => {
-                    convertToCase(element.id);
-                  }}
-                  src={element.case_image}
-                />
-                <p>{element.title}</p>
+              <div key={i} className="test">
+                  <br />
+                  <img
+                    className="image"
+                    onClick={() => {
+                      convertToCase(element.id);
+                    }}
+                    src={element.case_image}
+                  />
 
-                <p>TheAmountRequired:{element.TheAmountRequired}</p>
+                  <p className="title">{element.title}</p>
+
+                  <p className="TheAmountReguired">
+                    TheAmountRequired:{element.TheAmountRequired}$
+                  </p>
+
                 {/* <p>donations:{element.donations}</p> */}
                 {/* {casee.user === userId && ( */}
-          {/* {isAdmin ? ( */}
-            <>
+                {/* {isAdmin ? ( */}
+            
                 <>
-                  {updateBox && caseId === element.id && (
-                    <form>
-                      <input
-                        type="text"
-                        defaultValue={element.case_description}
-                        onChange={(e) => setCase_Description(e.target.value)}
-                      ></input>
-                      <input
-                        type="text"
-                        defaultValue={element.title}
-                        onChange={(e) => setTitle(e.target.value)}
-                      ></input>
-                      <input
-                        type="text"
-                        defaultValue={element.category}
-                        onChange={(e) => setCategory(e.target.value)}
-                      ></input>
-                      <input
-                        type="text"
-                        defaultValue={element.case_image}
-                        onChange={(e) => setCase_image(e.target.value)}
-                      ></input>
-                    </form>
-                  )}
+                  <>
+                    {updateBox && caseId === element.id && (
+                      <form>
+                        <input
+                          type="text"
+                          defaultValue={element.case_description}
+                          onChange={(e) => setCase_Description(e.target.value)}
+                        ></input>
+                        <input
+                          type="text"
+                          defaultValue={element.title}
+                          onChange={(e) => setTitle(e.target.value)}
+                        ></input>
+                        <input
+                          type="text"
+                          defaultValue={element.category}
+                          onChange={(e) => setCategory(e.target.value)}
+                        ></input>
+                        <input
+                          type="text"
+                          defaultValue={element.case_image}
+                          onChange={(e) => setCase_image(e.target.value)}
+                        ></input>
+                      </form>
+                    )}
+                  </>
+                   
+                   <button
+                    className="update"
+                    onClick={() => handleUpdateClick(element)}
+                  >
+                    update
+                  </button>
+                  <button
+                    className="delete"
+                    onClick={() => deleteCseById(element.id)}
+                  >
+                    X
+                  </button> 
                 </>
-                {/* )} */}
-                <button
-                  className="update"
-                  onClick={() => handleUpdateClick(element)}
-                >
-                  update
-                </button>
-                <button
-                  className="delete"
-                  onClick={() => deleteCseById(element.id)}
-                >
-                  X
-                </button>
-                </>
-          {/* ) : (
-            <></> */}
-          {/* )} */}
+                 {/* ) : (
+            <></>  */}
+                
               </div>
             </>
-            
           ))}
+                </div>
+
       <button
         onClick={() => {
           setNum(1);
