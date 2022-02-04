@@ -137,14 +137,14 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
               <div key={i} className="test">
                   <br />
                   <img
-                    className="image"
+                    className="allcasesImage"
                     onClick={() => {
                       convertToCase(element.id);
                     }}
                     src={element.case_image}
                   />
 
-                  <p className="title">{element.title}</p>
+                  <p className="allcasesTitle">{element.title}</p>
 
                   <p className="TheAmountReguired">
                     TheAmountRequired:{element.TheAmountRequired}$
