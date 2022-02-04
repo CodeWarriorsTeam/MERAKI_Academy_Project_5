@@ -27,7 +27,7 @@ const Navigation = ({ setSearchCase, setCategory, setAllCase }) => {
           setSearchCase(e.target.value);
         }}
       />
-      {state.isLoggedIn ? (
+      {/* {state.isLoggedIn ? ( */}
         <>
           <Link
             to="/allcases"
@@ -66,7 +66,7 @@ const Navigation = ({ setSearchCase, setCategory, setAllCase }) => {
           </Link>
           <button onClick={logout}>Logout</button>
         </>
-      ) : (
+      {/* ) : ( */}
         <>
           <Link className="register" to="/register">
             Register
@@ -76,7 +76,7 @@ const Navigation = ({ setSearchCase, setCategory, setAllCase }) => {
             Login
           </Link>
         </>
-      )}
+      {/* )} */}
     </>
   );
 };
