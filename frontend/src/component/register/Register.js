@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Register.css";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 //////
 const Register = () => {
@@ -30,10 +31,12 @@ const Register = () => {
   };
   return (
     <>
+    
       <div className="registerPage">
-        <h1 className="registerWord">Register</h1>
-        <br />
-        <label className="firstNameLabel">First Name</label>
+      <br /> 
+        <h1 className="signup">Sign Up</h1>
+        <h5 className="account">Signup your account</h5>
+     
         <input
           onChange={(e) => {
             setFirstName(e.target.value);
@@ -43,8 +46,7 @@ const Register = () => {
           className="firstName"
         ></input>
         <br />
-        <label className="lastNameLabel">Last Name</label>
-
+        <br />
         <input
           onChange={(e) => {
             setLastName(e.target.value);
@@ -54,8 +56,7 @@ const Register = () => {
           className="lastName"
         ></input>
         <br />
-        <label className="countryLabel">Country</label>
-
+        <br />
         <input
           onChange={(e) => {
             setCountry(e.target.value);
@@ -65,8 +66,7 @@ const Register = () => {
           className="country"
         ></input>
         <br />
-        <label className="emailLabel">Email</label>
-
+        <br />
         <input
           onChange={(e) => {
             setEmail(e.target.value);
@@ -76,8 +76,7 @@ const Register = () => {
           className="email"
         ></input>
         <br />
-        <label className="passwordLabel">Password</label>
-
+        <br />
         <input
           onChange={(e) => {
             setPass(e.target.value);
@@ -87,13 +86,15 @@ const Register = () => {
           className="password"
         ></input>
         <br />
-
         <br />
-
         <button onClick={register} className="registerButton">
-          Create account
+         Sign Up
         </button>
         <p>{paragraph}</p>
+
+        <p className="sent">Already have an account?  <Link className="login" to="/login" className="link">
+           Return to Sign In
+          </Link></p>
       </div>
     </>
   );

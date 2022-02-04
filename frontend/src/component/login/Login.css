@@ -3,6 +3,7 @@
   width: 100%;
 }
 .sign {
+  font-size: 3.7ch;
   font-family: "Gill Sans", sans-serif;
 }
 .link {
@@ -15,7 +16,7 @@
   color: rgb(117, 117, 117);
 }
 .account {
-  font-size: 1.4ch;
+  font-size: 1.7ch;
   font-family: system-ui;
   color: rgb(117, 117, 117);
 }

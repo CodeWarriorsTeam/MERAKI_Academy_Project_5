@@ -39,7 +39,7 @@ const Login = ({ setIsAdmin }) => {
 
   return (
     <div className="loginpage">
-      <br /> <br />
+      <br /> 
       <h1 className="sign">Sign In</h1>
       <h5 className="account">Sign in to your account</h5>
       <input
