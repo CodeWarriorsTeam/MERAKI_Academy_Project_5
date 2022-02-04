@@ -5,18 +5,18 @@
 .sign {
   font-family: "Gill Sans", sans-serif;
 }
-.link{
-    color: rgb(41, 41, 153);
+.link {
+  color: rgb(41, 41, 153);
   text-decoration: none;
 }
-.sent{
-    font-size: 1.5ch;
-    font-family: system-ui;
-  color: rgb(117, 117, 117);  
+.sent {
+  font-size: 1.5ch;
+  font-family: system-ui;
+  color: rgb(117, 117, 117);
 }
 .account {
-    font-size: 1.4ch;
-    font-family: system-ui;
+  font-size: 1.4ch;
+  font-family: system-ui;
   color: rgb(117, 117, 117);
 }
 .emai:hover {
