@@ -27,56 +27,50 @@ const Navigation = ({ setSearchCase, setCategory, setAllCase }) => {
           setSearchCase(e.target.value);
         }}
       />
-      {/* {state.isLoggedIn ? ( */}
-        <>
-          <Link
-            to="/allcases"
-            onClick={() => {
-              setAllCase(true);
-              setCategory(false);
-            }}
-          >
-            {" "}
-            AllCases{" "}
-          </Link>
-          <Link
-            to="/allcases"
-            onClick={() => {
-              setCategory(`education`);
-              setAllCase(false);
-            }}
-          >
-            education{" "}
-          </Link>
+      <>
+        <Link
+          to="/allcases"
+          onClick={() => {
+            setAllCase(true);
+            setCategory(false);
+          }}
+        >
+          {" "}
+          AllCases{" "}
+        </Link>
+        <Link
+          to="/allcases"
+          onClick={() => {
+            setCategory(`education`);
+            setAllCase(false);
+          }}
+        >
+          education{" "}
+        </Link>
 
-          <Link
-            to="/allcases"
-            onClick={() => {
-              setCategory(`kids`);
-              setAllCase(false);
-            }}
-          >
-            kids{" "}
-          </Link>
-          {/* <Link className="home" to="/allcases">
+        <Link
+          to="/allcases"
+          onClick={() => {
+            setCategory(`kids`);
+            setAllCase(false);
+          }}
+        >
+          kids{" "}
+        </Link>
+        {/* <Link className="home" to="/allcases">
             Cases
           </Link>{" "} */}
-          <Link className="newcase" to="/newcase">
-            New Case
-          </Link>
-          <button onClick={logout}>Logout</button>
-        </>
-      {/* ) : ( */}
-        <>
-          <Link className="register" to="/register">
+        <Link className="newcase" to="/newcase">
+          New Case
+        </Link>
+      </>
+      {state.isLoggedIn ? <button onClick={logout}>Logout</button> : <> <Link className="register" to="/register">
             Register
           </Link>
 
           <Link className="login" to="/login">
             Login
-          </Link>
-        </>
-      {/* )} */}
+          </Link></>}
     </>
   );
 };
