@@ -5,13 +5,27 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../reducer/login";
 import "./Login.css";
+import GoogleLogin from 'react-google-login';
 
 const Login = ({ setIsAdmin }) => {
-  const dispatch = useDispatch();
 
   const state = useSelector((state) => {
-    return { isLoggedIn: state.loginReducer.isLoggedIn };
+    return { isLoggedIn: state.loginReducer.isLoggedIn,token:state.loginReducer.token };
   });
+
+
+  const responseGoogle = (response) => {
+    state.token = response.tokenObj.id_token
+    console.log(response);
+    console.log(response.profileObj);
+    navigate("/allcases")
+  }
+
+
+
+  const dispatch = useDispatch();
+
+
 
   const navigate = useNavigate();
 
@@ -38,6 +52,7 @@ const Login = ({ setIsAdmin }) => {
   };
 
   return (
+    <>
     <div className="loginpage">
       <br /> 
       <h1 className="sign">Sign In</h1>
@@ -72,6 +87,15 @@ const Login = ({ setIsAdmin }) => {
      
        
     </div>
+    
+    <GoogleLogin
+    clientId="776623589420-erpi2vgpt6n8ncgv3gqc7ddcpphibjs5.apps.googleusercontent.com"
+    buttonText="Login"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />,
+    </>
   );
 };
 export default Login;
