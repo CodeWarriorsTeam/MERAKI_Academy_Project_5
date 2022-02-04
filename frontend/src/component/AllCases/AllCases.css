@@ -1,0 +1,32 @@
+.case {
+   display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  border: 2px solid;
+  
+} 
+
+ .image {
+   height: 50%; 
+  width: 50%;
+} 
+
+.image:hover {
+  cursor: pointer;
+}
+
+.title {
+  font-size: larger;
+  color: black;
+  font-size: x-large;
+  /* margin-top: 100px; */
+}
+
+.TheAmountReguired {
+  font-size: x-large;
+}
+
+/* .update {
+}
+
+.delete {
+} */
