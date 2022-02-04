@@ -1,0 +1,79 @@
+.loginpage {
+  height: 100%;
+  width: 100%;
+}
+.sign {
+  font-family: "Gill Sans", sans-serif;
+}
+.link{
+    color: rgb(41, 41, 153);
+  text-decoration: none;
+}
+.sent{
+    font-size: 1.5ch;
+    font-family: system-ui;
+  color: rgb(117, 117, 117);  
+}
+.account {
+    font-size: 1.4ch;
+    font-family: system-ui;
+  color: rgb(117, 117, 117);
+}
+.emai:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+}
+.emai {
+  height: 30px;
+  width: 20%;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+}
+
+.pass:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+}
+.pass {
+  height: 30px;
+  width: 20%;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+}
+.but:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+  cursor: pointer;
+}
+.but {
+  height: 30px;
+  width: 20%;
+  border-radius: 5px;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  background-color: #f5c323;
+  color: black;
+  font-size: 2.2ch;
+}
+
+/* 
+#0C0D0E  word colors
+#000000 buttons color
+#F5C323 word colors  yellow
+#F5F2F5 for buttons white */
