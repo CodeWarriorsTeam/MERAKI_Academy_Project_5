@@ -4,7 +4,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../reducer/login";
 
-const Login = () => {
+const Login = ({setIsAdmin}) => {
   const dispatch = useDispatch();
 
   const state = useSelector((state) => {
@@ -19,7 +19,7 @@ const Login = () => {
 
   const userLogin = { email, pass };
 
-  const login = () => {
+  const login = ({ setIsAdmin }) => {
     axios
       .post("http://localhost:5000/login", userLogin)
 
@@ -27,16 +27,16 @@ const Login = () => {
         dispatch(loginUser(result.data.token));
         navigate("/allcases");
         localStorage.setItem("token", result.data.token);
+        setIsAdmin(result.data.role_Name === "ADMIN");
       })
 
       .catch((err) => {
-        return setMessage(err.response.data.message);
+        return setMessage("err.response.data.message");
       });
   };
 
   return (
     <>
-
       <br />
       <input
         type="text"
@@ -55,7 +55,6 @@ const Login = () => {
       ></input>
       <br />
       <button onClick={login}>Login</button>
-      
     </>
   );
 };
