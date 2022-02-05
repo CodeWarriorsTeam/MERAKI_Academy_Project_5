@@ -196,15 +196,17 @@ const navigate=useNavigate()
       
       <br />
       <>
+      <div className="contenerDonation" >
       <input type="checkbox" id="inputOpenDonation" ></input>
 
       <label for="inputOpenDonation" className="btn">Donate</label>
       <div className="modalDonation">
       <label for="inputOpenDonation"className="closeModal" >X</label>
-
+      
 <h1 id="headerModal">Thanks</h1>
-
-<input
+<p id="prgModel"> If you do not have money, then smiling in the face of your brother is charity
+</p>
+<input className="IBAN"
         type="text"
         placeholder="IBAN"
         onChange={(e) => {
@@ -213,7 +215,7 @@ const navigate=useNavigate()
       ></input>
       <br />
 
-      <input
+      <input className="IBAN"
         type="text"
         placeholder="Amount"
         onChange={(e) => {
@@ -223,19 +225,20 @@ const navigate=useNavigate()
       <br />
 
     
-      <button
+      <button className="addDonation"
         onClick={() => {
           addNewDonation();
         }}
       >
         Donate
       </button>
-      <label for="inputOpenDonation"className="btn closeModal" >Close</label>
-
-      </div>
-    
-      </>
       {message}
+      <label for="inputOpenDonation"className="btn close" >Close</label>
+    
+      </div>
+      </div>
+      </>
+     
     </>
   );
 };
