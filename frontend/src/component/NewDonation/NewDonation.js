@@ -130,8 +130,9 @@ const NewDonation = ({ isAdmin }) => {
             <div key={i}>
               <br></br>
               <img src={element.case_image} />
-              <p> {element.category}</p>
-              <p> {element.case_description}</p>
+              <p> category: {element.category}</p>
+              <p>title:  {element.title}</p>
+              <p>description: {element.case_description}</p>
               {/* {isAdmin? (
                 <> */}
  
