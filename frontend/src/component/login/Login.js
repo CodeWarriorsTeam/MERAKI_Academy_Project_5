@@ -58,6 +58,7 @@ const Login = ({ setIsAdmin ,setUserId}) => {
       <br /> 
       <h1 className="sign">Sign In</h1>
       <h5 className="account">Sign in to your account</h5>
+      <br></br>
       <input
         type="text"
         className="emai"
@@ -78,15 +79,16 @@ const Login = ({ setIsAdmin ,setUserId}) => {
       <br />
       <br />
       <br />
+    
       <button className="but" onClick={login}>
         LOGIN
       </button>
-     
+      <br></br>   <br></br>
       <p className="sent">Don't have an account?   <Link className="register" to="/register" className="link">
            Create account
           </Link></p>
      
-       
+          <br></br>
     </div>
     
     <GoogleLogin
@@ -95,7 +97,7 @@ const Login = ({ setIsAdmin ,setUserId}) => {
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
-  />,
+  />
     </>
   );
 };
