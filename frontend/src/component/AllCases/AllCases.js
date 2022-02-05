@@ -182,18 +182,18 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
                     )}
                   </>
                    
-                   <button
+                   {/* <button
                     className="update"
                     onClick={() => handleUpdateClick(element)}
                   >
                     update
-                  </button>
-                  <button
+                  </button> */}
+                  {/* <button
                     className="delete"
                     onClick={() => deleteCseById(element.id)}
                   >
                     X
-                  </button> 
+                  </button>  */}
                 </>
                  {/* ) : (
             <></>  */}

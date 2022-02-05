@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "../reducer/login";
+import { logoutUser } from "../../reducer/login";
 import { useNavigate } from "react-router-dom";
-const Navigation = ({ setSearchCase, setCategory, setAllCase }) => {
+import "./Navigation.css";
+const Navigation = ({ setSearchCase, setCategory, setAllCase,userId,setUserId }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const state = useSelector((state) => {
@@ -15,10 +16,16 @@ const Navigation = ({ setSearchCase, setCategory, setAllCase }) => {
     localStorage.clear();
     dispatch(logoutUser());
     navigate(`/login`);
+    setUserId("")
+
   };
 
   return (
     <>
+    <header>
+      <nav>
+        <div className="logo"> <h1 className="headerLogo">Safe House</h1></div>
+        <div className="menu"></div>
       <input
         id="searchInput"
         type="text"
@@ -64,13 +71,15 @@ const Navigation = ({ setSearchCase, setCategory, setAllCase }) => {
           New Case
         </Link>
       </>
-      {state.isLoggedIn ? <button onClick={logout}>Logout</button> : <> <Link className="register" to="/register">
+      {state.isLoggedIn || userId ? <button onClick={logout}>Logout</button> : <> <Link className="register" to="/register">
             Register
           </Link>
 
           <Link className="login" to="/login">
             Login
           </Link></>}
+          </nav>
+          </header>
     </>
   );
 };
