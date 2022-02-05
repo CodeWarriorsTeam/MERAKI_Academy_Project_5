@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../reducer/login";
 import { useNavigate } from "react-router-dom";
+import {MdSettingsPhone,MdSearch} from "react-icons/md"
+import {HiOutlineMail} from "react-icons/hi"
 import "./Navigation.css";
 const Navigation = ({
   setSearchCase,
@@ -27,21 +29,25 @@ const Navigation = ({
 
   return (
     <>
-      <nav className="NavBar">
-        <div className="logo">
-          <h1 id="headerLogo" className="animate__animated animate__bounce animate__infinites	">Safe House</h1>
-        </div>
+    <div><a className="num"><MdSettingsPhone className="phone"/> +00012345678</a>  <a className="word"><HiOutlineMail className="email22"/>charity@gmail.com</a></div>
+      {/* <nav className="NavBar">     */}
+        {/* <div className="logo">
+          <h1 id="headerLogo" className="animate__animated animate__bounce animate__infinites">Safe House</h1> 
+        </div> */}
         <div className="menu">
-          <input
+          <a><img className="logo" src="https://tse3.mm.bing.net/th?id=OIP.T9dXwfMb2pOdT1tuFBKYigHaGZ&pid=Api&P=0&w=201&h=174"/></a>
+          <p className="safeHouse">SAFE HOUSE</p>
+         {/* <MdSearch className="iconSearch"/>  */}
+         <input
             id="searchInput"
             type="text"
-            placeholder="Search here ...."
+            placeholder="Search here...."
             onChange={(e) => {
               setSearchCase(e.target.value);
             }}
           />
           <Link to="/">
-            <a id="Home">Home</a>
+            <a className="Home">Home</a>
           </Link>
           <Link
             to="/allcases"
@@ -50,7 +56,7 @@ const Navigation = ({
               setCategory(false);
             }}
           >
-            <a id="AllCases">AllCases</a>{" "}
+            <a id="AllCases">All Cases</a>{" "}
           </Link>
           <Link
             to="/allcases"
@@ -59,7 +65,7 @@ const Navigation = ({
               setAllCase(false);
             }}
           >
-            <a id="education">education</a>{" "}
+            <a className="education">Education</a>{" "}
           </Link>
           <Link
             to="/allcases"
@@ -68,29 +74,31 @@ const Navigation = ({
               setAllCase(false);
             }}
           >
-            <a id="kids">kids</a>{" "}
+            <a id="kids">Kids</a>{" "}
           </Link>
           <Link className="newcase" to="/newcase">
             <a id="newCase">New Case</a>{" "}
           </Link>
-
+</div>
           <></>
           {state.isLoggedIn || userId ? (
             <a id="Logout" onClick={logout}>
               Logout
             </a>
-          ) : (
+           
+          ) : ( 
+            
             <>
               <Link className="register" to="/register">
-                <a id="RegisterNav">Register</a>
+                <a id="RegisterNav">Sign Up</a>
               </Link>
               <Link className="login" to="/login">
-                <a id="LoginNav">Login</a>
+               Login
               </Link>
             </>
           )}
-        </div>
-      </nav>
+        
+      {/* </nav> */}
     </>
   );
 };
