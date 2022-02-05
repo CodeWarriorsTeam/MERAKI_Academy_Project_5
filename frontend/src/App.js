@@ -8,6 +8,7 @@ import AllCases from "./component/AllCases/AllCases";
 import Login from "./component/login/Login";
 import NewCase from "./component/NewCase/NewCase";
 import NewDonation from "./component/NewDonation/NewDonation";
+import Home from "./component/Home/Home";
 
 function App() {
   const [searchCase, setSearchCase] = useState("");
@@ -17,7 +18,8 @@ function App() {
   const [userId, setUserId] = useState("");
 
   return (
-    <div className="App">
+    < >
+       
       <Navigation
         setIsAdmin={setIsAdmin}
         isAdmin={isAdmin}
@@ -27,7 +29,17 @@ function App() {
         userId={userId}
         setUserId={setUserId}
       />
+      
       <Routes>
+      <Route
+          path="/"
+          element={<Home/>}
+        />
+      </Routes>
+   
+      <Routes>
+     
+     
         <Route path="/register" element={<Register />} />
         <Route
           path="/allcases"
@@ -46,7 +58,8 @@ function App() {
         <Route path="/newcase" element={<NewCase />} />
         <Route path="/casedetails/:id" element={<NewDonation />} />
       </Routes>
-    </div>
+     
+    </>
   );
 }
 

@@ -36,6 +36,7 @@ const Register = () => {
       <br /> 
         <h1 className="signup">Sign Up</h1>
         <h5 className="account">Signup your account</h5>
+        <br></br>
      
         <input
           onChange={(e) => {
@@ -90,8 +91,9 @@ const Register = () => {
         <button onClick={register} className="registerButton">
          Sign Up
         </button>
+        <br></br>
         <p>{paragraph}</p>
-
+        <br></br>
         <p className="sent">Already have an account?  <Link className="login" to="/login" className="link">
            Return to Sign In
           </Link></p>

@@ -99,7 +99,7 @@ const NewCase = () => {
 
       <textarea className="description"
         type="text"
-        placeholder="About Us"
+        placeholder="Description"
         onChange={(e) => {
           setCase_Description(e.target.value);
         }}
