@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addDonation } from "../../reducer/donation";
+import "./NewDonation.css";
 import { useParams } from "react-router-dom";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
@@ -194,7 +195,16 @@ const navigate=useNavigate()
       {/* ))} */}
       
       <br />
-      <input
+      <>
+      <input type="checkbox" id="inputOpenDonation" ></input>
+
+      <label for="inputOpenDonation" className="btn">Donate</label>
+      <div className="modalDonation">
+      <label for="inputOpenDonation"className="closeModal" >X</label>
+
+<h1 id="headerModal">Thanks</h1>
+
+<input
         type="text"
         placeholder="IBAN"
         onChange={(e) => {
@@ -212,7 +222,7 @@ const navigate=useNavigate()
       ></input>
       <br />
 
-      {/* need to put case_id as argument in line 57 */}
+    
       <button
         onClick={() => {
           addNewDonation();
@@ -220,6 +230,11 @@ const navigate=useNavigate()
       >
         Donate
       </button>
+      <label for="inputOpenDonation"className="btn closeModal" >Close</label>
+
+      </div>
+    
+      </>
       {message}
     </>
   );
