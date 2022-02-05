@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addDonation } from "../../reducer/donation";
 import { useParams } from "react-router-dom";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
-
+import { useNavigate } from "react-router-dom";
 const NewDonation = ({ isAdmin }) => {
   const state = useSelector((state) => {
     return {
@@ -14,7 +14,7 @@ const NewDonation = ({ isAdmin }) => {
       donations: state.donationReducer.donations,
     };
   });
-
+const navigate=useNavigate()
   const { id } = useParams();
 
   const dispatch = useDispatch();
@@ -30,6 +30,9 @@ const NewDonation = ({ isAdmin }) => {
   const [amount, setAmount] = useState("");
   const [message, setMessage] = useState("");
   const [details, setDetails] = useState([]);
+
+
+
   const getbyid = async () => {
     try {
       const result = await axios.get(`http://localhost:5000/cases/${id}`);
@@ -84,23 +87,24 @@ const NewDonation = ({ isAdmin }) => {
       console.log(result.data.results);
       dispatch(updateCases(result.data.results));
 
-      getAllCases();
+      getbyid();
     } catch (error) {
       console.log(error);
     }
   };
 
-  const deleteCseById = async (id) => {
+  const deleteCseById = async () => {
     try {
       await axios.delete(`http://localhost:5000/cases/${id}`);
       dispatch(deleteCase(id));
-      getAllCases();
+      getbyid();
+      navigate(`/allcases`)
     } catch (error) {
       console.log(error);
     }
   };
 
-  const addNewDonation = (id) => {
+  const addNewDonation = () => {
     axios
       .post(
         `http://localhost:5000/donation/${id}`,
@@ -112,7 +116,7 @@ const NewDonation = ({ isAdmin }) => {
         }
       )
       .then((result) => {
-        console.log(result.data.result);
+        // console.log(result.data.result);
         dispatch(addDonation({ IBAN, amount }));
         setMessage(" the donation has been created successfully");
       })
@@ -167,7 +171,7 @@ const NewDonation = ({ isAdmin }) => {
               </button>
               <button
                 className="delete"
-                onClick={() => deleteCseById(element.id)}
+                onClick={() => deleteCseById()}
               >
                 X
               </button>

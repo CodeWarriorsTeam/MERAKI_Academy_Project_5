@@ -7,7 +7,7 @@ import { loginUser } from "../../reducer/login";
 import "./Login.css";
 import GoogleLogin from 'react-google-login';
 
-const Login = ({ setIsAdmin }) => {
+const Login = ({ setIsAdmin ,setUserId}) => {
 
   const state = useSelector((state) => {
     return { isLoggedIn: state.loginReducer.isLoggedIn,token:state.loginReducer.token };
@@ -17,7 +17,8 @@ const Login = ({ setIsAdmin }) => {
   const responseGoogle = (response) => {
     state.token = response.tokenObj.id_token
     console.log(response);
-    console.log(response.profileObj);
+    setUserId(response.profileObj.googleId)
+    console.log(response.profileObj.googleId);
     navigate("/allcases")
   }
 
