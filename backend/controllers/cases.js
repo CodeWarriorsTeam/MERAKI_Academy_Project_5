@@ -24,7 +24,7 @@ const createNewCase = (req, res) => {
 };
 
 const getAllCases = (req, res) => {
-  const limit=9
+  const limit=4
   const page =req.query.page
   const offset  = (page - 1) * limit
   const query = `SELECT * FROM cases  WHERE cases.is_deleted=0 limit ${limit} OFFSET ${offset} `;
@@ -182,7 +182,7 @@ return res.status(404).json({
 
 
 const getCasesByCategory=(req,res)=>{ 
-  const limit=10
+  const limit=4
   const page =req.query.page
   
   const offset  = (page - 1) * limit

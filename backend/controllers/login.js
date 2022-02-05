@@ -47,6 +47,8 @@ const login = (req, res) => {
       success: true,
       message: `Valid login credentials`,
       token: token,
+      role:payload.role,
+      userId:payload.userId
     });
   });
 };

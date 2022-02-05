@@ -19,7 +19,7 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
 
   const [category, setCategory] = useState("");
 
-  const [num, setNum] = useState(0);
+  const [num, setNum] = useState(1);
   const [case_image, setCase_image] = useState("");
   const [title, setTitle] = useState("");
   const [case_description, setCase_Description] = useState("");
@@ -29,8 +29,9 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
   const [caseId, setCaseId] = useState(false);
   const [userId, setUserId] = useState("");
 
-  const getAllCases = async (num = 1) => {
+  const getAllCases = async () => {
     try {
+      
       const res = await axios.get(
         `http://localhost:5000/cases/page?page=${num}
  `,
@@ -86,8 +87,9 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
     navigate(`/casedetails/${id}`);
   };
 
-  const getAllCasesByCategory = async (num = 1) => {
+  const getAllCasesByCategory = async () => {
     try {
+      // console.log(number);
       const res = await axios.get(
         `http://localhost:5000/cases/page/category?page=${num}&category=${categoryNav}
  `,
@@ -106,13 +108,13 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
 
   useEffect(() => {
     getAllCasesByCategory();
-  }, [categoryNav]);
+  }, [categoryNav,num]);
 
   useEffect(() => {
     if (allCase) {
       getAllCases();
     }
-  }, [allCase]);
+  }, [allCase,num]);
   return (
     <>
     <div className="case">
@@ -204,17 +206,17 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
                 </div>
 
       <button
-        onClick={() => {
-          setNum(1);
-          getAllCases(num);
+        onClick={ () => {
+          setNum(num-1);
+       
         }}
       >
         back
       </button>
       <button
-        onClick={() => {
-          setNum(2);
-          getAllCases(num);
+        onClick={ () => {
+          setNum(num+1);
+    
         }}
       >
         next

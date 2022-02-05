@@ -14,6 +14,8 @@ function App() {
   const [searchCase, setSearchCase] = useState("");
   const [categoryNav, setCategory] = useState("");
   const [allCase, setAllCase] = useState("");
+
+  //--------------------------------- STORE
   const [isAdmin, setIsAdmin] = useState(false);
   const [userId, setUserId] = useState("");
 
@@ -29,16 +31,15 @@ function App() {
         userId={userId}
         setUserId={setUserId}
       />
-      
+   
+  
+   
       <Routes>
+     
       <Route
           path="/"
           element={<Home/>}
         />
-      </Routes>
-   
-      <Routes>
-     
      
         <Route path="/register" element={<Register />} />
         <Route

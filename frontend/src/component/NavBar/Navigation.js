@@ -29,7 +29,7 @@ const Navigation = ({
     <>
       <nav className="NavBar">
         <div className="logo">
-          <h1 id="headerLogo" className="animate__animated animate__bounce animate__infinite	infinite">Safe House</h1>
+          <h1 id="headerLogo" className="animate__animated animate__bounce animate__infinites	">Safe House</h1>
         </div>
         <div className="menu">
           <input
