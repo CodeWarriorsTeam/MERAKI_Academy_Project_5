@@ -90,7 +90,7 @@ const Login = ({ setIsAdmin }) => {
     
     <GoogleLogin
     clientId="776623589420-erpi2vgpt6n8ncgv3gqc7ddcpphibjs5.apps.googleusercontent.com"
-    buttonText="Login"
+    buttonText="sign in with google"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
