@@ -195,11 +195,13 @@ const getCasesByCategory=(req,res)=>{
   
   const data=[req.query.category]
 
-  const query = `SELECT * FROM cases WHERE is_deleted=0 AND category=? limit ${limit} OFFSET ${offset} `;
+  // SELECT * FROM donation RIGHT JOIN cases ON case_id=cases.id  WHERE cases.is_deleted=0 
+
+  const query = `SELECT * FROM donation RIGHT JOIN cases ON case_id=cases.id WHERE cases.is_deleted=0 AND category=?  `;
 
 connection.query(query,data, (err, result) => {
   if (err) {
-  
+  console.log(err);
   return  res.status(500).json({
       success: false,
       message: `Server Error`,
@@ -212,12 +214,29 @@ return res.status(200).json({
   message: `no cases in this category ==>${data} `
 })
 }
-
+let array=[]
+let resultUpdate=[]
+result.forEach((element)=>{
+  if(!array.includes(element.case_id)){
+    array.push(element.case_id)
+    element.donations+=element.amount
+    element.TheAmountRequired-=element.amount
+    resultUpdate.push(element)
+  }
+  else{
+resultUpdate.forEach((ele)=>{
+  if(ele.case_id==element.case_id){
+    ele.donations+=element.amount
+    ele.TheAmountRequired-=element.amount
+  }
+})
+  }
+})
 
   res.status(200).json({
     success: true,
     message: `all cases by category`,
-    result:result
+    result:resultUpdate
   });
 });
 
