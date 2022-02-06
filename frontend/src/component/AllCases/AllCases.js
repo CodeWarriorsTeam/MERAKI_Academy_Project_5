@@ -117,6 +117,7 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
   }, [allCase,num]);
   return (
     <>
+    <br /><br /><br />
     <div className="case">
       {state.cases &&
         state.cases

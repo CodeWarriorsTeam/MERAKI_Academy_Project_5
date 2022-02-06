@@ -22,6 +22,10 @@
   font-size: 2em;
   font-family: fantasy;
 }
+.safeHouseLink{
+   text-decoration: none;
+
+}
 .logo {
   width: 5%;
   float: left;
@@ -57,14 +61,17 @@
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
+#searchInput::placeholder{
+color:black;
+}
 #searchInput {
   height: 30px;
   transform: translate(-28em, 0.8em);
   width: 20%;
-  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  /* border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
-  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid; */
   color: black;
   border-radius: 5px;
 }

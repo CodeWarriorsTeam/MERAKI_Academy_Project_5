@@ -29,14 +29,14 @@ const Navigation = ({
 
   return (
     <>
-    <div><a className="num"><MdSettingsPhone className="phone"/> +00012345678</a>  <a className="word"><HiOutlineMail className="email22"/>charity@gmail.com</a></div>
+    <div><a className="num"><MdSettingsPhone className="phone"/> +00012345678</a>  <a className="word"><HiOutlineMail className="email22"/>safe.house@gmail.com</a></div>
       {/* <nav className="NavBar">     */}
         {/* <div className="logo">
           <h1 id="headerLogo" className="animate__animated animate__bounce animate__infinites">Safe House</h1> 
         </div> */}
         <div className="menu">
           <a><img className="logo" src="https://tse3.mm.bing.net/th?id=OIP.T9dXwfMb2pOdT1tuFBKYigHaGZ&pid=Api&P=0&w=201&h=174"/></a>
-          <p className="safeHouse">SAFE HOUSE</p>
+          <Link className="safeHouseLink" to="/"> <p className="safeHouse">SAFE HOUSE</p></Link>
          {/* <MdSearch className="iconSearch"/>  */}
          <input
             id="searchInput"

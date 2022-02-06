@@ -19,6 +19,7 @@ const Home = () => {
               If you do not have money, then smiling in the face of your brother
               is charity
             </p>
+            <br /><br />
             <Link className="register" to="/register">
               <a id="Register">Register</a>
             </Link>

@@ -129,6 +129,7 @@ const navigate=useNavigate()
 
   return (
     <>
+    <br /><br /><br />
       {details &&
         details.map((element, i) => (
           <>
