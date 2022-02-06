@@ -57,7 +57,7 @@ function App() {
           element={<Login setIsAdmin={setIsAdmin} isAdmin={isAdmin} setUserId={setUserId}/>}
         />
         <Route path="/newcase" element={<NewCase />} />
-        <Route path="/casedetails/:id" element={<NewDonation />} />
+        <Route path="/casedetails/:id" element={<NewDonation isAdmin={isAdmin} />} />
       </Routes>
      
     </>
