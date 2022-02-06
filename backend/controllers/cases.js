@@ -27,11 +27,12 @@ const getAllCases = (req, res) => {
   const limit=4
   const page =req.query.page
   const offset  = (page - 1) * limit
-  const query = `SELECT * FROM cases  WHERE cases.is_deleted=0 limit ${limit} OFFSET ${offset} `;
+  const query = `SELECT * FROM donation RIGHT JOIN cases ON case_id=cases.id  WHERE cases.is_deleted=0 `;
 
   connection.query(query, (err, result) => {
 
     if (err) {
+      console.log(err);
     return  res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -47,6 +48,8 @@ if (!result[0]){
 
 let array=[]
 let resultUpdate=[]
+
+
 //  result.forEach((element)=>{
 //  array.forEach((element2)=>{
 //     if(!element.case_id==element2.case_id){
@@ -68,26 +71,29 @@ let resultUpdate=[]
   // if(!array.includes(element.case_id)){
   //   array.push(element)
   // }
+  // -----------
 let f=[]
  result.forEach((element)=>{
   if(!array.includes(element.case_id)){
     array.push(element.case_id)
     element.donations+=element.amount
+    element.TheAmountRequired-=element.amount
     resultUpdate.push(element)
   }
   else{
 resultUpdate.forEach((ele)=>{
   if(ele.case_id==element.case_id){
-    ele.donations+=element.amount+ele.amount
+    ele.donations+=element.amount
+    ele.TheAmountRequired-=element.amount
   }
 })
   }
 })
-
+console.log(resultUpdate.length);
     res.status(200).json({
       success: true,
       message: `all cases`,
-      result:result
+      result:resultUpdate
     });
   });
 };
