@@ -6,11 +6,11 @@ const login = (req, res) => {
   const email = req.body.email.toLowerCase();
   const password = req.body.pass;
 
-  const query = `SELECT * FROM users WHERE email = ? `;
+  const query = `SELECT * FROM users LEFT JOIN roles ON role_id=roles.id   WHERE email = ? `;
   const data = [email];
 
   connection.query(query, data, async (err, result) => {
-    console.log(result);
+  
     if (err) {
       res.status(500).json({
         success: false,
@@ -37,6 +37,7 @@ const login = (req, res) => {
       userId: result[0].id,
       country: result[0].country,
       role: result[0].role_id,
+      
     };
     const options = {
       expiresIn: "60h",
@@ -48,7 +49,8 @@ const login = (req, res) => {
       message: `Valid login credentials`,
       token: token,
       role:payload.role,
-      userId:payload.userId
+      userId:payload.userId,
+      result:result
     });
   });
 };
