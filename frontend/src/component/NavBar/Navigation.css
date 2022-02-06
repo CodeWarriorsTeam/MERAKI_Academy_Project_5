@@ -7,6 +7,17 @@
 .email22 {
   transform: translate(-0.3em, 0.2em);
 }
+#Logout{
+  font-size: 1.3em;
+  float: right;
+  transform: translate(-1em, -2.6em);
+  text-decoration: none;
+  color: #666;
+  font-family: sans-serif;
+}
+#Logout{
+  color: #f5c323; 
+}
 .word {
   font-size: 1.3em;
   transform: translate(2.7em, 0.8em);
