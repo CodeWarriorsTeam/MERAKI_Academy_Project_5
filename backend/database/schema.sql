@@ -12,6 +12,7 @@ CREATE TABLE roles (
 
 CREATE TABLE users(
     id INT AUTO_INCREMENT NOT NULL,
+    profile_image VARCHAR(255),
     firstName VARCHAR(255),
     lastName VARCHAR(255),
     country VARCHAR(255),
