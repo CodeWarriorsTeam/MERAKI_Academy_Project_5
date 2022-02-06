@@ -8,7 +8,6 @@ import { AddCase } from "../../reducer/cases";
 
 const NewCase = () => {
   const [case_image, setCase_Image] = useState("");
-  console.log("link",case_image);
 
   const [category, setCategory] = useState("");
 
@@ -17,7 +16,6 @@ const NewCase = () => {
   const [case_description, setCase_Description] = useState("");
 
   const [message, setMessage] = useState("");
-
 
   const [imageselected, setImageSelected] = useState("");
   const [imagelink, setImageLink] = useState("");
@@ -30,20 +28,11 @@ const NewCase = () => {
 
     formData.append("upload_preset", "nfrmsteq");
 
-    console.log(imageFile);
-    console.log(formData);
-    console.log("linkfunction",case_image);
-
-
     axios
       .post("https://api.cloudinary.com/v1_1/dxw4t7j0p/image/upload", formData)
 
       .then((result) => {
-        console.log(result.data);
-        console.log(result.data.secure_url);
-        setCase_Image(result.data.secure_url)
-        console.log("a",case_image);
-
+        setCase_Image(result.data.secure_url);
       })
       .catch((err) => {
         console.log(err.response);
@@ -51,7 +40,6 @@ const NewCase = () => {
   };
 
   const navigate = useNavigate();
-  
 
   const dispatch = useDispatch();
 
@@ -118,8 +106,8 @@ const NewCase = () => {
           }}
         ></input> */}
 
-        <input
-          type="file"
+        <input 
+          type="file" className="image"  
           onChange={(e) => {
             setImageSelected(e.target.files[0]);
           }}
