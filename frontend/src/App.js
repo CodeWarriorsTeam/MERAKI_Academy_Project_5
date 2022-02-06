@@ -6,10 +6,10 @@ import { Routes, Route } from "react-router-dom";
 import Register from "./component/register/Register";
 import AllCases from "./component/AllCases/AllCases";
 import Login from "./component/login/Login";
-import NewCase from "./component/NewCase/NewCase";
+// import NewCase from "./component/NewCase/NewCase";
 import NewDonation from "./component/NewDonation/NewDonation";
 import Home from "./component/Home/Home";
-
+import Admin from "./component/Admin/Admin"
 function App() {
   const [searchCase, setSearchCase] = useState("");
   const [categoryNav, setCategory] = useState("");
@@ -35,7 +35,7 @@ function App() {
   
    
       <Routes>
-     
+     <Route path="admin" element={<Admin/>}/>
       <Route
           path="/"
           element={<Home/>}
@@ -56,7 +56,7 @@ function App() {
           path="/login"
           element={<Login setIsAdmin={setIsAdmin} isAdmin={isAdmin} setUserId={setUserId}/>}
         />
-        <Route path="/newcase" element={<NewCase />} />
+        {/* <Route path="/newcase" element={<NewCase />} /> */}
         <Route path="/casedetails/:id" element={<NewDonation isAdmin={isAdmin} />} />
       </Routes>
      

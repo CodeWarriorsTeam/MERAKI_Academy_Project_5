@@ -42,6 +42,14 @@
   float: left;
   transform: translate(-18em, 2em);
 }
+.admin{
+  font-size: 1.3em;
+  float: right;
+  transform: translate(-22em, 0.5em);
+  text-decoration: none;
+  color: #666;
+  font-family: sans-serif;   
+}
 .login {
   font-size: 1.3em;
   float: right;

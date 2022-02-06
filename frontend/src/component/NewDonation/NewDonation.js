@@ -15,7 +15,7 @@ const NewDonation = ({ isAdmin }) => {
       donations: state.donationReducer.donations,
     };
   });
-const navigate=useNavigate()
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const dispatch = useDispatch();
@@ -32,8 +32,6 @@ const navigate=useNavigate()
   const [message, setMessage] = useState("");
   const [details, setDetails] = useState([]);
 
-
-
   const getbyid = async () => {
     try {
       const result = await axios.get(`http://localhost:5000/cases/${id}`);
@@ -46,24 +44,6 @@ const navigate=useNavigate()
   useEffect(() => {
     getbyid();
   }, []);
-
-  const getAllCases = async (num = 1) => {
-    try {
-      const res = await axios.get(
-        `http://localhost:5000/cases/page?page=${num}
- `,
-        { headers: { Authorization: `Bearer ${state.token}` } }
-      );
-      if (res.data.success) {
-        dispatch(setCases(res.data.result));
-      }
-    } catch (error) {
-      setMessage("no cases yet");
-      if (!error) {
-        return setMessage(error.response.data.message);
-      }
-    }
-  };
 
   const handleUpdateClick = (element) => {
     setUpdateBox(!updateBox);
@@ -99,7 +79,7 @@ const navigate=useNavigate()
       await axios.delete(`http://localhost:5000/cases/${id}`);
       dispatch(deleteCase(id));
       getbyid();
-      navigate(`/allcases`)
+      navigate(`/allcases`);
     } catch (error) {
       console.log(error);
     }
@@ -129,7 +109,9 @@ const navigate=useNavigate()
 
   return (
     <>
-    <br /><br /><br />
+      <br />
+      <br />
+      <br />
       {details &&
         details.map((element, i) => (
           <>
@@ -137,54 +119,48 @@ const navigate=useNavigate()
               <br></br>
               <img src={element.case_image} />
               <p> category: {element.category}</p>
-              <p>title:  {element.title}</p>
+              <p>title: {element.title}</p>
               <p>description: {element.case_description}</p>
-               {isAdmin? (
-                <> 
- 
- 
-              {updateBox && caseId === element.id && (
-                <form>
-                  <input
-                    type="text"
-                    defaultValue={element.case_description}
-                    onChange={(e) => setCase_Description(e.target.value)}
-                  ></input>
-                  <input
-                    type="text"
-                    defaultValue={element.title}
-                    onChange={(e) => setTitle(e.target.value)}
-                  ></input>
-                  <input
-                    type="text"
-                    defaultValue={element.category}
-                    onChange={(e) => setCategory(e.target.value)}
-                  ></input>
-                  <input
-                    type="text"
-                    defaultValue={element.case_image}
-                    onChange={(e) => setCase_image(e.target.value)}
-                  ></input>
-                </form>
-              )}
-              <button
-                className="update"
-                onClick={() => handleUpdateClick(element)}
-              >
-                update
-              </button>
-              <button
-                className="delete"
-                onClick={() => deleteCseById()}
-              >
-                X
-              </button>
-                 </>
+              {isAdmin ? (
+                <>
+                  {updateBox && caseId === element.id && (
+                    <form>
+                      <input
+                        type="text"
+                        defaultValue={element.case_description}
+                        onChange={(e) => setCase_Description(e.target.value)}
+                      ></input>
+                      <input
+                        type="text"
+                        defaultValue={element.title}
+                        onChange={(e) => setTitle(e.target.value)}
+                      ></input>
+                      <input
+                        type="text"
+                        defaultValue={element.category}
+                        onChange={(e) => setCategory(e.target.value)}
+                      ></input>
+                      <input
+                        type="text"
+                        defaultValue={element.case_image}
+                        onChange={(e) => setCase_image(e.target.value)}
+                      ></input>
+                    </form>
+                  )}
+                  <button
+                    className="update"
+                    onClick={() => handleUpdateClick(element)}
+                  >
+                    update
+                  </button>
+                  <button className="delete" onClick={() => deleteCseById()}>
+                    X
+                  </button>
+                </>
               ) : (
                 <></>
-              )} 
+              )}
             </div>
-            
           </>
         ))}
 
@@ -195,52 +171,61 @@ const navigate=useNavigate()
       {/* //  })} */}
 
       {/* ))} */}
-      
+
       <br />
       <>
-      <div className="contenerDonation" >
-      <input type="checkbox" id="inputOpenDonation" ></input>
+        <div className="contenerDonation">
+          <input type="checkbox" id="inputOpenDonation"></input>
 
-      <label for="inputOpenDonation" className="btn">Donate</label>
-      <div className="modalDonation">
-      <label for="inputOpenDonation"className="closeModal" >X</label>
-      
-<h1 id="headerModal">Thanks</h1>
-<p id="prgModel"> If you do not have money, then smiling in the face of your brother is charity
-</p>
-<input className="IBAN"
-        type="text"
-        placeholder="IBAN"
-        onChange={(e) => {
-          setIBAN(e.target.value);
-        }}
-      ></input>
-      <br />
+          <label for="inputOpenDonation" className="btn">
+            Donate
+          </label>
+          <div className="modalDonation">
+            <label for="inputOpenDonation" className="closeModal">
+              X
+            </label>
 
-      <input className="IBAN"
-        type="text"
-        placeholder="Amount"
-        onChange={(e) => {
-          setAmount(e.target.value);
-        }}
-      ></input>
-      <br />
+            <h1 id="headerModal">Thanks</h1>
+            <p id="prgModel">
+              {" "}
+              If you do not have money, then smiling in the face of your brother
+              is charity
+            </p>
+            <input
+              className="IBAN"
+              type="text"
+              placeholder="IBAN"
+              onChange={(e) => {
+                setIBAN(e.target.value);
+              }}
+            ></input>
+            <br />
 
-    
-      <button className="addDonation"
-        onClick={() => {
-          addNewDonation();
-        }}
-      >
-        Donate
-      </button>
-      {message}
-      <label for="inputOpenDonation"className="btn close" >Close</label>
-    
-      </div>
-      </div>
+            <input
+              className="IBAN"
+              type="text"
+              placeholder="Amount"
+              onChange={(e) => {
+                setAmount(e.target.value);
+              }}
+            ></input>
+            <br />
+
+            <button
+              className="addDonation"
+              onClick={() => {
+                addNewDonation();
+              }}
+            >
+              Donate
+            </button>
+            {message}
+            <label for="inputOpenDonation" className="btn close">
+              Close
+            </label>
+          </div>
+        </div>
       </>
-     
     </>
   );
 };

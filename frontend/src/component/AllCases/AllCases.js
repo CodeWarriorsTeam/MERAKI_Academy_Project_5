@@ -47,41 +47,6 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
       }
     }
   };
-  const handleUpdateClick = (element) => {
-    setUpdateBox(!updateBox);
-    setCaseId(element.id);
-    setCategory(element.category);
-    setTitle(element.title);
-    setCase_image(element.case_image);
-    setCase_Description(element.case_description);
-    if (updateBox) updateCaseById(element.id);
-  };
-  const updateCaseById = async (id) => {
-    try {
-      const result = await axios.put(`http://localhost:5000/cases/${id}`, {
-        case_image,
-        title,
-        case_description,
-        category,
-      });
-
-      dispatch(updateCases(result.data.results));
-
-      getAllCases();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const deleteCseById = async (id) => {
-    try {
-      await axios.delete(`http://localhost:5000/cases/${id}`);
-      dispatch(deleteCase(id));
-      getAllCases();
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const convertToCase = (id) => {
     navigate(`/casedetails/${id}`);
@@ -152,61 +117,12 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
                   <p className="TheAmountReguired">
                     TheAmountRequired:{element.TheAmountRequired}$
                   </p>
-
-                {/* <p>donations:{element.donations}</p> */}
-                {/* {casee.user === userId && ( */}
-                {/* {isAdmin ? ( */}
-            
-                <>
                   <>
-                    {updateBox && caseId === element.id && (
-                      <form>
-                        <input
-                          type="text"
-                          defaultValue={element.case_description}
-                          onChange={(e) => setCase_Description(e.target.value)}
-                        ></input>
-                        <input
-                          type="text"
-                          defaultValue={element.title}
-                          onChange={(e) => setTitle(e.target.value)}
-                        ></input>
-                        <input
-                          type="text"
-                          defaultValue={element.category}
-                          onChange={(e) => setCategory(e.target.value)}
-                        ></input>
-                        <input
-                          type="text"
-                          defaultValue={element.case_image}
-                          onChange={(e) => setCase_image(e.target.value)}
-                        ></input>
-                      </form>
-                    )}
-                  </>
-                   
-                   {/* <button
-                    className="update"
-                    onClick={() => handleUpdateClick(element)}
-                  >
-                    update
-                  </button> */}
-                  {/* <button
-                    className="delete"
-                    onClick={() => deleteCseById(element.id)}
-                  >
-                    X
-                  </button>  */}
-                </>
-                  // ) : (
-            <>
-            
-            </>  
-                  // )}    
+            </>      
               </div>
             </>
           ))}
-                </div>
+           </div>
 
       <button
         onClick={ () => {
