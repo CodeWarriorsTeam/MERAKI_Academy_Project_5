@@ -54,6 +54,7 @@ const NewCase = () => {
   };
 
   return (
+   <><br /><br /><br />
     <div className="newPage">
       <br />
       <br />
@@ -111,6 +112,7 @@ const NewCase = () => {
       <button className="new" onClick={addNewCase}>Add New Case</button>
       {message}
     </div>
+    </>
   );
 };
 export default NewCase;

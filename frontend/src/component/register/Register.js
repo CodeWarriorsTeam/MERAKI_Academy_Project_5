@@ -31,7 +31,7 @@ const Register = () => {
   };
   return (
     <>
-    
+    <br /><br /><br />
       <div className="registerPage">
       <br /> 
         <h1 className="signup">Sign Up</h1>
