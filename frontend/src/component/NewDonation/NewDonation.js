@@ -139,8 +139,9 @@ const navigate=useNavigate()
               <p> category: {element.category}</p>
               <p>title:  {element.title}</p>
               <p>description: {element.case_description}</p>
-              {/* {isAdmin? (
-                <> */}
+               {isAdmin? (
+                <> 
+ 
  
               {updateBox && caseId === element.id && (
                 <form>
@@ -178,10 +179,10 @@ const navigate=useNavigate()
               >
                 X
               </button>
-                {/* </>
+                 </>
               ) : (
                 <></>
-              )} */}
+              )} 
             </div>
             
           </>

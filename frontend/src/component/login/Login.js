@@ -41,11 +41,12 @@ const Login = ({ setIsAdmin ,setUserId}) => {
       .post("http://localhost:5000/login", userLogin)
 
       .then((result) => {
-        console.log(result.data);
+        console.log(result.data.result);
         dispatch(loginUser(result.data.token));
         navigate("/allcases");
         localStorage.setItem("token", result.data.token);
-        setIsAdmin(result.data.role_name === "ADMIN");
+        console.log(result.data.result[0].role_name );
+        setIsAdmin(result.data.result[0].role_name === "admin");
       })
 
       .catch((err) => {

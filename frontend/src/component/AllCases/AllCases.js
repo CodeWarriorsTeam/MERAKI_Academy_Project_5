@@ -198,9 +198,11 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
                     X
                   </button>  */}
                 </>
-                 {/* ) : (
-            <></>  */}
-                
+                  // ) : (
+            <>
+            
+            </>  
+                  // )}    
               </div>
             </>
           ))}
