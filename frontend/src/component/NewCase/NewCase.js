@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddCase } from "../../reducer/cases";
 
 const NewCase = () => {
-  const navigate = useNavigate();
   const [case_image, setCase_Image] = useState("");
+  console.log("link",case_image);
+
   const [category, setCategory] = useState("");
 
   const [title, setTitle] = useState("");
@@ -16,6 +17,41 @@ const NewCase = () => {
   const [case_description, setCase_Description] = useState("");
 
   const [message, setMessage] = useState("");
+
+
+  const [imageselected, setImageSelected] = useState("");
+  const [imagelink, setImageLink] = useState("");
+
+  const uploadImage = (imageFile) => {
+    const formData = new FormData();
+    // const imageFile = imageselected;
+    // console.log(imageFile.url);
+    formData.append("file", imageFile);
+
+    formData.append("upload_preset", "nfrmsteq");
+
+    console.log(imageFile);
+    console.log(formData);
+    console.log("linkfunction",case_image);
+
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/dxw4t7j0p/image/upload", formData)
+
+      .then((result) => {
+        console.log(result.data);
+        console.log(result.data.secure_url);
+        setCase_Image(result.data.secure_url)
+        console.log("a",case_image);
+
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+
+  const navigate = useNavigate();
+  
 
   const dispatch = useDispatch();
 
@@ -54,64 +90,84 @@ const NewCase = () => {
   };
 
   return (
-   <><br /><br /><br />
-    <div className="newPage">
+    <>
       <br />
       <br />
+      <br />
+      <div className="newPage">
+        <br />
+        <br />
 
-      <input className="category"
-        type="text"
-        placeholder="category"
-        onChange={(e) => {
-          setCategory(e.target.value);
-        }}
-      ></input>
-      <br />
+        <input
+          className="category"
+          type="text"
+          placeholder="category"
+          onChange={(e) => {
+            setCategory(e.target.value);
+          }}
+        ></input>
+        <br />
 
-      <br />
-      <input className="image"
-        type="text"
-        placeholder="Image"
-        onChange={(e) => {
-          setCase_Image(e.target.value);
-        }}
-      ></input>
-      <br />
-      <br />
+        <br />
+        {/* <input
+          className="image"
+          type="text"
+          placeholder="Image"
+          onChange={(e) => {
+            setCase_Image(e.target.value);
+          }}
+        ></input> */}
 
-      <input className="title"
-        type="text"
-        placeholder="Title"
-        onChange={(e) => {
-          setTitle(e.target.value);
-        }}
-      ></input>
-      <br />
-      <br />
+        <input
+          type="file"
+          onChange={(e) => {
+            setImageSelected(e.target.files[0]);
+          }}
+        ></input>
 
-      <input className="amount"
-        type="number"
-        placeholder="The amount required"
-        onChange={(e) => {
-          setTheAmountRequired(e.target.value);
-        }}
-      ></input>
-      <br />
-      <br />
+        <button onClick={() => uploadImage(imageselected)}>upload</button>
 
-      <textarea className="description"
-        type="text"
-        placeholder="Description"
-        onChange={(e) => {
-          setCase_Description(e.target.value);
-        }}
-      ></textarea>
-            <br />
-            <br />
+        <br />
+        <br />
 
-      <button className="new" onClick={addNewCase}>Add New Case</button>
-      {message}
-    </div>
+        <input
+          className="title"
+          type="text"
+          placeholder="Title"
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        ></input>
+        <br />
+        <br />
+
+        <input
+          className="amount"
+          type="number"
+          placeholder="The amount required"
+          onChange={(e) => {
+            setTheAmountRequired(e.target.value);
+          }}
+        ></input>
+        <br />
+        <br />
+
+        <textarea
+          className="description"
+          type="text"
+          placeholder="Description"
+          onChange={(e) => {
+            setCase_Description(e.target.value);
+          }}
+        ></textarea>
+        <br />
+        <br />
+
+        <button className="new" onClick={addNewCase}>
+          Add New Case
+        </button>
+        {message}
+      </div>
     </>
   );
 };
