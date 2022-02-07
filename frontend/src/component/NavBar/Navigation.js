@@ -12,6 +12,7 @@ const Navigation = ({isAdmin,
   setAllCase,
   userId,
   setUserId,
+  setIsAdmin
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ const Navigation = ({isAdmin,
     dispatch(logoutUser());
     navigate(`/login`);
     setUserId("");
+    setIsAdmin(false)
   };
 
   return (
