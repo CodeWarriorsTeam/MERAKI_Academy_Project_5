@@ -38,7 +38,7 @@ function App() {
      <Route path="admin" element={<Admin/>}/>
       <Route
           path="/"
-          element={<Home/>}
+          element={<Home setCategory={setCategory}setAllCase={setAllCase}/>}
         />
      
         <Route path="/register" element={<Register />} />
