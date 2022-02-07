@@ -92,7 +92,7 @@ const Navigation = ({isAdmin,
         >
           <a id="kids">Kids</a>{" "}
         </Link>
-        {isAdmin ? (
+        {isAdmin && state.isLoggedIn ? (
           <>
           <Link className="admin" to="/admin">Admin Panel</Link>
             {/* <Link className="newcase" to="/newcase">
@@ -105,6 +105,7 @@ const Navigation = ({isAdmin,
       </div>
       <></>
       {state.isLoggedIn || userId ? (
+
         <a id="Logout" onClick={logout}>
           Logout
         </a>
