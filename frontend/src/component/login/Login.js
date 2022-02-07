@@ -46,7 +46,7 @@ const Login = ({ setIsAdmin ,setUserId}) => {
         navigate("/allcases");
         localStorage.setItem("token", result.data.token);
         console.log(result.data.result[0].role_name );
-        setIsAdmin(result.data.result[0].role_name === "admin");
+        setIsAdmin(result.data.result[0].role_name.toLowerCase() === "admin");
 
       })
 
