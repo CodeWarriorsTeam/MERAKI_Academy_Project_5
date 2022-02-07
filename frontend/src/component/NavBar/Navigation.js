@@ -101,7 +101,7 @@ const Navigation = ({isAdmin,
         >
           <a id="kids">repair</a>{" "}
         </Link>
-        {isAdmin ? (
+     
         {isAdmin && state.isLoggedIn ? (
           <>
           <Link className="admin" to="/admin">Admin Panel</Link>
