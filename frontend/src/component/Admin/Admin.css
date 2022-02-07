@@ -1,0 +1,18 @@
+.table, th, td {
+   border: 2px solid black;
+}
+.table{
+    padding: 0%;
+}
+.table, th,td {
+    /* margin: 20%; */
+}
+.head{
+background-color: #F5C323;
+}
+.id{
+ margin: 20px;
+}
+.newPage{
+  float: right;
+}
