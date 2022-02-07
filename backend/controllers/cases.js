@@ -35,7 +35,7 @@ const createNewCase = (req, res) => {
     });
   });
 };
-
+///////
 const getAllCases = (req, res) => {
   const limit = 4;
   const page = req.query.page;
