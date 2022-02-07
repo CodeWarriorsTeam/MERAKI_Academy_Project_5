@@ -23,9 +23,10 @@ const createNewUser = async (req, res) => {
         massage: "The email already exists",
         err: err,
       });
-    }
-    
-      res.status(201).json({
+    } 
+  
+  
+  res.status(201).json({
         success: true,
         message: `Success User Added`,
         result: result,

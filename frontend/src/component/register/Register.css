@@ -2,6 +2,8 @@
   /* display: grid; */
   height: 100%;
   width: 100%;
+  margin-top: 2%;
+  border: 0px 1px  solid;
 }
 
 .signup {
@@ -83,6 +85,31 @@
   color: black;
   border-radius: 5px;
 }
+
+.imageFile{
+  margin-left: 3%;
+
+}
+
+
+.uploadButton{
+  height: 4vh;
+  width: 13vh;
+  transform: translate(-4em, 0.1em);
+font-size: large;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.uploadButton:hover{
+cursor: pointer;
+}
+
+.uploadButton:active{
+  background-color: #04AA6D;
+}
+
+
 
 .email:hover {
   border-top: 1px rgb(0, 0, 0) solid;
