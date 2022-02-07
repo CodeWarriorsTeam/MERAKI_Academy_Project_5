@@ -9,7 +9,7 @@ const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [country, setCountry] = useState("");
-  const [profile_image, setProfile_Image] = useState("");
+  const [profile_image, setProfile_image] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [paragraph, setParagraph] = useState("");
@@ -31,7 +31,7 @@ const Register = () => {
       .post("https://api.cloudinary.com/v1_1/dxw4t7j0p/image/upload", formData)
 
       .then((result) => {
-        setProfile_Image(result.data.secure_url);
+        setProfile_image(result.data.secure_url);
       })
       .catch((err) => {
         console.log(err.response);
@@ -50,6 +50,7 @@ const Register = () => {
         firstName,
         lastName,
         country,
+        profile_image,
         email,
         pass,
       })
