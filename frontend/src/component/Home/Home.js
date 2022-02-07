@@ -3,7 +3,7 @@ import axios from "axios";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import "./Home.css";
 
-const Home = () => {
+const Home = ({setCategory,setAllCase}) => {
   return (
     <>
       <br /> <br /> <br />
@@ -29,6 +29,50 @@ const Home = () => {
           </section>
         </main>
       </header>
+      <section className="target" id="targetSection">
+        <div className="containerTarget">
+          <h2 className="headerTarget">
+          safe house target  for 2022
+          </h2>
+          <div className="boxContainer">
+            <div className="box"><div className="cardImage"></div>
+            <div className="targetTitle">Educating 1000 students</div>
+            <div className="targetCount">Covered number for this moment:<span>100 </span></div>
+            <Link
+          to="/allcases"
+          onClick={() => {
+            setCategory(`education`);
+            setAllCase(false);
+          }}
+        >  <button className="DonationNow">Donate Now</button></Link>
+            </div>
+    
+            <div className="box"><div className="cardImage"></div>
+            <div className="targetTitle">Feeding 1000 poor</div>
+            <div className="targetCount">Covered number for this moment:<span>100 </span></div>
+            <button className="DonationNow">Donate Now</button>
+            </div>
+            
+            <div className="box"><div className="cardImage"></div>
+            <div className="targetTitle">Repairing 500 facilities</div>
+            <div className="targetCount">Covered number for this moment:<span>100 </span></div>
+            <Link
+          to="/allcases"
+          onClick={() => {
+            setCategory(`repair`);
+            setAllCase(false);
+          }}
+        >  <button className="DonationNow">Donate Now</button></Link>
+            </div>
+
+            <div className="box"><div className="cardImage"></div>
+            <div className="targetTitle">Medical Supplies for 1000 person</div>
+            <div className="targetCount">Covered number for this moment:<span>100 </span></div>
+            <button className="DonationNow">Donate Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

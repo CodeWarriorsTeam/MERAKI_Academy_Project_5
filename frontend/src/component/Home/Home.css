@@ -1,5 +1,5 @@
 .headerHome{
-   
+  
   background-image: url(../../image/2.jpg)
   ;
   width: 100%;
@@ -21,7 +21,7 @@
    text-align: center;
    color: white;
 }
-
+ 
 
 /* .whatDo{} */
 .whatDo #Welcome{
@@ -91,3 +91,128 @@ color:#F5C323
     50%{content: "Education";}
     100%{content: "Gaza people";}
 }
+
+
+.headerTarget{
+    width: 300px;
+    border-bottom: 3px solid violet;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 200;
+    margin: 0 auto 50px;
+    position: relative;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+.target{
+    
+    background-color: #e2e2e2;
+}
+
+.target .boxContainer{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 50px;
+}
+
+.target .boxContainer .box{
+    background-color: black;
+    text-align: center;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #c5c5c5;
+    position: relative;
+    margin-bottom: 15px;
+
+}
+.target .boxContainer .box .cardImage{
+   width: 100%;
+   height: 300px;
+   background-position: center; 
+   background-size: cover;
+   position: relative;
+   overflow: hidden;
+   border-radius: 5px 5px 0 0;
+}
+
+.target .boxContainer .box .cardImage:after{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    content: "";
+    position: absolute;
+    left: 0;
+    top:0;
+    filter: grayscale(100%);
+    transition: 1s;
+
+
+}
+
+.target .boxContainer .box:nth-child(1) .cardImage,.target .boxContainer .box:nth-child(1) .cardImage:after{
+background-image:url(../../image/education.jpg) ;
+}
+
+.target .boxContainer .box:nth-child(2) .cardImage,.target .boxContainer .box:nth-child(2) .cardImage:after{
+    background-image:url(../../image/eat1.jpg) ;
+    }
+    
+    .target .boxContainer .box:nth-child(3) .cardImage,.target .boxContainer .box:nth-child(3) .cardImage:after{
+        background-image:url(../../image/rep.jpg) ;
+        }
+
+        .target .boxContainer .box:nth-child(4) .cardImage,.target .boxContainer .box:nth-child(4) .cardImage:after{
+            background-image:url(../../image/med2.jpg) ;
+            }
+
+            .target .boxContainer .box:hover .cardImage:after{
+                top: 100%;
+            }
+
+
+            .target .boxContainer .box .targetTitle{
+                font-size: 16px;
+                margin-top: 15px;
+                font-weight: 600;
+                color:#F5C323 ;
+                text-shadow: 2px 1px 5px black;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+
+
+            }
+
+
+          
+
+
+            .target .boxContainer .box .targetCount{
+                font-size: 18px;
+                font-weight: 600;
+                color:#F5C323 ;
+                margin-top: 10px;
+                /* font-size: 25px; */
+                color: #eee;
+                word-spacing: 2px;
+                /* margin-bottom: 25px; */
+                text-shadow: 1px 1px 1px black;
+            }
+
+            .target .boxContainer .box .targetCount span{
+                color:white;
+            }
+
+            .target .boxContainer .box button{
+                position: absolute;
+                left: 50%;
+                background-color:gray ;
+                color: #fff;
+                transform: translate(-50%);
+                bottom: -15px;
+                border-radius:60px ;
+                padding: 7px 15px ;
+                border: 0;
+                outline: none;
+                cursor: pointer;
+            }

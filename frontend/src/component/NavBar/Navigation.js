@@ -92,6 +92,15 @@ const Navigation = ({isAdmin,
         >
           <a id="kids">Kids</a>{" "}
         </Link>
+        <Link
+          to="/allcases"
+          onClick={() => {
+            setCategory(`repair`);
+            setAllCase(false);
+          }}
+        >
+          <a id="kids">repair</a>{" "}
+        </Link>
         {isAdmin ? (
           <>
           <Link className="admin" to="/admin">Admin Panel</Link>
