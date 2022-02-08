@@ -44,7 +44,7 @@ const Register = () => {
 
 
     
-    if (regEx.test(email) && email!=null) {
+    if (regEx.test(email) && email!=null && firstName!= "" && lastName!="" && country != "") {
       register()
     }
  
