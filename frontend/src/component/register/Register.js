@@ -40,9 +40,20 @@ const Register = () => {
   };
 
   const checkFormValidation = () => {
-    if (email != null) {
-      register();
+    const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,8}(.[a-z{3,8}])?/g;
+
+
+    
+    if (regEx.test(email) && email!=null) {
+      register()
     }
+ 
+ 
+ 
+    // if (email != null) {
+      
+    //   register();
+    // }
   };
 
   const register = () => {
