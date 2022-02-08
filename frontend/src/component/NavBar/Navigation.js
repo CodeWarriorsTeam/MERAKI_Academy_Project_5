@@ -12,7 +12,8 @@ const Navigation = ({isAdmin,
   setAllCase,
   userId,
   setUserId,
-  setIsAdmin
+  setIsAdmin,
+  setNum
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -72,6 +73,7 @@ const Navigation = ({isAdmin,
           onClick={() => {
             setAllCase(true);
             setCategory(false);
+            setNum(1)
           }}
         >
           <a id="AllCases">All Cases</a>{" "}
@@ -81,6 +83,7 @@ const Navigation = ({isAdmin,
           onClick={() => {
             setCategory(`education`);
             setAllCase(false);
+            setNum(1)
           }}
         >
           <a className="education">Education</a>{" "}
@@ -90,6 +93,7 @@ const Navigation = ({isAdmin,
           onClick={() => {
             setCategory(`kids`);
             setAllCase(false);
+            setNum(1)
           }}
         >
           <a id="kids">Kids</a>{" "}
