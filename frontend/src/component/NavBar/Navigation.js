@@ -103,16 +103,8 @@ const Navigation = ({isAdmin,
         >
           <a id="kids">repair</a>{" "}
         </Link>
-        <Link className="admin" to="/admin">Admin Panel</Link>
-            <Link className="newcase" to="/newcase">
-          <a id="newCase">New Case</a>{" "}
-        </Link>
         {isAdmin && state.isLoggedIn ? (
-          // <>
           <Link className="admin" to="/admin">Admin Panel</Link>
-            // {/* <Link className="newcase" to="/newcase"> */}
-          // {/* <a id="newCase">New Case</a>{" "}
-        // </Link></> */}
         ) : (
           <></>
         )}
