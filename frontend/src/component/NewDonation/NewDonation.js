@@ -175,7 +175,7 @@ const NewDonation = ({ isAdmin }) => {
 
       <br />
       <>
-      {isClosed?( <div className="contenerDonation">
+      {isClosed&&isClosed>0?( <div className="contenerDonation">
           <input type="checkbox" id="inputOpenDonation"></input>
 
           <label for="inputOpenDonation" className="btn">
