@@ -14,5 +14,10 @@ background-color: #F5C323;
  margin: 20px;
 }
 .newPage{
-  float: right;
+  /* float: right; */
+}
+.model{
+    display: grid;
+    text-align: center;
+    justify-content: center;
 }
