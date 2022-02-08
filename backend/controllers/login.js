@@ -6,7 +6,7 @@ const login = (req, res) => {
   const email = req.body.email.toLowerCase();
   const password = req.body.pass;
 
-  const query = `SELECT * FROM users LEFT JOIN roles ON role_id=roles.id   WHERE email = ? `;
+  const query = `SELECT * FROM roles INNER JOIN users ON users.role_id=roles.id WHERE email=? `;
   const data = [email];
 
   connection.query(query, data, async (err, result) => {

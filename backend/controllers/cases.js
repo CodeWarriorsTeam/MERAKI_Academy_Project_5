@@ -35,14 +35,18 @@ const createNewCase = (req, res) => {
     });
   });
 };
-///////
+///////SELECT * FROM roles INNER JOIN users ON users.role_id=roles.id WHERE email=?
+////SELECT cases.*, donation.* FROM cases LEFT JOIN donation ON donation.case_id=cases.id WHERE cases.is_deleted=0
 const getAllCases = (req, res) => {
-  const limit = 4;
-  const page = req.query.page;
-  const offset = (page - 1) * limit;
-  const query = `SELECT * FROM donation RIGHT JOIN cases ON case_id=cases.id WHERE cases.is_deleted=0  `;
+  // const limit = 4;
+  // const page = req.query.page;
+  // const offset = (page - 1) * limit;
+  // const query = `SELECT donation.IBAN,donation.amount,donation.case_id,cases.* FROM donation RIGHT JOIN cases ON cases.id=donation.case_id WHERE cases.is_deleted=0  `;
+  // const query = `SELECT donation.IBAN,donation.amount,donation.case_id,cases.* FROM donation RIGHT JOIN cases ON cases.id=donation.case_id WHERE cases.is_deleted=0 `;
 
-  connection.query(query, (err, result) => {
+  const query = `SELECT * FROM cases   WHERE cases.is_deleted=0`;
+
+  connection.query(query, async (err, result) => {
     if (err) {
       console.log(err);
       return res.status(500).json({
@@ -83,27 +87,27 @@ const getAllCases = (req, res) => {
     //   array.push(element)
     // }
     // -----------
-    let f = [];
-    result.forEach((element) => {
-      if (!array.includes(element.case_id)) {
-        array.push(element.case_id);
-        element.donations += element.amount;
-        element.TheAmountRequired -= element.amount;
-        resultUpdate.push(element);
-      } else {
-        resultUpdate.forEach((ele) => {
-          if (ele.case_id == element.case_id) {
-            ele.donations += element.amount;
-            ele.TheAmountRequired -= element.amount;
-          }
-        });
-      }
-    });
+    //   let f = [];
+    //  await result.forEach((element) => {
+    //     if (!array.includes(element.case_id)) {
+    //       array.push(element.case_id);
+    //       element.donations += element.amount;
+    //       element.TheAmountRequired -= element.amount;
+    //       resultUpdate.push(element);
+    //     } else {
+    //       resultUpdate.forEach((ele) => {
+    //         if (ele.case_id == element.case_id) {
+    //           ele.donations += element.amount;
+    //           ele.TheAmountRequired -= element.amount;
+    //         }
+    //       });
+    //     }
+    //   });
     console.log(resultUpdate.length);
     res.status(200).json({
       success: true,
       message: `all cases`,
-      result: resultUpdate,
+      result: result,
     });
   });
 };
@@ -142,6 +146,7 @@ const updateCaseById = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
+      console.log(err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -198,8 +203,8 @@ const getCasesByCategory = (req, res) => {
   const data = [req.query.category];
 
   // SELECT * FROM donation RIGHT JOIN cases ON case_id=cases.id  WHERE cases.is_deleted=0
-
-  const query = `SELECT * FROM donation RIGHT JOIN cases ON case_id=cases.id WHERE cases.is_deleted=0 AND category=?  `;
+//SELECT * FROM cases   WHERE cases.is_deleted=0
+  const query = `SELECT * FROM cases WHERE cases.is_deleted=0 AND category=?  `;
 
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -216,29 +221,81 @@ const getCasesByCategory = (req, res) => {
         message: `no cases in this category ==>${data} `,
       });
     }
-    let array = [];
-    let resultUpdate = [];
-    result.forEach((element) => {
-      if (!array.includes(element.case_id)) {
-        array.push(element.case_id);
-        element.donations += element.amount;
-        element.TheAmountRequired -= element.amount;
-        resultUpdate.push(element);
-      } else {
-        resultUpdate.forEach((ele) => {
-          if (ele.case_id == element.case_id) {
-            ele.donations += element.amount;
-            ele.TheAmountRequired -= element.amount;
-          }
-        });
-      }
-    });
+    // let array = [];
+    // let resultUpdate = [];
+    // result.forEach((element) => {
+    //   if (!array.includes(element.case_id)) {
+    //     array.push(element.case_id);
+    //     element.donations += element.amount;
+    //     element.TheAmountRequired -= element.amount;
+    //     resultUpdate.push(element);
+    //   } else {
+    //     resultUpdate.forEach((ele) => {
+    //       if (ele.case_id == element.case_id) {
+    //         ele.donations += element.amount;
+    //         ele.TheAmountRequired -= element.amount;
+    //       }
+    //     });
+    //   }
+    // });
 
     res.status(200).json({
       success: true,
       message: `all cases by category`,
-      result: resultUpdate,
+      result: result,
     });
+  });
+};
+
+const updateTheAmountRequired = (req, res) => {
+  
+  const id = [req.body.id];
+  const query = `SELECT * FROM cases  WHERE id=? and is_deleted=0`;
+  connection.query(query, id, (err, result) => {
+    if (err) {
+      console.log("errrr",err);
+      return res.status(500).json({
+        success: false,
+        message: `Server Error`,
+      });
+    }
+
+    if (!result[0]) {
+      return res.status(200).json({
+        success: false,
+        message: `No case at id ${id}`,
+      });
+    }
+
+    if (result[0]) {
+      const { donations } = req.body;
+      let TheAmountRequired = result[0].TheAmountRequired - donations;
+      const query = `UPDATE cases SET TheAmountRequired=?,donations=? WHERE id=?;`;
+      const data = [TheAmountRequired, donations, id];
+      connection.query(query, data, (err, results) => {
+        if (err) {
+         
+          return res.status(404).json({
+            success: false,
+            massage: `Server error`,
+            err: err,
+          });
+        }
+        if (results.changedRows == 0) {
+          res.status(404).json({
+            success: false,
+            massage: `The cases: ${id} is not found`,
+            err: err,
+          });
+        }
+
+        res.status(201).json({
+          success: true,
+          massage: `cases updated`,
+          results: results,
+        });
+      });
+    }
   });
 };
 module.exports = {
@@ -248,4 +305,5 @@ module.exports = {
   updateCaseById,
   deleteCaseById,
   getCasesByCategory,
+  updateTheAmountRequired
 };

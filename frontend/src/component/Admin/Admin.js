@@ -48,9 +48,7 @@ const Admin = ({ allCase }) => {
     return { cases: state.casesReducer.cases, token: state.loginReducer.token };
   });
 
-  useEffect(() => {
-    getAllCases();
-  }, []);
+
   const getAllCases = async () => {
     try {
       const res = await axios.get(
@@ -106,7 +104,9 @@ const Admin = ({ allCase }) => {
         setMessage(err.response.data.message);
       });
   };
-
+  useEffect(() => {
+    getAllCases();
+  }, []);
   return (
     <>
       {" "}

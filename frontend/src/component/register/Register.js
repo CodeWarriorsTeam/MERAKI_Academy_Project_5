@@ -14,6 +14,7 @@ const Register = () => {
   const [pass, setPass] = useState("");
   const [paragraph, setParagraph] = useState("");
   const [imageselected, setImageSelected] = useState("");
+  const [role_id, setRole_id] = useState(2);
 
   // regex -> regular expression -> email is valid : b@b no
   // regex -> regular expression -> password is valid : 1234BABSjdn , length = 6
@@ -53,6 +54,7 @@ const Register = () => {
         profile_image,
         email,
         pass,
+        role_id
       })
       .then((result) => {
         setParagraph("The user has been created successfully");
