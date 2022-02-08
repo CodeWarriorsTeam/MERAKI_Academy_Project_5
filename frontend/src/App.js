@@ -14,6 +14,7 @@ function App() {
   const [searchCase, setSearchCase] = useState("");
   const [categoryNav, setCategory] = useState("");
   const [allCase, setAllCase] = useState("");
+  const [num, setNum] = useState(1);
 
   //--------------------------------- STORE
   const [isAdmin, setIsAdmin] = useState(false);
@@ -30,6 +31,7 @@ function App() {
         setAllCase={setAllCase}
         userId={userId}
         setUserId={setUserId}
+        setNum={setNum}
       />
    
   
@@ -46,6 +48,8 @@ function App() {
           path="/allcases"
           element={
             <AllCases
+            setNum={setNum}
+            num={num}
               searchCase={searchCase}
               categoryNav={categoryNav}
               allCase={allCase}

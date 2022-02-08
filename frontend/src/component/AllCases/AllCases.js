@@ -5,21 +5,21 @@ import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
 import "./AllCases.css";
 
-const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
+const AllCases = ({ searchCase, categoryNav, allCase, isAdmin,setNum,num }) => {
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
       cases: state.casesReducer.cases,
     };
   });
-
+console.log(num);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
   const [category, setCategory] = useState("");
 
-  const [num, setNum] = useState(1);
+  
   const [case_image, setCase_image] = useState("");
   const [title, setTitle] = useState("");
   const [case_description, setCase_Description] = useState("");
@@ -41,7 +41,12 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
         dispatch(setCases(res.data.result));
       }
     } catch (error) {
-      setMessage("no cases yet");
+      if(num==0){
+        setNum(num+1)
+      }
+      else{setNum(num-1)}
+      
+      // setMessage("no cases yet");
       if (!error) {
         return setMessage(error.response.data.message);
       }
@@ -54,6 +59,7 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
 
   const getAllCasesByCategory = async () => {
     try {
+      
       // console.log(number);
       const res = await axios.get(
         `http://localhost:5000/cases/page/category?page=${num}&category=${categoryNav}
@@ -64,7 +70,8 @@ const AllCases = ({ searchCase, categoryNav, allCase, isAdmin }) => {
         dispatch(setCases(res.data.result));
       }
     } catch (error) {
-      setMessage("no cases yet");
+   
+      // setMessage("no cases yet");
       if (!error) {
         return setMessage(error.response.data.message);
       }
