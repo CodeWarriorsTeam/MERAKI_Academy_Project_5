@@ -15,7 +15,9 @@ const Navigation = ({
   setUserId,
   setIsAdmin,
   setNum,
+  numEducation
 }) => {
+  console.log(numEducation);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const state = useSelector((state) => {
@@ -104,6 +106,7 @@ const Navigation = ({
           onClick={() => {
             setCategory(`repair`);
             setAllCase(false);
+            setNum(1)
           }}
         >
           <a id="kids">repair</a>{" "}

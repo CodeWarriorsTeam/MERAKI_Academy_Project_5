@@ -12,6 +12,8 @@ const AllCases = ({
   isAdmin,
   setNum,
   num,
+  setNumEducation,
+  numEducation,
 }) => {
   const state = useSelector((state) => {
     return {
@@ -66,6 +68,26 @@ const AllCases = ({
     }
   };
 
+  const countNumEducation = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/admin/cunt
+ `
+      );
+      console.log(res.data.result[0].countEducation);
+      
+      if (res.data.success) {
+        setNumEducation(res.data.result[0].countEducation)
+      }
+    } catch (error) {
+      
+
+      if (!error) {
+        return setMessage(error.response.data.message);
+      }
+    }
+  };
+
   const convertToCase = (id) => {
     navigate(`/casedetails/${id}`);
   };
@@ -112,7 +134,9 @@ const AllCases = ({
       getAllCases();
     }
   }, [allCase, num]);
-
+  useEffect(() => {
+    countNumEducation();
+  }, [numEducation]);
   return (
     <>
       <br />
@@ -163,13 +187,17 @@ const AllCases = ({
             ))}
       </div>
 
-    {num==1?(<></>):(<button
-        onClick={() => {
-          setNum(num - 1);
-        }}
-      >
-        back
-      </button>)}  
+      {num == 1 ? (
+        <></>
+      ) : (
+        <button
+          onClick={() => {
+            setNum(num - 1);
+          }}
+        >
+          back
+        </button>
+      )}
       <button
         onClick={() => {
           setNum(num + 1);

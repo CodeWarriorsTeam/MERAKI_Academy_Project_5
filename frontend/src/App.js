@@ -15,6 +15,7 @@ function App() {
   const [categoryNav, setCategory] = useState("");
   const [allCase, setAllCase] = useState("");
   const [num, setNum] = useState(1);
+  const [numEducation, setNumEducation] = useState(0);
 
   //--------------------------------- STORE
   const [isAdmin, setIsAdmin] = useState( localStorage.getItem("isAdmin") );
@@ -33,6 +34,7 @@ function App() {
         userId={userId}
         setUserId={setUserId}
         setNum={setNum}
+        numEducation={numEducation}
       />
    
   
@@ -41,8 +43,8 @@ function App() {
      <Route path="admin" element={<Admin/>}/>
       <Route
           path="/"
-          element={<Home setCategory={setCategory}setAllCase={setAllCase}/>}
-        />
+          element={<Home setCategory={setCategory}setAllCase={setAllCase} numEducation={numEducation}/>}
+          />
      
         <Route path="/register" element={<Register />} />
         <Route
@@ -54,6 +56,8 @@ function App() {
               searchCase={searchCase}
               categoryNav={categoryNav}
               allCase={allCase}
+              setNumEducation={setNumEducation}
+              numEducation={numEducation}
             />
           }
         />
