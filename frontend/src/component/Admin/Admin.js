@@ -3,7 +3,9 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlinePlusCircle, AiOutlineDelete } from "react-icons/ai";
 import { GrUpdate } from "react-icons/gr";
-import { BsPen } from "react-icons/bs";
+import { BsPen, BsArrowDownUp } from "react-icons/bs";
+import { RiArrowUpDownFill, RiDeleteBinLine } from "react-icons/ri";
+import { BiEdit } from "react-icons/bi";
 import Model from "react-modal";
 import {
   AddCase,
@@ -153,7 +155,7 @@ const Admin = () => {
   };
   const customStyles2 = {
     content: {
-    //   background: "rgba(yellow, 0, 0, 0.7)",
+      //   background: "rgba(yellow, 0, 0, 0.7)",
       top: "50%",
       left: "50%",
       right: "60%",
@@ -179,16 +181,44 @@ const Admin = () => {
       <table className="table">
         {" "}
         <tr className="head">
-          <th>id</th>
-          <th> category</th>
-          <th>title</th>
-          <th>amount</th>
-          <th>image</th>
-          <th>description</th>
+          <th>
+            id 
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th>
+            {" "}
+            category
+             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th>
+            title 
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th>
+            amount 
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th>
+            image 
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th>
+            description{" "}
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
 
-          <th>donation</th>
-          <th>donor</th>
-          <th>Operations</th>
+          <th>
+            donation
+             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th>
+            donor 
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th>
+            Operations
+             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
         </tr>{" "}
         {state.cases &&
           state.cases.map((element, i) => {
@@ -207,17 +237,19 @@ const Admin = () => {
                 <td className="allcasesImage">{element.donor}</td>
                 <td className="allcasesImage">
                   {" "}
-                  <AiOutlineDelete
-                    className="delete"
-                    onClick={() => deleteCseById(element.id)}
-                  />
-                  <BsPen
-                    className="update"
+                  <button className="delete" onClick={() => deleteCseById(element.id)}>
+                    <RiDeleteBinLine className="deleteIcon" />Delete{" "}
+                  </button>
+                  <button
+                    className="edit"
                     onClick={() => {
                       setUpdateIsOpen(true);
-                      setCaseId(element.id)
+                      setCaseId(element.id);
                     }}
-                  />
+                  >
+                    {" "}
+                    <BiEdit className="editIcon" /> Edit
+                  </button>
                 </td>
                 <div>
                   <Model
@@ -282,12 +314,6 @@ const Admin = () => {
             );
           })}
       </table>
-      {/* <Link className="case" to="/newcase">
-            <a id="new">newCase</a>
-          </Link> */}
-      {/* <br />
-        <br />
-              <br /> */}
       <div className="model">
         <Model
           isOpen={modelIsOpen}

@@ -1,20 +1,42 @@
 .table,
 th,
 td {
-  border: 1px solid black;
+    /* border-collapse: separate; */
+    border-spacing: 0% 2%;
+  border: 1px solid rgba(194, 183, 183, 0.377);
+  
 }
 
-/* .head {
-  background-color: #f5c323;
-} */
-.id {
-  margin: 20px;
+th,
+td {
+  text-align: right;
+  padding: 8px;
+  text-align: left;
+}
+.head{
+font-size: 100%;   
+}
+.arrow{
+    float: right;
+}
+
+.deleteIcon{
+    font-size: 1.2em;
 }
 .delete{
-    color: red;
-    font-size: 1.5em;
+    cursor: pointer;
+    /* height: 100%; */
+    /* width: 65%; */
+    font-size: 0.7em;
 }
-.update{
+.edit{
+    /* height: 100%; */
+    cursor: pointer;
+    width: 65%;
+    font-size: 0.7em;
+}
+.editIcon{
+    margin-top: 5%;
     color: black;
     font-size: 1.3em;
 }
