@@ -28,7 +28,7 @@ const NewDonation = ({ isAdmin }) => {
   const [category, setCategory] = useState("");
 
   const [IBAN, setIBAN] = useState("");
-  const [amount, setAmount] = useState("");
+  const [donations, setDonations] = useState("");
   const [message, setMessage] = useState("");
   const [details, setDetails] = useState([]);
 
@@ -87,9 +87,9 @@ const NewDonation = ({ isAdmin }) => {
 
   const addNewDonation = () => {
     axios
-      .post(
-        `http://localhost:5000/donation/${id}`,
-        { IBAN, amount },
+      .put(
+        `http://localhost:5000/cases`,
+        { id, donations },
         {
           headers: {
             Authorization: `Bearer ${state.token}`,
@@ -98,7 +98,7 @@ const NewDonation = ({ isAdmin }) => {
       )
       .then((result) => {
         // console.log(result.data.result);
-        dispatch(addDonation({ IBAN, amount }));
+        dispatch(addDonation({ id, donations }));
         setMessage(" the donation has been created successfully");
       })
       .catch((err) => {
@@ -206,7 +206,7 @@ const NewDonation = ({ isAdmin }) => {
               type="text"
               placeholder="Amount"
               onChange={(e) => {
-                setAmount(e.target.value);
+                setDonations(e.target.value);
               }}
             ></input>
             <br />

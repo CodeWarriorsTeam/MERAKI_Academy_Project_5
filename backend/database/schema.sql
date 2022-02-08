@@ -24,6 +24,20 @@ CREATE TABLE users(
     PRIMARY KEY (id)
 );
 
+
+
+CREATE TABLE donation(
+id INT AUTO_INCREMENT NOT NULL,
+IBAN VARCHAR(255),
+amount INT,
+case_id INT,
+donor_id INT,
+FOREIGN KEY (donor_id) REFERENCES users(id),
+is_deleted TINYINT DEFAULT 0,
+PRIMARY KEY (id)
+);
+
+
 CREATE TABLE cases (
     id INT AUTO_INCREMENT NOT NULL,
     category VARCHAR(255),
@@ -33,20 +47,10 @@ CREATE TABLE cases (
     TheAmountRequired INT,
     donations INT,
     donor INT,
-    FOREIGN KEY(donor) REFERENCES users(id),
+    donation_id INT,
+    FOREIGN KEY(donor) REFERENCES donation(donor_id),
+    FOREIGN KEY (donation_id) REFERENCES donation(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
-);
-
-CREATE TABLE donation(
-id INT AUTO_INCREMENT NOT NULL,
-IBAN VARCHAR(255),
-amount INT,
-case_id INT,
-FOREIGN KEY (case_id) REFERENCES cases(id),
-donor_id INT,
-FOREIGN KEY (donor_id) REFERENCES users(id),
-is_deleted TINYINT DEFAULT 0,
-PRIMARY KEY (id)
 );
 
