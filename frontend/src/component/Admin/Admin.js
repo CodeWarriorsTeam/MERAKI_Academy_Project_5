@@ -50,7 +50,7 @@ const Admin = () => {
   const getAllCases = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/cases/page?page=${num}
+        `http://localhost:5000/admin
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
