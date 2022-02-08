@@ -203,7 +203,7 @@ const getCasesByCategory = (req, res) => {
   const data = [req.query.category];
 
   // SELECT * FROM donation RIGHT JOIN cases ON case_id=cases.id  WHERE cases.is_deleted=0
-//SELECT * FROM cases   WHERE cases.is_deleted=0
+  //SELECT * FROM cases   WHERE cases.is_deleted=0
   const query = `SELECT * FROM cases WHERE cases.is_deleted=0 AND category=? limit ${limit} OFFSET ${offset} `;
 
   connection.query(query, data, (err, result) => {
@@ -248,12 +248,11 @@ const getCasesByCategory = (req, res) => {
 };
 
 const updateTheAmountRequired = (req, res) => {
-  
   const id = [req.body.id];
   const query = `SELECT * FROM cases  WHERE id=? and is_deleted=0`;
   connection.query(query, id, (err, result) => {
     if (err) {
-      console.log("errrr",err);
+      console.log("errrr", err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -274,7 +273,6 @@ const updateTheAmountRequired = (req, res) => {
       const data = [TheAmountRequired, donations, id];
       connection.query(query, data, (err, results) => {
         if (err) {
-         
           return res.status(404).json({
             success: false,
             massage: `Server error`,
@@ -298,6 +296,8 @@ const updateTheAmountRequired = (req, res) => {
     }
   });
 };
+
+
 module.exports = {
   createNewCase,
   getAllCases,
@@ -305,5 +305,6 @@ module.exports = {
   updateCaseById,
   deleteCaseById,
   getCasesByCategory,
-  updateTheAmountRequired
+  updateTheAmountRequired,
+  
 };
