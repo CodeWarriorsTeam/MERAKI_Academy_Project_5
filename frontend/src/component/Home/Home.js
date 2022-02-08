@@ -3,7 +3,8 @@ import axios from "axios";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import "./Home.css";
 
-const Home = ({setCategory,setAllCase}) => {
+const Home = ({setCategory,setAllCase,numEducation}) => {
+ 
   return (
     <>
       <br /> <br /> <br />
@@ -37,7 +38,7 @@ const Home = ({setCategory,setAllCase}) => {
           <div className="boxContainer">
             <div className="box"><div className="cardImage"></div>
             <div className="targetTitle">Educating 1000 students</div>
-            <div className="targetCount">Covered number for this moment:<span>100 </span></div>
+            <div className="targetCount">Covered number for this moment:<span>{numEducation} </span></div>
             <Link
           to="/allcases"
           onClick={() => {

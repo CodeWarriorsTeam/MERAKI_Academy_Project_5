@@ -118,6 +118,7 @@ const Admin = () => {
       )
 
       .then((result) => {
+       
         dispatch(
           AddCase({
             category,
@@ -126,7 +127,9 @@ const Admin = () => {
             case_description,
             TheAmountRequired,
           })
+          
         );
+        getAllCases()
         setMessage("the case has been created successfully");
         setModelIsOpen(false);
         navigate(`/admin`);
