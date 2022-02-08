@@ -1,23 +1,127 @@
-.table, th, td {
-   border: 2px solid black;
+.table,
+th,
+td {
+  border: 1px solid black;
 }
-.table{
-    padding: 0%;
+
+/* .head {
+  background-color: #f5c323;
+} */
+.id {
+  margin: 20px;
 }
-.table, th,td {
-    /* margin: 20%; */
+.delete{
+    color: red;
+    font-size: 1.5em;
 }
-.head{
-background-color: #F5C323;
+.update{
+    color: black;
+    font-size: 1.3em;
 }
-.id{
- margin: 20px;
+.model {
+  display: grid;
+  text-align: center;
+  justify-content: center;
 }
-.newPage{
-  /* float: right; */
+.plus {
+ height: 2em;
+  width: 2em;
+  float: right;
+  transform: translate(-1em,0em);
+  cursor: pointer;
 }
-.model{
-    display: grid;
-    text-align: center;
-    justify-content: center;
-}
+
+  
+  .category:hover {
+    border-top: 1px rgb(0, 0, 0) solid;
+    border-right: 1px rgb(0, 0, 0) solid;
+    border-left: 1px rgb(0, 0, 0) solid;
+    border-bottom: 1px rgb(0, 0, 0) solid;
+  }
+  .category {
+    border-top: 1px rgba(116, 105, 105, 0.342) solid;
+    border-right: 1px rgba(138, 127, 127, 0.342) solid;
+    border-left: 1px rgba(138, 127, 127, 0.342) solid;
+    border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+    color: black;
+    border-radius: 5px;
+  }
+  
+  .image:hover {
+      border-top: 1px rgb(0, 0, 0) solid;
+      border-right: 1px rgb(0, 0, 0) solid;
+      border-left: 1px rgb(0, 0, 0) solid;
+      border-bottom: 1px rgb(0, 0, 0) solid;
+    }
+    .image {
+      border-top: 1px rgba(116, 105, 105, 0.342) solid;
+      border-right: 1px rgba(138, 127, 127, 0.342) solid;
+      border-left: 1px rgba(138, 127, 127, 0.342) solid;
+      border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+      color: black;
+      border-radius: 5px;
+    }
+  
+    .title:hover {
+      border-top: 1px rgb(0, 0, 0) solid;
+      border-right: 1px rgb(0, 0, 0) solid;
+      border-left: 1px rgb(0, 0, 0) solid;
+      border-bottom: 1px rgb(0, 0, 0) solid;
+    }
+    .title {
+      border-top: 1px rgba(116, 105, 105, 0.342) solid;
+      border-right: 1px rgba(138, 127, 127, 0.342) solid;
+      border-left: 1px rgba(138, 127, 127, 0.342) solid;
+      border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+      color: black;
+      border-radius: 5px;
+    }
+    .amount:hover {
+      border-top: 1px rgb(0, 0, 0) solid;
+      border-right: 1px rgb(0, 0, 0) solid;
+      border-left: 1px rgb(0, 0, 0) solid;
+      border-bottom: 1px rgb(0, 0, 0) solid;
+    }
+    .amount {
+      border-top: 1px rgba(116, 105, 105, 0.342) solid;
+      border-right: 1px rgba(138, 127, 127, 0.342) solid;
+      border-left: 1px rgba(138, 127, 127, 0.342) solid;
+      border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+      color: black;
+      border-radius: 5px;
+    }
+    .description:hover {
+      border-top: 1px rgb(0, 0, 0) solid;
+      border-right: 1px rgb(0, 0, 0) solid;
+      border-left: 1px rgb(0, 0, 0) solid;
+      border-bottom: 1px rgb(0, 0, 0) solid;
+    }
+    .description {
+      border-top: 1px rgba(116, 105, 105, 0.342) solid;
+      border-right: 1px rgba(138, 127, 127, 0.342) solid;
+      border-left: 1px rgba(138, 127, 127, 0.342) solid;
+      border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+      color: black;
+      border-radius: 5px;
+    }
+  
+    .new:hover {
+      border-top: 1px rgb(0, 0, 0) solid;
+      border-right: 1px rgb(0, 0, 0) solid;
+      border-left: 1px rgb(0, 0, 0) solid;
+      border-bottom: 1px rgb(0, 0, 0) solid;
+      cursor: pointer;
+    }
+    .new {
+      height: 30%;
+      width: 20%;
+      border-radius: 5px;
+      border-top: 1px rgba(116, 105, 105, 0.342) solid;
+      border-right: 1px rgba(138, 127, 127, 0.342) solid;
+      border-left: 1px rgba(138, 127, 127, 0.342) solid;
+      border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+      background-color: #f5c323;
+      color: black;
+      font-size: 2ch;
+    }
+    
