@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import Model  from "react-modal";
+import Model from "react-modal";
 import {
   AddCase,
   setCases,
   updateCases,
   deleteCase,
 } from "../../reducer/cases/index";
+import { useParams } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-const Admin = ({ allCase }) => {
+const Admin = () => {
   const [num, setNum] = useState(1);
   const [updateBox, setUpdateBox] = useState(false);
   const [caseId, setCaseId] = useState(false);
@@ -25,6 +26,7 @@ const Admin = ({ allCase }) => {
   const [case_description, setCase_Description] = useState("");
   const [message, setMessage] = useState("");
   const [imageselected, setImageSelected] = useState("");
+  // ------------------------------------------------
 
   const uploadImage = (imageFile) => {
     const formData = new FormData();
@@ -40,14 +42,7 @@ const Admin = ({ allCase }) => {
         console.log(err.response);
       });
   };
-
-  const navigate = useNavigate();
-
-  const dispatch = useDispatch();
-
-  const state = useSelector((state) => {
-    return { cases: state.casesReducer.cases, token: state.loginReducer.token };
-  });
+    // ------------------------------------------------
 
   const getAllCases = async () => {
     try {
@@ -66,15 +61,56 @@ const Admin = ({ allCase }) => {
       }
     }
   };
-  const handleUpdate = (element) => {
-    setUpdateBox(!updateBox);
-    setCaseId(element.id);
-    setCategory(element.category);
-    setTitle(element.title);
-    setCase_Image(element.case_image);
-    setCase_Description(element.case_description);
-    if (updateBox) addNewCase(element.id);
+    // ------------------------------------------------
+
+  const updateCaseById = async (id) => {
+    console.log("idupdate", id);
+    try {
+      const result = await axios.put(`http://localhost:5000/cases/${id}`, {
+        case_image,
+        title,
+        case_description,TheAmountRequired,
+        category,
+      });
+      console.log(result.data.results);
+      dispatch(updateCases(result.data.results));
+      getAllCases()
+    } catch (error) {
+      console.log(error);
+    }
   };
+    // ------------------------------------------------
+
+  const deleteCseById = async (id) => {
+    console.log("idDelete:", id);
+    try {
+      await axios.delete(`http://localhost:5000/cases/${id}`);
+      dispatch(deleteCase(id));
+      getAllCases()
+    //   navigate(`/allcases`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+    // ------------------------------------------------
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const state = useSelector((state) => {
+    return { cases: state.casesReducer.cases, token: state.loginReducer.token };
+  });
+
+//   const handleUpdate = (element) => {
+//     setUpdateBox(!updateBox);
+//     setCaseId(element.id);
+//     setCategory(element.category);
+//     setTitle(element.title);
+//     setCase_Image(element.case_image);
+//     setCase_Description(element.case_description);
+//     if (updateBox) addNewCase(element.id);
+//   };
   // ------------------------------------------------
   const addNewCase = () => {
     axios
@@ -108,28 +144,29 @@ const Admin = ({ allCase }) => {
   useEffect(() => {
     getAllCases();
   }, []);
+    // ------------------------------------------------
+
   const customStyles = {
     content: {
-      top: '50%',
-      left: '50%',
-      right: '60%',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
+      top: "50%",
+      left: "50%",
+      right: "60%",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
     },
   };
-  
+
   return (
     <>
-                  
-
       {" "}
       <br />
       <br />
       <br />
       <br />
       <br />
-      <br /><button onClick={() => setModelIsOpen(true)}> +</button>
+      <br />
+      <button onClick={() => setModelIsOpen(true)}> +</button>
       <table className="table">
         {" "}
         <tr className="head">
@@ -157,7 +194,15 @@ const Admin = ({ allCase }) => {
                 </td>
                 <td className="allcasesImage">{element.donations}</td>
                 <td className="allcasesImage">{element.donor}</td>
-                <td className="allcasesImage">Delete || Update</td>
+                <td className="allcasesImage">
+                  {" "}
+                  <button className="delete" onClick={() => deleteCseById(element.id)}>
+                    X
+                  </button>{" "}
+                   <button className="update" onClick={() => updateCaseById(element.id)}>
+                    update
+                  </button>
+                </td>
               </tr>
             );
           })}
@@ -168,81 +213,85 @@ const Admin = ({ allCase }) => {
       {/* <br />
         <br />
               <br /> */}
-           <div className="model">
-      <Model isOpen={modelIsOpen}   style={customStyles} onRequestClose={() => setModelIsOpen(false)}>
-        <div className="newPage">
-          <br />
-          <br />
-          <br />
-
-          <>
-            <input
-              className="category"
-              type="text"
-              placeholder="category"
-              onChange={(e) => {
-                setCategory(e.target.value);
-              }}
-            ></input>
+      <div className="model">
+        <Model
+          isOpen={modelIsOpen}
+          style={customStyles}
+          onRequestClose={() => setModelIsOpen(false)}
+        >
+          <div className="newPage">
             <br />
-
-            <br />
-
-            <input
-              type="file"
-              className="image"
-              onChange={(e) => {
-                setImageSelected(e.target.files[0]);
-              }}
-            ></input>
-
-            <button onClick={() => uploadImage(imageselected)}>upload</button>
-
             <br />
             <br />
 
-            <input
-              className="title"
-              type="text"
-              placeholder="Title"
-              onChange={(e) => {
-                setTitle(e.target.value);
-              }}
-            ></input>
-            <br />
-            <br />
+            <>
+              <input
+                className="category"
+                type="text"
+                placeholder="category"
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}
+              ></input>
+              <br />
 
-            <input
-              className="amount"
-              type="number"
-              placeholder="The amount required"
-              onChange={(e) => {
-                setTheAmountRequired(e.target.value);
-              }}
-            ></input>
-            <br />
-            <br />
+              <br />
 
-            <textarea
-              className="description"
-              type="text"
-              placeholder="Description"
-              onChange={(e) => {
-                setCase_Description(e.target.value);
-              }}
-            ></textarea>
-            <br />
-            <br />
+              <input
+                type="file"
+                className="image"
+                onChange={(e) => {
+                  setImageSelected(e.target.files[0]);
+                }}
+              ></input>
 
-            <button className="new" onClick={addNewCase}>
-              Add New Case
-            </button>
-          </>
+              <button onClick={() => uploadImage(imageselected)}>upload</button>
 
-          {message}
-        </div>
-      </Model>
-      </div>   
+              <br />
+              <br />
+
+              <input
+                className="title"
+                type="text"
+                placeholder="Title"
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+              ></input>
+              <br />
+              <br />
+
+              <input
+                className="amount"
+                type="number"
+                placeholder="The amount required"
+                onChange={(e) => {
+                  setTheAmountRequired(e.target.value);
+                }}
+              ></input>
+              <br />
+              <br />
+
+              <textarea
+                className="description"
+                type="text"
+                placeholder="Description"
+                onChange={(e) => {
+                  setCase_Description(e.target.value);
+                }}
+              ></textarea>
+              <br />
+              <br />
+
+              <button className="new" onClick={addNewCase}>
+                Add New Case
+              </button>
+            </>
+
+            {message}
+          </div>
+        </Model>
+      </div>
     </>
   );
 };

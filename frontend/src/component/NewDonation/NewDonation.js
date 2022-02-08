@@ -17,7 +17,6 @@ const NewDonation = ({ isAdmin }) => {
   });
   const navigate = useNavigate();
   const { id } = useParams();
-
   const dispatch = useDispatch();
   const [updateBox, setUpdateBox] = useState(false);
   const [caseId, setCaseId] = useState(false);
