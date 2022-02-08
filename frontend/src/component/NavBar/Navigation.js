@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { MdSettingsPhone, MdSearch } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
 import "./Navigation.css";
-const Navigation = ({isAdmin,
+const Navigation = ({
+  isAdmin,
   setSearchCase,
   setCategory,
   setAllCase,
@@ -29,7 +30,7 @@ const Navigation = ({isAdmin,
     dispatch(logoutUser());
     navigate(`/login`);
     setUserId("");
-    setIsAdmin(false)
+    setIsAdmin(false);
   };
 
   return (
@@ -75,7 +76,7 @@ const Navigation = ({isAdmin,
           onClick={() => {
             setAllCase(true);
             setCategory(false);
-            setNum(1)
+            setNum(1);
           }}
         >
           <a id="AllCases">All Cases</a>{" "}
@@ -85,7 +86,7 @@ const Navigation = ({isAdmin,
           onClick={() => {
             setCategory(`education`);
             setAllCase(false);
-            setNum(1)
+            setNum(1);
           }}
         >
           <a className="education">Education</a>{" "}
@@ -95,7 +96,7 @@ const Navigation = ({isAdmin,
           onClick={() => {
             setCategory(`kids`);
             setAllCase(false);
-            setNum(1)
+            setNum(1);
           }}
         >
           <a id="kids">Kids</a>{" "}
@@ -111,15 +112,15 @@ const Navigation = ({isAdmin,
           <a id="kids">repair</a>{" "}
         </Link>
         {isAdmin && state.isLoggedIn ? (
-          <Link className="admin" to="/admin">Admin Panel</Link>
+          <Link className="admin" to="/admin">
+            Admin Panel
+          </Link>
         ) : (
           <></>
         )}
-      
       </div>
       <></>
       {state.isLoggedIn || userId ? (
-
         <a id="Logout" onClick={logout}>
           Logout
         </a>
