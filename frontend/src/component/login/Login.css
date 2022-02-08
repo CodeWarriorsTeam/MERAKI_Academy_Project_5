@@ -1,6 +1,7 @@
 .loginpage {
   height: 100%;
   width: 100%;
+  margin-top: 2%;
 }
 .sign {
   font-size: 3.7ch;
@@ -72,6 +73,13 @@
   color: black;
   font-size: 2.2ch;
 }
+
+
+.message{
+  margin-top: 1.5%;
+}
+
+
 
 /* 
 #0C0D0E  word colors
