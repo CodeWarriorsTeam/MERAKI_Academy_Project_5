@@ -4,11 +4,17 @@
   width: 100%;
   margin-top: 2%;
   border: 0px 1px  solid;
+  overflow: hidden;
 }
 
 .signup {
   font-size: 3.7ch;
   font-family: "Gill Sans", sans-serif;
+}
+
+
+.registerMessage{
+transform: translate(0.2em,1em);
 }
 
 .firstNameLabel {
