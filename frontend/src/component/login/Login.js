@@ -39,6 +39,9 @@ const Login = ({ setIsAdmin, setUserId }) => {
       .then((result) => {
         console.log(result.data.result);
         dispatch(loginUser(result.data.token));
+        //  isAdmin ? navigate("/admin") : navigate("/allcases");
+
+        setIsAdmin(result.data.result[0].role_name.toLowerCase() === "admin");
         navigate("/allcases");
         localStorage.setItem("token", result.data.token);
         console.log(result.data.result[0].role_name);
@@ -79,13 +82,15 @@ const Login = ({ setIsAdmin, setUserId }) => {
             setPass(e.target.value);
           }}
         ></input>
-        <br /> <br /> 
-        {/* <br /> */}
-        {/* <br /> */}
+        <br />
+        <br />
+        <br />
         <button className="but" onClick={login}>
           LOGIN
         </button>
-        <br />
+        <br /> <br /> 
+        {/* <br /> */}
+        {/* <br /> */}
         <div className="message">{message}</div>
         <br></br> <br></br>
         <p className="sent">
