@@ -30,11 +30,13 @@ const NewDonation = ({ isAdmin }) => {
   const [donations, setDonations] = useState("");
   const [message, setMessage] = useState("");
   const [details, setDetails] = useState([]);
-
+  const [isClosed, setIsClosed] = useState(true);
   const getbyid = async () => {
     try {
       const result = await axios.get(`http://localhost:5000/cases/${id}`);
       setDetails(result.data.result);
+      console.log(result.data.result);
+      setIsClosed(result.data.result[0].TheAmountRequired)
     } catch (error) {
       console.log(error.response);
     }
@@ -114,6 +116,7 @@ const NewDonation = ({ isAdmin }) => {
       {details &&
         details.map((element, i) => (
           <>
+          
             <div key={i}>
               <br></br>
               <img src={element.case_image} />
@@ -161,19 +164,18 @@ const NewDonation = ({ isAdmin }) => {
               )}
             </div>
           </>
-        ))}
+     
+      ))
+        
+        
+        
+       }
 
-      {/* ) : (  */}
-      <></>
-      {/* )} */}
-      {/* </div> */}
-      {/* //  })} */}
-
-      {/* ))} */}
+    
 
       <br />
       <>
-        <div className="contenerDonation">
+      {isClosed?( <div className="contenerDonation">
           <input type="checkbox" id="inputOpenDonation"></input>
 
           <label for="inputOpenDonation" className="btn">
@@ -223,7 +225,8 @@ const NewDonation = ({ isAdmin }) => {
               Close
             </label>
           </div>
-        </div>
+        </div>):(<>Close</>)}
+       
       </>
     </>
   );
