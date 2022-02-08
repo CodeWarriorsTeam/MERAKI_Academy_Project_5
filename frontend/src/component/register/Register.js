@@ -44,7 +44,7 @@ const Register = () => {
 
 
     
-    if (regEx.test(email) && email!=null && firstName!= "" && lastName!="" && country != "") {
+    if (regEx.test(email) && email!=null &&pass !="" && firstName!= "" && lastName!="" && country != "") {
       register()
     }
  
@@ -70,9 +70,12 @@ const Register = () => {
       .then((result) => {
         setParagraph("The user has been created successfully");
         navigate("/login");
+
       })
       .catch((err) => {
-        setParagraph("Error happend while register, please try again");
+        // console.log(err.response.data.message);
+        setParagraph(err.response.data.message)
+        // setParagraph("Error happend while register, please try again");
       });
   };
   return (
@@ -162,7 +165,7 @@ const Register = () => {
           Sign Up
         </button>
         <br></br>
-        <p>{paragraph}</p>
+        <p className="registerMessage">{paragraph}</p>
         <br></br>
         <p className="sent">
           Already have an account?{" "}

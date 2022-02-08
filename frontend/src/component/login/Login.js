@@ -30,7 +30,6 @@ const Login = ({ setIsAdmin, setUserId }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [message, setMessage] = useState("");
-
   const userLogin = { email, pass };
 
   const login = () => {
@@ -46,10 +45,13 @@ const Login = ({ setIsAdmin, setUserId }) => {
         navigate("/allcases");
         localStorage.setItem("token", result.data.token);
         console.log(result.data.result[0].role_name);
+        setIsAdmin(result.data.result[0].role_name.toLowerCase() === "admin");
       })
 
       .catch((err) => {
-        return setMessage("err.response.data.message");
+        console.log(err.response.data.message);
+
+        setMessage(err.response.data.message);
       });
   };
 
@@ -86,6 +88,10 @@ const Login = ({ setIsAdmin, setUserId }) => {
         <button className="but" onClick={login}>
           LOGIN
         </button>
+        <br /> <br /> 
+        {/* <br /> */}
+        {/* <br /> */}
+        <div className="message">{message}</div>
         <br></br> <br></br>
         <p className="sent">
           Don't have an account?{" "}
