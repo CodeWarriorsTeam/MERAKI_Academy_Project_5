@@ -15,7 +15,7 @@ import "./Admin.css";
 import { Link } from "react-router-dom";
 const Admin = () => {
   const [num, setNum] = useState(1);
-  const [updateBox, setUpdateBox] = useState(false);
+  const [updateIsOpen, setUpdateIsOpen] = useState(false);
   const [caseId, setCaseId] = useState(false);
   const [userId, setUserId] = useState("");
   const [modelIsOpen, setModelIsOpen] = useState(false);
@@ -42,7 +42,7 @@ const Admin = () => {
         console.log(err.response);
       });
   };
-    // ------------------------------------------------
+  // ------------------------------------------------
 
   const getAllCases = async () => {
     try {
@@ -61,38 +61,40 @@ const Admin = () => {
       }
     }
   };
-    // ------------------------------------------------
-
+  // ------------------------------------------------
   const updateCaseById = async (id) => {
     console.log("idupdate", id);
     try {
       const result = await axios.put(`http://localhost:5000/cases/${id}`, {
         case_image,
         title,
-        case_description,TheAmountRequired,
+        case_description,
+        TheAmountRequired,
         category,
       });
       console.log(result.data.results);
+
       dispatch(updateCases(result.data.results));
-      getAllCases()
+      getAllCases();
+      setUpdateIsOpen(false);
     } catch (error) {
       console.log(error);
     }
   };
-    // ------------------------------------------------
+  // ------------------------------------------------
 
   const deleteCseById = async (id) => {
     console.log("idDelete:", id);
     try {
       await axios.delete(`http://localhost:5000/cases/${id}`);
       dispatch(deleteCase(id));
-      getAllCases()
-    //   navigate(`/allcases`);
+      getAllCases();
+      //   navigate(`/allcases`);
     } catch (error) {
       console.log(error);
     }
   };
-    // ------------------------------------------------
+  // ------------------------------------------------
 
   const navigate = useNavigate();
 
@@ -102,15 +104,15 @@ const Admin = () => {
     return { cases: state.casesReducer.cases, token: state.loginReducer.token };
   });
 
-//   const handleUpdate = (element) => {
-//     setUpdateBox(!updateBox);
-//     setCaseId(element.id);
-//     setCategory(element.category);
-//     setTitle(element.title);
-//     setCase_Image(element.case_image);
-//     setCase_Description(element.case_description);
-//     if (updateBox) addNewCase(element.id);
-//   };
+  //   const handleUpdate = (element) => {
+  //     setUpdateBox(!updateBox);
+  //     setCaseId(element.id);
+  //     setCategory(element.category);
+  //     setTitle(element.title);
+  //     setCase_Image(element.case_image);
+  //     setCase_Description(element.case_description);
+  //     if (updateBox) addNewCase(element.id);
+  //   };
   // ------------------------------------------------
   const addNewCase = () => {
     axios
@@ -144,7 +146,7 @@ const Admin = () => {
   useEffect(() => {
     getAllCases();
   }, []);
-    // ------------------------------------------------
+  // ------------------------------------------------
 
   const customStyles = {
     content: {
@@ -196,13 +198,65 @@ const Admin = () => {
                 <td className="allcasesImage">{element.donor}</td>
                 <td className="allcasesImage">
                   {" "}
-                  <button className="delete" onClick={() => deleteCseById(element.id)}>
+                  <button
+                    className="delete"
+                    onClick={() => deleteCseById(element.id)}
+                  >
                     X
                   </button>{" "}
-                   <button className="update" onClick={() => updateCaseById(element.id)}>
+                  <button
+                    className="update2"
+                    onClick={() => setUpdateIsOpen(true)}
+                  >
                     update
                   </button>
                 </td>
+                <div>
+                  <Model
+                    isOpen={updateIsOpen}
+                    onRequestClose={() => setModelIsOpen(false)}
+                  >
+                 {" "}
+                   
+                   
+                    <input
+                      type="text"
+                      placeholder="category"
+                      defaultValue={element.category}
+                      onChange={(e) => setCategory(e.target.value)}
+                    ></input>
+                    <input
+                      type="text"
+                      placeholder="image"
+                      defaultValue={element.case_image}
+                      onChange={(e) => setCase_Image(e.target.value)}
+                    ></input>
+                     <input
+                      type="text"
+                      placeholder="title"
+                      defaultValue={element.title}
+                      onChange={(e) => setTitle(e.target.value)}
+                    ></input>
+                     <input
+                      type="text"
+                      placeholder="description"
+                      defaultValue={element.case_description}
+                      onChange={(e) => setCase_Description(e.target.value)}
+                    ></input>   
+                    <input
+                      type="text"
+                      placeholder="amount"
+                      defaultValue={element.TheAmountRequired}
+                      onChange={(e) => setTheAmountRequired(e.target.value)}
+                    ></input>
+                    <button
+                      className="update"
+                      onClick={() => updateCaseById(element.id)}
+                    >
+                      update
+                    </button>
+                  </Model>
+                </div>
               </tr>
             );
           })}
