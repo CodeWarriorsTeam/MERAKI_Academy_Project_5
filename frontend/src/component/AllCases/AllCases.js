@@ -124,8 +124,8 @@ console.log(num);
                   <p className="TheAmountReguired">
                     TheAmountRequired:{element.TheAmountRequired}$
                   </p>
-                  <>
-            </>      
+                 {element.TheAmountRequired&&element.TheAmountRequired>0?(<>Available</>):(<p>close</p>)}
+              
               </div>
             </>
           ))}
