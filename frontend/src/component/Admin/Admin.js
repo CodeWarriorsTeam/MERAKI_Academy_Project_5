@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 const Admin = () => {
   const [num, setNum] = useState(1);
   const [updateIsOpen, setUpdateIsOpen] = useState(false);
-  const [caseId, setCaseId] = useState(false);
+  const [caseId, setCaseId] = useState("");
   const [userId, setUserId] = useState("");
   const [modelIsOpen, setModelIsOpen] = useState(false);
   const [case_image, setCase_Image] = useState("");
@@ -66,7 +66,6 @@ const Admin = () => {
   };
   // ------------------------------------------------
   const updateCaseById = async (id) => {
-    console.log("idupdate", id);
     try {
       const result = await axios.put(`http://localhost:5000/cases/${id}`, {
         case_image,
@@ -75,19 +74,17 @@ const Admin = () => {
         TheAmountRequired,
         category,
       });
-      console.log(result.data.results);
       dispatch(updateCases(result.data.results));
       getAllCases();
       setUpdateIsOpen(false);
       navigate(`/admin`);
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
   // ------------------------------------------------
 
   const deleteCseById = async (id) => {
-    console.log("idDelete:", id);
     try {
       await axios.delete(`http://localhost:5000/cases/${id}`);
       dispatch(deleteCase(id));
@@ -156,7 +153,7 @@ const Admin = () => {
   };
   const customStyles2 = {
     content: {
-      background: "rgba(yellow, 0, 0, 0.7)",
+    //   background: "rgba(yellow, 0, 0, 0.7)",
       top: "50%",
       left: "50%",
       right: "60%",
@@ -196,7 +193,7 @@ const Admin = () => {
         {state.cases &&
           state.cases.map((element, i) => {
             return (
-              <tr>
+              <tr key={i}>
                 <td className="allcasesImage">{element.id}</td>
                 <td className="allcasesImage">{element.category}</td>
                 <td className="allcasesTitle">{element.title}</td>
@@ -216,16 +213,18 @@ const Admin = () => {
                   />
                   <BsPen
                     className="update"
-                    onClick={() => setUpdateIsOpen(true)}
+                    onClick={() => {
+                      setUpdateIsOpen(true);
+                      setCaseId(element.id)
+                    }}
                   />
                 </td>
                 <div>
                   <Model
                     style={customStyles2}
                     isOpen={updateIsOpen}
-                    onRequestClose={() => setModelIsOpen(false)}
+                    onRequestClose={() => setUpdateIsOpen(false)}
                   >
-                    {" "}
                     <input
                       type="text"
                       placeholder="category"
@@ -272,7 +271,7 @@ const Admin = () => {
                     <br />
                     <button
                       className="update"
-                      onClick={() => updateCaseById(element.id)}
+                      onClick={() => updateCaseById(caseId)}
                     >
                       update
                     </button>
