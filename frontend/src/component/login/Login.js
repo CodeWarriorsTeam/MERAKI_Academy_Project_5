@@ -46,6 +46,9 @@ const Login = ({ setIsAdmin, setUserId }) => {
         localStorage.setItem("token", result.data.token);
         console.log(result.data.result[0].role_name);
         setIsAdmin(result.data.result[0].role_name.toLowerCase() === "admin");
+
+        localStorage.setItem("isAdmin",result.data.result[0].role_name)
+
       })
 
       .catch((err) => {

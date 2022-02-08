@@ -17,8 +17,9 @@ function App() {
   const [num, setNum] = useState(1);
 
   //--------------------------------- STORE
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState( localStorage.getItem("isAdmin") );
   const [userId, setUserId] = useState("");
+
 
   return (
     < >
