@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import Model  from "react-modal";
 import {
   AddCase,
   setCases,
@@ -16,7 +17,7 @@ const Admin = ({ allCase }) => {
   const [updateBox, setUpdateBox] = useState(false);
   const [caseId, setCaseId] = useState(false);
   const [userId, setUserId] = useState("");
-
+  const [modelIsOpen, setModelIsOpen] = useState(false);
   const [case_image, setCase_Image] = useState("");
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
@@ -48,7 +49,6 @@ const Admin = ({ allCase }) => {
     return { cases: state.casesReducer.cases, token: state.loginReducer.token };
   });
 
-
   const getAllCases = async () => {
     try {
       const res = await axios.get(
@@ -75,6 +75,7 @@ const Admin = ({ allCase }) => {
     setCase_Description(element.case_description);
     if (updateBox) addNewCase(element.id);
   };
+  // ------------------------------------------------
   const addNewCase = () => {
     axios
       .post(
@@ -107,15 +108,28 @@ const Admin = ({ allCase }) => {
   useEffect(() => {
     getAllCases();
   }, []);
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: '60%',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
+  
   return (
     <>
+                  
+
       {" "}
       <br />
       <br />
       <br />
       <br />
       <br />
-      <br />
+      <br /><button onClick={() => setModelIsOpen(true)}> +</button>
       <table className="table">
         {" "}
         <tr className="head">
@@ -139,8 +153,9 @@ const Admin = ({ allCase }) => {
                 <td className="allcasesTitle">{element.title}</td>
                 <td className="allcasesImage">{element.case_description}</td>
                 <td className="TheAmountReguired">
-                  TheAmountRequired:{element.TheAmountRequired}$</td>
-                <td className="allcasesImage">{element.donation}</td>
+                  TheAmountRequired:{element.TheAmountRequired}$
+                </td>
+                <td className="allcasesImage">{element.donations}</td>
                 <td className="allcasesImage">{element.donor}</td>
                 <td className="allcasesImage">Delete || Update</td>
               </tr>
@@ -153,77 +168,81 @@ const Admin = ({ allCase }) => {
       {/* <br />
         <br />
               <br /> */}
-      <div className="newPage">
-        <br />
-        <br />
-        <br />
-
-        <>
-          <input
-            className="category"
-            type="text"
-            placeholder="category"
-            onChange={(e) => {
-              setCategory(e.target.value);
-            }}
-          ></input>
+           <div className="model">
+      <Model isOpen={modelIsOpen}   style={customStyles} onRequestClose={() => setModelIsOpen(false)}>
+        <div className="newPage">
           <br />
-
-          <br />
-
-          <input
-            type="file"
-            className="image"
-            onChange={(e) => {
-              setImageSelected(e.target.files[0]);
-            }}
-          ></input>
-
-          <button onClick={() => uploadImage(imageselected)}>upload</button>
-
           <br />
           <br />
 
-          <input
-            className="title"
-            type="text"
-            placeholder="Title"
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-          ></input>
-          <br />
-          <br />
+          <>
+            <input
+              className="category"
+              type="text"
+              placeholder="category"
+              onChange={(e) => {
+                setCategory(e.target.value);
+              }}
+            ></input>
+            <br />
 
-          <input
-            className="amount"
-            type="number"
-            placeholder="The amount required"
-            onChange={(e) => {
-              setTheAmountRequired(e.target.value);
-            }}
-          ></input>
-          <br />
-          <br />
+            <br />
 
-          <textarea
-            className="description"
-            type="text"
-            placeholder="Description"
-            onChange={(e) => {
-              setCase_Description(e.target.value);
-            }}
-          ></textarea>
-          <br />
-          <br />
+            <input
+              type="file"
+              className="image"
+              onChange={(e) => {
+                setImageSelected(e.target.files[0]);
+              }}
+            ></input>
 
-          <button className="new" onClick={addNewCase}>
-            Add New Case
-          </button>
-        </>
+            <button onClick={() => uploadImage(imageselected)}>upload</button>
 
-        {message}
-      </div>
+            <br />
+            <br />
+
+            <input
+              className="title"
+              type="text"
+              placeholder="Title"
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            ></input>
+            <br />
+            <br />
+
+            <input
+              className="amount"
+              type="number"
+              placeholder="The amount required"
+              onChange={(e) => {
+                setTheAmountRequired(e.target.value);
+              }}
+            ></input>
+            <br />
+            <br />
+
+            <textarea
+              className="description"
+              type="text"
+              placeholder="Description"
+              onChange={(e) => {
+                setCase_Description(e.target.value);
+              }}
+            ></textarea>
+            <br />
+            <br />
+
+            <button className="new" onClick={addNewCase}>
+              Add New Case
+            </button>
+          </>
+
+          {message}
+        </div>
+      </Model>
+      </div>   
     </>
   );
 };
