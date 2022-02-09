@@ -1,8 +1,12 @@
 const express = require("express");
 
-const { getAllCasesAdminPanel,getSum } = require("../controllers/admin");
+const { getAllCasesAdminPanel,getCountEdu,getCountFood ,getCountRebuilding,getCountMedSupplies,getCountUser} = require("../controllers/admin");
 const adminRouter = express.Router();
 
 adminRouter.get("/", getAllCasesAdminPanel);
-adminRouter.get("/cunt", getSum);
+adminRouter.get("/cuntEdu", getCountEdu);
+adminRouter.get("/cuntFood", getCountFood);
+adminRouter.get("/cuntReb", getCountRebuilding);
+adminRouter.get("/cuntMedSupp", getCountMedSupplies);
+adminRouter.get("/cuntUser", getCountUser);
 module.exports = adminRouter;

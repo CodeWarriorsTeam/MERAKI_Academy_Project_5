@@ -16,6 +16,10 @@ function App() {
   const [allCase, setAllCase] = useState("");
   const [num, setNum] = useState(1);
   const [numEducation, setNumEducation] = useState(0);
+  const [numFood, setNumFood] = useState(0);
+  const [numRebuilding, setNumRebuilding] = useState(0);
+  const [numMedicalSupplies, setNumMedicalSupplies] = useState(0);
+  
 
   //--------------------------------- STORE
   const [isAdmin, setIsAdmin] = useState( localStorage.getItem("isAdmin") );
@@ -40,10 +44,10 @@ function App() {
   
    
       <Routes>
-     <Route path="admin" element={<Admin/>}/>
+     <Route path="admin" element={<Admin searchCase={searchCase}/>}/>
       <Route
           path="/"
-          element={<Home setCategory={setCategory}setAllCase={setAllCase} numEducation={numEducation}/>}
+          element={<Home setCategory={setCategory}setAllCase={setAllCase} numEducation={numEducation} numFood={numFood}setNumFood={setNumFood}setNumEducation={setNumEducation}setNumRebuilding={setNumRebuilding}numRebuilding={numRebuilding}setNumMedicalSupplies={setNumMedicalSupplies}numMedicalSupplies={numMedicalSupplies}/>}
           />
      
         <Route path="/register" element={<Register />} />
@@ -58,6 +62,7 @@ function App() {
               allCase={allCase}
               setNumEducation={setNumEducation}
               numEducation={numEducation}
+              setNumFood={setNumFood}
             />
           }
         />

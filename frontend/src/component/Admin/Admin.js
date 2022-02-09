@@ -6,6 +6,7 @@ import { GrUpdate } from "react-icons/gr";
 import { BsPen, BsArrowDownUp } from "react-icons/bs";
 import { RiArrowUpDownFill, RiDeleteBinLine } from "react-icons/ri";
 import { BiEdit } from "react-icons/bi";
+import { FiUsers } from "react-icons/fi";
 import Model from "react-modal";
 import {
   AddCase,
@@ -18,7 +19,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import { Link } from "react-router-dom";
-const Admin = () => {
+const Admin = ({searchCase}) => {
   const [num, setNum] = useState(1);
   const [updateIsOpen, setUpdateIsOpen] = useState(false);
   const [caseId, setCaseId] = useState("");
@@ -31,6 +32,7 @@ const Admin = () => {
   const [case_description, setCase_Description] = useState("");
   const [message, setMessage] = useState("");
   const [imageselected, setImageSelected] = useState("");
+  const [numUser, setNumUser] = useState(0);
   // ------------------------------------------------
 
   const uploadImage = (imageFile) => {
@@ -148,6 +150,7 @@ const Admin = () => {
   // ------------------------------------------------
   const customStyles = {
     content: {
+      
       top: "50%",
       left: "50%",
       right: "60%",
@@ -167,13 +170,36 @@ const Admin = () => {
       transform: "translate(-50%, -50%)",
     },
   };
+  // ------------------------------------------------
+const conutUsers=async()=>{
+  try {
+    const res = await axios.get(
+      `http://localhost:5000/admin/cuntUser
+`
+    );
+    
+    
+    if (res.data.success) {
+      setNumUser(res.data.result[0].CountUser)
+    }
+  } catch (error) {
+    
 
+  
+  }
+
+}
+useEffect(() => {
+  conutUsers();
+}, []);
   return (
     <>
       {" "}
       <br />
       <br />
       <br />
+    <FiUsers className="countUser"></FiUsers> <p className="countUserPrg">{numUser}</p>
+  
       <AiOutlinePlusCircle
         onClick={() => setModelIsOpen(true)}
         className="plus"
@@ -224,7 +250,20 @@ const Admin = () => {
           </th>
         </tr>{" "}
         {state.cases &&
-          state.cases.map((element, i) => {
+          state.cases.filter((caseInformation) => {
+            if (searchCase == "") {
+              return caseInformation;
+            } else if (
+              caseInformation.category
+                .toLowerCase()
+                .includes(searchCase.toLowerCase()) ||
+              caseInformation.title
+                .toLowerCase()
+                .includes(searchCase.toLowerCase())
+            ) {
+              return caseInformation;
+            }
+          }).map((element, i) => {
             return (
               <tr key={i}>
                 <td className="allcasesImage">{element.id}</td>

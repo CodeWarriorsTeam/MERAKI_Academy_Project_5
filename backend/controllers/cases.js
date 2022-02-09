@@ -200,7 +200,7 @@ const getCasesByCategory = (req, res) => {
 
   const offset = (page - 1) * limit;
 
-  const data = [req.query.category];
+  const data = [req.query.category.toLowerCase()];
 
   // SELECT * FROM donation RIGHT JOIN cases ON case_id=cases.id  WHERE cases.is_deleted=0
   //SELECT * FROM cases   WHERE cases.is_deleted=0
