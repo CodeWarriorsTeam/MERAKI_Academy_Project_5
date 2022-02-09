@@ -9,7 +9,7 @@
 }
 
 .case .available {
-  width: 150px;
+  width: 100px;
   height: 20px;
   background-color: #25211d;
   color: #f5efed;
@@ -17,9 +17,9 @@
   transform: rotate(-10deg);
   /* transform: matrix(2,1,1,2,-70,-300); */
   margin-left: -47%;
-  /* position: relative;
+  position: relative;
   bottom: 335px;
-  right:35px  */
+  left:40% 
 }
 
 .available:hover {
