@@ -2,18 +2,24 @@
 th,
 td {
   width: 80%;
-    /* border-collapse: separate; */
-    border-spacing: 2% 2%;
-  border:1px solid rgba(17, 17, 17, 0.377);
-  
+  /* border-collapse: separate; */
+  border-spacing: 2% 2%;
+  border: 1px solid rgba(17, 17, 17, 0.377);
 }
-.table{
-width: 80%;
-margin-left: 5%;
+th {
+  color: white;
+  background-color: black;
+}
+.ttt:nth-child(odd) {
+  background-color: rgb(194, 192, 192);
+}
+
+.table {
+  width: 80%;
+  margin-left: 5%;
   position: relative;
   justify-content: center;
   text-align: center;
- 
 }
 th,
 td {
@@ -21,32 +27,32 @@ td {
   padding: 8px;
   text-align: left;
 }
-.head{
-font-size: 100%;   
+.head {
+  font-size: 100%;
 }
-.arrow{
-    float: right;
+.arrow {
+  float: right;
 }
 
-.deleteIcon{
-    font-size: 1.2em;
+.deleteIcon {
+  font-size: 1.2em;
 }
-.delete{
-    cursor: pointer;
-    /* height: 100%; */
-    /* width: 65%; */
-    font-size: 0.7em;
+.delete {
+  cursor: pointer;
+  /* height: 100%; */
+  /* width: 65%; */
+  font-size: 0.7em;
 }
-.edit{
-    /* height: 100%; */
-    cursor: pointer;
-    width: 65%;
-    font-size: 0.7em;
+.edit {
+  /* height: 100%; */
+  cursor: pointer;
+  width: 65%;
+  font-size: 0.7em;
 }
-.editIcon{
-    margin-top: 5%;
-    color: black;
-    font-size: 1.3em;
+.editIcon {
+  margin-top: 5%;
+  color: black;
+  font-size: 1.3em;
 }
 .model {
   display: grid;
@@ -54,122 +60,115 @@ font-size: 100%;
   justify-content: center;
 }
 .plus {
- height: 2em;
+  height: 2em;
   width: 2em;
   float: right;
-  transform: translate(-6em,0em);
+  transform: translate(-6em, 0em);
   cursor: pointer;
 }
 
-  
-  .category:hover {
-    border-top: 1px rgb(0, 0, 0) solid;
-    border-right: 1px rgb(0, 0, 0) solid;
-    border-left: 1px rgb(0, 0, 0) solid;
-    border-bottom: 1px rgb(0, 0, 0) solid;
-  }
-  .category {
-    border-top: 1px rgba(116, 105, 105, 0.342) solid;
-    border-right: 1px rgba(138, 127, 127, 0.342) solid;
-    border-left: 1px rgba(138, 127, 127, 0.342) solid;
-    border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
-    color: black;
-    border-radius: 5px;
-  }
-  
-  .image:hover {
-      border-top: 1px rgb(0, 0, 0) solid;
-      border-right: 1px rgb(0, 0, 0) solid;
-      border-left: 1px rgb(0, 0, 0) solid;
-      border-bottom: 1px rgb(0, 0, 0) solid;
-    }
-    .image {
-      border-top: 1px rgba(116, 105, 105, 0.342) solid;
-      border-right: 1px rgba(138, 127, 127, 0.342) solid;
-      border-left: 1px rgba(138, 127, 127, 0.342) solid;
-      border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
-      color: black;
-      border-radius: 5px;
-    }
-  
-    .title:hover {
-      border-top: 1px rgb(0, 0, 0) solid;
-      border-right: 1px rgb(0, 0, 0) solid;
-      border-left: 1px rgb(0, 0, 0) solid;
-      border-bottom: 1px rgb(0, 0, 0) solid;
-    }
-    .title {
-      border-top: 1px rgba(116, 105, 105, 0.342) solid;
-      border-right: 1px rgba(138, 127, 127, 0.342) solid;
-      border-left: 1px rgba(138, 127, 127, 0.342) solid;
-      border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
-      color: black;
-      border-radius: 5px;
-    }
-    .amount:hover {
-      border-top: 1px rgb(0, 0, 0) solid;
-      border-right: 1px rgb(0, 0, 0) solid;
-      border-left: 1px rgb(0, 0, 0) solid;
-      border-bottom: 1px rgb(0, 0, 0) solid;
-    }
-    .amount {
-      border-top: 1px rgba(116, 105, 105, 0.342) solid;
-      border-right: 1px rgba(138, 127, 127, 0.342) solid;
-      border-left: 1px rgba(138, 127, 127, 0.342) solid;
-      border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
-      color: black;
-      border-radius: 5px;
-    }
-    .description:hover {
-      border-top: 1px rgb(0, 0, 0) solid;
-      border-right: 1px rgb(0, 0, 0) solid;
-      border-left: 1px rgb(0, 0, 0) solid;
-      border-bottom: 1px rgb(0, 0, 0) solid;
-    }
-    .description {
-      border-top: 1px rgba(116, 105, 105, 0.342) solid;
-      border-right: 1px rgba(138, 127, 127, 0.342) solid;
-      border-left: 1px rgba(138, 127, 127, 0.342) solid;
-      border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
-      color: black;
-      border-radius: 5px;
-    }
-  
-    .new:hover {
-      border-top: 1px rgb(0, 0, 0) solid;
-      border-right: 1px rgb(0, 0, 0) solid;
-      border-left: 1px rgb(0, 0, 0) solid;
-      border-bottom: 1px rgb(0, 0, 0) solid;
-      cursor: pointer;
-    }
-    .new {
-      height: 30%;
-      width: 20%;
-      border-radius: 5px;
-      border-top: 1px rgba(116, 105, 105, 0.342) solid;
-      border-right: 1px rgba(138, 127, 127, 0.342) solid;
-      border-left: 1px rgba(138, 127, 127, 0.342) solid;
-      border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
-      background-color: #f5c323;
-      color: black;
-      font-size: 2ch;
-    }
+.category:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+}
+.category {
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+}
 
-    .countUser{
-  
-      height: 2em;
+.image:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+}
+.image {
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+}
+
+.title:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+}
+.title {
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+}
+.amount:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+}
+.amount {
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+}
+.description:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+}
+.description {
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+}
+
+.new:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+  cursor: pointer;
+}
+.new {
+  height: 30%;
+  width: 20%;
+  border-radius: 5px;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  background-color: #f5c323;
+  color: black;
+  font-size: 2ch;
+}
+
+.countUser {
+  height: 2em;
   width: 2em;
   float: left;
-  transform: translate(10em,0em);
-  
-     
-    
-    }
-    .countUserPrg{
-    
-      font-size: 25px;
-      float: left;
-     font-weight: bold;
-      transform: translate(7em,0.1em);
-     
-    }
+  transform: translate(10em, 0em);
+}
+.countUserPrg {
+  font-size: 25px;
+  float: left;
+  font-weight: bold;
+  transform: translate(7em, 0.1em);
+}
