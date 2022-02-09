@@ -164,9 +164,8 @@ const Register = () => {
         <button onClick={checkFormValidation} className="registerButton">
           Sign Up
         </button>
-        <br />
-        <p className="registerMessage">{paragraph}</p>
-        <br></br>
+        <br /><br/>
+        <p className="message">{paragraph}</p>
         <p className="sent">
           Already have an account ?{" "}
           <Link className="login" to="/login" className="link">
