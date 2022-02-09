@@ -85,17 +85,22 @@ const Login = ({ setIsAdmin, setUserId }) => {
             setPass(e.target.value);
           }}
         ></input>
-        <br />
+
         <br />
         <br />
         <button className="but" onClick={login}>
           LOGIN
         </button>
-        <br /> <br /> 
-        {/* <br /> */}
-        {/* <br /> */}
+        <br />  <br />
         <div className="message">{message}</div>
-        <br></br> <br></br>
+        <br />
+       <GoogleLogin className="google"
+        clientId="776623589420-erpi2vgpt6n8ncgv3gqc7ddcpphibjs5.apps.googleusercontent.com"
+        buttonText="sign in with google"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={"single_host_origin"}
+      />  <br />  <br />
         <p className="sent">
           Don't have an account?{" "}
           <Link className="register" to="/register" className="link">
@@ -105,13 +110,7 @@ const Login = ({ setIsAdmin, setUserId }) => {
         <br></br>
       </div>
 
-      <GoogleLogin
-        clientId="776623589420-erpi2vgpt6n8ncgv3gqc7ddcpphibjs5.apps.googleusercontent.com"
-        buttonText="sign in with google"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={"single_host_origin"}
-      />
+    
     </>
   );
 };
