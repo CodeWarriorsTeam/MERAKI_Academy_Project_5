@@ -202,13 +202,12 @@ useEffect(() => {
   conutUsers();
 }, []);
   return (
-    <>
+    <div className="alll">
       {" "}
       <br />
       <br />
       <br />
     <FiUsers className="countUser"></FiUsers> <p className="countUserPrg">{numUser}</p>
-  
       <AiOutlinePlusCircle
         onClick={() => setModelIsOpen(true)}
         className="plus"
@@ -275,19 +274,20 @@ useEffect(() => {
           }).map((element, i) => {
             return (
               <>
-              <tr key={i}>
-                <td className="allcasesImage">{element.id}</td>
-                <td className="allcasesImage">{element.category}</td>
-                <td className="allcasesTitle">{element.title}</td>
-                <td className="TheAmountReguired">
+              <tr key={i} className="ttt">
+                <td className="id">{element.id}</td>
+                <td className="categor">{element.category}</td>
+                <td className="tit">{element.title}</td>
+                <td className="req">
+              
                   {element.TheAmountRequired} $
                 </td>
-                <td className="allcasesImage">{element.case_image}</td>
-                <td className="allcasesImage">{element.case_description}</td>
+                <td className="imag">{element.case_image}</td>
+                <td className="descr">{element.case_description}</td>
 
-                <td className="allcasesImage">{element.donations}</td>
-                <td className="allcasesImage">{element.donor}</td>
-                <td className="allcasesImage">
+                <td className="donation">{element.donations}</td>
+                <td className="donor">{element.donor}</td>
+                <td className="button">
                   {" "}
                   <button className="delete" onClick={() => deleteCseById(element.id)}>
                     <RiDeleteBinLine className="deleteIcon" />Delete{" "}
@@ -447,7 +447,7 @@ useEffect(() => {
           </div>
         </Model>
       </div>
-    </>
+    </div>
   );
 };
 export default Admin;
