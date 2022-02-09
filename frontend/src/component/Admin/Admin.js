@@ -7,6 +7,8 @@ import { BsPen, BsArrowDownUp } from "react-icons/bs";
 import { RiArrowUpDownFill, RiDeleteBinLine } from "react-icons/ri";
 import { BiEdit } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
+import { GrCaretNext } from "react-icons/gr";
+import { BsFillBackspaceFill } from "react-icons/bs";
 import Model from "react-modal";
 import {
   AddCase,
@@ -33,6 +35,7 @@ const Admin = ({searchCase}) => {
   const [message, setMessage] = useState("");
   const [imageselected, setImageSelected] = useState("");
   const [numUser, setNumUser] = useState(0);
+  const [numPage, setNumPage] = useState(1);
   // ------------------------------------------------
 
   const uploadImage = (imageFile) => {
@@ -54,16 +57,22 @@ const Admin = ({searchCase}) => {
   const getAllCases = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin
+        `http://localhost:5000/admin/page?page=${numPage}
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
+      if (!res.data.success){
+        setNumPage(numPage-1)
+      }
       if (res.data.success) {
+        
         dispatch(setCases(res.data.result));
       }
     } catch (error) {
+      
       setMessage("no cases yet");
       if (!error) {
+       console.log(888888);
         return setMessage(error.response.data.message);
       }
     }
@@ -146,7 +155,7 @@ const Admin = ({searchCase}) => {
   };
   useEffect(() => {
     getAllCases();
-  }, []);
+  }, [numPage]);
   // ------------------------------------------------
   const customStyles = {
     content: {
@@ -265,6 +274,7 @@ useEffect(() => {
             }
           }).map((element, i) => {
             return (
+              <>
               <tr key={i}>
                 <td className="allcasesImage">{element.id}</td>
                 <td className="allcasesImage">{element.category}</td>
@@ -353,9 +363,19 @@ useEffect(() => {
                   </Model>
                 </div>
               </tr>
+              
+              </>
             );
           })}
       </table>
+     {numPage==1?(<></>):(<BsFillBackspaceFill onClick={()=>{
+       setNumPage(numPage-1)
+     }}>
+       back
+     </BsFillBackspaceFill>)} 
+     <GrCaretNext onClick={()=>{
+       setNumPage(numPage+1)
+     }}>next</GrCaretNext>
       <div className="model">
         <Model
           isOpen={modelIsOpen}
