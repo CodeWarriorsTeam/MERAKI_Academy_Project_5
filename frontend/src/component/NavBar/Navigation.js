@@ -17,7 +17,7 @@ const Navigation = ({
   setNum,
   numEducation
 }) => {
-  console.log(numEducation);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const state = useSelector((state) => {
@@ -94,22 +94,32 @@ const Navigation = ({
         <Link
           to="/allcases"
           onClick={() => {
-            setCategory(`kids`);
+            setCategory(`food`);
             setAllCase(false);
             setNum(1);
           }}
         >
-          <a id="kids">Kids</a>{" "}
+          <a id="kids">Food</a>{" "}
         </Link>
         <Link
           to="/allcases"
           onClick={() => {
-            setCategory(`repair`);
+            setCategory(`Rebuilding`);
             setAllCase(false);
             setNum(1)
           }}
         >
-          <a id="kids">repair</a>{" "}
+          <a id="kids">Rebuilding</a>{" "}
+        </Link>
+        <Link
+          to="/allcases"
+          onClick={() => {
+            setCategory(`Medical Supplies`);
+            setAllCase(false);
+            setNum(1)
+          }}
+        >
+          <a id="kids">Medical Supplies</a>{" "}
         </Link>
         {isAdmin && state.isLoggedIn ? (
           <Link className="admin" to="/admin">
