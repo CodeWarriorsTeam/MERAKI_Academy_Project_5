@@ -1,21 +1,24 @@
 .case {
-   display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  margin-bottom: 30px;
-  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* margin-bottom: 30px; */
+  margin-top: 50px;
+}
+
+.allcasesImage {
+  height: 50%;
+  width: 100%;
+  border: 1px solid;
   
-  
-} 
+}
 
- .allcasesImage {
-   height: 50%; 
-  width: 50%;
-} 
-
-
-.test{
-    border: 2px solid grey;
-    padding: 50px;
+.allcasesContainer {
+  border: 2px solid black;
+  /* padding: 50px; */
+  height: 100%;
+  width: 60%;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .allcasesImage:hover {
@@ -26,15 +29,25 @@
   font-size: larger;
   color: black;
   font-size: x-large;
-  /* margin-top: 100px; */
 }
 
 .TheAmountReguired {
   font-size: x-large;
 }
 
- /* .update {
+/* .update {
 }
 
 .delete {
 }  */
+
+.detailsButton {
+  height: 15%;
+  width: 40%;
+  background-color: #f5c323;
+  text-align: center;
+}
+
+.detailsButton:hover {
+  cursor: pointer;
+}

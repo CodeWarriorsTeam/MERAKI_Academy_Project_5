@@ -38,7 +38,7 @@ const createNewCase = (req, res) => {
 ///////SELECT * FROM roles INNER JOIN users ON users.role_id=roles.id WHERE email=?
 ////SELECT cases.*, donation.* FROM cases LEFT JOIN donation ON donation.case_id=cases.id WHERE cases.is_deleted=0
 const getAllCases = (req, res) => {
-  const limit = 4;
+  const limit = 6;
   const page = req.query.page;
   const offset = (page - 1) * limit;
   // const query = `SELECT donation.IBAN,donation.amount,donation.case_id,cases.* FROM donation RIGHT JOIN cases ON cases.id=donation.case_id WHERE cases.is_deleted=0  `;
@@ -195,7 +195,7 @@ const deleteCaseById = (req, res) => {
 };
 
 const getCasesByCategory = (req, res) => {
-  const limit = 4;
+  const limit = 6;
   const page = req.query.page;
 
   const offset = (page - 1) * limit;
