@@ -3,15 +3,48 @@ th,
 td {
   width: 80%;
   /* border-collapse: separate; */
-  border-spacing: 2% 2%;
-  border: 1px solid rgba(17, 17, 17, 0.377);
+  /* border-spacing: 2% 2%; */
+  /* border: 1px solid rgba(17, 17, 17, 0.377); */
+}
+.update1{
+    width: 10%;
+    cursor: pointer;
+}
+.update1:hover{
+    background-color: yellow;
+}
+.upload1:hover{
+    background-color: yellow;
+}
+.upload1{
+    cursor: pointer;
+    width: 2em;
 }
 th {
   color: white;
-  background-color: black;
+  background-color: #262524;
 }
 .ttt:nth-child(odd) {
-  background-color: rgb(194, 192, 192);
+  background-color: #ebebeb;
+}
+.next:hover {
+  cursor: pointer;
+  background: #68666485;
+}
+.back:hover{
+    cursor: pointer;
+    background: #68666485;
+}
+.back {
+    width: 3%;
+    background-color: #ebebeb;
+    font-size: 100%;
+}
+.next {
+  /* float: right; */
+  width: 3%;
+  background-color: #ebebeb;
+  font-size: 100%;
 }
 
 .table {
@@ -33,26 +66,26 @@ td {
 .arrow {
   float: right;
 }
-
+.deleteIcon :hover {
+  cursor: pointer;
+  float: left;
+}
 .deleteIcon {
-  font-size: 1.2em;
+  transform: translate(0.4em, 0em);
+  font-size: 1.5em;
+  color: red;
+  float: left;
 }
-.delete {
+.editIcon :hover {
   cursor: pointer;
-  /* height: 100%; */
-  /* width: 65%; */
-  font-size: 0.7em;
-}
-.edit {
-  /* height: 100%; */
-  cursor: pointer;
-  width: 65%;
-  font-size: 0.7em;
+  float: right;
 }
 .editIcon {
-  margin-top: 5%;
-  color: black;
-  font-size: 1.3em;
+  transform: translate(-0.4em, 0em);
+  float: right;
+  /* margin-top: 8%; */
+  color: rgb(28, 28, 241);
+  font-size: 1.5em;
 }
 .model {
   display: grid;
@@ -95,6 +128,7 @@ td {
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
   border-radius: 5px;
+  width: 30%;
 }
 
 .title:hover {

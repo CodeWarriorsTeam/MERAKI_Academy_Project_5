@@ -1,9 +1,17 @@
 .loginpage {
   height: 100%;
-  width: 100%;
+  margin-left: 35%;
+  margin-right: 35%;
   margin-top: 2%;
+  border: 2px solid #25211D  ;
+  overflow: hidden;
+}
+.google{
+  width: 45%;
 }
 .sign {
+  color: #25211D ;
+
   font-size: 3.7ch;
   font-family: "Gill Sans", sans-serif;
 }
@@ -19,7 +27,7 @@
 .account {
   font-size: 1.7ch;
   font-family: system-ui;
-  color: rgb(117, 117, 117);
+color: rgb(117, 117, 117);
 }
 .emai:hover {
   border-top: 1px rgb(0, 0, 0) solid;
@@ -29,12 +37,12 @@
 }
 .emai {
   height: 30px;
-  width: 20%;
+  width: 45%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
-  color: black;
+  color: #262524;
   border-radius: 5px;
 }
 
@@ -46,7 +54,7 @@
 }
 .pass {
   height: 30px;
-  width: 20%;
+  width: 45%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -63,7 +71,7 @@
 }
 .but {
   height: 30px;
-  width: 20%;
+  width: 45%;
   border-radius: 5px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
@@ -73,16 +81,9 @@
   color: black;
   font-size: 2.2ch;
 }
-
-
 .message{
   margin-top: 1.5%;
+    color: red;
+    font-size: 0.9em;
+  
 }
-
-
-
-/* 
-#0C0D0E  word colors
-#000000 buttons color
-#F5C323 word colors  yellow
-#F5F2F5 for buttons white */
