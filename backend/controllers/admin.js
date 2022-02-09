@@ -1,7 +1,10 @@
 const connection = require("../database/db");
 
 const getAllCasesAdminPanel = (req, res) => {
-    const query = `SELECT * FROM cases   WHERE cases.is_deleted=0 `;
+    const limit = 6;
+    const page = req.query.page;
+    const offset = (page - 1) * limit;
+    const query = `SELECT * FROM cases   WHERE cases.is_deleted=0 limit ${limit} OFFSET ${offset} `;
   
     connection.query(query, async (err, result) => {
       if (err) {
@@ -12,7 +15,7 @@ const getAllCasesAdminPanel = (req, res) => {
       }
   
       if (!result[0]) {
-        return res.status(404).json({
+        return res.status(200).json({
           success: false,
           message: `no cases yet`,
         });

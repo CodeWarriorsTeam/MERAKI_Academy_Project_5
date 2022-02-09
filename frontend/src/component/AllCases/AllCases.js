@@ -14,7 +14,7 @@ const AllCases = ({
   num,
   setNumEducation,
   numEducation,
-  setNumFood
+  setNumFood,
 }) => {
   const state = useSelector((state) => {
     return {
@@ -69,9 +69,6 @@ const AllCases = ({
     }
   };
 
-  
- 
-
   const convertToCase = (id) => {
     navigate(`/casedetails/${id}`);
   };
@@ -114,13 +111,10 @@ const AllCases = ({
   }, [categoryNav, num]);
 
   useEffect(() => {
-    if (allCase) {
+    //if (allCase) {
       getAllCases();
-    }
-  }, [allCase, num]);
-
-
-
+    //}
+  }, []);
 
   return (
     <>
@@ -146,7 +140,7 @@ const AllCases = ({
             })
             .map((element, i) => (
               <>
-                <div key={i} className="test">
+                <div key={i} className="allcasesContainer">
                   <br />
                   <img
                     className="allcasesImage"
@@ -159,7 +153,7 @@ const AllCases = ({
                   <p className="allcasesTitle">{element.title}</p>
 
                   <p className="TheAmountReguired">
-                    TheAmountRequired:{element.TheAmountRequired}$
+                    Required:{element.TheAmountRequired}$
                   </p>
                   {element.TheAmountRequired &&
                   element.TheAmountRequired > 0 ? (
@@ -167,6 +161,10 @@ const AllCases = ({
                   ) : (
                     <p>close</p>
                   )}
+                  <br/> <br/> <br/> 
+                  {<button className="detailsButton" onClick={() => {
+                      convertToCase(element.id);
+                    }} >Details</button>}
                 </div>
               </>
             ))}
