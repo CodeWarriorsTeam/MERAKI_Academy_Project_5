@@ -7,6 +7,7 @@ import "./AllCases.css";
 import { GrFormNextLink } from "react-icons/gr";
 import { BiArrowBack } from "react-icons/bi";
 import { IoMdArrowBack } from "react-icons/io";
+import { AiOutlineArrowUp } from "react-icons/ai";
 
 const AllCases = ({
   searchCase,
@@ -29,6 +30,7 @@ const AllCases = ({
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+  const [visible, setVisible] = useState(false)
 
   const [category, setCategory] = useState("");
 
@@ -119,12 +121,27 @@ const AllCases = ({
       getAllCases();
     }
   }, [allCase, num]);
-
+  const toggleVisible =() => {
+const scrolled = document.documentElement.scrollTop;
+if (scrolled > 100) {
+  setVisible(true)
+} else if (scrolled <= 100) {
+  setVisible(false)
+}
+  }
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior:'smooth'
+    })
+  }
+window.addEventListener('scroll', toggleVisible)
   return (
     <>
       <br />
       <br />
       <br />
+     
       <div className="case">
         {state.cases &&
           state.cases
@@ -207,6 +224,8 @@ const AllCases = ({
       </button>
 
       {message && <div>{message}</div>}
+      <button className="up"><AiOutlineArrowUp onClick={scrollToTop} style={{display: visible ? 'inline':'none', fontSize:"1.8em"}}></AiOutlineArrowUp></button>
+      {/* <ul className="smothscroll"><li><a href="#scrool"><AiOutlineArrowUp className="up">::before</AiOutlineArrowUp></a> </li></ul> */}
     </>
   );
 };
