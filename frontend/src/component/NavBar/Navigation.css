@@ -273,7 +273,7 @@ nav .logo{
 }
 
 .titleLogo:hover{
-  background: #f0d304;
+  background: #d3bb06;
 }
 
 .ul {
@@ -293,7 +293,6 @@ nav .logo{
   padding: 19px;
   text-decoration: none;
   cursor: pointer;
- 
 }
 
 .ul li .a {
@@ -305,7 +304,7 @@ nav .logo{
 }
 
 .ul li:hover {
-  background: #f0d304;
+  background: #f0d40470;
 }
 .ul li:hover .drop {
   display: block;
