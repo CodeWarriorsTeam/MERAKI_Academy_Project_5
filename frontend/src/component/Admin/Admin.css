@@ -136,6 +136,7 @@ td {
   float: right;
   transform: translate(-6em, 0em);
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .category:hover {
@@ -245,10 +246,13 @@ td {
   width: 2em;
   float: left;
   transform: translate(10em, 0em);
+  margin-top: 10px;
 }
 .countUserPrg {
   font-size: 25px;
   float: left;
   font-weight: bold;
   transform: translate(7em, 0.1em);
+  margin-top: 10px;
+
 }
