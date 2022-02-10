@@ -1,24 +1,62 @@
 .table,
 th,
 td {
-  width: 80%;
+  /* margin-right: 20%; */
+  /* margin-left: 20%; */
+  /* width: 80%; */
   /* border-collapse: separate; */
   /* border-spacing: 2% 2%; */
   /* border: 1px solid rgba(17, 17, 17, 0.377); */
 }
-.update1{
-    width: 10%;
-    cursor: pointer;
+.id {
+  width: 3%;
 }
-.update1:hover{
+.categor {
+  width: 5%;
+}
+.tit1 {
+  width: 9%;
+}
+.amout {
+  width: 11%;
+}
+.img2 {
+  width: 30%;
+}
+.descr {
+  width: 15%;
+}
+.donatio {
+  width: 5%;
+}
+.don {
+  width: 5%;
+}
+.oper {
+  /* width: 5%; */
+}
+.uplo {
+  width: 7%;
+  height: 5%;
+  cursor: pointer;
+  /* margin-right: 10%; */
+}
+.update1 {
+  width: 10%;
+  cursor: pointer;
+}
+.update1:hover {
+  background-color: yellow;
+}
+.uploadIcon{
+    /* font-size: 1.3em; */
+}
+/* .upload1:hover{
     background-color: yellow;
-}
-.upload1:hover{
-    background-color: yellow;
-}
-.upload1{
-    cursor: pointer;
-    width: 2em;
+} */
+.upload1 {
+  cursor: pointer;
+  width: 2em;
 }
 th {
   color: white;
@@ -31,14 +69,14 @@ th {
   cursor: pointer;
   background: #68666485;
 }
-.back:hover{
-    cursor: pointer;
-    background: #68666485;
+.back:hover {
+  cursor: pointer;
+  background: #68666485;
 }
 .back {
-    width: 3%;
-    background-color: #ebebeb;
-    font-size: 100%;
+  width: 3%;
+  background-color: #ebebeb;
+  font-size: 100%;
 }
 .next {
   /* float: right; */
@@ -49,7 +87,7 @@ th {
 
 .table {
   width: 80%;
-  margin-left: 5%;
+  margin-left: 2%;
   position: relative;
   justify-content: center;
   text-align: center;
@@ -71,7 +109,7 @@ td {
   float: left;
 }
 .deleteIcon {
-  transform: translate(0.4em, 0em);
+  /* transform: translate(0.4em, 0em); */
   font-size: 1.5em;
   color: red;
   float: left;
@@ -81,7 +119,7 @@ td {
   float: right;
 }
 .editIcon {
-  transform: translate(-0.4em, 0em);
+  /* transform: translate(-0.4em, 0em); */
   float: right;
   /* margin-top: 8%; */
   color: rgb(28, 28, 241);
@@ -112,23 +150,25 @@ td {
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
+  width: 60%;
+  height: 20px;
   border-radius: 5px;
 }
 
-.image:hover {
+.image22:hover {
   border-top: 1px rgb(0, 0, 0) solid;
   border-right: 1px rgb(0, 0, 0) solid;
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
-.image {
+.image22 {
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
   border-radius: 5px;
-  width: 30%;
+  width: 54%;
 }
 
 .title:hover {
@@ -138,6 +178,8 @@ td {
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .title {
+  width: 60%;
+  height: 20px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -152,6 +194,8 @@ td {
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .amount {
+  width: 60%;
+  height: 20px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -166,6 +210,8 @@ td {
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .description {
+  width: 60%;
+  height: 20px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -183,7 +229,7 @@ td {
 }
 .new {
   height: 30%;
-  width: 20%;
+  width: 60%;
   border-radius: 5px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;

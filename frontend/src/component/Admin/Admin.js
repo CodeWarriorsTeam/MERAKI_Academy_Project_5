@@ -156,7 +156,7 @@ const Admin = ({ searchCase }) => {
     content: {
       top: "50%",
       left: "50%",
-      right: "60%",
+      right: "70%",
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
@@ -201,7 +201,7 @@ const Admin = ({ searchCase }) => {
         {(alert = "add New Case")} */}
         <AiOutlinePlusCircle
           onClick={() => setModelIsOpen(true)}
-          className="plus"
+          className="plus"  title="add new case"
         ></AiOutlinePlusCircle>
       {/* </p> */}
       <br />
@@ -210,42 +210,42 @@ const Admin = ({ searchCase }) => {
       <table className="table">
         {" "}
         <tr className="head">
-          <th>
+          <th className="id">
             id
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th>
+          <th className="categor">
             {" "}
             category
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th>
+          <th className="tit1">
             title
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th>
+          <th className="amout">
             amount
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th>
+          <th className="img2">
             image
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th>
+          <th className="descr">
             description{" "}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
 
-          <th>
+          <th className="donatio">
             donation
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th>
+          <th className="don">
             donor
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th>
-            Operations
+          <th className="oper">
+            Actions
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
         </tr>{" "}
@@ -386,10 +386,10 @@ const Admin = ({ searchCase }) => {
           onRequestClose={() => setModelIsOpen(false)}
         >
           <div className="newPage">
+            {/* 
             <br />
+            <br /> */}
             <br />
-            <br />
-
             <>
               <input
                 className="category"
@@ -423,14 +423,14 @@ const Admin = ({ searchCase }) => {
               <br />
               <input
                 type="file"
-                className="image"
+                className="image22"
                 onChange={(e) => {
                   setImageSelected(e.target.files[0]);
                 }}
               ></input>
-              <button onClick={() => uploadImage(imageselected)}>
+              <button className="uplo" onClick={() => uploadImage(imageselected)}>
                 {" "}
-                <BiUpload></BiUpload>
+                <BiUpload className="uploadIcon" ></BiUpload>
               </button>
               <br />
               <br />
@@ -444,10 +444,10 @@ const Admin = ({ searchCase }) => {
               ></textarea>
               <br />
               <br />
-              <p className="alert">{(alert = "add New Case")}</p>
               <button className="new" onClick={addNewCase}>
                 new Case
               </button>
+              <br /><br />
             </>
 
             {message}
