@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
 import "./AllCases.css";
+import { GrFormNextLink } from "react-icons/gr";
+import { BiArrowBack } from "react-icons/bi";
+
 
 const AllCases = ({
   searchCase,
@@ -76,7 +79,6 @@ const AllCases = ({
 
   const getAllCasesByCategory = async () => {
     try {
-     
       const res = await axios.get(
         `http://localhost:5000/cases/page/category?page=${num}&category=${categoryNav}
  `,
@@ -145,29 +147,39 @@ const AllCases = ({
                 <div key={i} className="allcasesContainer">
                   <br />
                   <img
-                    className="allcasesImage"
+                    className="allcasesImage" title="Case Image"
                     onClick={() => {
                       convertToCase(element.id);
                     }}
-                    src={element.case_image}
+                    src={element.case_image} 
                   />
-              <div className="bodygg">
-                  <p className="allcasesTitle">Title:{element.title}</p>
-
-                  <p className="TheAmountReguired">
-                    Required:{element.TheAmountRequired}$
-                  </p>
-                  {element.TheAmountRequired &&
-                  element.TheAmountRequired > 0 ? (
-                    <><p className="available">Available</p></>
-                  ) : (
-                    <p>close</p>
-                  )}
-                  <br/> <br/> <br/> 
-                  {<button className="detailsButton" onClick={() => {
-                      convertToCase(element.id);
-                    }} >Details</button>}
-                </div>
+                  <div className="caseInfo">
+                    <p className="allcasesTitle">{element.title}</p>
+                    <p className="TheAmountReguired">
+                      {element.TheAmountRequired}$
+                    </p>
+                    {element.TheAmountRequired &&
+                    element.TheAmountRequired > 0 ? (
+                      <>
+                        <p className="open">Open</p>
+                      </>
+                    ) : (
+                      <p className="open" style={{ background: "red" }}>
+                        close
+                      </p>
+                    )}
+                    <br /> <br /> <br />
+                    {
+                      <button
+                        className="detailsButton"
+                        onClick={() => {
+                          convertToCase(element.id);
+                        }} title="Case Details"
+                      >
+                        Details
+                      </button>
+                    }
+                  </div>
                 </div>
               </>
             ))}
@@ -176,20 +188,22 @@ const AllCases = ({
       {num == 1 ? (
         <></>
       ) : (
+        
         <button
           onClick={() => {
             setNum(num - 1);
-          }}
+          }} className="backPaginationButton"
         >
-          back
+          <BiArrowBack className="backButtonIcon"></BiArrowBack>
         </button>
       )}
-      <button className="pageinationButton"
+      <button
+        className="pageinationButton"
         onClick={() => {
           setNum(num + 1);
         }}
       >
-        next
+        <GrFormNextLink className="buttonIcon"></GrFormNextLink>
       </button>
 
       {message && <div>{message}</div>}
