@@ -125,7 +125,7 @@ const Navigation = ({
           > Medical Supplies</Link> </li>
           </ul>
           </li>
-          <li><a href="#volunteeringSection">Volunteer with us</a></li>
+          <li><a href="/#volunteeringSection">Volunteer with us</a></li>
   
 
 
@@ -140,7 +140,7 @@ const Navigation = ({
           <Link className="register" to="/register"><FaRegRegistered className="a">
             
             </FaRegRegistered> </Link></li>
-          <li>  <Link className="login" to="/login"><RiLoginBoxLine className="a">
+          <li>  <Link className="login" to="/login" title="Login"><RiLoginBoxLine className="a">
            
             </RiLoginBoxLine>    </Link></li>
         </>
