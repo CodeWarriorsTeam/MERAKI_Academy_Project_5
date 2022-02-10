@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "./AllCases.css";
 import { GrFormNextLink } from "react-icons/gr";
 import { BiArrowBack } from "react-icons/bi";
-
+import { IoMdArrowBack } from "react-icons/io";
 
 const AllCases = ({
   searchCase,
@@ -145,16 +145,15 @@ const AllCases = ({
             .map((element, i) => (
               <>
                 <div key={i} className="allcasesContainer">
-                  <br />
                   <img
-                    className="allcasesImage" title="Case Image"
+                    className="allcasesImage"
+                    title="Case Image"
                     onClick={() => {
                       convertToCase(element.id);
                     }}
-                    src={element.case_image} 
+                    src={element.case_image}
                   />
                   <div className="caseInfo">
-                    
                     <p className="allcasesTitle">{element.title}</p>
                     <p className="TheAmountReguired">
                       {element.TheAmountRequired}$
@@ -169,13 +168,13 @@ const AllCases = ({
                         close
                       </p>
                     )}
-                    <br /> <br /> <br />
                     {
                       <button
                         className="detailsButton"
                         onClick={() => {
                           convertToCase(element.id);
-                        }} title="Case Details"
+                        }}
+                        title="Case Details"
                       >
                         Details
                       </button>
@@ -189,13 +188,13 @@ const AllCases = ({
       {num == 1 ? (
         <></>
       ) : (
-        
         <button
           onClick={() => {
             setNum(num - 1);
-          }} className="backPaginationButton"
+          }}
+          className="backPaginationButton"
         >
-          <BiArrowBack className="backButtonIcon"></BiArrowBack>
+          <IoMdArrowBack className="backButtonIcon"></IoMdArrowBack>
         </button>
       )}
       <button
