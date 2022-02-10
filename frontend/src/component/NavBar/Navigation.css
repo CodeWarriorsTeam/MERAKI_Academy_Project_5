@@ -250,13 +250,13 @@ nav .logo{
 
 .nav {
  
-  top: 0;
-  left: 0;
-  
+  /* top: 0;
+  left: 0; */
+  position: absolute;
   width: 100%;
   box-sizing: border-box;
-  background: #111;
-  opacity: 0.7;
+  background: rgb(43, 41, 41);
+  opacity: 0.6;
 
 }
 
@@ -265,16 +265,25 @@ nav .logo{
   display: block;
   clear: both;
 }
+
+.a:hover{
+color: #f0d40470;
+
+};
+
+.iconHome{
+  color: rgb(207, 194, 12);
+}
 .titleLogo {
   color: #fff;
   float: left;
-  padding: 1em;
+  padding: 0.6em;
   margin-left: 5%;
 }
 
-.titleLogo:hover{
+/* .titleLogo:hover{
   background: #d3bb06;
-}
+} */
 
 .ul {
   margin-right: 5%;
@@ -290,28 +299,32 @@ nav .logo{
 .ul li  a {
   display: inline-block;
   color: #fff;
-  padding: 19px;
+  padding: 20px;
   text-decoration: none;
   cursor: pointer;
+  /* transform: translate(1em, 0.1em); */
 }
 
 .ul li .a {
-  display: inline-block;
+  /* display: inline-block;
   height: 1.5em;
   width: 2em;
   transform: translate(1em, 0.5em);
-  cursor: pointer;
+  cursor: pointer; */
 }
 
 .ul li:hover {
   background: #f0d40470;
 }
 .ul li:hover .drop {
+ 
   display: block;
 }
-
+.ul  .drop li:hover{
+  background: #08080870;
+}
 .drop {
-  background: #111;
+  background: rgb(212, 182, 7);
   position: absolute;
   display: none;
   top: 57px;
@@ -320,7 +333,7 @@ nav .logo{
 }
 
 .drop li {
-  border: 2px solid #222;
+  border: 1px solid #222;
   display: block;
   color: #fff;
 }
