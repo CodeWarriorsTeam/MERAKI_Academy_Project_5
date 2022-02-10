@@ -10,8 +10,10 @@ import NewCase from "./component/NewCase/NewCase";
 import NewDonation from "./component/NewDonation/NewDonation";
 
 import Home from "./component/Home/Home";
+
 import Gallery from "./component/Gallery/Gallery";
 import Admin from "./component/Admin/Admin"
+
 function App() {
   const [searchCase, setSearchCase] = useState("");
   const [categoryNav, setCategory] = useState("");
@@ -21,16 +23,13 @@ function App() {
   const [numFood, setNumFood] = useState(0);
   const [numRebuilding, setNumRebuilding] = useState(0);
   const [numMedicalSupplies, setNumMedicalSupplies] = useState(0);
-  
 
   //--------------------------------- STORE
-  const [isAdmin, setIsAdmin] = useState( localStorage.getItem("isAdmin") );
+  const [isAdmin, setIsAdmin] = useState(localStorage.getItem("isAdmin"));
   const [userId, setUserId] = useState("");
 
-
   return (
-    < >
-       
+    <>
       <Navigation
         setIsAdmin={setIsAdmin}
         isAdmin={isAdmin}
@@ -42,24 +41,35 @@ function App() {
         setNum={setNum}
         numEducation={numEducation}
       />
-   
-  
-   
+
       <Routes>
-     <Route path="admin" element={<Admin searchCase={searchCase}/>}/>
-      <Route
+        <Route path="admin" element={<Admin searchCase={searchCase} />} />
+        <Route
           path="/"
-          element={<Home setCategory={setCategory}setAllCase={setAllCase} numEducation={numEducation} numFood={numFood}setNumFood={setNumFood}setNumEducation={setNumEducation}setNumRebuilding={setNumRebuilding}numRebuilding={numRebuilding}setNumMedicalSupplies={setNumMedicalSupplies}numMedicalSupplies={numMedicalSupplies}/>}
-          />
-     
+          element={
+            <Home
+              setCategory={setCategory}
+              setAllCase={setAllCase}
+              numEducation={numEducation}
+              numFood={numFood}
+              setNumFood={setNumFood}
+              setNumEducation={setNumEducation}
+              setNumRebuilding={setNumRebuilding}
+              numRebuilding={numRebuilding}
+              setNumMedicalSupplies={setNumMedicalSupplies}
+              numMedicalSupplies={numMedicalSupplies}
+            />
+          }
+        />
+
         <Route path="/register" element={<Register />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route
           path="/allcases"
           element={
             <AllCases
-            setNum={setNum}
-            num={num}
+              setNum={setNum}
+              num={num}
               searchCase={searchCase}
               categoryNav={categoryNav}
               allCase={allCase}
@@ -71,12 +81,19 @@ function App() {
         />
         <Route
           path="/login"
-          element={<Login setIsAdmin={setIsAdmin} isAdmin={isAdmin} setUserId={setUserId}/>}
+          element={
+            <Login
+              setIsAdmin={setIsAdmin}
+              isAdmin={isAdmin}
+              setUserId={setUserId}
+            />
+          }
         />
-        <Route path="/newcase" element={<NewCase />} />
-        <Route path="/casedetails/:id" element={<NewDonation isAdmin={isAdmin} />} />
+        <Route
+          path="/casedetails/:id"
+          element={<NewDonation isAdmin={isAdmin} />}
+        />
       </Routes>
-     
     </>
   );
 }

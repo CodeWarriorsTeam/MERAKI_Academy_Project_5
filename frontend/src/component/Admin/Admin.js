@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { AiOutlinePlusCircle, AiOutlineDelete } from "react-icons/ai";
-import { GrUpdate } from "react-icons/gr";
-import { BsPen, BsArrowDownUp } from "react-icons/bs";
-import { RiArrowUpDownFill, RiDeleteBinLine } from "react-icons/ri";
-import { BiEdit } from "react-icons/bi";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { BiEdit, BiUpload } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
-import { GrCaretNext } from "react-icons/gr";
-import { BsFillBackspaceFill } from "react-icons/bs";
+import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
+import { IoMdArrowBack } from "react-icons/io";
+
 import Model from "react-modal";
 import {
   AddCase,
@@ -21,7 +20,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import { Link } from "react-router-dom";
-const Admin = ({searchCase}) => {
+const Admin = ({ searchCase }) => {
   const [num, setNum] = useState(1);
   const [updateIsOpen, setUpdateIsOpen] = useState(false);
   const [caseId, setCaseId] = useState("");
@@ -61,18 +60,16 @@ const Admin = ({searchCase}) => {
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
-      if (!res.data.success){
-        setNumPage(numPage-1)
+      if (!res.data.success) {
+        setNumPage(numPage - 1);
       }
       if (res.data.success) {
-        
         dispatch(setCases(res.data.result));
       }
     } catch (error) {
-      
       setMessage("no cases yet");
       if (!error) {
-       console.log(888888);
+        console.log(888888);
         return setMessage(error.response.data.message);
       }
     }
@@ -131,7 +128,6 @@ const Admin = ({searchCase}) => {
       )
 
       .then((result) => {
-       
         dispatch(
           AddCase({
             category,
@@ -140,9 +136,8 @@ const Admin = ({searchCase}) => {
             case_description,
             TheAmountRequired,
           })
-          
         );
-        getAllCases()
+        getAllCases();
         setMessage("the case has been created successfully");
         setModelIsOpen(false);
         navigate(`/admin`);
@@ -159,7 +154,6 @@ const Admin = ({searchCase}) => {
   // ------------------------------------------------
   const customStyles = {
     content: {
-      
       top: "50%",
       left: "50%",
       right: "60%",
@@ -180,38 +174,36 @@ const Admin = ({searchCase}) => {
     },
   };
   // ------------------------------------------------
-const conutUsers=async()=>{
-  try {
-    const res = await axios.get(
-      `http://localhost:5000/admin/cuntUser
+  const conutUsers = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/admin/cuntUser
 `
-    );
-    
-    
-    if (res.data.success) {
-      setNumUser(res.data.result[0].CountUser)
-    }
-  } catch (error) {
-    
+      );
 
-  
-  }
-
-}
-useEffect(() => {
-  conutUsers();
-}, []);
+      if (res.data.success) {
+        setNumUser(res.data.result[0].CountUser);
+      }
+    } catch (error) {}
+  };
+  useEffect(() => {
+    conutUsers();
+  }, []);
   return (
     <div className="alll">
       {" "}
       <br />
       <br />
       <br />
-    <FiUsers className="countUser"></FiUsers> <p className="countUserPrg">{numUser}</p>
-      <AiOutlinePlusCircle
-        onClick={() => setModelIsOpen(true)}
-        className="plus"
-      ></AiOutlinePlusCircle>
+      <FiUsers className="countUser"></FiUsers>{" "}
+      <p className="countUserPrg">{numUser}</p>
+      {/* <p className="alert">
+        {(alert = "add New Case")} */}
+        <AiOutlinePlusCircle
+          onClick={() => setModelIsOpen(true)}
+          className="plus"
+        ></AiOutlinePlusCircle>
+      {/* </p> */}
       <br />
       <br />
       <br />
@@ -219,24 +211,24 @@ useEffect(() => {
         {" "}
         <tr className="head">
           <th>
-            id 
+            id
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
           <th>
             {" "}
             category
-             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
-          <th>
-            title 
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
           <th>
-            amount 
+            title
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
           <th>
-            image 
+            amount
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th>
+            image
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
           <th>
@@ -246,136 +238,147 @@ useEffect(() => {
 
           <th>
             donation
-             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
           <th>
-            donor 
+            donor
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
           <th>
             Operations
-             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
         </tr>{" "}
         {state.cases &&
-          state.cases.filter((caseInformation) => {
-            if (searchCase == "") {
-              return caseInformation;
-            } else if (
-              caseInformation.category
-                .toLowerCase()
-                .includes(searchCase.toLowerCase()) ||
-              caseInformation.title
-                .toLowerCase()
-                .includes(searchCase.toLowerCase())
-            ) {
-              return caseInformation;
-            }
-          }).map((element, i) => {
-            return (
-              <>
-              <tr key={i} className="ttt">
-                <td className="id">{element.id}</td>
-                <td className="categor">{element.category}</td>
-                <td className="tit">{element.title}</td>
-                <td className="req">
-              
-                  {element.TheAmountRequired} $
-                </td>
-                <td className="imag">{element.case_image}</td>
-                <td className="descr">{element.case_description}</td>
+          state.cases
+            .filter((caseInformation) => {
+              if (searchCase == "") {
+                return caseInformation;
+              } else if (
+                caseInformation.category
+                  .toLowerCase()
+                  .includes(searchCase.toLowerCase()) ||
+                caseInformation.title
+                  .toLowerCase()
+                  .includes(searchCase.toLowerCase())
+              ) {
+                return caseInformation;
+              }
+            })
+            .map((element, i) => {
+              return (
+                <>
+                  <tr key={i} className="ttt">
+                    <td className="id">{element.id}</td>
+                    <td className="categor">{element.category}</td>
+                    <td className="tit">{element.title}</td>
+                    <td className="req"> {element.TheAmountRequired} $</td>
+                    <td className="imag">{element.case_image}</td>
+                    <td className="descr">{element.case_description}</td>
 
-                <td className="donation">{element.donations}</td>
-                <td className="donor">{element.donor}</td>
-                <td className="button">
-                  {" "}
-                  <button className="delete" onClick={() => deleteCseById(element.id)}>
-                    <RiDeleteBinLine className="deleteIcon" />Delete{" "}
-                  </button>
-                  <button
-                    className="edit"
-                    onClick={() => {
-                      setUpdateIsOpen(true);
-                      setCaseId(element.id);
-                    }}
-                  >
-                    {" "}
-                    <BiEdit className="editIcon" /> Edit
-                  </button>
-                </td>
-                <div>
-                  <Model
-                    style={customStyles2}
-                    isOpen={updateIsOpen}
-                    onRequestClose={() => setUpdateIsOpen(false)}
-                  >
-                    <input
-                      type="text"
-                      placeholder="category"
-                      defaultValue={element.category}
-                      onChange={(e) => setCategory(e.target.value)}
-                    ></input>{" "}
-                    <br />
-                    <br />
-                    <input
-                      type="file"
-                      className="image"
-                      onChange={(e) => {
-                        setImageSelected(e.target.files[0]);
-                      }}
-                    ></input>
-                    <button onClick={() => uploadImage(imageselected)}>
-                      upload
-                    </button>
-                    <br />
-                    <br />
-                    <input
-                      type="text"
-                      placeholder="title"
-                      defaultValue={element.title}
-                      onChange={(e) => setTitle(e.target.value)}
-                    ></input>{" "}
-                    <br />
-                    <br />
-                    <input
-                      type="text"
-                      placeholder="description"
-                      defaultValue={element.case_description}
-                      onChange={(e) => setCase_Description(e.target.value)}
-                    ></input>{" "}
-                    <br />
-                    <br />
-                    <input
-                      type="text"
-                      placeholder="amount"
-                      defaultValue={element.TheAmountRequired}
-                      onChange={(e) => setTheAmountRequired(e.target.value)}
-                    ></input>{" "}
-                    <br />
-                    <br />
-                    <button
-                      className="update"
-                      onClick={() => updateCaseById(caseId)}
-                    >
-                      update
-                    </button>
-                    <br />
-                  </Model>
-                </div>
-              </tr>
-              
-              </>
-            );
-          })}
+                    <td className="donation">{element.donations}</td>
+                    <td className="donor">{element.donor}</td>
+                    <td className="button">
+                      {" "}
+                      <RiDeleteBinLine
+                        onClick={() => deleteCseById(element.id)}
+                        className="deleteIcon"
+                      />{" "}
+                      <BiEdit
+                        onClick={() => {
+                          setUpdateIsOpen(true);
+                          setCaseId(element.id);
+                        }}
+                        className="editIcon"
+                      />
+                    </td>
+                    <div>
+                      <Model
+                        style={customStyles2}
+                        isOpen={updateIsOpen}
+                        onRequestClose={() => setUpdateIsOpen(false)}
+                      >
+                        <input
+                          type="text"
+                          placeholder="category"
+                          defaultValue={element.category}
+                          onChange={(e) => setCategory(e.target.value)}
+                        ></input>{" "}
+                        <br />
+                        <br />
+                        <input
+                          type="file"
+                          className="image"
+                          onChange={(e) => {
+                            setImageSelected(e.target.files[0]);
+                          }}
+                        ></input>
+                        <button onClick={() => uploadImage(imageselected)}>
+                          <BiUpload className="upload1"></BiUpload>
+                        </button>
+                        <br />
+                        <br />
+                        <input
+                          type="text"
+                          placeholder="title"
+                          defaultValue={element.title}
+                          onChange={(e) => setTitle(e.target.value)}
+                        ></input>{" "}
+                        <br />
+                        <br />
+                        <input
+                          type="text"
+                          placeholder="description"
+                          defaultValue={element.case_description}
+                          onChange={(e) => setCase_Description(e.target.value)}
+                        ></input>{" "}
+                        <br />
+                        <br />
+                        <input
+                          type="text"
+                          placeholder="amount"
+                          defaultValue={element.TheAmountRequired}
+                          onChange={(e) => setTheAmountRequired(e.target.value)}
+                        ></input>{" "}
+                        <br />
+                        <br />
+                        <button
+                          className="update1"
+                          onClick={() => updateCaseById(caseId)}
+                        >
+                          <GrUpdate
+                            style={{ width: "95%", height: "1.4em" }}
+                          ></GrUpdate>
+                        </button>
+                        <br />
+                      </Model>
+                    </div>
+                  </tr>
+                </>
+              );
+            })}
       </table>
-     {numPage==1?(<></>):(<BsFillBackspaceFill onClick={()=>{
-       setNumPage(numPage-1)
-     }}>
-       back
-     </BsFillBackspaceFill>)} 
-     <GrCaretNext onClick={()=>{
-       setNumPage(numPage+1)
-     }}>next</GrCaretNext>
+      {numPage == 1 ? (
+        <></>
+      ) : (
+        <button
+          className="back"
+          onClick={() => {
+            setNumPage(numPage - 1);
+          }}
+        >
+          <IoMdArrowBack className="backIcon"></IoMdArrowBack>
+        </button>
+      )}
+      <button
+        onClick={() => {
+          setNumPage(numPage + 1);
+        }}
+        className="next"
+      >
+        <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
+        {/* <GrLinkNext className="nextIcon"></GrLinkNext> */}
+      </button>
       <div className="model">
         <Model
           isOpen={modelIsOpen}
@@ -425,7 +428,10 @@ useEffect(() => {
                   setImageSelected(e.target.files[0]);
                 }}
               ></input>
-              <button onClick={() => uploadImage(imageselected)}>upload</button>
+              <button onClick={() => uploadImage(imageselected)}>
+                {" "}
+                <BiUpload></BiUpload>
+              </button>
               <br />
               <br />
               <textarea
@@ -438,6 +444,7 @@ useEffect(() => {
               ></textarea>
               <br />
               <br />
+              <p className="alert">{(alert = "add New Case")}</p>
               <button className="new" onClick={addNewCase}>
                 new Case
               </button>

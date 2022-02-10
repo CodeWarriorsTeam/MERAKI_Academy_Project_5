@@ -151,15 +151,15 @@ const AllCases = ({
                     }}
                     src={element.case_image}
                   />
-
-                  <p className="allcasesTitle">{element.title}</p>
+              <div className="bodygg">
+                  <p className="allcasesTitle">Title:{element.title}</p>
 
                   <p className="TheAmountReguired">
                     Required:{element.TheAmountRequired}$
                   </p>
                   {element.TheAmountRequired &&
                   element.TheAmountRequired > 0 ? (
-                    <>Available</>
+                    <><p className="available">Available</p></>
                   ) : (
                     <p>close</p>
                   )}
@@ -167,6 +167,7 @@ const AllCases = ({
                   {<button className="detailsButton" onClick={() => {
                       convertToCase(element.id);
                     }} >Details</button>}
+                </div>
                 </div>
               </>
             ))}
@@ -183,7 +184,7 @@ const AllCases = ({
           back
         </button>
       )}
-      <button
+      <button className="pageinationButton"
         onClick={() => {
           setNum(num + 1);
         }}

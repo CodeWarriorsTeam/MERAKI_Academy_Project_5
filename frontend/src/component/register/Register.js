@@ -3,6 +3,8 @@ import axios from "axios";
 import "./Register.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { BiUpload } from "react-icons/bi";
+
 //////
 const Register = () => {
   const navigate = useNavigate();
@@ -42,16 +44,19 @@ const Register = () => {
   const checkFormValidation = () => {
     const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,8}(.[a-z{3,8}])?/g;
 
-
-    
-    if (regEx.test(email) && email!=null &&pass !="" && firstName!= "" && lastName!="" && country != "") {
-      register()
+    if (
+      regEx.test(email) &&
+      email != null &&
+      pass != "" &&
+      firstName != "" &&
+      lastName != "" &&
+      country != ""
+    ) {
+      register();
     }
- 
- 
- 
+
     // if (email != null) {
-      
+
     //   register();
     // }
   };
@@ -65,16 +70,15 @@ const Register = () => {
         profile_image,
         email,
         pass,
-        role_id
+        role_id,
       })
       .then((result) => {
         setParagraph("The user has been created successfully");
         navigate("/login");
-
       })
       .catch((err) => {
         // console.log(err.response.data.message);
-        setParagraph(err.response.data.message)
+        setParagraph(err.response.data.message);
         // setParagraph("Error happend while register, please try again");
       });
   };
@@ -86,7 +90,7 @@ const Register = () => {
       <div className="registerPage">
         <br />
         <h1 className="signup">Sign Up</h1>
-        <h5 className="account">Signup your account</h5>
+        <h5 className="accountUp">Sign up your account</h5>
         <br></br>
 
         <input
@@ -120,22 +124,18 @@ const Register = () => {
 
         <br />
         <br />
-
-        <br />
-
         <input
           type="file"
-          className="imageFile"
+          className="image"
           onChange={(e) => {
             setImageSelected(e.target.files[0]);
           }}
         ></input>
-
         <button
-          className="uploadButton"
           onClick={() => uploadImage(imageselected)}
+          className="uploadButton"
         >
-          upload
+          <BiUpload></BiUpload>
         </button>
 
         <br />
@@ -164,11 +164,10 @@ const Register = () => {
         <button onClick={checkFormValidation} className="registerButton">
           Sign Up
         </button>
-        <br></br>
-        <p className="registerMessage">{paragraph}</p>
-        <br></br>
+        <br /><br/>
+        <p className="message">{paragraph}</p>
         <p className="sent">
-          Already have an account?{" "}
+          Already have an account ?{" "}
           <Link className="login" to="/login" className="link">
             Return to Sign In
           </Link>
