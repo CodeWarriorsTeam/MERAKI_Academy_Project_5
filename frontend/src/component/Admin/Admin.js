@@ -5,7 +5,7 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiEdit, BiUpload } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
-import { GrLinkNext,GrFormNextLink, GrUpdate } from "react-icons/gr";
+import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
 import { IoMdArrowBack } from "react-icons/io";
 
 import Model from "react-modal";
@@ -197,10 +197,13 @@ const Admin = ({ searchCase }) => {
       <br />
       <FiUsers className="countUser"></FiUsers>{" "}
       <p className="countUserPrg">{numUser}</p>
-      <AiOutlinePlusCircle
-        onClick={() => setModelIsOpen(true)}
-        className="plus"
-      ></AiOutlinePlusCircle>
+      {/* <p className="alert">
+        {(alert = "add New Case")} */}
+        <AiOutlinePlusCircle
+          onClick={() => setModelIsOpen(true)}
+          className="plus"
+        ></AiOutlinePlusCircle>
+      {/* </p> */}
       <br />
       <br />
       <br />
@@ -311,7 +314,7 @@ const Admin = ({ searchCase }) => {
                           }}
                         ></input>
                         <button onClick={() => uploadImage(imageselected)}>
-                        <BiUpload className="upload1" ></BiUpload>
+                          <BiUpload className="upload1"></BiUpload>
                         </button>
                         <br />
                         <br />
@@ -343,7 +346,9 @@ const Admin = ({ searchCase }) => {
                           className="update1"
                           onClick={() => updateCaseById(caseId)}
                         >
-                         <GrUpdate style={{width:"95%", height:"1.4em"}}></GrUpdate>
+                          <GrUpdate
+                            style={{ width: "95%", height: "1.4em" }}
+                          ></GrUpdate>
                         </button>
                         <br />
                       </Model>
@@ -371,7 +376,7 @@ const Admin = ({ searchCase }) => {
         }}
         className="next"
       >
-          <GrFormNextLink style={{width:"1.3em"}}></GrFormNextLink>
+        <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
         {/* <GrLinkNext className="nextIcon"></GrLinkNext> */}
       </button>
       <div className="model">
@@ -439,6 +444,7 @@ const Admin = ({ searchCase }) => {
               ></textarea>
               <br />
               <br />
+              <p className="alert">{(alert = "add New Case")}</p>
               <button className="new" onClick={addNewCase}>
                 new Case
               </button>
