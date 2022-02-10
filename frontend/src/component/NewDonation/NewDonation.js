@@ -4,6 +4,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addDonation } from "../../reducer/donation";
 import "./NewDonation.css";
+import Model from "react-modal";
 import { useParams } from "react-router-dom";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +21,7 @@ const NewDonation = ({ isAdmin }) => {
   const dispatch = useDispatch();
   const [updateBox, setUpdateBox] = useState(false);
   const [caseId, setCaseId] = useState(false);
+  const [donateIsOpen, setDonateIsOpen] = useState(false);
   const [userId, setUserId] = useState("");
   const [case_image, setCase_image] = useState("");
   const [title, setTitle] = useState("");
@@ -36,7 +38,7 @@ const NewDonation = ({ isAdmin }) => {
       const result = await axios.get(`http://localhost:5000/cases/${id}`);
       setDetails(result.data.result);
       console.log(result.data.result);
-      setIsClosed(result.data.result[0].TheAmountRequired)
+      setIsClosed(result.data.result[0].TheAmountRequired);
     } catch (error) {
       console.log(error.response);
     }
@@ -107,6 +109,17 @@ const NewDonation = ({ isAdmin }) => {
         setMessage(err.response.data.message);
       });
   };
+  const customStyles2 = {
+    content: {
+      //   background: "rgba(yellow, 0, 0, 0.7)",
+      top: "50%",
+      left: "50%",
+      right: "60%",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
 
   return (
     <>
@@ -116,13 +129,20 @@ const NewDonation = ({ isAdmin }) => {
       {details &&
         details.map((element, i) => (
           <>
-          
-            <div key={i}>
+            <div className="detailpage" key={i}>
               <br></br>
-              <img src={element.case_image} />
-              <p> category: {element.category}</p>
-              <p>title: {element.title}</p>
-              <p>description: {element.case_description}</p>
+              <img src={element.case_image} className="image3" />
+              {/* <p className="category3"> category: {element.category}</p> */}
+              <p className="title3"> {element.title}</p>
+              <p className="amount3">{element.TheAmountRequired}$</p>
+              <p className="description3">{element.case_description}</p>
+              <button
+                onClick={() => setDonateIsOpen(true)}
+                className="donate"
+                title="Donate Now"
+              >
+                Donate Now
+              </button>
               {isAdmin ? (
                 <>
                   {updateBox && caseId === element.id && (
@@ -164,69 +184,55 @@ const NewDonation = ({ isAdmin }) => {
               )}
             </div>
           </>
-     
-      ))
-        
-        
-        
-       }
-
-    
-
-      <br />
+        ))}
       <>
-      {isClosed&&isClosed>0?( <div className="contenerDonation">
-          <input type="checkbox" id="inputOpenDonation"></input>
-
-          <label for="inputOpenDonation" className="btn">
-            Donate
-          </label>
-          <div className="modalDonation">
-            <label for="inputOpenDonation" className="closeModal">
-              X
-            </label>
-
-            <h1 id="headerModal">Thanks</h1>
-            <p id="prgModel">
-              {" "}
-              If you do not have money, then smiling in the face of your brother
-              is charity
-            </p>
-            <input
-              className="IBAN"
-              type="text"
-              placeholder="IBAN"
-              onChange={(e) => {
-                setIBAN(e.target.value);
-              }}
-            ></input>
-            <br />
-
-            <input
-              className="IBAN"
-              type="text"
-              placeholder="Amount"
-              onChange={(e) => {
-                setDonations(e.target.value);
-              }}
-            ></input>
-            <br />
-
-            <button
-              className="addDonation"
-              onClick={() => {
-                addNewDonation();
-              }}
+        {isClosed && isClosed > 0 ? (
+          <div className="contenerDonation">
+            <Model
+              style={customStyles2}
+              isOpen={donateIsOpen}
+              onRequestClose={() => setDonateIsOpen(false)}
             >
-              Donate
-            </button>
-            {message}
-            <label for="inputOpenDonation" className="btn close">
-              Close
-            </label>
+              <input type="checkbox" id="inputOpenDonation"></input>
+              <div className="modalDonation">
+                <h1 id="headerModal">Thanks</h1>
+                <p id="prgModel">
+                  {" "}
+                  If you do not have money, then smiling in the face of your
+                  brother is charity
+                </p>
+                <br></br>
+                <input
+                  className="IBAN"
+                  type="text"
+                  placeholder="card"
+                  onChange={(e) => {
+                    setIBAN(e.target.value);
+                  }}
+                ></input> <br/><br/>
+                <input
+                  className="IBAN"
+                  type="text"
+                  placeholder="Enter Donation Amount"
+                  onChange={(e) => {
+                    setDonations(e.target.value);
+                  }}
+                ></input>
+                <button
+                  className="addDonation"
+                  onClick={() => {
+                    addNewDonation();
+                  }}
+                >
+                  Donate
+                </button>
+                {message}
+              </div>
+            </Model>
           </div>
-        </div>):(<>Close</>)}
-       
+        ) : (
+          <>Close</>
+        )}
       </>
     </>
   );
