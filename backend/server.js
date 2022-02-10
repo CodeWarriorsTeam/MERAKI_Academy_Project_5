@@ -30,8 +30,10 @@ const donationRouter = require("./routes/donation");
 
 app.use("/donation",donationRouter)
 
+//galleryRouter
+const galleryRouter = require("./routes/gallery");
 
-
+app.use("/gallery",galleryRouter)
 
 
 

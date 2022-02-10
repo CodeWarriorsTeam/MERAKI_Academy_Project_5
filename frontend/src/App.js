@@ -8,7 +8,9 @@ import AllCases from "./component/AllCases/AllCases";
 import Login from "./component/login/Login";
 import NewCase from "./component/NewCase/NewCase";
 import NewDonation from "./component/NewDonation/NewDonation";
+
 import Home from "./component/Home/Home";
+import Gallery from "./component/Gallery/Gallery";
 import Admin from "./component/Admin/Admin"
 function App() {
   const [searchCase, setSearchCase] = useState("");
@@ -51,6 +53,7 @@ function App() {
           />
      
         <Route path="/register" element={<Register />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route
           path="/allcases"
           element={
