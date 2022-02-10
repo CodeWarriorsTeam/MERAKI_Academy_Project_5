@@ -8,10 +8,10 @@
   gap: 10vh;
 }
 
-.case .available {
-  width: 100px;
-  height: 20px;
-  background-color: #25211d;
+.case .open {
+  width: 50%;
+
+  background-color: #066e12;
   color: #f5efed;
   -ms-transform: rotate(-10deg); /* IE 9 */
   transform: rotate(-10deg);
@@ -19,19 +19,29 @@
   margin-left: -47%;
   position: relative;
   bottom: 335px;
-  left:40% 
+  left: 40%;
 }
 
-.available:hover {
-  color: #f5c323;
-}
+/* .case .close {
+  width: 50%;
+  height: 1px;
+  background-color: red;
+  color: #f5efed;
+  -ms-transform: rotate(-10deg); 
+  transform: rotate(-10deg);
+  
+  margin-left: -47%;
+  position: relative;
+  bottom: 370px;
+  left: 45%;
+} */
 
-.bodygg{
-  background-color: #EBEBEB;
+.caseInfo {
+  background-color: #ebebeb;
 }
 
 .allcasesImage {
-  /* height: 50%; */
+  height: 50%;
   width: 95%;
   /* border: 1px solid; */
   padding-bottom: 5%;
@@ -46,19 +56,20 @@
   color: black;
   font-size: x-large;
   margin-top: 5%;
-  background-color: #25211D;
-  color: white;
+  /* background-color: #25211d; */
+  /* color: white; */
 }
 
 .TheAmountReguired {
   font-size: x-large;
   margin-top: 5%;
-  background-color: #25211D;
-  color: white;
+  /* background-color: #25211d; */
+  /* color: white; */
+  color: black;
 }
 
 .allcasesContainer {
-  border: 2px solid #25211D;
+  border: 2px solid #25211d;
   /* padding: 50px; */
   height: 100%;
   width: 60%;
@@ -67,7 +78,7 @@
 }
 
 .detailsButton {
-  height: 10%;
+  height: 10vh;
   width: 40%;
   background-color: #f5c323;
   text-align: center;
@@ -82,9 +93,21 @@
   cursor: pointer;
 }
 
+.backButtonIcon {
+  font-size: x-large;
+}
+
+.backPaginationButton {
+  width: 3%;
+}
+
 .pageinationButton {
-  margin-top: 3%;
-  border: 5px solid;
+  margin-top: 6%;
+  width: 3%;
+  /* border: 5px solid; */
+}
+.buttonIcon {
+  font-size: x-large;
 }
 
 .pageinationButton:hover {
