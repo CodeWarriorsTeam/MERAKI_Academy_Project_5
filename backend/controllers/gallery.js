@@ -2,11 +2,11 @@ const connection = require("../database/db");
 
 const addImageToGallery = (req, res) => {
    
-     const { image_1, image_2 ,image_3} = req.body;
+     const { image_1} = req.body;
      
-     const query = `INSERT INTO gallery (image_1, image_2,image_3) VALUES (?,?,?);`;
+     const query = `INSERT INTO gallery (image_1) VALUES (?);`;
    
-     const data = [image_1, image_2,image_3];
+     const data = [image_1];
    
      connection.query(query, data, (err, result) => {
        if (err) {

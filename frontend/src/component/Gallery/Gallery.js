@@ -2,62 +2,57 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import "./Gallery.css";
+import { setImages } from "../../reducer/image";
 
+const Gallery = () => {
+  const state = useSelector((state) => {
+    return { images: state.imagesReducer.images,token:state.loginReducer.token };
+  });
 
-const Gallery=()=>{
-    const [gallery, setGallery] = useState([]);
+  const dispatch = useDispatch();
 
-    const getAllImage = async () => {
-        try {
-          const res = await axios.get(
-            `http://localhost:5000/gallery
-     `
-          );
-        
-          
-          if (res.data.success) {
-            setGallery(res.data.result)
-          }
-        } catch (error) {
-          console.log(error);
-    
-       
-        }
-      };
-console.log(gallery);
-      useEffect(() => {
-        getAllImage();
-      }, []);
-      return (<>
-      <div className="gallery">
-      {gallery &&
-          gallery.map((element)=>(<>
-          <div className="image_1">
-              <img src={element.image_1}/>
-          </div>
-          
-          <div className="image_2">
-              <img src={element.image_2}/>
-          </div>
-          <div className="image_3">
-              <img src={element.image_3}/>
-          </div>
-          
-          </>))
-          
-          }
-      </div>
-     </>
-      
-   
-      
-      
+  const [gallery, setGallery] = useState([]);
+
+  const getAllImage = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/gallery
+     `,{ headers: { Authorization: `Bearer ${state.token}` } }
       )
-      
-  
-}
 
+      if (res.data.success) {
+        dispatch(setImages(res.data.result));
+       // setGallery(res.data.result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(gallery);
+  useEffect(() => {
+    getAllImage();
+  }, []);
+  return (
+    <>
+      <div className="gallery">
+        {state.images &&
+          state.images.map((element) => (
+            <>
+              <div className="image_1">
+                <img src={element.image_1} />
+              </div>
 
-
+              <div className="image_2">
+                <img src={element.image_2} />
+              </div>
+              <div className="image_3">
+                <img src={element.image_3} />
+              </div>
+            </>
+          ))}
+      </div>
+    </>
+  );
+};
 
 export default Gallery;

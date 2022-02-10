@@ -59,12 +59,7 @@ CREATE TABLE gallery (
     id INT AUTO_INCREMENT NOT NULL,
    
     image_1 VARCHAR(3000),
-    image_2 VARCHAR(3000),
 
-    image_3 VARCHAR(3000),
-
-
-  
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
