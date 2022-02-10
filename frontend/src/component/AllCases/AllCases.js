@@ -154,6 +154,7 @@ const AllCases = ({
                     src={element.case_image} 
                   />
                   <div className="caseInfo">
+                    
                     <p className="allcasesTitle">{element.title}</p>
                     <p className="TheAmountReguired">
                       {element.TheAmountRequired}$
