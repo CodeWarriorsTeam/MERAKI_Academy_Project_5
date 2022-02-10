@@ -90,7 +90,7 @@ const Home = ({setCategory,setAllCase,numEducation,numFood,setNumFood,setNumEduc
  
   return (
     <>
-      <br /> <br /> <br />
+     
       <header className="headerHome">
         <main className="main">
           <section className="whatDo">

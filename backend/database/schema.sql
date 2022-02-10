@@ -1,7 +1,7 @@
  DROP DATABASE codeWarriors;
 CREATE DATABASE codeWarriors;
 
-USE codeWarriors;
+ USE codeWarriors;
 
 
 CREATE TABLE roles (
@@ -54,3 +54,17 @@ CREATE TABLE cases (
     PRIMARY KEY (id)
 );
 
+
+CREATE TABLE gallery (
+    id INT AUTO_INCREMENT NOT NULL,
+   
+    image_1 VARCHAR(3000),
+    image_2 VARCHAR(3000),
+
+    image_3 VARCHAR(3000),
+
+
+  
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);

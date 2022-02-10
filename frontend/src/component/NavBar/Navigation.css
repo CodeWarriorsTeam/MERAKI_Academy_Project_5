@@ -1,4 +1,4 @@
-.num {
+/* .num {
   color: #666;
   float: left;
   font-size: 1.3em;
@@ -91,7 +91,7 @@ color:black;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid; */
-  color: black;
+/* color: black;
   border-radius: 5px;
 }
 .Home {
@@ -150,7 +150,8 @@ color:black;
  }
  #newCase:hover {
    color: #f5c323;
- } 
+ }  */
+
 /* AllCases */
 
 /* .NavBar{
@@ -240,3 +241,87 @@ nav .logo{
  #headerLogo {
    color: black;
   } */
+
+/* .wrapper {
+  background: #222;
+  width: 100%;
+  height: 100vh;
+} */
+
+.nav {
+ 
+  top: 0;
+  left: 0;
+  
+  width: 100%;
+  box-sizing: border-box;
+  background: #111;
+  opacity: 0.7;
+
+}
+
+.nav:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.titleLogo {
+  color: #fff;
+  float: left;
+  padding: 1em;
+  margin-left: 5%;
+}
+
+.titleLogo:hover{
+  background: #f0d304;
+}
+
+.ul {
+  margin-right: 5%;
+  float: right;
+}
+
+.ul li {
+  display: inline-block;
+  list-style: none;
+  position: relative;
+}
+
+.ul li  a {
+  display: inline-block;
+  color: #fff;
+  padding: 19px;
+  text-decoration: none;
+  cursor: pointer;
+ 
+}
+
+.ul li .a {
+  display: inline-block;
+  height: 1.5em;
+  width: 2em;
+  transform: translate(1em, 0.5em);
+  cursor: pointer;
+}
+
+.ul li:hover {
+  background: #f0d304;
+}
+.ul li:hover .drop {
+  display: block;
+}
+
+.drop {
+  background: #111;
+  position: absolute;
+  display: none;
+  top: 57px;
+  left: 0px;
+  width: 150px;
+}
+
+.drop li {
+  border: 2px solid #222;
+  display: block;
+  color: #fff;
+}

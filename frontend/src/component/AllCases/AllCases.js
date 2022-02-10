@@ -40,6 +40,7 @@ const AllCases = ({
 
   const getAllCases = async () => {
     try {
+      console.log(5555555);
       const res = await axios.get(
         `http://localhost:5000/cases/page?page=${num}
  `,
@@ -75,6 +76,7 @@ const AllCases = ({
 
   const getAllCasesByCategory = async () => {
     try {
+     
       const res = await axios.get(
         `http://localhost:5000/cases/page/category?page=${num}&category=${categoryNav}
  `,
@@ -111,10 +113,10 @@ const AllCases = ({
   }, [categoryNav, num]);
 
   useEffect(() => {
-    //if (allCase) {
+    if (allCase) {
       getAllCases();
-    //}
-  }, []);
+    }
+  }, [allCase, num]);
 
   return (
     <>
