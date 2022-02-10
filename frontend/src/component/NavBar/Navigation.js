@@ -12,6 +12,7 @@ import { FaRegRegistered } from "react-icons/fa";
 
 import { BsFillHouseFill } from "react-icons/bs";
 import "./Navigation.css";
+import { IoLogoHackernews } from "react-icons/io";
 const Navigation = ({
   isAdmin,
   setSearchCase,
@@ -21,9 +22,8 @@ const Navigation = ({
   setUserId,
   setIsAdmin,
   setNum,
-  numEducation
+  numEducation,
 }) => {
-  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const state = useSelector((state) => {
@@ -38,14 +38,18 @@ const Navigation = ({
     setUserId("");
     setIsAdmin(false);
   };
-
+console.log(isAdmin);
   return (
     <>
-     {isAdmin && state.isLoggedIn ? (
-       <>
-       <nav className="nav">
-       <Link className="safeHouseLink" to="/"><h2 className="titleLogo"><BsFillHouseFill></BsFillHouseFill> SAFE HOUSE</h2></Link>
-       {/* <input
+      { isAdmin ||localStorage.getItem('isAdmin')=='admin' && state.isLoggedIn ? (
+        <>
+          <nav className="nav">
+            <Link className="safeHouseLink" to="/">
+              <h2 className="titleLogo">
+                <BsFillHouseFill className="iconHome"></BsFillHouseFill> SAFE HOUSE
+              </h2>
+            </Link>
+            {/* <input
          id="searchInput"
          type="text"
          placeholder="Search here...."
@@ -53,22 +57,38 @@ const Navigation = ({
            setSearchCase(e.target.value);
          }}
        /> */}
-       <ul className="ul">
-       
-         <li><Link className="admin" to="/admin">Dashboard</Link></li>
-          
-       <li><Link to="/">Home</Link></li>
-       <li><a> <RiLogoutBoxLine className="a" onClick={logout}>
-          Logout
-        </RiLogoutBoxLine></a></li>
-       </ul></nav>
+            <ul className="ul">
+              <li>
+                <Link className="admin" to="/admin">
+                  Dashboard
+                </Link>
+              </li>
 
-         
-          </>
-        ) : (
-          <> <nav className="nav">
-        <Link className="safeHouseLink" to="/">  <h2 className="titleLogo"><BsFillHouseFill></BsFillHouseFill> SAFE HOUSE</h2></Link>
-          {/* <input
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <a>
+                  {" "}
+                  <RiLogoutBoxLine className="a" onClick={logout}>
+                    Logout
+                  </RiLogoutBoxLine>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </>
+      ) : (
+        <>
+          {" "}
+          <nav className="nav">
+            <Link className="safeHouseLink" to="/">
+              {" "}
+              <h2 className="titleLogo">
+                <BsFillHouseFill  className="iconHome"></BsFillHouseFill> SAFE HOUSE
+              </h2>
+            </Link>
+            {/* <input
             id="searchInput"
             type="text"
             placeholder="Search here...."
@@ -76,83 +96,120 @@ const Navigation = ({
               setSearchCase(e.target.value);
             }}
           /> */}
-          <ul className="ul">
-           <li><Link to="/">Home</Link></li>
-           <li><Link to="/gallery">Gallery</Link></li>
-          <li><a href="">About Us</a></li>
-          <li><a>Contribute with us</a>
-          <ul className="drop">
-          <li><Link
-            to="/allcases"
-            onClick={() => {
-              setAllCase(true);
-              setCategory(false);
-              setNum(1);
-            }}
-          >All Cases</Link></li>
-  
-           <li> <Link
-            to="/allcases"
-            onClick={() => {
-              setCategory(`education`);
-              setAllCase(false);
-              setNum(1);
-            }}
-          >Education</Link></li>
-        <li>  <Link
-            to="/allcases"
-            onClick={() => {
-              setCategory(`food`);
-              setAllCase(false);
-              setNum(1);
-            }}
-          >  Food</Link></li>
-         <li> <Link
-            to="/allcases"
-            onClick={() => {
-              setCategory(`Rebuilding`);
-              setAllCase(false);
-              setNum(1)
-            }}
-          >  Rebuilding</Link> </li>
-           <li><Link
-            to="/allcases"
-            onClick={() => {
-              setCategory(`Medical Supplies`);
-              setAllCase(false);
-              setNum(1)
-            }}
-          > Medical Supplies</Link> </li>
-          </ul>
-          </li>
-          <li><a href="/#volunteeringSection">Volunteer with us</a></li>
-  
+            <ul className="ul">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/gallery">Gallery</Link>
+              </li>
+              <li>
+                <a href="">About Us</a>
+              </li>
+              <li>
+                <a>Contribute with us</a>
+                <ul className="drop">
+                  <li>
+                    <Link
+                      to="/allcases"
+                      onClick={() => {
+                        setAllCase(true);
+                        setCategory(false);
+                        setNum(1);
+                      }}
+                    >
+                      All Cases
+                    </Link>
+                  </li>
 
+                  <li>
+                    {" "}
+                    <Link
+                      to="/allcases"
+                      onClick={() => {
+                        setCategory(`education`);
+                        setAllCase(false);
+                        setNum(1);
+                      }}
+                    >
+                      Education
+                    </Link>
+                  </li>
+                  <li>
+                    {" "}
+                    <Link
+                      to="/allcases"
+                      onClick={() => {
+                        setCategory(`food`);
+                        setAllCase(false);
+                        setNum(1);
+                      }}
+                    >
+                      {" "}
+                      Food
+                    </Link>
+                  </li>
+                  <li>
+                    {" "}
+                    <Link
+                      to="/allcases"
+                      onClick={() => {
+                        setCategory(`Rebuilding`);
+                        setAllCase(false);
+                        setNum(1);
+                      }}
+                    >
+                      {" "}
+                      Rebuilding
+                    </Link>{" "}
+                  </li>
+                  <li>
+                    <Link
+                      to="/allcases"
+                      onClick={() => {
+                        setCategory(`Medical Supplies`);
+                        setAllCase(false);
+                        setNum(1);
+                      }}
+                    >
+                      {" "}
+                      Medical Supplies
+                    </Link>{" "}
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/#volunteeringSection">Volunteer with us</a>
+              </li>
 
-
-          {state.isLoggedIn || userId ? (
-     <li>  <a id="Logout" onClick={logout}><RiLogoutBoxLine className="a">
-          
-          </RiLogoutBoxLine> </a></li> 
-      ) : (
-        <>
-        <li> 
-          <Link className="register" to="/register"><FaRegRegistered className="a">
-            
-            </FaRegRegistered> </Link></li>
-          <li>  <Link className="login" to="/login" title="Login"><RiLoginBoxLine className="a">
-           
-            </RiLoginBoxLine>    </Link></li>
+              {state.isLoggedIn || userId ? (
+                <li>
+                  {" "}
+                  <a id="Logout" onClick={logout}>
+                    <RiLogoutBoxLine className="a"></RiLogoutBoxLine>{" "}
+                  </a>
+                </li>
+              ) : (
+                <>
+                  <li>
+                    <Link className="register" to="/register">
+                      Register{" "}
+                    </Link>
+                  </li>
+                  <li>
+                    {" "}
+                    <Link className="login" to="/login" title="Login">
+                      Login{" "}
+                    </Link>
+                  </li>
+                </>
+              )}
+            </ul>
+          </nav>
         </>
       )}
 
-
-          </ul>
-        </nav></>
-        )}
-     
-    
-    {/* //////-----------//////////// */}
+      {/* //////-----------//////////// */}
       {/* <div>
         <a className="num">
           <MdSettingsPhone className="phone" /> +00012345678
@@ -166,23 +223,23 @@ const Navigation = ({
       {/* <div className="logo">
           <h1 id="headerLogo" className="animate__animated animate__bounce animate__infinites">Safe House</h1> 
         </div> */}
-      
-        {/* <a>
+
+      {/* <a>
           <img
             className="logo"
             src="https://tse3.mm.bing.net/th?id=OIP.T9dXwfMb2pOdT1tuFBKYigHaGZ&pid=Api&P=0&w=201&h=174"
           />
         </a> */}
-        {/* <Link className="safeHouseLink" to="/">
+      {/* <Link className="safeHouseLink" to="/">
           {" "}
           <p className="safeHouse">SAFE HOUSE</p>
         </Link> */}
-        {/* <MdSearch className="iconSearch"/>  */}
-       
-        {/* <Link to="/">
+      {/* <MdSearch className="iconSearch"/>  */}
+
+      {/* <Link to="/">
           <a className="Home">Home</a>
         </Link> */}
-        {/* <Link
+      {/* <Link
           to="/allcases"
           onClick={() => {
             setAllCase(true);
@@ -192,7 +249,7 @@ const Navigation = ({
         >
           <a id="AllCases">All Cases</a>{" "}
         </Link> */}
-        {/* <Link
+      {/* <Link
           to="/allcases"
           onClick={() => {
             setCategory(`education`);
@@ -202,7 +259,7 @@ const Navigation = ({
         >
           <a className="education">Education</a>{" "}
         </Link> */}
-        {/* <Link
+      {/* <Link
           to="/allcases"
           onClick={() => {
             setCategory(`food`);
@@ -212,7 +269,7 @@ const Navigation = ({
         >
           <a id="kids">Food</a>{" "}
         </Link> */}
-        {/* <Link
+      {/* <Link
           to="/allcases"
           onClick={() => {
             setCategory(`Rebuilding`);
@@ -222,7 +279,7 @@ const Navigation = ({
         >
           <a id="kids">Rebuilding</a>{" "}
         </Link> */}
-        {/* <Link
+      {/* <Link
           to="/allcases"
           onClick={() => {
             setCategory(`Medical Supplies`);
@@ -232,8 +289,8 @@ const Navigation = ({
         >
           <a id="kids">Medical Supplies</a>{" "}
         </Link> */}
-       
-       {/* {state.isLoggedIn || userId ? (
+
+      {/* {state.isLoggedIn || userId ? (
         <a id="Logout" onClick={logout}>
           Logout
         </a>
@@ -248,8 +305,6 @@ const Navigation = ({
         </>
       )} */}
 
-    
-    
       {/* </nav> */}
     </>
   );
