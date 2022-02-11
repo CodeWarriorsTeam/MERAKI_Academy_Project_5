@@ -16,7 +16,7 @@ import {
   updateCases,
   deleteCase,
 } from "../../reducer/cases/index";
-
+import { setUsers } from "../../reducer/users/index";
 import { addImage, setImages } from "../../reducer/image/index";
 
 import { useParams } from "react-router-dom";
@@ -26,6 +26,7 @@ import "./Admin.css";
 import { Link } from "react-router-dom";
 const Admin = ({ searchCase }) => {
   const [num, setNum] = useState(1);
+  const [userIsOpen, setUserIsOpen] = useState(false);
   const [updateIsOpen, setUpdateIsOpen] = useState(false);
   const [caseId, setCaseId] = useState("");
   const [userId, setUserId] = useState("");
@@ -123,6 +124,7 @@ const Admin = ({ searchCase }) => {
       cases: state.casesReducer.cases,
       token: state.loginReducer.token,
       images: state.imagesReducer.images,
+      users: state.usersReducer.users,
     };
   });
 
@@ -173,7 +175,7 @@ const Admin = ({ searchCase }) => {
       );
 
       if (res.data.success) {
-        dispatch(setImages(res.data.result));
+        dispatch(setUsers(res.data.result));
         // setGallery(res.data.result);
       }
     } catch (error) {
@@ -207,6 +209,26 @@ const Admin = ({ searchCase }) => {
         setMessage(err.response.data.message);
       });
   };
+  // ------------------------------------------------
+  const getAllUsers = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/user/all
+     `,
+        { headers: { Authorization: `Bearer ${state.token}` } }
+      );
+
+      if (res.data.success) {
+        dispatch(setUsers(res.data.result));
+        console.log(res.data.result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getAllUsers();
+  }, []);
 
   // ------------------------------------------------
 
@@ -260,7 +282,8 @@ const Admin = ({ searchCase }) => {
           console.log(imageIsOpen);
         }}
       ></ImImages>
-      <FiUsers className="countUser"></FiUsers>{" "}
+      <FiUsers className="countUser" ></FiUsers>
+      <></>
       <p className="countUserPrg">{numUser}</p>
       {/* <p className="alert">
         {(alert = "add New Case")} */}
@@ -315,6 +338,29 @@ const Admin = ({ searchCase }) => {
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
         </tr>{" "}
+        {/* {state.users &&
+          state.users.map((element, i) => {
+            // console.log();
+            return (
+              <>
+              <button
+                onClick={() => {
+                  getAllUsers();
+                  setUsers(true);
+                }}
+              >
+                {" "}
+                ddd
+              </button>   
+                            <Model
+                    style={customStyles2}
+                    isOpen={userIsOpen}
+                    onRequestClose={() => setUserIsOpen(false)}
+                  >
+                    {" "}
+                  </Model></>
+            );
+          })} */}
         {state.cases &&
           state.cases
             .filter((caseInformation) => {
@@ -524,33 +570,26 @@ const Admin = ({ searchCase }) => {
           </div>
         </Model>
       </div>
-<div>
-
-<Model
-                style={customStyles2}
-                isOpen={imageIsOpen}
-                onRequestClose={() => setImageIsOpen(false)}
-              >
-                <input
-                  type="file"
-                  className="image"
-                  onChange={(e) => {
-                    setImageSelected(e.target.files[0]);
-                  }}
-                ></input>
-                <button onClick={() => uploadImage(imageselected)}>
-                  {" "}
-                  <BiUpload className="uploadIcon"></BiUpload>
-                </button>
-                <button onClick={addNewImage}>Add Image</button>
-              </Model>
-
-</div>
-
-
-
-
-
+      <div>
+        <Model
+          style={customStyles2}
+          isOpen={imageIsOpen}
+          onRequestClose={() => setImageIsOpen(false)}
+        >
+          <input
+            type="file"
+            className="image"
+            onChange={(e) => {
+              setImageSelected(e.target.files[0]);
+            }}
+          ></input>
+          <button onClick={() => uploadImage(imageselected)}>
+            {" "}
+            <BiUpload className="uploadIcon"></BiUpload>
+          </button>
+          <button onClick={addNewImage}>Add Image</button>
+        </Model>
+      </div>
     </div>
   );
 };
