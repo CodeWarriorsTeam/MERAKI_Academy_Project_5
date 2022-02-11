@@ -48,12 +48,74 @@ td {
 .update1:hover {
   background-color: yellow;
 }
-.uploadIcon{
-    /* font-size: 1.3em; */
+.uploadIcon {
+  /* font-size: 1.3em; */
 }
-/* .upload1:hover{
-    background-color: yellow;
-} */
+
+.image:hover{
+
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  
+}
+
+
+.image{  
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+  width: 54%;
+
+}
+
+
+.imageIcon {
+  
+  transform: translate(30em, 0.9em);
+  /* display: grid; */
+}
+
+.imageIcon:hover {
+  cursor: pointer;
+}
+
+
+.uploadIcon {
+  height: 1em;
+  margin-left: 0.2em;
+}
+
+.uploadIcon:hover {
+  cursor: pointer;
+}
+
+
+.uploadIcon:active {
+  background-color: #039214;
+}
+
+
+.addImage {
+  height: 2em;
+  margin-left: 2em;
+}
+
+.addImage:hover {
+  cursor: pointer;
+}
+
+
+
+
+.upload1:hover {
+  background-color: #039214;
+}
 .upload1 {
   cursor: pointer;
   width: 2em;
@@ -254,5 +316,4 @@ td {
   font-weight: bold;
   transform: translate(7em, 0.1em);
   margin-top: 10px;
-
 }

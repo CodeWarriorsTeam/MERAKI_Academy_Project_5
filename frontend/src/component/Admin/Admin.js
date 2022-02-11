@@ -253,6 +253,24 @@ const Admin = ({ searchCase }) => {
       transform: "translate(-50%, -50%)",
     },
   };
+
+
+  const customStyles3 = {
+    content: {
+      //   background: "rgba(yellow, 0, 0, 0.7)",
+      top: "50%",
+      left: "50%",
+      right: "60%",
+      bottom: "auto",
+      marginRight: "-50%",
+
+      transform: "translate(-50%, -50%)",
+    },
+  };
+
+
+
+
   // ------------------------------------------------
   const conutUsers = async () => {
     try {
@@ -280,7 +298,7 @@ const Admin = ({ searchCase }) => {
         onClick={() => {
           setImageIsOpen(true);
           console.log(imageIsOpen);
-        }}
+        }} className ="imageIcon" title="Add Image"  style={{ width: "10%", height: "1.4em" }}
       ></ImImages>
       <FiUsers className="countUser" ></FiUsers>
       <></>
@@ -290,7 +308,7 @@ const Admin = ({ searchCase }) => {
       <AiOutlinePlusCircle
         onClick={() => setModelIsOpen(true)}
         className="plus"
-        title="add new case"
+        title="Add New Case"
       ></AiOutlinePlusCircle>
       {/* </p> */}
       <br />
@@ -572,7 +590,7 @@ const Admin = ({ searchCase }) => {
       </div>
       <div>
         <Model
-          style={customStyles2}
+          style={customStyles3}
           isOpen={imageIsOpen}
           onRequestClose={() => setImageIsOpen(false)}
         >
@@ -587,7 +605,7 @@ const Admin = ({ searchCase }) => {
             {" "}
             <BiUpload className="uploadIcon"></BiUpload>
           </button>
-          <button onClick={addNewImage}>Add Image</button>
+          <button onClick={addNewImage} className="addImage">Add Image</button>
         </Model>
       </div>
     </div>
