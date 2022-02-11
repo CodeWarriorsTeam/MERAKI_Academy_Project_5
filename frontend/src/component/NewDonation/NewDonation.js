@@ -8,6 +8,7 @@ import Model from "react-modal";
 import { useParams } from "react-router-dom";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
+
 const NewDonation = ({ isAdmin }) => {
   const state = useSelector((state) => {
     return {
