@@ -20,7 +20,7 @@ const Login = ({ setIsAdmin, setUserId }) => {
     console.log(response);
     setUserId(response.profileObj.googleId);
     console.log(response.profileObj.googleId);
-    navigate("/allcases");
+    navigate("/");
   };
 
   const dispatch = useDispatch();
