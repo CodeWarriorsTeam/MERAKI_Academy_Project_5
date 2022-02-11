@@ -38,15 +38,17 @@ const Navigation = ({
     setUserId("");
     setIsAdmin(false);
   };
-console.log(isAdmin);
+  console.log(isAdmin);
   return (
     <>
-      { isAdmin ||localStorage.getItem('isAdmin')=='admin' && state.isLoggedIn ? (
+      {isAdmin ||
+      (localStorage.getItem("isAdmin") == "admin" && state.isLoggedIn) ? (
         <>
           <nav className="nav">
             <Link className="safeHouseLink" to="/">
               <h2 className="titleLogo">
-                <BsFillHouseFill className="iconHome"></BsFillHouseFill> SAFE HOUSE
+                <BsFillHouseFill className="iconHome"></BsFillHouseFill> SAFE
+                HOUSE
               </h2>
             </Link>
             {/* <input
@@ -85,7 +87,8 @@ console.log(isAdmin);
             <Link className="safeHouseLink" to="/">
               {" "}
               <h2 className="titleLogo">
-                <BsFillHouseFill  className="iconHome"></BsFillHouseFill> SAFE HOUSE
+                <BsFillHouseFill className="iconHome"></BsFillHouseFill> SAFE
+                HOUSE
               </h2>
             </Link>
             {/* <input
