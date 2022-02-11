@@ -6,7 +6,10 @@ import { setImages } from "../../reducer/image";
 
 const Gallery = () => {
   const state = useSelector((state) => {
-    return { images: state.imagesReducer.images,token:state.loginReducer.token };
+    return {
+      images: state.imagesReducer.images,
+      token: state.loginReducer.token,
+    };
   });
 
   const dispatch = useDispatch();
@@ -17,18 +20,18 @@ const Gallery = () => {
     try {
       const res = await axios.get(
         `http://localhost:5000/gallery
-     `,{ headers: { Authorization: `Bearer ${state.token}` } }
-      )
+     `,
+        { headers: { Authorization: `Bearer ${state.token}` } }
+      );
 
       if (res.data.success) {
         dispatch(setImages(res.data.result));
-       // setGallery(res.data.result);
+        // setGallery(res.data.result);
       }
     } catch (error) {
       console.log(error);
     }
   };
-  console.log(gallery);
   useEffect(() => {
     getAllImage();
   }, []);
@@ -40,13 +43,6 @@ const Gallery = () => {
             <>
               <div className="image_1">
                 <img src={element.image_1} />
-              </div>
-
-              <div className="image_2">
-                <img src={element.image_2} />
-              </div>
-              <div className="image_3">
-                <img src={element.image_3} />
               </div>
             </>
           ))}
