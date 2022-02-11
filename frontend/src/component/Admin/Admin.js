@@ -78,7 +78,6 @@ const Admin = ({ searchCase }) => {
     } catch (error) {
       setMessage("no cases yet");
       if (!error) {
-        console.log(888888);
         return setMessage(error.response.data.message);
       }
     }
@@ -220,6 +219,7 @@ const Admin = ({ searchCase }) => {
 
       if (res.data.success) {
         dispatch(setUsers(res.data.result));
+        // setUserIsOpen(false);
         console.log(res.data.result);
       }
     } catch (error) {
@@ -244,7 +244,6 @@ const Admin = ({ searchCase }) => {
   };
   const customStyles2 = {
     content: {
-      //   background: "rgba(yellow, 0, 0, 0.7)",
       top: "50%",
       left: "50%",
       right: "60%",
@@ -253,7 +252,6 @@ const Admin = ({ searchCase }) => {
       transform: "translate(-50%, -50%)",
     },
   };
-
 
   const customStyles3 = {
     content: {
@@ -263,13 +261,9 @@ const Admin = ({ searchCase }) => {
       right: "60%",
       bottom: "auto",
       marginRight: "-50%",
-
       transform: "translate(-50%, -50%)",
     },
   };
-
-
-
 
   // ------------------------------------------------
   const conutUsers = async () => {
@@ -298,9 +292,12 @@ const Admin = ({ searchCase }) => {
         onClick={() => {
           setImageIsOpen(true);
           console.log(imageIsOpen);
-        }} className ="imageIcon" title="Add Image"  style={{ width: "10%", height: "1.4em" }}
+        }}
+        className="imageIcon"
+        title="Add Image"
+        style={{ width: "10%", height: "1.4em" }}
       ></ImImages>
-      <FiUsers className="countUser" ></FiUsers>
+      <FiUsers className="countUser"></FiUsers>
       <></>
       <p className="countUserPrg">{numUser}</p>
       {/* <p className="alert">
@@ -356,29 +353,6 @@ const Admin = ({ searchCase }) => {
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
         </tr>{" "}
-        {/* {state.users &&
-          state.users.map((element, i) => {
-            // console.log();
-            return (
-              <>
-              <button
-                onClick={() => {
-                  getAllUsers();
-                  setUsers(true);
-                }}
-              >
-                {" "}
-                ddd
-              </button>   
-                            <Model
-                    style={customStyles2}
-                    isOpen={userIsOpen}
-                    onRequestClose={() => setUserIsOpen(false)}
-                  >
-                    {" "}
-                  </Model></>
-            );
-          })} */}
         {state.cases &&
           state.cases
             .filter((caseInformation) => {
@@ -601,13 +575,60 @@ const Admin = ({ searchCase }) => {
               setImageSelected(e.target.files[0]);
             }}
           ></input>
-          <button onClick={() => uploadImage(imageselected)} className="uploadImageButton">
+          <button
+            onClick={() => uploadImage(imageselected)}
+            className="uploadImageButton"
+          >
             {" "}
             <BiUpload className="uploadIcon"></BiUpload>
           </button>
-          <button onClick={addNewImage} className="addImage">Add Image</button>
+          <button onClick={addNewImage} className="addImage">
+            Add Image
+          </button>
         </Model>
       </div>
+      {state.users &&
+        state.users.map((element, i) => {
+          // console.log();
+          return (
+            <div key={i}>
+              <button
+                onClick={() => {
+                  getAllUsers();
+                  // setUsers(true);
+                }}
+              >
+                {" "}
+                user name
+              </button>
+              <table>
+                <tr>
+                  <th>id</th>
+                  <th>profile_image</th>
+                  <th>firstName</th>
+                  <th>lastName</th>
+                  <th>country</th>
+                  <th>email</th>
+                </tr>
+                <tr>
+                <td>{element.id}</td>
+                  <td>{element.profile_image}</td>
+                  <td>{element.firstName}</td>
+                  <td>{element.lastName}</td>
+                  <td>{element.country}</td>
+                  <td>{element.email}</td>
+                </tr>
+              </table>
+              {/* <Model
+                    style={customStyles2}
+                    isOpen={userIsOpen}
+                    onRequestClose={() => setUserIsOpen(false)}
+                  >
+                    {" "}
+                  </Model> */}
+            </div>
+          );
+        })}
     </div>
   );
 };
