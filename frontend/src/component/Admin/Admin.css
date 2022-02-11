@@ -96,9 +96,15 @@ td {
 }
 
 
-.uploadIcon:active {
+/* .uploadIcon:active {
   background-color: #039214;
+} */
+
+.uploadImageButton:active{
+  background-color: #039214;
+
 }
+
 
 
 .addImage {

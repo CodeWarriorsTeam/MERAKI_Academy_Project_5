@@ -601,7 +601,7 @@ const Admin = ({ searchCase }) => {
               setImageSelected(e.target.files[0]);
             }}
           ></input>
-          <button onClick={() => uploadImage(imageselected)}>
+          <button onClick={() => uploadImage(imageselected)} className="uploadImageButton">
             {" "}
             <BiUpload className="uploadIcon"></BiUpload>
           </button>
