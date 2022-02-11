@@ -3,7 +3,7 @@
   margin-left: 35%;
   margin-right: 35%;
   margin-top: 2%;
-  border: 2px solid #25211d;
+  border: 2px solid rgba(37, 33, 29, 0.4);
   overflow: hidden;
 }
 .accountUp{
@@ -28,7 +28,7 @@
 }
 .firstName {
   height: 30px;
-  width: 45%;
+  width: 62%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -45,7 +45,7 @@
 }
 .password {
   height: 30px;
-  width: 45%;
+  width: 62%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -62,7 +62,7 @@
 }
 .lastName {
   height: 30px;
-  width: 45%;
+  width: 62%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -79,7 +79,7 @@
 }
 .country {
   height: 30px;
-  width: 45%;
+  width: 62%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -89,14 +89,14 @@
 }
 
 .image {
-  margin-right: 10%;
+  /* margin-right: 10%; */
   cursor: pointer;
 }
 
 .uploadButton {
   height: 1.4em;
   width: 8%;
-  transform: translate(-0.3em, 0.1em);
+  /* transform: translate(-0.3em, 0.1em); */
   font-size: 100%;
 }
 
@@ -116,7 +116,7 @@
 }
 .email {
   height: 30px;
-  width: 45%;
+  width: 62%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -144,7 +144,7 @@
 
 .registerButton {
   height: 30px;
-  width: 45%;
+  width: 62%;
   border-radius: 5px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;

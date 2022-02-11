@@ -62,7 +62,8 @@ const Login = ({ setIsAdmin, setUserId }) => {
     <>
       <br />
       <br />
-      <br />
+      <br />   <br />
+
       <div className="loginpage">
         <br />
         <h1 className="sign">Sign In</h1>
@@ -91,7 +92,7 @@ const Login = ({ setIsAdmin, setUserId }) => {
         <button className="but" onClick={login}>
           LOGIN
         </button>
-        <br />  <br />
+        <br /> 
         <div className="message">{message}</div>
         <br />
        <GoogleLogin className="google"
