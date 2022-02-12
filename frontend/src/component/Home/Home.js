@@ -2,8 +2,39 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import "./Home.css";
-
+import { useDispatch,useSelector } from "react-redux";
+import { addVolunteer } from "../../reducer/volunteer/index";
 const Home = ({setCategory,setAllCase,numEducation,numFood,setNumFood,setNumEducation,setNumRebuilding,numRebuilding,setNumMedicalSupplies,numMedicalSupplies}) => {
+
+
+const dispatch = useDispatch();
+
+
+const state =useSelector((state)=>{
+  return{ token:state.loginReducer.token,volunteers: state.volunteerReducer.volunteers }
+})
+
+console.log(state.volunteers);
+
+
+
+
+  const [firstName,setFirstName] = useState("");
+  const [lastName,setLastName] = useState("");
+  const [email,setEmail] = useState("");
+  const [address_1,setAddress_1] = useState("");
+  const [phonenumber,setPhoneNumber] = useState("");
+const [message,setMessage] = useState("")
+
+
+// console.log(firstName);
+// console.log(lastName);
+// console.log(email);
+// console.log(address_1);
+// console.log(phonenumber);
+
+
+
 
   const countNumEducation = async () => {
     try {
@@ -88,6 +119,33 @@ const Home = ({setCategory,setAllCase,numEducation,numFood,setNumFood,setNumEduc
         countNumMedSupplies();
         }, []);
  
+//------------------------------------------------------------
+
+const addNewVolunteer = ()=>{
+
+  axios.post("http://localhost:5000/volunteer",{firstName,lastName,email,address_1,phonenumber}, { headers: { Authorization: `Bearer ${state.token}` } }
+  )
+
+  .then ((result)=>{
+    dispatch(addVolunteer({
+      firstName,
+      lastName,
+      email,
+      address_1,
+      phonenumber
+    })
+    )
+  }) .catch((err)=>{
+    console.log(err.response);
+    setMessage(err.respone.data.message)
+  })
+
+
+}
+
+
+
+
   return (
     <>
      
@@ -185,7 +243,30 @@ const Home = ({setCategory,setAllCase,numEducation,numFood,setNumFood,setNumEduc
     <p className="prgVolunteering">
     When you do any volunteer work, you will not know the meaning of boredom. Everything in the world of volunteering is an exciting and new experience in all respects that takes you to wide horizons.
     </p>
+
+
+
+    <input type="text" placeholder="First Name" onChange={(e)=>{
+  setFirstName(e.target.value);
+}}></input>
+<input type="text" placeholder="Last Name" onChange={(e)=>{
+  setLastName(e.target.value);
+}}></input>
+<input type="email" placeholder="Email" onChange={(e)=>{
+  setEmail(e.target.value);
+}}></input>
+<input type="text" placeholder="Address" onChange={(e)=>{
+  setAddress_1(e.target.value);
+}}></input>
+<input type="text" placeholder="Phone Number" onChange={(e)=>{
+  setPhoneNumber(e.target.value);
+}}></input>
+<button onClick={addNewVolunteer}>Add New Volunteer</button>
+
+
+
     <button className="btnVolunteering">JOIN US</button>
+    {message}
   </div>
 </div>
 
