@@ -63,3 +63,16 @@ CREATE TABLE gallery (
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
+
+CREATE TABLE volunteer (
+    id INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(255),
+    lastName VARCHAR(255),
+    email VARCHAR(255),
+    address_1 VARCHAR(255),
+    phonenumber VARCHAR(255),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+
+);

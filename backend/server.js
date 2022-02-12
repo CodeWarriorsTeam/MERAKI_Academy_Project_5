@@ -41,6 +41,10 @@ const galleryRouter = require("./routes/gallery");
 app.use("/gallery",galleryRouter)
 
 
+const volunteerRouter = require("./routes/volunteer");
+
+app.use("/volunteer",volunteerRouter);
+
 
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
