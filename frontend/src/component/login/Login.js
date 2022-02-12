@@ -47,8 +47,7 @@ const Login = ({ setIsAdmin, setUserId }) => {
         console.log(result.data.result[0].role_name);
         setIsAdmin(result.data.result[0].role_name.toLowerCase() === "admin");
 
-        localStorage.setItem("isAdmin",result.data.result[0].role_name)
-
+        localStorage.setItem("isAdmin", result.data.result[0].role_name);
       })
 
       .catch((err) => {
@@ -60,19 +59,33 @@ const Login = ({ setIsAdmin, setUserId }) => {
 
   return (
     <>
-      <br />
-      <br />
-      <br />   <br />
-
+    
       <div className="loginpage">
         <br />
-        <h1 className="sign">Sign In</h1>
-        <h5 className="account">Sign in to your account</h5>
+        <div className="sss">
+        {" "}  
+        <p className="newhere">New Here?</p>  
+        <p className="wordSign">sign up and  discover a great amount loads of new cases</p>
+      </div>
+      <br />
+        {/* <h1 ></h1> */}
+        <h1 className="sign">Login to Your Account</h1>
+        <h3 className="signgoogle">Login using google</h3>
         <br></br>
+        <GoogleLogin
+          className="google"
+          clientId="776623589420-erpi2vgpt6n8ncgv3gqc7ddcpphibjs5.apps.googleusercontent.com"
+          buttonText="sign in with google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+        />{" "}
+        <br></br>
+        <p className="or">------------------------OR-----------------------</p>
         <input
           type="text"
           className="emai"
-          placeholder=" E-mail"
+          placeholder=" Email"
           onChange={(e) => {
             setEmail(e.target.value);
           }}
@@ -80,37 +93,27 @@ const Login = ({ setIsAdmin, setUserId }) => {
         <br /> <br />
         <input
           type="password"
-          placeholder="Password"
+          placeholder=" Password"
           className="pass"
           onChange={(e) => {
             setPass(e.target.value);
           }}
         ></input>
-
-        <br />
         <br />
         <button className="but" onClick={login}>
-          LOGIN
+          Sign In
         </button>
-        <br /> 
+        <br />
         <div className="message">{message}</div>
         <br />
-       <GoogleLogin className="google"
-        clientId="776623589420-erpi2vgpt6n8ncgv3gqc7ddcpphibjs5.apps.googleusercontent.com"
-        buttonText="sign in with google"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={"single_host_origin"}
-      />  <br />  <br />
-        <p className="sent">
-          Don't have an account?{" "}
-          <Link className="register" to="/register" className="link">
-            Create account
+        {/* <br />  <br /> */}
+        <button className="sent">
+          <Link to="/register" className="link">
+          Sign up
           </Link>
-        </p>
-        <br></br>
+        </button>
+       
       </div>
-
     
     </>
   );
