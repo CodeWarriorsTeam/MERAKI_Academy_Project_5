@@ -10,6 +10,9 @@ import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
 import StripeContainer from "../StripeContainer";
 import PaymentForm from "../PaymentForm"
+
+
+
 const NewDonation = ({ isAdmin }) => {
   const state = useSelector((state) => {
     return {
