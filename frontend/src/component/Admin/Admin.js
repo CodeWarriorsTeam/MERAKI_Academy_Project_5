@@ -24,6 +24,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import { Link } from "react-router-dom";
+import { setVolunteers } from "../../reducer/volunteer";
 const Admin = ({ searchCase }) => {
   const [num, setNum] = useState(1);
   const [userIsOpen, setUserIsOpen] = useState(false);
@@ -124,6 +125,7 @@ const Admin = ({ searchCase }) => {
       token: state.loginReducer.token,
       images: state.imagesReducer.images,
       users: state.usersReducer.users,
+      volunteers: state.volunteerReducer.volunteers,
     };
   });
 
@@ -228,6 +230,25 @@ const Admin = ({ searchCase }) => {
   };
   useEffect(() => {
     getAllUsers();
+  }, []);
+  //---------------------------------------------------
+  const getAllVolunteers = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/volunteer
+    `,
+        { headers: { Authorization: `Bearer ${state.token}` } }
+      );
+      if (res.data.success) {
+        dispatch(setVolunteers(res.data.result));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getAllVolunteers();
   }, []);
 
   // ------------------------------------------------
@@ -588,51 +609,73 @@ const Admin = ({ searchCase }) => {
         </Model>
       </div>
       <table>
+        <tr>
+          <th>id</th>
+          <th>profile_image</th>
+          <th>firstName</th>
+          <th>lastName</th>
+          <th>country</th>
+          <th>email</th>
+        </tr>
+
+        {state.users &&
+          state.users.map((element, i) => {
+            // console.log();
+            return (
+              <div key={i}>
+                <button
+                  onClick={() => {
+                    getAllUsers();
+                    // setUsers(true);
+                  }}
+                >
+                  {" "}
+                  user name
+                </button>
+
                 <tr>
-                  <th>id</th>
-                  <th>profile_image</th>
-                  <th>firstName</th>
-                  <th>lastName</th>
-                  <th>country</th>
-                  <th>email</th>
-                </tr>
-                
-      {state.users &&
-        state.users.map((element, i) => {
-          // console.log();
-          return (
-            <div key={i}>
-              <button
-                onClick={() => {
-                  getAllUsers();
-                  // setUsers(true);
-                }}
-              >
-                {" "}
-                user name
-              </button>
-             
-                <tr>
-                <td>{element.id}</td>
+                  <td>{element.id}</td>
                   <td>{element.profile_image}</td>
                   <td>{element.firstName}</td>
                   <td>{element.lastName}</td>
                   <td>{element.country}</td>
                   <td>{element.email}</td>
                 </tr>
-             
-              {/* <Model
+
+                {/* <Model
                     style={customStyles2}
                     isOpen={userIsOpen}
                     onRequestClose={() => setUserIsOpen(false)}
                   >
                     {" "}
                   </Model> */}
-            </div>
-          );
-
-        })}
-         </table>
+              </div>
+            );
+          })}
+      </table>
+      <table>
+        <tr>
+          <th>id</th>
+          <th>firstName</th>
+          <th>lastName</th>
+          <th>email</th>
+          <th>address_1</th>
+          <th>phonenumber</th>
+        </tr>
+        {state.volunteers &&
+          state.volunteers.map((element) => {
+            return (
+              <tr>
+                <td>{element.id}</td>
+                <td>{element.firstName}</td>
+                <td>{element.lastName}</td>
+                <td>{element.email}</td>
+                <td>{element.address_1}</td>
+                <td>{element.phonenumber}</td>
+              </tr>
+            );
+          })}
+      </table>
     </div>
   );
 };
