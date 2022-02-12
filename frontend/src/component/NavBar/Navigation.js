@@ -13,6 +13,8 @@ import { FaRegRegistered } from "react-icons/fa";
 import { BsFillHouseFill } from "react-icons/bs";
 import "./Navigation.css";
 import { IoLogoHackernews } from "react-icons/io";
+
+import { BsSearch } from "react-icons/bs";
 const Navigation = ({
   isAdmin,
   setSearchCase,
@@ -51,14 +53,15 @@ const Navigation = ({
                 HOUSE
               </h2>
             </Link>
-            {/* <input
-         id="searchInput"
-         type="text"
-         placeholder="Search here...."
-         onChange={(e) => {
-           setSearchCase(e.target.value);
-         }}
-       /> */}
+            <input
+          id="searchInputNav"
+          type="text"
+          placeholder="Search here...."
+          onChange={(e) => {
+            setSearchCase(e.target.value);
+          }}
+        />
+        <a id="iconSearch"><BsSearch id="iconSearch"></BsSearch></a>
             <ul className="ul">
               <li>
                 <Link className="admin" to="/admin">
@@ -91,14 +94,15 @@ const Navigation = ({
                 HOUSE
               </h2>
             </Link>
-            {/* <input
-            id="searchInput"
-            type="text"
-            placeholder="Search here...."
-            onChange={(e) => {
-              setSearchCase(e.target.value);
-            }}
-          /> */}
+         <input
+          id="searchInputNav"
+          type="text"
+          placeholder="Search here...."
+          onChange={(e) => {
+            setSearchCase(e.target.value);
+          }}
+        />
+        <a id="iconSearch"><BsSearch id="iconSearch"></BsSearch></a>
             <ul className="ul">
               <li>
                 <Link to="/">Home</Link>
@@ -107,7 +111,7 @@ const Navigation = ({
                 <Link to="/gallery">Gallery</Link>
               </li>
               <li>
-                <a href="">About Us</a>
+                <Link to="">About Us</Link>
               </li>
               <li>
                 <a>Contribute with us</a>

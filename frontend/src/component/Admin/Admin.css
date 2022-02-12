@@ -1,13 +1,13 @@
-.table,
+/* .table,
 th,
-td {
+td { */
   /* margin-right: 20%; */
   /* margin-left: 20%; */
   /* width: 80%; */
   /* border-collapse: separate; */
   /* border-spacing: 2% 2%; */
   /* border: 1px solid rgba(17, 17, 17, 0.377); */
-}
+/* } */
 .id {
   width: 3%;
 }
@@ -28,13 +28,14 @@ td {
 }
 .donatio {
   width: 5%;
+ 
 }
 .don {
   width: 5%;
 }
-.oper {
+/* .oper { */
   /* width: 5%; */
-}
+/* } */
 .uplo {
   width: 7%;
   height: 5%;
@@ -48,9 +49,9 @@ td {
 .update1:hover {
   background-color: yellow;
 }
-.uploadIcon {
+/* .uploadIcon { */
   /* font-size: 1.3em; */
-}
+/* } */
 
 .image:hover{
 

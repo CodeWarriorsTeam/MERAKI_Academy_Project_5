@@ -30,7 +30,7 @@ const AllCases = ({
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   const [category, setCategory] = useState("");
 
@@ -45,7 +45,6 @@ const AllCases = ({
 
   const getAllCases = async () => {
     try {
-      console.log(5555555);
       const res = await axios.get(
         `http://localhost:5000/cases/page?page=${num}
  `,
@@ -121,86 +120,124 @@ const AllCases = ({
       getAllCases();
     }
   }, [allCase, num]);
-  const toggleVisible =() => {
-const scrolled = document.documentElement.scrollTop;
-if (scrolled > 100) {
-  setVisible(true)
-} else if (scrolled <= 100) {
-  setVisible(false)
-}
-  }
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 100) {
+      setVisible(true);
+    } else if (scrolled <= 100) {
+      setVisible(false);
+    }
+  };
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior:'smooth'
-    })
-  }
-window.addEventListener('scroll', toggleVisible)
+      behavior: "smooth",
+    });
+  };
+  window.addEventListener("scroll", toggleVisible);
   return (
     <>
       <br />
       <br />
       <br />
-     
-      <div className="case">
-        {state.cases &&
-          state.cases
-            .filter((caseInformation) => {
-              if (searchCase == "") {
-                return caseInformation;
-              } else if (
-                caseInformation.category
-                  .toLowerCase()
-                  .includes(searchCase.toLowerCase()) ||
-                caseInformation.title
-                  .toLowerCase()
-                  .includes(searchCase.toLowerCase())
-              ) {
-                return caseInformation;
-              }
-            })
-            .map((element, i) => (
-              <>
-                <div key={i} className="allcasesContainer">
-                  <img
-                    className="allcasesImage"
-                    title="Case Image"
-                    onClick={() => {
-                      convertToCase(element.id);
-                    }}
-                    src={element.case_image}
-                  />
-                  <div className="caseInfo">
-                    <p className="allcasesTitle">{element.title}</p>
-                    <p className="TheAmountReguired">
-                      {element.TheAmountRequired}$
-                    </p>
-                    {element.TheAmountRequired &&
-                    element.TheAmountRequired > 0 ? (
-                      <>
-                        <p className="open">Open</p>
-                      </>
-                    ) : (
-                      <p className="open" style={{ background: "red" }}>
-                        close
-                      </p>
-                    )}
-                    {
-                      <button
-                        className="detailsButton"
+      <section className="allCasesSection">
+        <div className="containerAllCases">
+          <div className="row my-3">
+            <div className="col my-3">
+              <h1 className="headerAllCases">
+                Goodness does not stop until the Hour of Resurrection
+              </h1>
+              <p className="prgAllCases">
+                "If the Final Hour comes while you have a shoot of a plant in
+                your hands and it is possible to plant it before the Hour comes,
+                you should plant it"
+              </p>
+            </div>
+          </div>
+
+          <div className="row-cases">
+            {state.cases &&
+              state.cases
+                .filter((caseInformation) => {
+                  if (searchCase == "") {
+                    return caseInformation;
+                  } else if (
+                    caseInformation.category
+                      .toLowerCase()
+                      .includes(searchCase.toLowerCase()) ||
+                    caseInformation.title
+                      .toLowerCase()
+                      .includes(searchCase.toLowerCase())
+                  ) {
+                    return caseInformation;
+                  }
+                })
+                .map((element, i) => (
+                  <>
+                    <div key={i} className="col-cases">
+                      <div className="containerCase outline">
+                        <img
+                          className="caseImage"
+                          title="Case Image"
+                          onClick={() => {
+                            convertToCase(element.id);
+                          }}
+                          src={element.case_image}
+                        />
+                        {element.TheAmountRequired &&
+                        element.TheAmountRequired > 0 ? (
+                          <>
+                            <a className="donationNow">Open</a>
+                          </>
+                        ) : (
+                          <a
+                            className="donationNow"
+                            style={{ background: "red" }}
+                          >
+                            close
+                          </a>
+                        )}
+                      </div>
+                      <p className="titleCase">{element.title}</p>
+                      <h6 className="required">{element.TheAmountRequired}$</h6>
+                      <div className="contBtn">
+                      <div className="BtnDetailsCase"  onClick={() => {
+                          convertToCase(element.id);
+                        }}>
+                  Details
+                      </div>
+                      </div>
+                      {/* <button className="detailsCase"
                         onClick={() => {
                           convertToCase(element.id);
                         }}
                         title="Case Details"
                       >
                         Details
-                      </button>
-                    }
-                  </div>
-                </div>
-              </>
-            ))}
-      </div>
+                      </button> */}
+                    </div>
+                    {/* <div className="caseInfo"> */}
+                    {/* <p className="allcasesTitle">{element.title}</p>
+                    <p className="TheAmountReguired">
+                      {element.TheAmountRequired}$
+                    </p> */}
+                    {/* {element.TheAmountRequired &&
+                    element.TheAmountRequired > 0 ? (
+                      <>
+                        <a className="donationNow">Open</a>
+                      </>
+                    ) : (
+                      <a className="donationNow" style={{ background: "red" }}>
+                        close
+                      </a>
+                    )} */}
+
+                    {/* </div> */}
+                  </>
+                ))}
+          </div>
+        </div>
+      </section>
 
       {num == 1 ? (
         <></>
@@ -223,8 +260,8 @@ window.addEventListener('scroll', toggleVisible)
         <GrFormNextLink className="buttonIcon"></GrFormNextLink>
       </button>
 
-      {message && <div>{message}</div>}
-      <button className="up"><AiOutlineArrowUp onClick={scrollToTop} style={{display: visible ? 'inline':'none', fontSize:"1.8em"}}></AiOutlineArrowUp></button>
+      {/* {message && <div>{message}</div>}
+      <button className="up"><AiOutlineArrowUp onClick={scrollToTop} style={{display: visible ? 'inline':'none', fontSize:"1.8em"}}></AiOutlineArrowUp></button> */}
       {/* <ul className="smothscroll"><li><a href="#scrool"><AiOutlineArrowUp className="up">::before</AiOutlineArrowUp></a> </li></ul> */}
     </>
   );
