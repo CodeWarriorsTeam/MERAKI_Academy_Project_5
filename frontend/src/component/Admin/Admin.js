@@ -587,6 +587,16 @@ const Admin = ({ searchCase }) => {
           </button>
         </Model>
       </div>
+      <table>
+                <tr>
+                  <th>id</th>
+                  <th>profile_image</th>
+                  <th>firstName</th>
+                  <th>lastName</th>
+                  <th>country</th>
+                  <th>email</th>
+                </tr>
+                
       {state.users &&
         state.users.map((element, i) => {
           // console.log();
@@ -601,15 +611,7 @@ const Admin = ({ searchCase }) => {
                 {" "}
                 user name
               </button>
-              <table>
-                <tr>
-                  <th>id</th>
-                  <th>profile_image</th>
-                  <th>firstName</th>
-                  <th>lastName</th>
-                  <th>country</th>
-                  <th>email</th>
-                </tr>
+             
                 <tr>
                 <td>{element.id}</td>
                   <td>{element.profile_image}</td>
@@ -618,7 +620,7 @@ const Admin = ({ searchCase }) => {
                   <td>{element.country}</td>
                   <td>{element.email}</td>
                 </tr>
-              </table>
+             
               {/* <Model
                     style={customStyles2}
                     isOpen={userIsOpen}
@@ -628,7 +630,9 @@ const Admin = ({ searchCase }) => {
                   </Model> */}
             </div>
           );
+
         })}
+         </table>
     </div>
   );
 };
