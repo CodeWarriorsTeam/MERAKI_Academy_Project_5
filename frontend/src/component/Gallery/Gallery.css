@@ -2,13 +2,15 @@
   /* padding: 10px; */
   max-width: 1100px;
   margin: auto;
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
   display: grid;
+ 
   /* grid-template-columns: 1fr 1fr ; */
   /* grid-gap: 10px; */
   grid-template-columns: repeat(3, 1fr);
   gap: 5%;
   /* margin-bottom: 300px; */
+   margin-bottom: 35vh;
 
   /* grid-auto-rows: 200px; */
 
