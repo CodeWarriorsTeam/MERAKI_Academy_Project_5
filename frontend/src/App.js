@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-
+import { Elements } from "@stripe/react-stripe-js";
 import Navigation from "./component/NavBar/Navigation";
 import { Routes, Route } from "react-router-dom";
 import Register from "./component/register/Register";
@@ -12,7 +12,9 @@ import NewDonation from "./component/NewDonation/NewDonation";
 import Home from "./component/Home/Home";
 
 import Gallery from "./component/Gallery/Gallery";
-import Admin from "./component/Admin/Admin"
+import Admin from "./component/Admin/Admin";
+import StripeContainer from "./component/StripeContainer";
+import PaymentForm from "./component/PaymentForm"
 
 function App() {
   const [searchCase, setSearchCase] = useState("");
@@ -23,13 +25,17 @@ function App() {
   const [numFood, setNumFood] = useState(0);
   const [numRebuilding, setNumRebuilding] = useState(0);
   const [numMedicalSupplies, setNumMedicalSupplies] = useState(0);
-
+  
   //--------------------------------- STORE
   const [isAdmin, setIsAdmin] = useState("");
   const [userId, setUserId] = useState("");
+  //--
 
+  
   return (
     <>
+     
+   
       <Navigation
         setIsAdmin={setIsAdmin}
         isAdmin={isAdmin}
@@ -43,6 +49,7 @@ function App() {
       />
 
       <Routes>
+        
         <Route path="admin" element={<Admin searchCase={searchCase} />} />
         <Route
           path="/"

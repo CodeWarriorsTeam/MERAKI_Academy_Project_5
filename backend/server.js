@@ -3,9 +3,11 @@ const cors = require("cors");
 require("dotenv").config();
 const app = express();
 const db = require("./database/db");
-
+const stripe=require("stripe")(process.env.STRIPE_SECRET_TEST)
+const bodyParser=require("body-parser")
 app.use(cors());
-
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json())
 app.use(express.json());
 
 
@@ -21,6 +23,9 @@ const casesRouter = require("./routes/cases");
 
 app.use("/cases", casesRouter);
 
+
+const paymentRouter=require("./routes/payment")
+ app.use("/payment",paymentRouter)
 
 const adminRouter=require("./routes/admin")
 

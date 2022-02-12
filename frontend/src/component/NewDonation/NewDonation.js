@@ -8,6 +8,8 @@ import Model from "react-modal";
 import { useParams } from "react-router-dom";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
+import StripeContainer from "../StripeContainer";
+import PaymentForm from "../PaymentForm"
 const NewDonation = ({ isAdmin }) => {
   const state = useSelector((state) => {
     return {
@@ -19,6 +21,7 @@ const NewDonation = ({ isAdmin }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [showItem, setShowItem] = useState(false);
   const [updateBox, setUpdateBox] = useState(false);
   const [caseId, setCaseId] = useState(false);
   const [donateIsOpen, setDonateIsOpen] = useState(false);
@@ -37,7 +40,7 @@ const NewDonation = ({ isAdmin }) => {
     try {
       const result = await axios.get(`http://localhost:5000/cases/${id}`);
       setDetails(result.data.result);
-      console.log(result.data.result);
+      console.log(result.data.result[0].title);
       setIsClosed(result.data.result[0].TheAmountRequired);
     } catch (error) {
       console.log(error.response);
@@ -136,13 +139,22 @@ const NewDonation = ({ isAdmin }) => {
               <p className="title3"> {element.title}</p>
               <p className="amount3">{element.TheAmountRequired}$</p>
               <p className="description3">{element.case_description}</p>
-              <button
-                onClick={() => setDonateIsOpen(true)}
-                className="donate"
-                title="Donate Now"
-              >
-                Donate Now
-              </button>
+          {isClosed && isClosed>0?(<>
+            {showItem ? (
+         <StripeContainer />
+       ) : (
+         <>
+           
+           <button
+             className="Pay"
+             onClick={() => {
+               setShowItem(true);
+             }}
+           >
+             Donate Now
+           </button>
+         </>
+       )}</>):(<></>) }   
               {isAdmin ? (
                 <>
                   {updateBox && caseId === element.id && (
