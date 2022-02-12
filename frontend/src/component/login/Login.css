@@ -1,33 +1,74 @@
-.loginpage {
+.loginpage,
+.sss {
   height: 100%;
-  margin-left: 35%;
-  margin-right: 35%;
-  margin-top: 2%;
-  border: 2px solid rgba(37, 33, 29,0.4)  ;
-  overflow: hidden;
+  /* margin-left:0%; */
+  /* margin-right: 10%; */
+  /* margin-top: 0%; */
+  /* margin-bottom: 0%; */
+  /* background-repeat: ;
+  background-size: 50% auto; */
+  background: linear-gradient(to right, #fcfcfc 60%, #f0d304 40%);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* margin-left: 10%; */
+  /* width: 100%; */
+  /* /* border-right-color: rgb(170, 50, 220, .6); */
+  /* background: linear-gradient(to right, #fcfcfc 60%, #F0D304 40%); */
+  /* border: 2px solid rgba(37, 33, 29,0.4)  ; */
+  /* overflow: hidden; */
   /* margin: 20%; */
 }
-.google{
-  width: 50%;
+/* .sss{margin-bottom: 5%;} */
+.google {
+  margin-left: 20%;
+  margin-top: 1%;
+  width: 20%;
 }
+
 .sign {
-  color: #25211D ;
+  color: #25211d;
   font-size: 3.7ch;
+  margin-left: 17%;
+  margin-bottom: 2%;
+
+  /* margin-top: 3%; */
   font-family: "Gill Sans", sans-serif;
 }
-.link {
-  color: rgb(41, 41, 153);
-  text-decoration: none;
+.link{
+  color: black;
+}
+.sent:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+  cursor: pointer;
 }
 .sent {
-  font-size: 1.5ch;
+  transform: translate(12em, -10em);
+  margin-left: 60%;
+  width: 10%;
+  background-color: white;
+  /* font-size: 1.3em; */
+  /* font-family: system-ui;  */
   font-family: system-ui;
-  color: rgb(117, 117, 117);
+  height: 35px;
+  border-radius: 20px;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  font-size: 1.7ch;
 }
+
+
 .account {
   font-size: 1.7ch;
   font-family: system-ui;
-color: rgb(117, 117, 117);
+  color: rgb(117, 117, 117);
 }
 .emai:hover {
   border-top: 1px rgb(0, 0, 0) solid;
@@ -37,7 +78,10 @@ color: rgb(117, 117, 117);
 }
 .emai {
   height: 30px;
-  width: 62%;
+  width: 20%;
+  margin-left: 20%;
+  text-align: left;
+  margin-top: 2%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -52,9 +96,29 @@ color: rgb(117, 117, 117);
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
+.newhere {
+  margin-left: 70%;
+  font-size: 2.4em;
+  transform: translate(1em, 4em);
+  color: white;
+  /* padding-top: 1%; */
+  /* margin-top: 5%; */
+  font-family: sans-serif;
+}
+.wordSign {
+  transform: translate(0em, 11em);
+  margin-left: 61%;
+  color: white;
+  font-size: 1.3em;
+  font-family: system-ui;
+}
+
 .pass {
+  text-align: left;
   height: 30px;
-  width: 62%;
+  width: 20%;
+  margin-left: 20%;
+  margin-top: 1%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -69,21 +133,39 @@ color: rgb(117, 117, 117);
   border-bottom: 1px rgb(0, 0, 0) solid;
   cursor: pointer;
 }
+.or {
+  margin-left: 19.7%;
+  margin-top: 2%;
+}
+.signgoogle {
+  margin-left: 25%;
+  margin-top: 1%;
+  color: #b8b6b5;
+  font-size: 1em;
+  /* F0D304 gold
+F5EFED white
+25211D black
+EBEBEB grey
+rgb(38,37,36)  black for words
+262524 black for words (same) */
+}
 .but {
-  height: 30px;
-  width: 62%;
-  border-radius: 5px;
+  height: 35px;
+  width: 10%;
+  margin-left: 23.5%;
+  margin-top: 2%;
+  font-size: 1.7ch;
+  transform: translate(1em, 1.3em);
+  border-radius: 20px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
-  background-color: #f5c323;
+  background-color: #f0d304;
   color: black;
-  font-size: 2.2ch;
 }
-.message{
+.message {
   margin-top: 1.5%;
-    color: red;
-    font-size: 1.2em;
-  
+  color: red;
+  font-size: 1.2em;
 }
