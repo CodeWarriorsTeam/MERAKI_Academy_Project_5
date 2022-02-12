@@ -7,7 +7,8 @@ import casesReducer from "../reducer/cases/index";
 import donationReducer from "../reducer/donation/index"
 import imagesReducer from "../reducer/image/index";
 import usersReducer from "../reducer/users/index"
-const reducers = combineReducers({ loginReducer, casesReducer,donationReducer,imagesReducer ,usersReducer});
+import volunteerReducer from "../reducer/volunteer";
+const reducers = combineReducers({ loginReducer, casesReducer,donationReducer,imagesReducer ,usersReducer,volunteerReducer});
 
 const store = createStore(reducers);
 
