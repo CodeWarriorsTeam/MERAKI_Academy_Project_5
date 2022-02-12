@@ -9,9 +9,7 @@ import { useParams } from "react-router-dom";
 import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
 import StripeContainer from "../StripeContainer";
-import PaymentForm from "../PaymentForm"
-
-
+import PaymentForm from "../PaymentForm";
 
 const NewDonation = ({ isAdmin }) => {
   const state = useSelector((state) => {
@@ -136,28 +134,32 @@ const NewDonation = ({ isAdmin }) => {
         details.map((element, i) => (
           <>
             <div className="detailpage" key={i}>
-              <br></br>
+              {/* <br></br> */}
               <img src={element.case_image} className="image3" />
               {/* <p className="category3"> category: {element.category}</p> */}
               <p className="title3"> {element.title}</p>
               <p className="amount3">{element.TheAmountRequired}$</p>
               <p className="description3">{element.case_description}</p>
-          {isClosed && isClosed>0?(<>
-            {showItem ? (
-         <StripeContainer />
-       ) : (
-         <>
-           
-           <button
-             className="Pay"
-             onClick={() => {
-               setShowItem(true);
-             }}
-           >
-             Donate Now
-           </button>
-         </>
-       )}</>):(<></>) }   
+              {isClosed && isClosed > 0 ? (
+                <>
+                  {showItem ? (
+                    <StripeContainer />
+                  ) : (
+                    <>
+                      <button
+                        className="Pay"
+                        onClick={() => {
+                          setShowItem(true);
+                        }}
+                      >
+                        Donate Now
+                      </button>
+                    </>
+                  )}
+                </>
+              ) : (
+                <></>
+              )}
               {isAdmin ? (
                 <>
                   {updateBox && caseId === element.id && (
@@ -224,7 +226,9 @@ const NewDonation = ({ isAdmin }) => {
                   onChange={(e) => {
                     setIBAN(e.target.value);
                   }}
-                ></input> <br/><br/>
+                ></input>{" "}
+                <br />
+                <br />
                 <input
                   className="IBAN"
                   type="text"
