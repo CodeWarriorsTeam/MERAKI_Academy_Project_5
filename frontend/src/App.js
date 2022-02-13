@@ -15,9 +15,9 @@ import Gallery from "./component/Gallery/Gallery";
 import Admin from "./component/Admin/Admin";
 import StripeContainer from "./component/StripeContainer";
 import PaymentForm from "./component/PaymentForm"
-import Users from "./component/Admin/Users";
-import Volunteers from "./component/Admin/Volunteers";
-import Cases from "./component/Admin/Cases";
+import Users from "./component/UsersTable.js/Users";
+import Volunteers from "./component/VolunteerTable/Volunteers";
+import Cases from "./component/CaseTable.js/Cases";
 function App() {
   const [searchCase, setSearchCase] = useState("");
   const [categoryNav, setCategory] = useState("");
