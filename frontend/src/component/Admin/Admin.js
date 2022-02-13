@@ -25,6 +25,8 @@ import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import { Link } from "react-router-dom";
 import { setVolunteers } from "../../reducer/volunteer";
+import SideBar from "../SideBar";
+
 const Admin = ({ searchCase }) => {
   const [num, setNum] = useState(1);
   const [userIsOpen, setUserIsOpen] = useState(false);
@@ -309,6 +311,11 @@ const Admin = ({ searchCase }) => {
       <br />
       <br />
       <br />
+
+      <SideBar/>
+
+
+
       <ImImages
         onClick={() => {
           setImageIsOpen(true);
@@ -608,7 +615,7 @@ const Admin = ({ searchCase }) => {
           </button>
         </Model>
       </div>
-      <table>
+      {/* <table>
         <tr>
           <th>id</th>
           <th>profile_image</th>
@@ -616,9 +623,9 @@ const Admin = ({ searchCase }) => {
           <th>lastName</th>
           <th>country</th>
           <th>email</th>
-        </tr>
+        </tr> */}
 
-        {state.users &&
+        {/* {state.users &&
           state.users.map((element, i) => {
             // console.log();
             return (
@@ -642,18 +649,12 @@ const Admin = ({ searchCase }) => {
                   <td>{element.email}</td>
                 </tr>
 
-                {/* <Model
-                    style={customStyles2}
-                    isOpen={userIsOpen}
-                    onRequestClose={() => setUserIsOpen(false)}
-                  >
-                    {" "}
-                  </Model> */}
+             
               </div>
             );
           })}
-      </table>
-      <table>
+      </table> */}
+      {/* <table>
         <tr>
           <th>id</th>
           <th>firstName</th>
@@ -675,7 +676,7 @@ const Admin = ({ searchCase }) => {
               </tr>
             );
           })}
-      </table>
+      </table> */}
     </div>
   );
 };

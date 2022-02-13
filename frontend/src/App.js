@@ -15,7 +15,8 @@ import Gallery from "./component/Gallery/Gallery";
 import Admin from "./component/Admin/Admin";
 import StripeContainer from "./component/StripeContainer";
 import PaymentForm from "./component/PaymentForm"
-
+import Users from "./component/Admin/Users";
+import Volunteers from "./component/Admin/Volunteers";
 function App() {
   const [searchCase, setSearchCase] = useState("");
   const [categoryNav, setCategory] = useState("");
@@ -50,7 +51,7 @@ function App() {
 
       <Routes>
         
-        <Route path="admin" element={<Admin searchCase={searchCase} />} />
+        <Route path="/admin" element={<Admin searchCase={searchCase}  />} />
         <Route
           path="/"
           element={
@@ -100,6 +101,16 @@ function App() {
           path="/casedetails/:id"
           element={<NewDonation isAdmin={isAdmin} />}
         />
+
+
+<Route path="/admin/users" element={<Users searchCase={searchCase} />} />
+
+
+<Route path="/admin/volunteers" element={<Volunteers searchCase={searchCase} />} />
+
+
+
+
       </Routes>
     </>
   );
