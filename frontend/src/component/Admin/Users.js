@@ -1,11 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import Model from "react-modal";
-import { FiUsers } from "react-icons/fi";
 
 import { setUsers } from "../../reducer/users/index";
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const Users = () => {
