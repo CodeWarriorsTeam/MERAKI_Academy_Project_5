@@ -84,13 +84,18 @@ const Register = () => {
   };
   return (
     <>
-      <br />
-      <br />
-      <br />   <br />
       <div className="registerPage">
         <br />
-        <h1 className="signup">Sign Up</h1>
-        <h5 className="accountUp">Sign up your account</h5>
+        <div className="">
+          {" "}
+          <p className="welcome">Welcome Back!</p>
+      
+          <p className="word"> To keep connected with us please 
+          </p><p className="word2">login with your personal info</p>
+        </div>
+        <br />
+        <h1 className="signup">Create Account</h1>
+        {/* <h5 className="accountUp">Sign up your account</h5> */}
         <br></br>
 
         <input
@@ -98,7 +103,7 @@ const Register = () => {
             setFirstName(e.target.value);
           }}
           type="text"
-          placeholder="First Name"
+          placeholder=" First Name"
           className="firstName"
         ></input>
         <br />
@@ -108,7 +113,7 @@ const Register = () => {
             setLastName(e.target.value);
           }}
           type="text"
-          placeholder="Last Name"
+          placeholder=" Last Name"
           className="lastName"
         ></input>
         <br />
@@ -118,7 +123,7 @@ const Register = () => {
             setCountry(e.target.value);
           }}
           type="text"
-          placeholder="Country"
+          placeholder=" Country"
           className="country"
         ></input>
 
@@ -127,6 +132,7 @@ const Register = () => {
         <input
           type="file"
           className="image"
+          style={{ width: "23%" }}
           onChange={(e) => {
             setImageSelected(e.target.files[0]);
           }}
@@ -137,16 +143,13 @@ const Register = () => {
         >
           <BiUpload></BiUpload>
         </button>
-
         <br />
-        <br />
-
         <input
           onChange={(e) => {
             setEmail(e.target.value);
           }}
           type="email"
-          placeholder="Email"
+          placeholder=" Email"
           className="email"
         ></input>
         <br />
@@ -156,22 +159,22 @@ const Register = () => {
             setPass(e.target.value);
           }}
           type="password"
-          placeholder="Password"
+          placeholder=" Password"
           className="password"
         ></input>
         <br />
         <br />
         <button onClick={checkFormValidation} className="registerButton">
-          Sign Up
+          SIGN UP
         </button>
-        <br /><br/>
+        <br />
+        <br />
         <p className="message">{paragraph}</p>
-        <p className="sent">
-          Already have an account ?{" "}
+        <button className="sent1">
           <Link className="login" to="/login" className="link">
-            Return to Sign In
+            SIGN IN
           </Link>
-        </p>
+        </button>
       </div>
     </>
   );
