@@ -8,30 +8,64 @@ td { */
   /* border-spacing: 2% 2%; */
   /* border: 1px solid rgba(17, 17, 17, 0.377); */
 /* } */
-.id {
-  width: 3%;
+.images5{
+  background-color: rgb(0, 177, 0);
+  /* margin: 5%; */
+  margin-top: 5%;
+  transform: translate(40em,-24.3em);
+  width: 20%;
+  height: 80px;
+  border-radius: 4px;
 }
-.categor {
-  width: 5%;
+.images4{
+  background-color: yellow;
+  /* margin: 5%; */
+  margin-top: 5%;
+  transform: translate(62em,-15.3em);
+  width: 20%;
+  height: 80px;
+  border-radius: 4px;
 }
-.tit1 {
-  width: 9%;
+.alll{
+  height: 100%;
+  background: linear-gradient(to left, #fcfcfc 85%,  rgb(56, 52, 52) 15%);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+  .images3{
+    background-color: red;
+    /* margin: 5%; */
+    margin-top: 5%;
+    transform: translate(18em,-6em);
+    width: 20%;
+    height: 80px;
+    border-radius: 4px;
+    /* float: right; */
+  }
+  .voluntlink{
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    float: left;
+    transform: translate(2.7em,7em); 
+  
 }
-.amout {
-  width: 11%;
+.userlink{
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    float: left;
+    transform: translate(2.7em,5em); 
+      
 }
-.img2 {
-  width: 30%;
-}
-.descr {
-  width: 15%;
-}
-.donatio {
-  width: 5%;
- 
-}
-.don {
-  width: 5%;
+.caselink{
+    color: white;
+text-decoration: none;
+font-size: 1em;
+float: left;
+transform: translate(2.7em,2.4em); 
+
 }
 /* .oper { */
   /* width: 5%; */
@@ -74,11 +108,15 @@ td { */
   width: 54%;
 
 }
-
-
+.i{
+  transform: translate(11.4em,-1em);
+font-size: 1.2em;
+}
 .imageIcon {
-  
-  transform: translate(30em, 0.9em);
+  font-size: 1em;
+  color: white;
+  transform: translate(1.5em,1em);
+  /* transform: translate(30em, 0.9em); */
   /* display: grid; */
 }
 
@@ -153,7 +191,7 @@ th {
   background-color: #ebebeb;
   font-size: 100%;
 }
-
+/* 
 .table {
   width: 80%;
   margin-left: 2%;
@@ -166,34 +204,14 @@ td {
   text-align: right;
   padding: 8px;
   text-align: left;
-}
-.head {
+} */
+/* .head {
   font-size: 100%;
-}
+} */
 .arrow {
   float: right;
 }
-.deleteIcon :hover {
-  cursor: pointer;
-  float: left;
-}
-.deleteIcon {
-  /* transform: translate(0.4em, 0em); */
-  font-size: 1.5em;
-  color: red;
-  float: left;
-}
-.editIcon :hover {
-  cursor: pointer;
-  float: right;
-}
-.editIcon {
-  /* transform: translate(-0.4em, 0em); */
-  float: right;
-  /* margin-top: 8%; */
-  color: rgb(28, 28, 241);
-  font-size: 1.5em;
-}
+
 .model {
   display: grid;
   text-align: center;
@@ -203,7 +221,9 @@ td {
   height: 2em;
   width: 2em;
   float: right;
-  transform: translate(-6em, 0em);
+  color: white;
+  font-size: 1.2em;
+  transform: translate(0em, -0.7em);
   cursor: pointer;
   margin-top: 10px;
 }
@@ -314,13 +334,13 @@ td {
   height: 2em;
   width: 2em;
   float: left;
-  transform: translate(10em, 0em);
+  transform: translate(2em, 0em);
   margin-top: 10px;
 }
 .countUserPrg {
   font-size: 25px;
   float: left;
   font-weight: bold;
-  transform: translate(7em, 0.1em);
+  transform: translate(2em, 0.1em);
   margin-top: 10px;
 }

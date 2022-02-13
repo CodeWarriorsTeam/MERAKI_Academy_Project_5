@@ -313,80 +313,101 @@ const Admin = ({ searchCase }) => {
       <br />
       <br />
       <br />
-
-      <SideBar/>
-
-
-
-      <ImImages
-        onClick={() => {
-          setImageIsOpen(true);
-          console.log(imageIsOpen);
-        }}
-        className="imageIcon"
-        title="Add Image"
-        style={{ width: "10%", height: "1.4em" }}
-      ></ImImages>
+      <div className="links2">
+        <ul>
+          <li>
+            {" "}
+            <Link className="caselink" to="/admin/cases">
+              Manage Cases
+            </Link>
+          </li>
+          <li>
+            {" "}
+            <Link className="userlink" to="/admin/users">
+              Manage Users
+            </Link>
+          </li>
+          <li>
+            {" "}
+            <Link className="voluntlink" to="/admin/volunteers">
+              Manage Volunteers
+            </Link>
+          </li>
+        </ul>
+      </div>
+      {/* <SideBar/> */}
+      <div className="images3">
+        <p
+          onClick={() => {
+            setImageIsOpen(true);
+            console.log(imageIsOpen);
+          }}
+          className="imageIcon"
+          title="Add Image"
+          // style={{ width: "10%", height: "1.4em" }}
+        >
+          {" "}
+          Add Image <p className="i"> > </p>
+        </p>
+      </div>
+      <div className="images4">
       <FiUsers className="countUser"></FiUsers>
+     <p className="countUserPrg">{numUser}</p>  </div>
       <></>
-      <p className="countUserPrg">{numUser}</p>
+     
       {/* <p className="alert">
         {(alert = "add New Case")} */}
-      <AiOutlinePlusCircle
+        <div className="images5">
+          <p  onClick={() => setModelIsOpen(true)} style={{color:"white" , fontSize:"1em", transform:"translate(1.4em,1em)", cursor:"pointer"}}>Add New Case</p>
+      <p
         onClick={() => setModelIsOpen(true)}
         className="plus"
         title="Add New Case"
-      ></AiOutlinePlusCircle>
+      >></p></div>
       {/* </p> */}
       <br />
       <br />
       <br />
       {/* <table className="table">
         {" "} */}
-        {/* <tr className="head">
+      {/* <tr className="head">
           <th className="id">
             id */}
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          {/* </th>
+      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+      {/* </th>
           <th className="categor">
             {" "}
             category */}
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          {/* </th>
+      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+      {/* </th>
           <th className="tit1">
             title */}
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          {/* </th>
+      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+      {/* </th>
           <th className="amout">
             amount */}
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          {/* </th>
+      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+      {/* </th>
           <th className="img2">
             image */}
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          {/* </th>
+      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+      {/* </th>
           <th className="descr">
             description{" "} */}
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          {/* </th> */}
-
-          {/* <th className="donatio">
+      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+      {/* </th> */}
+      {/* <th className="donatio">
             donation */}
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          {/* </th>
+      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+      {/* </th>
           <th className="don">
             donor */}
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          {/* </th>
+      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+      {/* </th>
           <th className="oper">
             Actions */}
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-
-          {/* </th> */}
-          
-
-          {/* </th>
-
+      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+      {/* </th>
         </tr>{" "}
         {state.cases &&
           state.cases
@@ -635,8 +656,7 @@ const Admin = ({ searchCase }) => {
           <th>country</th>
           <th>email</th>
         </tr> */}
-
-        {/* {state.users &&
+      {/* {state.users &&
           state.users.map((element, i) => {
             // console.log();
             return (

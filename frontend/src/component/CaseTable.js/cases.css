@@ -1,0 +1,115 @@
+.all {
+  height: 100%;
+  background: linear-gradient(to left, #fcfcfc 85%, rgb(56, 52, 52) 15%);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.head {
+  font-size: 100%;
+}
+.table {
+  /* width: 10%; */
+  margin-left: 19%;
+  width: 20%;
+  /* margin-right: 10%; */
+  /* position: relative; */
+  /* justify-content: center; */
+  /* text-align: center; */
+}
+th,
+td {
+  padding: 5px;
+  text-align: left;
+}
+.deleteIcon :hover {
+  cursor: pointer;
+  float: left;
+}
+.voluntlink2{
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    float: left;
+    transform: translate(2.7em,9em); 
+  
+}
+.userlink2{
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    float: left;
+    transform: translate(2.7em,7em); 
+      
+}
+.caselink2{
+    color: white;
+text-decoration: none;
+font-size: 1em;
+float: left;
+transform: translate(2.7em,4.5em); 
+
+}
+.deleteIcon {
+  /* transform: translate(0.4em, 0em); */
+  font-size: 1.1em;
+  color: red;
+  float: left;
+}
+.imag{
+    font-size: 0.8em;
+}
+.editIcon {
+  float: right;
+  color: rgb(28, 28, 241);
+  font-size: 1.1em;
+}
+.editIcon :hover {
+  cursor: pointer;
+  float: right;
+}
+
+.id {
+  font-size: 0.8em;
+  width: 3%;
+}
+.categor {
+  font-size: 0.8em;
+
+  width: 5%;
+}
+.tit1 {
+  width: 9%;
+  font-size: 0.8em;
+}
+.tit{
+    font-size: 0.8em;
+}
+.amout {
+  font-size: 0.8em;
+
+  width: 11%;
+}
+.img2 {
+  width: 30%;
+  font-size: 0.8em;
+}
+.descr {
+  font-size: 0.8em;
+
+  width: 15%;
+}
+.donatio {
+  font-size: 0.8em;
+
+  width: 5%;
+}
+.don {
+  font-size: 0.8em;
+
+  width: 5%;
+}
+.oper {
+  font-size: 0.8em;
+}
