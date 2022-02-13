@@ -46,6 +46,8 @@ const Admin = ({ searchCase }) => {
   const [image_1, setImage_1] = useState("");
 
   const [imageIsOpen, setImageIsOpen] = useState(false);
+  const [emergency, setEmergency] = useState("");
+  console.log(emergency);
   // ------------------------------------------------
 
   const uploadImage = (imageFile) => {
@@ -450,6 +452,9 @@ const Admin = ({ searchCase }) => {
                         className="editIcon"
                       />
                     </td>
+                    <td className="id" onClick={()=>{
+                      setEmergency(element.id)
+                    }}><input type="checkbox"/></td>
                     <div>
                       <Model
                         style={customStyles2}
@@ -511,6 +516,7 @@ const Admin = ({ searchCase }) => {
                         <br />
                       </Model>
                     </div>
+                    
                   </tr>
                 </>
               );
