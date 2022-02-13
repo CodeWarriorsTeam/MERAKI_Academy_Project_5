@@ -36,7 +36,7 @@ const Navigation = ({
     state.isLoggedIn = false;
     localStorage.clear();
     dispatch(logoutUser());
-    navigate(`/admin`);
+    navigate(`/`);
     setUserId("");
     setIsAdmin(false);
   };
