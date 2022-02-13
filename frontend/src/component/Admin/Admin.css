@@ -1,74 +1,72 @@
 /* .table,
 th,
 td { */
-  /* margin-right: 20%; */
-  /* margin-left: 20%; */
-  /* width: 80%; */
-  /* border-collapse: separate; */
-  /* border-spacing: 2% 2%; */
-  /* border: 1px solid rgba(17, 17, 17, 0.377); */
+/* margin-right: 20%; */
+/* margin-left: 20%; */
+/* width: 80%; */
+/* border-collapse: separate; */
+/* border-spacing: 2% 2%; */
+/* border: 1px solid rgba(17, 17, 17, 0.377); */
 /* } */
-.images5{
+.images5 {
   background-color: rgb(0, 177, 0);
   /* margin: 5%; */
   margin-top: 5%;
-  transform: translate(40em,-24.3em);
+  transform: translate(40em, -24.3em);
   width: 20%;
   height: 80px;
   border-radius: 4px;
 }
-.images4{
+.images4 {
   background-color: yellow;
   /* margin: 5%; */
   margin-top: 5%;
-  transform: translate(62em,-15.3em);
+  transform: translate(62em, -15.3em);
   width: 20%;
   height: 80px;
   border-radius: 4px;
 }
-.alll{
+.alll {
   height: 100%;
-  background: linear-gradient(to left, #fcfcfc 85%,  rgb(56, 52, 52) 15%);
+  background: linear-gradient(to left, #fcfcfc 85%, rgb(56, 52, 52) 15%);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;}
-  .images3{
-    background-color: red;
-    /* margin: 5%; */
-    margin-top: 5%;
-    transform: translate(18em,-6em);
-    width: 20%;
-    height: 80px;
-    border-radius: 4px;
-    /* float: right; */
-  }
-  .voluntlink{
-    color: white;
-    text-decoration: none;
-    font-size: 1em;
-    float: left;
-    transform: translate(2.7em,7em); 
-  
+  background-size: cover;
 }
-.userlink{
-    color: white;
-    text-decoration: none;
-    font-size: 1em;
-    float: left;
-    transform: translate(2.7em,5em); 
-      
+.images3 {
+  background-color: red;
+  /* margin: 5%; */
+  margin-top: 5%;
+  transform: translate(18em, -6em);
+  width: 20%;
+  height: 80px;
+  border-radius: 4px;
+  /* float: right; */
 }
-.caselink{
-    color: white;
-text-decoration: none;
-font-size: 1em;
-float: left;
-transform: translate(2.7em,2.4em); 
-
+.voluntlink {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  float: left;
+  transform: translate(2.7em, 7em);
+}
+.userlink {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  float: left;
+  transform: translate(2.7em, 5em);
+}
+.caselink {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  float: left;
+  transform: translate(2.7em, 2.4em);
 }
 /* .oper { */
-  /* width: 5%; */
+/* width: 5%; */
 /* } */
 .uplo {
   width: 7%;
@@ -84,21 +82,18 @@ transform: translate(2.7em,2.4em);
   background-color: yellow;
 }
 /* .uploadIcon { */
-  /* font-size: 1.3em; */
+/* font-size: 1.3em; */
 /* } */
 
-.image:hover{
-
+.image:hover {
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
-  
 }
 
-
-.image{  
+.image {
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -106,16 +101,15 @@ transform: translate(2.7em,2.4em);
   color: black;
   border-radius: 5px;
   width: 54%;
-
 }
-.i{
-  transform: translate(11.4em,-1em);
-font-size: 1.2em;
+.i {
+  transform: translate(11.4em, -1em);
+  font-size: 1.2em;
 }
 .imageIcon {
   font-size: 1em;
   color: white;
-  transform: translate(1.5em,1em);
+  transform: translate(1.5em, 1em);
   /* transform: translate(30em, 0.9em); */
   /* display: grid; */
 }
@@ -123,7 +117,6 @@ font-size: 1.2em;
 .imageIcon:hover {
   cursor: pointer;
 }
-
 
 .uploadIcon {
   height: 1em;
@@ -134,17 +127,13 @@ font-size: 1.2em;
   cursor: pointer;
 }
 
-
 /* .uploadIcon:active {
   background-color: #039214;
 } */
 
-.uploadImageButton:active{
+.uploadImageButton:active {
   background-color: #039214;
-
 }
-
-
 
 .addImage {
   height: 2em;
@@ -154,9 +143,6 @@ font-size: 1.2em;
 .addImage:hover {
   cursor: pointer;
 }
-
-
-
 
 .upload1:hover {
   background-color: #039214;
