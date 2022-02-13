@@ -339,47 +339,47 @@ const Admin = ({ searchCase }) => {
       <br />
       <br />
       <br />
-      <table className="table">
-        {" "}
-        <tr className="head">
+      {/* <table className="table">
+        {" "} */}
+        {/* <tr className="head">
           <th className="id">
-            id
+            id */}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          {/* </th>
           <th className="categor">
             {" "}
-            category
+            category */}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          {/* </th>
           <th className="tit1">
-            title
+            title */}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          {/* </th>
           <th className="amout">
-            amount
+            amount */}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          {/* </th>
           <th className="img2">
-            image
+            image */}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          {/* </th>
           <th className="descr">
-            description{" "}
+            description{" "} */}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          {/* </th> */}
 
-          <th className="donatio">
-            donation
+          {/* <th className="donatio">
+            donation */}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          {/* </th>
           <th className="don">
-            donor
+            donor */}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          {/* </th>
           <th className="oper">
-            Actions
+            Actions */}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          {/* </th>
         </tr>{" "}
         {state.cases &&
           state.cases
@@ -489,7 +489,7 @@ const Admin = ({ searchCase }) => {
                 </>
               );
             })}
-      </table>
+      </table> */}
       {numPage == 1 ? (
         <></>
       ) : (
