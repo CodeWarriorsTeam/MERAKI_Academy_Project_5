@@ -5,7 +5,9 @@ import "./Home.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addVolunteer } from "../../reducer/volunteer/index";
 import Model from "react-modal";
-
+import { MdVolunteerActivism } from "react-icons/md";
+import { MdOutlineVolunteerActivism } from "react-icons/md";
+import { FaHandHoldingHeart } from "react-icons/fa";
 const Home = ({
   setCategory,
   setAllCase,
@@ -253,13 +255,51 @@ const Home = ({
           </div>
         </div>
       </section>
-
-      <section className="volunteering" id="volunteeringSection">
-        <div className="coverVol"></div>
-
+      {/* //----------- */}
+      <div className="SectionVolunteering" id="volunteeringSection">
         <div className="containerVolunteering">
-          <div className="volunteeringTitle">Volunteer with us</div>
-          <div className="volunteeringCont">
+          <div className="volunteeringTitle">
+            <h1>Volunteer with us</h1>
+          </div>
+          <div className="contentVolunteering">
+         
+            <div className="quotation">
+            <h3>
+                Be a volunteer to Make your presence in this life more beautiful
+              </h3>
+              <br/>
+              <p className="prgVolunteering">
+                When you do any volunteer work, you will not know the meaning of
+                boredom. Everything in the world of volunteering is an exciting
+                and new experience in all respects that takes you to wide
+                horizons.
+              </p>
+              <div className="btnVolunteering">
+                <a
+                  onClick={() => {
+                    setJoinIsOpen(true);
+                  }}
+                >
+                  JOIN US
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="DivImageVolunteering">
+            <img src="./image/vol1.jpg" />
+          </div>
+          <div className="iconVolunteering">
+            <a>
+              <MdVolunteerActivism></MdVolunteerActivism>{" "}
+            </a>
+            <a>
+              <MdOutlineVolunteerActivism></MdOutlineVolunteerActivism>{" "}
+            </a>
+            <a>
+              <FaHandHoldingHeart></FaHandHoldingHeart>{" "}
+            </a>
+          </div>
+          {/* <div className="volunteeringCont">
             <h3 className="ektabas">
               Be a volunteer to
               <br />{" "}
@@ -273,64 +313,57 @@ const Home = ({
               boredom. Everything in the world of volunteering is an exciting
               and new experience in all respects that takes you to wide
               horizons.
-            </p>
+            </p> */}
 
-            <Model
-              isOpen={joinIsOpen}
-              style={customStyles}
-              onRequestClose={() => {
-                setJoinIsOpen(false);
+          <Model
+            isOpen={joinIsOpen}
+            style={customStyles}
+            onRequestClose={() => {
+              setJoinIsOpen(false);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="First Name"
+              onChange={(e) => {
+                setFirstName(e.target.value);
               }}
-            >
-              <input
-                type="text"
-                placeholder="First Name"
-                onChange={(e) => {
-                  setFirstName(e.target.value);
-                }}
-              ></input>
-              <input
-                type="text"
-                placeholder="Last Name"
-                onChange={(e) => {
-                  setLastName(e.target.value);
-                }}
-              ></input>
-              <input
-                type="email"
-                placeholder="Email"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              ></input>
-              <input
-                type="text"
-                placeholder="Address"
-                onChange={(e) => {
-                  setAddress_1(e.target.value);
-                }}
-              ></input>
-              <input
-                type="text"
-                placeholder="Phone Number"
-                onChange={(e) => {
-                  setPhoneNumber(e.target.value);
-                }}
-              ></input>
-              <button onClick={addNewVolunteer}>Add New Volunteer</button>
-            </Model>
-            <button
-              className="btnVolunteering"
-              onClick={() => {
-                setJoinIsOpen(true);
+            ></input>
+            <input
+              type="text"
+              placeholder="Last Name"
+              onChange={(e) => {
+                setLastName(e.target.value);
               }}
-            >
-              JOIN US
-            </button>
-            {message}
-          </div>
+            ></input>
+            <input
+              type="email"
+              placeholder="Email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            ></input>
+            <input
+              type="text"
+              placeholder="Address"
+              onChange={(e) => {
+                setAddress_1(e.target.value);
+              }}
+            ></input>
+            <input
+              type="text"
+              placeholder="Phone Number"
+              onChange={(e) => {
+                setPhoneNumber(e.target.value);
+              }}
+            ></input>
+            <button onClick={addNewVolunteer}>Add New Volunteer</button>
+          </Model>
+
+          {message}
+          {/* </div> */}
         </div>
-      </section>
+      </div>
     </>
   );
 };
