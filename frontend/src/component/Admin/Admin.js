@@ -382,11 +382,8 @@ const Admin = ({ searchCase }) => {
             Actions */}
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
 
-          </th>
-          <th className="oper">
-          Emergency
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          {/* </th> */}
+          
 
           {/* </th>
 
