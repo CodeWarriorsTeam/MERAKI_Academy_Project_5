@@ -66,7 +66,7 @@ const Login = ({ setIsAdmin, setUserId }) => {
         {" "}  
         <p className="newhere">New Here?</p>  
         <p className="wordSign">sign up and  discover a great amount loads of new cases</p>
-      </div>
+        <br /><br /></div>
       <br />
         {/* <h1 ></h1> */}
         <h1 className="sign">Login to Your Account</h1>
