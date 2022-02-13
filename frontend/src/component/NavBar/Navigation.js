@@ -36,7 +36,7 @@ const Navigation = ({
     state.isLoggedIn = false;
     localStorage.clear();
     dispatch(logoutUser());
-    navigate(`/`);
+    navigate(`/admin`);
     setUserId("");
     setIsAdmin(false);
   };
@@ -47,40 +47,58 @@ const Navigation = ({
       (localStorage.getItem("isAdmin") == "admin" && state.isLoggedIn) ? (
         <>
           <nav className="nav">
-            <Link className="safeHouseLink" to="/">
-              <h2 className="titleLogo">
+            {/* <Link className="safeHouseLink" to="/">
+          </Link> */}
+              {/* <ul>
+        <li> <Link to="/admin/cases" >Manage Cases</Link></li>
+
+      <li>  <Link to="/admin/users">Manage Users</Link></li>
+       <li> <Link to="/admin/volunteers">Manage Volunteers</Link></li> */}
+              {/* </ul> */}
+              {/* <ul><li> */}
+              <br/>
+                <Link className="admin" to="/admin">
+                  Dashboard
+                </Link>  
+                 <RiLogoutBoxLine className="a" onClick={logout}> 
+                    Logout
+                  </RiLogoutBoxLine>
+                <br/><br/>
+       {/* </li> 
+              <li>                 */}
+             
+
+{/* </li></ul>  <h2 className="titleLogo">
                 <BsFillHouseFill className="iconHome"></BsFillHouseFill> SAFE
                 HOUSE
-              </h2>
-            </Link>
-            <input
-          id="searchInputNav"
-          type="text"
-          placeholder="Search here...."
-          onChange={(e) => {
-            setSearchCase(e.target.value);
-          }}
-        />
-        <a id="iconSearch"><BsSearch id="iconSearch"></BsSearch></a>
-            <ul className="ul">
+              </h2> */}
+            {/* <input
+              id="searchInputNav"
+              type="text"
+              placeholder="Search here...."
+              onChange={(e) => {
+                setSearchCase(e.target.value);
+              }}
+            />
+            <a id="iconSearch">
+              <BsSearch id="iconSearch"></BsSearch>
+            </a> */}
+            {/* <ul className="ul">
               <li>
                 <Link className="admin" to="/admin">
                   Dashboard
                 </Link>
-              </li>
+              </li> */}
 
-              <li>
+              {/* <li>
                 <Link to="/">Home</Link>
-              </li>
-              <li>
-                <a>
+              </li> */}
+              {/* <li>
+                <a> */}
                   {" "}
-                  <RiLogoutBoxLine className="a" onClick={logout}>
-                    Logout
-                  </RiLogoutBoxLine>
-                </a>
-              </li>
-            </ul>
+                {/* </a> */}
+              {/* </li> */}
+            {/* </ul> */}
           </nav>
         </>
       ) : (
@@ -94,15 +112,17 @@ const Navigation = ({
                 HOUSE
               </h2>
             </Link>
-         <input
-          id="searchInputNav"
-          type="text"
-          placeholder="Search here...."
-          onChange={(e) => {
-            setSearchCase(e.target.value);
-          }}
-        />
-        <a id="iconSearch"><BsSearch id="iconSearch"></BsSearch></a>
+            <input
+              id="searchInputNav"
+              type="text"
+              placeholder="Search here...."
+              onChange={(e) => {
+                setSearchCase(e.target.value);
+              }}
+            />
+            <a id="iconSearch">
+              <BsSearch id="iconSearch"></BsSearch>
+            </a>
             <ul className="ul">
               <li>
                 <Link to="/">Home</Link>
