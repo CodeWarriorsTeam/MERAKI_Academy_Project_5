@@ -222,7 +222,7 @@ const Navigation = ({
                 <li>
                   {" "}
                   <a id="Logout" onClick={logout}>
-                    <RiLogoutBoxLine className="a"></RiLogoutBoxLine>{" "}
+                    <RiLogoutBoxLine className="iconLogout"></RiLogoutBoxLine>{" "}
                   </a>
                 </li>
               ) : (

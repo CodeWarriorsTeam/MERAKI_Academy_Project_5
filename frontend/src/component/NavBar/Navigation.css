@@ -326,38 +326,40 @@ nav .logo{
 /* } */
 
 .ul li:hover {
-  background: #f0d40470;
+  background: #F0D304;
 }
 .ul li:hover .drop {
   display: block;
 }
 .ul .drop li:hover {
-  background: #08080870;
+  background: #00000070;
 }
 .drop {
-  background: rgb(212, 182, 7);
+  background: #F0D304;
   position: absolute;
   display: none;
   top: 57px;
   left: 0px;
   z-index: 10;
-  width: 150px;
+  width: 165px;
+  color: #000;
 }
 
 .drop li {
-  border: 1px solid #222;
+  border: 1px solid rgb(0, 0, 0);
   display: block;
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 
 #searchInputNav {
+
   /* margin: 220px auto; */
   background: transparent;
   /* display: inline-block; */
-  height: 50px;
+  height: 30px;
   width: 50px;
   border-radius: 20px;
-margin-left: 20px;
+margin-left: 7%;
 
   /* display: flex; */
   align-items: center;
@@ -366,19 +368,19 @@ margin-left: 20px;
 }
 #searchInputNav:hover  {
   width: 200px;
-  height: 50px;
+  height:30px;
   cursor: pointer;
   display: inline-block;
   color: #fff;
   /* padding: 20px; */
   text-decoration: none;
   cursor: pointer;
-  margin-top: 4px;
+  margin-top: 15px;
 }
 
 #searchInputNav {
-  margin-top: 4px;
-
+  margin-top: 15px;
+  text-align: center;
   background: transparent;
   border: solid gray 1px;
   outline: none;
@@ -388,10 +390,12 @@ margin-left: 20px;
   transition: 1s;
 }
 
-#iconSearch {
-  color: #bcee05;
+.iconHome {
+  color: #ffef14;
 }
 
 .searchInputNav::placeholder{
  color: white;
+ text-align: center;
+ 
 }
