@@ -7,7 +7,7 @@ import { loginUser } from "../../reducer/login";
 import "./Login.css";
 import GoogleLogin from "react-google-login";
 
-const Login = ({ setIsAdmin, setUserId }) => {
+const Login = ({ setIsAdmin, setUserId , isAdmin}) => {
   const state = useSelector((state) => {
     return {
       isLoggedIn: state.loginReducer.isLoggedIn,
@@ -36,17 +36,17 @@ const Login = ({ setIsAdmin, setUserId }) => {
     axios
       .post("http://localhost:5000/login", userLogin)
 
-      .then((result) => {
+      .then(async(result) => {
         console.log(result.data.result);
         dispatch(loginUser(result.data.token));
         //  isAdmin ? navigate("/admin") : navigate("/allcases");
-
-        setIsAdmin(result.data.result[0].role_name.toLowerCase() === "admin");
-        navigate("/");
+console.log(result.data.result[0].role_name);
+         await setIsAdmin(result.data.result[0].role_name.toLowerCase() === "admin");
+        console.log(isAdmin);
+        result.data.result[0].role_name == "admin" ? navigate("/admin") :   navigate("/");
+        
+      
         localStorage.setItem("token", result.data.token);
-        console.log(result.data.result[0].role_name);
-        setIsAdmin(result.data.result[0].role_name.toLowerCase() === "admin");
-
         localStorage.setItem("isAdmin", result.data.result[0].role_name);
       })
 
