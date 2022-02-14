@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setUsers } from "../../reducer/users/index";
 import { useEffect } from "react";
-
+import "./users.css";
 const Users = () => {
   const dispatch = useDispatch();
 
@@ -34,53 +34,58 @@ const Users = () => {
   }, []);
 
   return (
-    <>
-      <table>
-        <br />
-        <br />
-        <br /> <br /> <br />
+    <div className="all">
+      <table className="table">
         <>
-        <ul>
-        <li> <Link to="/admin/cases">Manage Cases</Link></li>
+          <ul>
+          <br/>
+              {" "}
+              <Link className="caselink3" to="/admin/cases">
+                Manage Cases
+              </Link>
+              <br/>
 
-      <li>  <Link to="/admin/users">Manage Users</Link></li>
-       <li> <Link to="/admin/volunteers">Manage Volunteers</Link></li>
-        </ul>
+              {" "}
+              <Link className="userlink3" to="/admin/users">
+                Manage Users
+              </Link>
+              <br/>
+         
+              {" "}
+              <Link className="voluntlink3" to="/admin/volunteers">
+                Manage Volunteers
+              </Link>
+           
+          </ul>
         </>
         <tr>
-          <th>id</th>
-          <th>profile_image</th>
-          <th>firstName</th>
-          <th>lastName</th>
-          <th>country</th>
-          <th>email</th>
+          <th className="id">id</th>
+          <th className="img2">profile_image</th>
+          <th className="first">firstName</th>
+          <th className="last">lastName</th>
+          <th className="co">country</th>
+          <th className="em">email</th>
         </tr>
         {state.users &&
           state.users.map((element, i) => {
             // console.log();
             return (
-              <div key={i}>
+             
                 <tr>
-                  <td>{element.id}</td>
-                  <td>{element.profile_image}</td>
-                  <td>{element.firstName}</td>
-                  <td>{element.lastName}</td>
-                  <td>{element.country}</td>
-                  <td>{element.email}</td>
+                  <td className="id2">{element.id}</td>
+                  <td className="imag2">{element.profile_image}</td>
+                  <td className="first2">{element.firstName}</td>
+                  <td  className="last2">{element.lastName}</td>
+                  <td className="cont2">{element.country}</td>
+                  <td className="ema2">{element.email}</td>
                 </tr>
+               
 
-                {/* <Model
-              style={customStyles2}
-              isOpen={userIsOpen}
-              onRequestClose={() => setUserIsOpen(false)}
-            >
-              {" "}
-            </Model> */}
-              </div>
+            
             );
           })}
       </table>
-    </>
+    </div>
   );
 };
 

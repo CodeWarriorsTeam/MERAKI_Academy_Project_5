@@ -148,6 +148,7 @@ const Cases = ({searchCase}) => {
        <li> <Link className="voluntlink2" to="/admin/volunteers">Manage Volunteers</Link></li>
         </ul>
         </>
+        <br/>
     <table className="table">
       {" "}
       <tr className="head">
@@ -216,7 +217,6 @@ const Cases = ({searchCase}) => {
                   <td className="req"> {element.TheAmountRequired} $</td>
                   <td className="imag">{element.case_image}</td>
                   <td className="descr">{element.case_description}</td>
-
                   <td className="donation">{element.donations}</td>
                   <td className="donor">{element.donor}</td>
                   <td className="button">
