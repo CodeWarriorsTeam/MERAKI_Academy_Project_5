@@ -60,6 +60,14 @@ const Navigation = ({
                 <Link className="admin" to="/admin">
                   Dashboard
                 </Link>  
+                <input className="searchInputNav"
+              id="searchInputNav"
+              type="text"
+              placeholder="Search here...."
+              onChange={(e) => {
+                setSearchCase(e.target.value);
+              }}
+            ></input>
                  <RiLogoutBoxLine className="a" onClick={logout}> 
                     Logout
                   </RiLogoutBoxLine>
@@ -112,17 +120,18 @@ const Navigation = ({
                 HOUSE
               </h2>
             </Link>
-            <input
+         <input className="searchInputNav"
               id="searchInputNav"
               type="text"
               placeholder="Search here...."
               onChange={(e) => {
                 setSearchCase(e.target.value);
               }}
-            />
-            <a id="iconSearch">
-              <BsSearch id="iconSearch"></BsSearch>
+            ></input>
+            {/* <a id="iconSearch">
+              <BsSearch className="iconSearch"></BsSearch>
             </a>
+            */}
             <ul className="ul">
               <li>
                 <Link to="/">Home</Link>
@@ -131,7 +140,7 @@ const Navigation = ({
                 <Link to="/gallery">Gallery</Link>
               </li>
               <li>
-                <Link to="">About Us</Link>
+                <a href="/#about">About Us</a>
               </li>
               <li>
                 <a>Contribute with us</a>

@@ -8,6 +8,12 @@ import Model from "react-modal";
 import { MdVolunteerActivism } from "react-icons/md";
 import { MdOutlineVolunteerActivism } from "react-icons/md";
 import { FaHandHoldingHeart } from "react-icons/fa";
+import { GrFacebook } from "react-icons/gr";
+import { BsInstagram } from "react-icons/bs";
+import { AiFillLinkedin } from "react-icons/ai";
+import { BsSnapchat } from "react-icons/bs";
+import { FaTwitterSquare } from "react-icons/fa";
+
 const Home = ({
   setCategory,
   setAllCase,
@@ -165,9 +171,9 @@ const Home = ({
             </p>
             <br />
             <br />
-            <Link className="register" to="/register">
-              <a id="Register">Register</a>
-            </Link>
+          
+              <a href="/#ourTeam" id="Register">Our Team</a>
+          
             <Link className="login" to="/login">
               <a id="Login">Login</a>
             </Link>
@@ -262,12 +268,11 @@ const Home = ({
             <h1>Volunteer with us</h1>
           </div>
           <div className="contentVolunteering">
-         
             <div className="quotation">
-            <h3>
+              <h3>
                 Be a volunteer to Make your presence in this life more beautiful
               </h3>
-              <br/>
+              <br />
               <p className="prgVolunteering">
                 When you do any volunteer work, you will not know the meaning of
                 boredom. Everything in the world of volunteering is an exciting
@@ -364,6 +369,82 @@ const Home = ({
           {/* </div> */}
         </div>
       </div>
+      <section className="about" id="about">
+        <div className="contentAbout">
+          <img src="./image/about.jpeg" />
+          <div className="contentText">
+            <h1>About Us</h1>
+            <br />
+            <h5>Safe House Company</h5>
+            <p>
+              The safe house for charitable services, we seek to spread love and
+              goodness among people and enhance human values among individuals,
+              the company’s goal is to raise the banner of “goodness in my
+              nation until the Day of Resurrection”, “people for people”
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="ourTeam" id="ourTeam">
+        <h1 className="headerTeam">Our Team</h1>
+        <div className="infoTeam">
+          {/* Hamza */}
+          <div className="member">
+            <img src="./image/H.jpg" />
+            <br></br>
+            <h2 className="name">Hamza Shahrori</h2>
+            <br></br>
+            <p className="descriptionMember">
+              A student at the wonderful Meraki Academy, and a full stack
+              developer soon
+            </p>
+          </div>
+          {/* Naamneh */}
+          <div className="member">
+            <img src="./image/N.jpg" />
+            <br></br>
+            <h2 className="name">Anas Naamneh</h2>
+            <br></br>
+            <p className="descriptionMember">
+              بسبوس عاشق بسة ويدلعها بسبوسه , بسبوس عاشق بسة ويدلعها
+              بسبوسه,يلحقها من بيت البيت ويقلها اعطيني بوسه
+            </p>
+          </div>
+          {/* batool */}
+          <div className="member">
+            <img src="./image/b.jpg" />
+            <br></br>
+            <h2 className="name">Batool Abusneneh</h2>
+            <br></br>
+            <p className="descriptionMember">
+              دبدوب عاشق دبة ويدلعها دبدوبة , دبدوب عاشق دبة ويدلعها
+              دبدوبة,يلحقها من بيت البيت ويقلها اعطيني بوسه
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <div className="footerContent">
+          <h3 className="headerFooter">SAFE HOUSE</h3>
+          <p className="titleFooter">
+            Amman Gardens Street next to City Center Company<br/>Contact
+            Number 06555555
+            <br/>Email safeHouse@official.edj
+          </p>
+          <ul className="socialsFooter">
+            <li><a><GrFacebook className="icon"></GrFacebook></a></li>
+            <li><a><BsInstagram className="icon"></BsInstagram></a></li>
+            <li><a><AiFillLinkedin className="icon" ></AiFillLinkedin></a></li>
+            <li><a><BsSnapchat className="icon"></BsSnapchat></a></li>
+            <li><a><FaTwitterSquare className="icon" ></FaTwitterSquare></a></li>
+          </ul>
+        </div>
+        <div className="footerBottom">
+          <p>copyright &copy; 2022 Safe House ..Designed by <span>Code Warriors</span></p>
+        </div>
+      </footer>
     </>
   );
 };
