@@ -289,7 +289,6 @@ const Admin = ({ searchCase }) => {
       transform: "translate(-50%, -50%)",
     },
   };
-
   // ------------------------------------------------
   const conutUsers = async () => {
     try {
@@ -523,6 +522,8 @@ const Admin = ({ searchCase }) => {
               );
             })}
       </table> */}
+      {/* const data = [{name: "cases", value: element.cases},{name: "users", value:element.CountUser},{name: "volunteers", value: element.volunteers}] */}
+
       {numPage == 1 ? (
         <></>
       ) : (
@@ -613,7 +614,7 @@ const Admin = ({ searchCase }) => {
               <br />
               <br />
               <button className="new" onClick={addNewCase}>
-                new Case
+                New Case
               </button>
               <br />
               <br />
@@ -623,7 +624,7 @@ const Admin = ({ searchCase }) => {
           </div>
         </Model>
       </div>
-      <div>
+      <div >
         <Model
           style={customStyles3}
           isOpen={imageIsOpen}
@@ -631,7 +632,7 @@ const Admin = ({ searchCase }) => {
         >
           <input
             type="file"
-            className="image"
+            className="imaget"
             onChange={(e) => {
               setImageSelected(e.target.files[0]);
             }}

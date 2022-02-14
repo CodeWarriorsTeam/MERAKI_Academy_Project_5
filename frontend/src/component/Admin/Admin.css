@@ -120,11 +120,7 @@ transform: translate(3.3em, 2.6em);
 .update1:hover {
   background-color: yellow;
 }
-/* .uploadIcon { */
-/* font-size: 1.3em; */
-/* } */
-
-.image:hover {
+.imaget:hover {
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -132,7 +128,9 @@ transform: translate(3.3em, 2.6em);
   color: black;
 }
 
-.image {
+.imaget {
+  margin-left: 8%;
+  margin-top: 5%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -160,6 +158,7 @@ transform: translate(3.3em, 2.6em);
 .uploadIcon {
   height: 1em;
   margin-left: 0.2em;
+  
 }
 
 .uploadIcon:hover {
@@ -169,23 +168,25 @@ transform: translate(3.3em, 2.6em);
 /* .uploadIcon:active {
   background-color: #039214;
 } */
-
+.uploadImageButton{
+width: 5%;
+}
 .uploadImageButton:active {
-  background-color: #039214;
+  background-color: yellow;
 }
 
 .addImage {
-  height: 2em;
-  margin-left: 2em;
+  height: 22px;
+  margin-left: 25%;
+  transform: translate(20em,-1.7em);
+  width: 15%;
 }
 
 .addImage:hover {
   cursor: pointer;
 }
 
-.upload1:hover {
-  background-color: #039214;
-}
+
 .upload1 {
   cursor: pointer;
   width: 2em;
@@ -259,6 +260,10 @@ td {
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
+.category::placeholder{
+  text-align: center;
+}
+
 .category {
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
@@ -266,8 +271,10 @@ td {
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
   width: 60%;
-  height: 20px;
+  height: 30px;
   border-radius: 5px;
+  margin-left: 18%;
+
 }
 
 .image22:hover {
@@ -276,6 +283,7 @@ td {
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
+
 .image22 {
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
@@ -284,6 +292,8 @@ td {
   color: black;
   border-radius: 5px;
   width: 54%;
+  height: 25px;
+  margin-left: 18%;
 }
 
 .title:hover {
@@ -292,15 +302,21 @@ td {
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
+.title::placeholder{
+  text-align: center;
+}
+
 .title {
   width: 60%;
-  height: 20px;
+  height: 30px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
   border-radius: 5px;
+  margin-left: 18%;
+
 }
 .amount:hover {
   border-top: 1px rgb(0, 0, 0) solid;
@@ -308,14 +324,19 @@ td {
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
+.amount::placeholder{
+  text-align: center;
+}
 .amount {
   width: 60%;
-  height: 20px;
+  height: 30px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
+  margin-left: 18%;
+
   border-radius: 5px;
 }
 .description:hover {
@@ -324,14 +345,19 @@ td {
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
+.description::placeholder{
+  text-align: center;
+}
+
 .description {
   width: 60%;
-  height: 20px;
+  height: 30px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
+  margin-left: 18%;
   border-radius: 5px;
 }
 
@@ -343,16 +369,18 @@ td {
   cursor: pointer;
 }
 .new {
-  height: 30%;
-  width: 60%;
+  height: 30px;
+  width: 45%;
   border-radius: 5px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
-  background-color: #f5c323;
+  background-color: rgba(136, 128, 128, 0.342);
   color: black;
   font-size: 2ch;
+  margin-left: 26%;
+
 }
 
 .countUser {
