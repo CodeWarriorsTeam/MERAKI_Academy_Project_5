@@ -6,10 +6,7 @@
   -o-background-size: cover;
   background-size: cover;
 }
-.table {
-  margin-left: 22%;
-  width: 20%;
-}
+
 th,
 td {
   padding: 5px;
@@ -20,18 +17,18 @@ td {
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(-12.4em, 8.5em);
+  transform: translate(-12.1em, 5.9em);
 }
 .usicon{
     font-size: 1.4em;
     color: rgb(128, 127, 127);
-transform: translate(-14.4em,6.4em);    
+transform: translate(-14em,4.7em);    
     
 }
 .casicon{
     font-size: 1.4em;
     color: rgb(128, 127, 127);
-transform: translate(-14.6em,4.7em);    
+transform: translate(-14.2em,3.2em);    
 
 }
 .userlink3 {
@@ -39,12 +36,12 @@ transform: translate(-14.6em,4.7em);
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(-12.5em, 7.5em);
+  transform: translate(-12em, 5.6em);
 }
 .volicon{
     font-size: 1.4em;
     color: rgb(128, 127, 127);
-transform: translate(-12.2em,8.4em);    
+transform: translate(-11.7em,6.1em);    
 }
 
 .caselink3 {
@@ -52,10 +49,16 @@ transform: translate(-12.2em,8.4em);
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(-12.5em, 5.5em);
+  transform: translate(-12em, 3.9em);
 }
 .tttt:nth-child(even) {
   background-color: #ebebeb;
+}
+.table2{
+  margin-top: 1%;
+  padding-left: 22%;
+  padding-right: 7%;
+
 }
 .id {
   font-size: 1em;
