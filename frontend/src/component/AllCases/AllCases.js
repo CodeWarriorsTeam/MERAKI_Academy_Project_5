@@ -144,14 +144,14 @@ const AllCases = ({
         <div className="containerAllCases">
           <div className="row my-3">
             <div className="col my-3">
-              {/* <h1 className="headerAllCases">
+              <h1 className="headerAllCases">
                 Goodness does not stop until the Hour of Resurrection
-              </h1> */}
-              {/* <p className="prgAllCases">
+              </h1> 
+              <p className="prgAllCases">
                 "If the Final Hour comes while you have a shoot of a plant in
                 your hands and it is possible to plant it before the Hour comes,
                 you should plant it"
-              </p> */}
+              </p> 
             </div>
           </div>
 
