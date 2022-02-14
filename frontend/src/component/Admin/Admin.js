@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiEdit, BiUpload } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
 import { IoMdArrowBack } from "react-icons/io";
 import { ImImages } from "react-icons/im";
+import { MdOutlineVolunteerActivism ,MdOutlineCases} from "react-icons/md";
 
 import Model from "react-modal";
 import {
@@ -317,20 +317,21 @@ const Admin = ({ searchCase }) => {
         <ul>
           <li>
             {" "}
-            <Link className="caselink" to="/admin/cases">
-              Manage Cases
+           <MdOutlineCases className="caseicon"></MdOutlineCases> <Link className="caselink" to="/admin/cases">
+               Cases
             </Link>
           </li>
           <li>
             {" "}
-            <Link className="userlink" to="/admin/users">
-              Manage Users
+            <FiUsers className="usericon"></FiUsers>
+ <Link className="userlink" to="/admin/users">
+               Users
             </Link>
           </li>
           <li>
             {" "}
-            <Link className="voluntlink" to="/admin/volunteers">
-              Manage Volunteers
+           <MdOutlineVolunteerActivism className="volicon2"></MdOutlineVolunteerActivism> <Link className="voluntlink" to="/admin/volunteers">
+               Volunteers
             </Link>
           </li>
         </ul>
