@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setUsers } from "../../reducer/users/index";
 import { useEffect } from "react";
+import { MdOutlineVolunteerActivism ,MdOutlineCases} from "react-icons/md";
+import {FiUsers} from "react-icons/fi"
 import "./users.css";
 const Users = () => {
   const dispatch = useDispatch();
@@ -35,27 +37,22 @@ const Users = () => {
 
   return (
     <div className="all">
+      <br />
       <table className="table">
         <>
           <ul>
-          <br/>
-              {" "}
-              <Link className="caselink3" to="/admin/cases">
-                Manage Cases
-              </Link>
-              <br/>
-
-              {" "}
-              <Link className="userlink3" to="/admin/users">
-                Manage Users
-              </Link>
-              <br/>
-         
-              {" "}
-              <Link className="voluntlink3" to="/admin/volunteers">
-                Manage Volunteers
-              </Link>
-           
+            <br />{" "}
+          <MdOutlineCases className="casicon"></MdOutlineCases>  <Link className="caselink3" to="/admin/cases">
+              Cases
+            </Link>
+            <br />{" "}
+          <FiUsers className="usicon"></FiUsers>  <Link className="userlink3" to="/admin/users">
+              Users
+            </Link>
+            <br /> <MdOutlineVolunteerActivism className="volicon"></MdOutlineVolunteerActivism>
+            <Link className="voluntlink3" to="/admin/volunteers">
+              Volunteers
+            </Link>
           </ul>
         </>
         <tr>
@@ -70,21 +67,34 @@ const Users = () => {
           state.users.map((element, i) => {
             // console.log();
             return (
-             
-                <tr>
-                  <td className="id2">{element.id}</td>
-                  <td className="imag2">{element.profile_image}</td>
-                  <td className="first2">{element.firstName}</td>
-                  <td  className="last2">{element.lastName}</td>
-                  <td className="cont2">{element.country}</td>
-                  <td className="ema2">{element.email}</td>
-                </tr>
-               
-
-            
+              <tr className="tttt">
+                <td className="id2">{element.id}</td>
+                <td className="imag2">{element.profile_image}</td>
+                <td className="first2">{element.firstName}</td>
+                <td className="last2">{element.lastName}</td>
+                <td className="cont2">{element.country}</td>
+                <td className="ema2">{element.email}</td>
+              </tr>
             );
           })}
       </table>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
