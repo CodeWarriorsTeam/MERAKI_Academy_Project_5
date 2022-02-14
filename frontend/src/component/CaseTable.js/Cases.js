@@ -10,7 +10,7 @@ import { BiEdit, BiUpload } from "react-icons/bi";
 import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
 import { MdOutlineVolunteerActivism ,MdOutlineCases} from "react-icons/md";
 import {FiUsers} from "react-icons/fi"
-
+import {IoMdArrowBack} from "react-icons/io"
 import { RiDeleteBinLine } from "react-icons/ri";
 import { deleteCase, updateCases } from "../../reducer/cases";
 import { Link } from "react-router-dom";
@@ -238,6 +238,7 @@ FiUsers */}
                       className="editIcon"
                     />
                   </td>
+     
                   <div>
                     <Model
                       style={customStyles2}
@@ -304,6 +305,27 @@ FiUsers */}
             );
           })}
     </table>
+    {numPage == 1 ? (
+        <></>
+      ) : (
+        <button
+          className="back"
+          onClick={() => {
+            setNumPage(numPage - 1);
+          }}
+        >
+          <IoMdArrowBack className="backIcon"></IoMdArrowBack>
+        </button>
+      )}
+      <button
+        onClick={() => {
+          setNumPage(numPage + 1);
+        }}
+        className="next"
+      >
+        <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
+        {/* <GrLinkNext className="nextIcon"></GrLinkNext> */}
+      </button>
     <br/>
       <br/><br/>
       <br/><br/>
