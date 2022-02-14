@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { MdSettingsPhone, MdSearch } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { AiOutlineDashboard } from "react-icons/ai";
 
 import { RiLoginBoxLine } from "react-icons/ri";
 import { FaRegRegistered } from "react-icons/fa";
@@ -57,7 +58,7 @@ const Navigation = ({
               {/* </ul> */}
               {/* <ul><li> */}
               <br/>
-                <Link className="admin" to="/admin">
+               <AiOutlineDashboard className="dashicon"></AiOutlineDashboard> <Link className="admin" to="/admin">
                   Dashboard
                 </Link>  
                 <input className="searchInputNav"

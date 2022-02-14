@@ -252,7 +252,7 @@ nav .logo{
   text-decoration: none;
   font-size: 1.3em;
   margin-top: 10%;
-  margin-left: 3.4%;
+  margin-left: 3%;
 }
 
 .nav {
@@ -315,6 +315,11 @@ nav .logo{
   color: white;
   float: right;
   transform: translate(-1em,0em);
+}
+.dashicon{
+ font-size: 1.5em;
+transform: translate(1em,0.2em);
+color: white;
 }
 
 /* .ul li .a { */
