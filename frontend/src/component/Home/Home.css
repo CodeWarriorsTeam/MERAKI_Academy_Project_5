@@ -737,3 +737,40 @@ text-transform: capitalize;
         color: #F0D304;
         font-weight: 200;
       }
+
+/* 
+.vFormConatiner{
+  display: grid;
+  justify-content: center;
+} */
+
+      span{
+        color: red;
+      }
+
+      .firstNameV{
+        width: 8em;
+        margin-right: 20px;
+        margin-top: 5px;
+      }
+
+      .lastNameV{
+        width: 8em;
+
+      }
+
+      .emailV {
+        /* margin-top: 5px; */
+
+      }
+
+      .addressV{
+        /* margin-top: 5px; */
+
+      }
+
+      .phoneNumberV{
+        /* margin-top: 5px; */
+
+      }
+      

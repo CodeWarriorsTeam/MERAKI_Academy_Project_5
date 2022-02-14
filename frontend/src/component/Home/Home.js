@@ -146,7 +146,7 @@ const Home = ({
 
   const customStyles = {
     content: {
-      top: "50%",
+      top: "80%",
       left: "50%",
       right: "70%",
       bottom: "auto",
@@ -171,9 +171,11 @@ const Home = ({
             </p>
             <br />
             <br />
-          
-              <a href="/#ourTeam" id="Register">Our Team</a>
-          
+
+            <a href="/#ourTeam" id="Register">
+              Our Team
+            </a>
+
             <Link className="login" to="/login">
               <a id="Login">Login</a>
             </Link>
@@ -327,7 +329,16 @@ const Home = ({
               setJoinIsOpen(false);
             }}
           >
+            <div className="vFormConatiner">
+            <h2>Volunteering Form</h2>
+            <br/>
+            <label for="FirstName" className="fullLabel">
+              {" "}
+              Full Name<span className="span"> *</span>
+            </label>
+            <br />
             <input
+              className="firstNameV"
               type="text"
               placeholder="First Name"
               onChange={(e) => {
@@ -335,34 +346,58 @@ const Home = ({
               }}
             ></input>
             <input
+              className="lastNameV"
               type="text"
               placeholder="Last Name"
               onChange={(e) => {
                 setLastName(e.target.value);
               }}
             ></input>
+            <br /> <br />
+            <label for="email">
+              {" "}
+              Email<span> *</span>
+            </label>
+            <br />
             <input
+              className="emailV"
               type="email"
               placeholder="Email"
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
             ></input>
+            <br /> <br />
+            <label for="address">
+              {" "}
+              Address<span> *</span>
+            </label>
+            <br />
             <input
+              className="addressV"
               type="text"
               placeholder="Address"
               onChange={(e) => {
                 setAddress_1(e.target.value);
               }}
             ></input>
+            <br /> <br/>
+            <label for="phonenumber">
+              {" "}
+              Phone Number<span> *</span>
+            </label>
+            <br />
             <input
+              className="phoneNumberV"
               type="text"
               placeholder="Phone Number"
               onChange={(e) => {
                 setPhoneNumber(e.target.value);
               }}
             ></input>
+            <br /> <br />
             <button onClick={addNewVolunteer}>Add New Volunteer</button>
+            </div>
           </Model>
 
           {message}
@@ -429,20 +464,45 @@ const Home = ({
         <div className="footerContent">
           <h3 className="headerFooter">SAFE HOUSE</h3>
           <p className="titleFooter">
-            Amman Gardens Street next to City Center Company<br/>Contact
-            Number 06555555
-            <br/>Email safeHouse@official.edj
+            Amman Gardens Street next to City Center Company
+            <br />
+            Contact Number 06555555
+            <br />
+            Email safeHouse@official.edj
           </p>
           <ul className="socialsFooter">
-            <li><a><GrFacebook className="icon"></GrFacebook></a></li>
-            <li><a><BsInstagram className="icon"></BsInstagram></a></li>
-            <li><a><AiFillLinkedin className="icon" ></AiFillLinkedin></a></li>
-            <li><a><BsSnapchat className="icon"></BsSnapchat></a></li>
-            <li><a><FaTwitterSquare className="icon" ></FaTwitterSquare></a></li>
+            <li>
+              <a>
+                <GrFacebook className="icon"></GrFacebook>
+              </a>
+            </li>
+            <li>
+              <a>
+                <BsInstagram className="icon"></BsInstagram>
+              </a>
+            </li>
+            <li>
+              <a>
+                <AiFillLinkedin className="icon"></AiFillLinkedin>
+              </a>
+            </li>
+            <li>
+              <a>
+                <BsSnapchat className="icon"></BsSnapchat>
+              </a>
+            </li>
+            <li>
+              <a>
+                <FaTwitterSquare className="icon"></FaTwitterSquare>
+              </a>
+            </li>
           </ul>
         </div>
         <div className="footerBottom">
-          <p>copyright &copy; 2022 Safe House ..Designed by <span>Code Warriors</span></p>
+          <p>
+            copyright &copy; 2022 Safe House ..Designed by{" "}
+            <span>Code Warriors</span>
+          </p>
         </div>
       </footer>
     </>
