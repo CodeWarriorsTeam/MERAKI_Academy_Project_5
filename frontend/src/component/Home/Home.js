@@ -13,7 +13,8 @@ import { BsInstagram } from "react-icons/bs";
 import { AiFillLinkedin } from "react-icons/ai";
 import { BsSnapchat } from "react-icons/bs";
 import { FaTwitterSquare } from "react-icons/fa";
-
+import {MdEmail} from "react-icons/md"
+import {ImPhone} from "react-icons/im"
 const Home = ({
   setCategory,
   setAllCase,
@@ -330,11 +331,12 @@ const Home = ({
             }}
           >
             <div className="vFormConatiner">
-            <h2>Volunteering Form</h2>
+              
+            <h2 className="headerV">Volunteering Form</h2>
             <br/>
             <label for="FirstName" className="fullLabel">
               {" "}
-              Full Name<span className="span"> *</span>
+              Full Name<span className="span1"> *</span>
             </label>
             <br />
             <input
@@ -356,7 +358,7 @@ const Home = ({
             <br /> <br />
             <label for="email">
               {" "}
-              Email<span> *</span>
+              Email<span className="span2"> *</span> <MdEmail></MdEmail>
             </label>
             <br />
             <input
@@ -370,7 +372,7 @@ const Home = ({
             <br /> <br />
             <label for="address">
               {" "}
-              Address<span> *</span>
+              Address<span className="span3"> *</span>
             </label>
             <br />
             <input
@@ -384,7 +386,7 @@ const Home = ({
             <br /> <br/>
             <label for="phonenumber">
               {" "}
-              Phone Number<span> *</span>
+              Phone Number<span className="span4"> *</span> <ImPhone></ImPhone>
             </label>
             <br />
             <input
@@ -396,7 +398,7 @@ const Home = ({
               }}
             ></input>
             <br /> <br />
-            <button onClick={addNewVolunteer}>Add New Volunteer</button>
+            <button onClick={addNewVolunteer} className="volunteerButton">Submit</button>
             </div>
           </Model>
 
