@@ -49,18 +49,18 @@ td { */
 text-decoration: none;
 font-size: 1.2em;
 float: left;
-transform: translate(3em, 7.7em);
+transform: translate(3em, 6.2em);
 }
 .usericon{
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-transform: translate(-1em,4.8em);    
+transform: translate(-1em,3.7em);    
   
 }
 .caseicon{
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-transform: translate(-1em,3em);    
+transform: translate(-1em,2.2em);    
 
 }
 .userlink {
@@ -68,12 +68,12 @@ transform: translate(-1em,3em);
 text-decoration: none;
 font-size: 1.2em;
 float: left;
-transform: translate(3.3em, 5.6em);
+transform: translate(3.3em, 4.5em);
 }
-.volicon2{
+.volicon3{
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-transform: translate(-2.9em,6.5em);    
+transform: translate(-2.9em,5.1em);    
 }
 
 .caselink {
@@ -81,7 +81,7 @@ transform: translate(-2.9em,6.5em);
 text-decoration: none;
 font-size: 1.2em;
 float: left;
-transform: translate(3.3em, 3.7em);
+transform: translate(3.3em, 2.6em);
 }
 /* .voluntlink {
   color: white;

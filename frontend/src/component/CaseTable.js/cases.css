@@ -9,6 +9,21 @@
 .head {
   font-size: 100%;
 }
+.caseicon2{
+    font-size: 1.4em;
+    color: rgb(128, 127, 127);
+transform: translate(1.4em,5.4em);    
+}
+.usericon2{
+    font-size: 1.4em;
+    color: rgb(128, 127, 127);
+transform: translate(-1.1em,6.1em);    
+}
+.volicon2{
+    font-size: 1.4em;
+    color: rgb(128, 127, 127);
+transform: translate(-0.98em,6.7em);    
+}
 .table {
   /* width: 10%; */
   /* margin-top: 3%; */
@@ -29,27 +44,27 @@ td {
   float: left;
 }
 .voluntlink2{
-    color: white;
+    color: rgb(128, 127, 127);
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.2em;
     float: left;
-    transform: translate(2.7em,9em); 
+    transform: translate(3.4em,6.6em); 
   
 }
 .userlink2{
-    color: white;
+    color: rgb(128, 127, 127);
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.2em;
     float: left;
-    transform: translate(2.7em,7em); 
+    transform: translate(3.4em,5.95em); 
       
 }
 .caselink2{
-    color: white;
+    color: rgb(128, 127, 127);
 text-decoration: none;
-font-size: 1em;
+font-size: 1.2em;
 float: left;
-transform: translate(2.7em,4.5em); 
+transform: translate(3.4em,5.1em); 
 
 }
 .deleteIcon {

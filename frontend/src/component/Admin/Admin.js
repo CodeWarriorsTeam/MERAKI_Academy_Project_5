@@ -330,7 +330,7 @@ const Admin = ({ searchCase }) => {
           </li>
           <li>
             {" "}
-           <MdOutlineVolunteerActivism className="volicon2"></MdOutlineVolunteerActivism> <Link className="voluntlink" to="/admin/volunteers">
+           <MdOutlineVolunteerActivism className="volicon3"></MdOutlineVolunteerActivism> <Link className="voluntlink" to="/admin/volunteers">
                Volunteers
             </Link>
           </li>

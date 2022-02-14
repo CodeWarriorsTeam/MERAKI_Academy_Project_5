@@ -38,7 +38,7 @@ const Users = () => {
   return (
     <div className="all">
       <br />
-      <table className="table">
+      <table className="table2">
         <>
           <ul>
             <br />{" "}

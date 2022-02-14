@@ -8,6 +8,9 @@ import { useNavigate } from "react-router-dom";
 import Model from "react-modal";
 import { BiEdit, BiUpload } from "react-icons/bi";
 import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
+import { MdOutlineVolunteerActivism ,MdOutlineCases} from "react-icons/md";
+import {FiUsers} from "react-icons/fi"
+
 import { RiDeleteBinLine } from "react-icons/ri";
 import { deleteCase, updateCases } from "../../reducer/cases";
 import { Link } from "react-router-dom";
@@ -138,14 +141,16 @@ const Cases = ({searchCase}) => {
 
   return (
       <div className="all">
-      <br/>
-      <br/>
+     
       <>
         <ul>
-        <li> <Link  className="caselink2" to="/admin/cases">Manage Cases</Link></li>
+       {/* MdOutlineVolunteerActivism ,MdOutlineCases} from "react-icons/md";
+FiUsers */}
 
-      <li>  <Link className="userlink2" to="/admin/users">Manage Users</Link></li>
-       <li> <Link className="voluntlink2" to="/admin/volunteers">Manage Volunteers</Link></li>
+<MdOutlineCases className="caseicon2"></MdOutlineCases> <li> <Link  className="caselink2" to="/admin/cases">Cases</Link></li>
+
+   <FiUsers className="usericon2"></FiUsers>   <li>  <Link className="userlink2" to="/admin/users">Users</Link></li>
+      <MdOutlineVolunteerActivism className="volicon2"></MdOutlineVolunteerActivism> <li> <Link className="voluntlink2" to="/admin/volunteers">Volunteers</Link></li>
         </ul>
         </>
         <br/>
