@@ -45,18 +45,57 @@ td { */
   /* float: right; */
 }
 .voluntlink {
+  color: rgb(128, 127, 127);
+text-decoration: none;
+font-size: 1.2em;
+float: left;
+transform: translate(3em, 7.7em);
+}
+.usericon{
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+transform: translate(-1em,4.8em);    
+  
+}
+.caseicon{
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+transform: translate(-1em,3em);    
+
+}
+.userlink {
+  color: rgb(128, 127, 127);
+text-decoration: none;
+font-size: 1.2em;
+float: left;
+transform: translate(3.3em, 5.6em);
+}
+.volicon2{
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+transform: translate(-2.9em,6.5em);    
+}
+
+.caselink {
+  color: rgb(128, 127, 127);
+text-decoration: none;
+font-size: 1.2em;
+float: left;
+transform: translate(3.3em, 3.7em);
+}
+/* .voluntlink {
   color: white;
   text-decoration: none;
   font-size: 1em;
   float: left;
-  transform: translate(2.7em, 7em);
+  transform: translate(2.6em, 6.8em);
 }
 .userlink {
   color: white;
   text-decoration: none;
   font-size: 1em;
   float: left;
-  transform: translate(2.7em, 5em);
+  transform: translate(2.7em, 4.5em);
 }
 .caselink {
   color: white;
@@ -64,7 +103,7 @@ td { */
   font-size: 1em;
   float: left;
   transform: translate(2.7em, 2.4em);
-}
+} */
 /* .oper { */
 /* width: 5%; */
 /* } */
