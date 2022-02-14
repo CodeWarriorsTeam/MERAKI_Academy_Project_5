@@ -780,6 +780,8 @@ footer {
   height: 2.5em;
   width: 6em;
   font-size: large;
+  background-color: black;
+  color: white;
 }
 
 .volunteerButton:hover{
