@@ -20,7 +20,7 @@
 
 .left-register{
   flex: 1;
-  background-color: #04f010;
+  background-color: #f0d304;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -69,7 +69,7 @@
 .firstName {
   /* margin-top: 2%; */
   /* margin-left: 57%; */
-  height: 30px;
+  /* height: 30px; */
   /* width: 23%; */
   height: 3em;
   width: 21em;
@@ -230,7 +230,7 @@ margin-top: 250px;
   /* margin-top: 10%; */
   margin-left: 6%;
   font-size: 3.3em;
-  color: white;
+  color: #25211d;
 }
 .word{
   transform: translate(0em,10em);
