@@ -2,18 +2,22 @@ import React from "react";
 import axios from "axios";
 import "./cases.css";
 import { useDispatch, useSelector } from "react-redux";
+import { addImage, setImages } from "../../reducer/image/index";
+import { setUsers } from "../../reducer/users/index";
+
 import { useEffect, useState } from "react";
 import { setCases } from "../../reducer/cases";
 import { useNavigate } from "react-router-dom";
 import Model from "react-modal";
 import { BiEdit, BiUpload } from "react-icons/bi";
+import{ BsPlusCircle} from "react-icons/bs"
 import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
 import { MdOutlineVolunteerActivism, MdOutlineCases } from "react-icons/md";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { FiUsers } from "react-icons/fi";
 import { IoMdArrowBack } from "react-icons/io";
-import { RiDeleteBinLine } from "react-icons/ri";
-import { deleteCase, updateCases } from "../../reducer/cases";
+import { RiDeleteBinLine,RiImageAddLine } from "react-icons/ri";
+import {AddCase, deleteCase, updateCases } from "../../reducer/cases";
 import { Link } from "react-router-dom";
 const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
   const [num, setNum] = useState(1);
@@ -22,6 +26,7 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
   const [case_image, setCase_Image] = useState("");
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
+  const [modelIsOpen, setModelIsOpen] = useState(false);
   const [TheAmountRequired, setTheAmountRequired] = useState("");
   const [case_description, setCase_Description] = useState("");
   const [message, setMessage] = useState("");
@@ -29,6 +34,7 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
   const [numUser, setNumUser] = useState(0);
   const [numPage, setNumPage] = useState(1);
   const [image_1, setImage_1] = useState("");
+  const [imageIsOpen, setImageIsOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -37,7 +43,84 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
   const state = useSelector((state) => {
     return { token: state.loginReducer.token, cases: state.casesReducer.cases };
   });
+    //----------------------------------------------------------
+  const getAllImage = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/gallery
+     `,
+        { headers: { Authorization: `Bearer ${state.token}` } }
+      );
 
+      if (res.data.success) {
+        dispatch(setUsers(res.data.result));
+        // setGallery(res.data.result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getAllImage();
+  }, []);
+  //----------------------------------------------------------
+  const addNewImage = () => {
+    axios
+      .post(
+        "http://localhost:5000/gallery",
+        { image_1 },
+        { headers: { Authorization: `Bearer ${state.token}` } }
+      )
+
+      .then((result) => {
+        // console.log(image_1);
+        dispatch(
+          addImage({
+            image_1,
+          })
+        );
+        getAllImage();
+        setImageIsOpen(false);
+      })
+      .catch((err) => {
+        setMessage(err.response.data.message);
+      });
+  };
+    //----------------------------------------------------------
+
+  const addNewCase = () => {
+    axios
+      .post(
+        "http://localhost:5000/cases",
+        { category, case_image, title, case_description, TheAmountRequired },
+        {
+          headers: {
+            Authorization: `Bearer ${state.token}`,
+          },
+        }
+      )
+
+      .then((result) => {
+        dispatch(
+          AddCase({
+            category,
+            case_image,
+            title,
+            case_description,
+            TheAmountRequired,
+          })
+        );
+        getAllCases();
+        setMessage("the case has been created successfully");
+        setModelIsOpen(false);
+        navigate(`/admin`);
+
+        // navigate(`/allcases`);
+      })
+      .catch((err) => {
+        setMessage(err.response.data.message);
+      });
+  };
   //----------------------------------------------------------
   const uploadImage = (imageFile) => {
     const formData = new FormData();
@@ -142,9 +225,18 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
   return (
     <div className="all">
       <>
-        <ul>
-          {/* MdOutlineVolunteerActivism ,MdOutlineCases} from "react-icons/md";
-FiUsers */}
+        <ul> <RiImageAddLine className="imageLink6"></RiImageAddLine> <p
+          onClick={() => {
+            setImageIsOpen(true);
+            console.log(imageIsOpen);
+          }}
+          className="imageIcon6"
+          title="Add Image"
+        >
+          {" "}
+          Add Image 
+        </p> 
+        <BsPlusCircle onClick={() => setModelIsOpen(true)} className="add"></BsPlusCircle>
           <MdOutlineCases className="caseicon2"></MdOutlineCases>{" "}
           <li>
             {" "}
@@ -168,7 +260,6 @@ FiUsers */}
           </li>
         </ul>
       </>
-      <br />
       <table className="table">
         {" "}
         <tr className="head">
@@ -235,13 +326,14 @@ FiUsers */}
                     <td className="id">{element.id}</td>
                     <td className="categor">{element.category}</td>
                     <td className="tit">{element.title}</td>
-                    <td className="req"> {element.TheAmountRequired} $</td>
+                    <td className="req"> {element.TheAmountRequired}</td>
                     <td className="imag">{element.case_image}</td>
                     <td className="descr">{element.case_description}</td>
                     <td className="donation">{element.donations}</td>
                     <td className="donor">{element.donor}</td>
                     <td className="button">
                       {" "}
+        
                       <RiDeleteBinLine
                         onClick={() => deleteCseById(element.id)}
                         className="deleteIcon"
@@ -281,7 +373,115 @@ FiUsers */}
                         />
                       )}
                     </td>
+                    <div>
+        <Model
+          style={customStyles3}
+          isOpen={imageIsOpen}
+          onRequestClose={() => setImageIsOpen(false)}
+        >
+          <input
+            type="file"
+            className="imaget"
+            onChange={(e) => {
+              setImageSelected(e.target.files[0]);
+            }}
+          ></input>
+          <button
+            onClick={() => uploadImage(imageselected)}
+            className="uploadImageButton"
+          >
+            {" "}
+            <BiUpload className="uploadIcon"></BiUpload>
+          </button>
+          <button onClick={addNewImage} className="addImage">
+            Add Image
+          </button>
+        </Model>
+      </div>
+      {/* <p
+        onClick={() => setModelIsOpen(true)}
+        className="plus"
+        title="Add New Case"
+      >></p> */}
+                    <div className="model">
+        <Model
+          isOpen={modelIsOpen}
+          style={customStyles}
+          onRequestClose={() => setModelIsOpen(false)}
+        >
+          <div className="newPage">
+            {/* 
+            <br />
+            <br /> */}
+            <br />
+            <>
+              <input
+                className="category"
+                type="text"
+                placeholder="category"
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}
+              ></input>
+              <br />
+              <br />
+              <input
+                className="title"
+                type="text"
+                placeholder="Title"
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+              ></input>{" "}
+              <br />
+              <br />
+              <input
+                className="amount"
+                type="number"
+                placeholder="The amount required"
+                onChange={(e) => {
+                  setTheAmountRequired(e.target.value);
+                }}
+              ></input>
+              <br />
+              <br />
+              <input
+                type="file"
+                className="image22"
+                onChange={(e) => {
+                  setImageSelected(e.target.files[0]);
+                }}
+              ></input>
+              <button
+                className="uplo"
+                onClick={() => uploadImage(imageselected)}
+              >
+                {" "}
+                <BiUpload className="uploadIcon"></BiUpload>
+              </button>
+              <br />
+              <br />
+              <textarea
+                className="description"
+                type="text"
+                placeholder="Description"
+                onChange={(e) => {
+                  setCase_Description(e.target.value);
+                }}
+              ></textarea>
+              <br />
+              <br />
+              <button className="new" onClick={addNewCase}>
+                New Case
+              </button>
+              <br />
+              <br />
+            </>
 
+            {message}
+          </div>
+        </Model>
+      </div>
                     <div>
                       <Model
                         style={customStyles2}
