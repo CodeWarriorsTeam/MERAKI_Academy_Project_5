@@ -352,7 +352,7 @@ console.log(state.caseById);
             <div className="vFormConatiner">
               <h2 className="headerV">Volunteering Form</h2>
               <br />
-              <label for="FirstName" className="fullLabel">
+              <label for="FirstName" className="fullLabelV">
                 {" "}
                 Full Name<span className="span1"> *</span>
               </label>
@@ -374,7 +374,7 @@ console.log(state.caseById);
                 }}
               ></input>
               <br /> <br />
-              <label for="email">
+              <label for="email" className="emailLabelV">
                 {" "}
                 Email<span className="span2"> *</span> <MdEmail></MdEmail>
               </label>
@@ -388,7 +388,7 @@ console.log(state.caseById);
                 }}
               ></input>
               <br /> <br />
-              <label for="address">
+              <label for="address" className="addressLabelV">
                 {" "}
                 Address<span className="span3"> *</span>
               </label>
@@ -402,7 +402,7 @@ console.log(state.caseById);
                 }}
               ></input>
               <br /> <br />
-              <label for="phonenumber">
+              <label for="phonenumber" className="phoneNumberLabelV">
                 {" "}
                 Phone Number<span className="span4"> *</span>{" "}
                 <ImPhone></ImPhone>
