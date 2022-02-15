@@ -206,16 +206,18 @@ const NewDonation = ({
   }, []);
   return (
     <>
-
       <div className="wrapperCase">
         {state.caseById &&
           state.caseById.map((element, i) => (
             <>
-             
-                <img className="leftSide"src={element.case_image} alt="caseImage" width="100%" />
+              <img
+                className="leftSide"
+                src={element.case_image}
+                alt="caseImage"
+                width="100%"
+              />
 
-               
-                {/* {element.category.toLowerCase() == "food" ? (
+              {/* {element.category.toLowerCase() == "food" ? (
                   <>
                     <p>
                       Help us reach the goal, feed<span> 1,000 </span>poor
@@ -280,25 +282,31 @@ const NewDonation = ({
                   <></>
                 )}
                 <br /> */}
-               {/*  <h4>Case</h4>
+              {/*  <h4>Case</h4>
                 <p>{element.title}</p> */}
-            
+
               <div className="rightSide">
                 <div className="infoCase">
                   <h3>Case Details</h3>
                   <div className="case_data">
-               
-                  <div className="data">
+                    <div className="data">
                       <h4>Category</h4>
                       <p>{element.category}</p>
                     </div>
-                    <div className="data" style={{ width: "80%",wordBreak:"break-all",whiteSpace:"pre-wrap" }}>
+                    <div
+                      className="data"
+                      style={{
+                        width: "80%",
+                        wordBreak: "break-all",
+                        whiteSpace: "pre-wrap",
+                      }}
+                    >
                       <h4>Case</h4>
                       <p>{element.title}</p>
                     </div>
                     <div className="data">
                       <h4>Description</h4>
-                      <div style={{ width: "200%",wordBreak:"break-all" }}>
+                      <div style={{ width: "200%", wordBreak: "break-all" }}>
                         {" "}
                         <p>{element.case_description}</p>
                       </div>
@@ -307,7 +315,6 @@ const NewDonation = ({
                       <h4>Required</h4>
                       <p>{element.TheAmountRequired}</p>
                     </div>
-                   
                   </div>
                 </div>
 
@@ -333,12 +340,15 @@ const NewDonation = ({
                       </>
                     ) : (
                       <>
-                      
-                        <li  style={{ background: "linear-gradient(to right ,#055302,#27d1189a) "}} >
-                          {" "}
-                          <a title="Close case"  
+                        <li
+                          style={{
+                            background:
+                              "linear-gradient(to right ,#055302,#27d1189a) ",
+                          }}
                         >
-                            <IoCheckmarkDoneSharp ></IoCheckmarkDoneSharp>
+                          {" "}
+                          <a title="Close case">
+                            <IoCheckmarkDoneSharp></IoCheckmarkDoneSharp>
                           </a>
                         </li>
                       </>
@@ -350,11 +360,21 @@ const NewDonation = ({
                   <div className="info_data">
                     <div className="data">
                       {/* <h4>Email</h4> */}
-                     <p><span><SiMinutemailer></SiMinutemailer> </span>  safeHouse@official.edj</p>
+                      <p>
+                        <span>
+                          <SiMinutemailer></SiMinutemailer>{" "}
+                        </span>{" "}
+                        safeHouse@official.edj
+                      </p>
                     </div>
                     <div className="data">
                       {/* <h4>Phone</h4> */}
-                      <p><span><BsFillTelephoneOutboundFill></BsFillTelephoneOutboundFill></span> 06-555555</p>
+                      <p>
+                        <span>
+                          <BsFillTelephoneOutboundFill></BsFillTelephoneOutboundFill>
+                        </span>{" "}
+                        06-555555
+                      </p>
                     </div>
                   </div>
                 </div>
