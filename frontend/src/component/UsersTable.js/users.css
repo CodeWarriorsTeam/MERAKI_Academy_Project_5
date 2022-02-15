@@ -12,53 +12,79 @@ td {
   padding: 5px;
   text-align: left;
 }
+.imageLink8 {
+  color: rgb(128, 127, 127);
+  text-decoration: none;
+  font-size: 1.1em;
+  float: left;
+  cursor: pointer; 
+
+  transform: translate(-13em,14.8em);
+}
+.imageIcon8 {
+
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+  transform: translate(-11.7em, 12.7em);
+}
+.links4 {
+  margin-bottom: 18.5%;
+}
 .voluntlink3 {
-    color: rgb(128, 127, 127);
+  color: rgb(128, 127, 127);
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(-12.1em, 5.9em);
+  transform: translate(-11.8em, 7.2em);
 }
-.usicon{
-    font-size: 1.4em;
-    color: rgb(128, 127, 127);
-transform: translate(-14em,4.7em);    
-    
+.usicon {
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+  transform: translate(-14em, 7.7em);
 }
-.casicon{
-    font-size: 1.4em;
-    color: rgb(128, 127, 127);
-transform: translate(-14.2em,3.2em);    
-
+.casicon {
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+  transform: translate(-12.7em, 5.6em);
 }
 .userlink3 {
-    color: rgb(128, 127, 127);
+  color: rgb(128, 127, 127);
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(-12em, 5.6em);
+  transform: translate(-11.7em, 5.5em);
 }
-.volicon{
-    font-size: 1.4em;
-    color: rgb(128, 127, 127);
-transform: translate(-11.7em,6.1em);    
+.volicon {
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+  transform: translate(-14em, 8em);
 }
-
-.caselink3 {
-    color: rgb(128, 127, 127);
+.imageLink7 {
+  color: rgb(128, 127, 127);
   text-decoration: none;
   font-size: 1.2em;
   float: left;
   transform: translate(-12em, 3.9em);
 }
+.imageIcon7 {
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+  transform: translate(-10em, 8em);
+}
+.caselink3 {
+  color: rgb(128, 127, 127);
+  text-decoration: none;
+  font-size: 1.2em;
+  float: left;
+  transform: translate(-11.6em, 4.2em);
+}
 .tttt:nth-child(even) {
   background-color: #ebebeb;
 }
-.table2{
-  margin-top: 1%;
+.table2 {
   padding-left: 22%;
   padding-right: 7%;
-
+  transform: translate(0em, -18em);
 }
 .id {
   font-size: 1em;
