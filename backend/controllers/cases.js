@@ -310,6 +310,6 @@ module.exports = {
   updateCaseById,
   deleteCaseById,
   getCasesByCategory,
-  updateTheAmountRequired,
+  updateTheAmountRequired
   
 };
