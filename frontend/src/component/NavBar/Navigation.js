@@ -144,7 +144,7 @@ const Navigation = ({
                 <a href="/#about">About Us</a>
               </li>
               <li>
-                <a>Contribute with us</a>
+                <a>Contribute</a>
                 <ul className="drop">
                   <li>
                     <Link
@@ -216,7 +216,7 @@ const Navigation = ({
                 </ul>
               </li>
               <li>
-                <a href="/#volunteeringSection">Volunteer with us</a>
+                <a href="/#volunteeringSection">Volunteer</a>
               </li>
 
               {state.isLoggedIn || userId ? (
@@ -233,12 +233,12 @@ const Navigation = ({
                       Register{" "}
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     {" "}
                     <Link className="login" to="/login" title="Login">
                       Login{" "}
                     </Link>
-                  </li>
+                  </li> */}
                 </>
               )}
             </ul>

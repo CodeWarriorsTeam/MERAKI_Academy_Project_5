@@ -153,16 +153,17 @@
 
 
 .wrapperCase{
-  margin-top: 3.8%;
+  /* display: grid; */
+  margin-top: .8%;
   position: absolute;
   top: 50%;
   left: 50%;
-   width: 100%;
-  height:100%;
+   width: 80%;
+  height:80%;
   transform:translate(-50%,-50%) ;
   /* width: 450px; */
   display: flex;
-  box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.2);
   z-index: -1;
   overflow: hidden;;
 }
@@ -170,14 +171,15 @@
 
 .wrapperCase .leftSide{
   width: 35%;
-  background: linear-gradient(to right ,#F0D304,#f0d4049a);
-  padding: 30px  25px ;
+  box-shadow: 0 1px 20px 0 rgba(12, 12, 12, 0.08);
+  /* padding: 30px  25px ; */
   border-top-left-radius:5px ;
   border-bottom-left-radius: 5px;
   /* text-align: center; */
-  color: rgb(38,37,36);
+  /* color: rgb(38,37,36); */
 }
 .wrapperCase .leftSide img {
+  box-shadow: 0 1px 20px 0 rgba(12, 12, 12, 0.9);
   height:50%;
   width: 70%;
   margin-bottom: 7px;
@@ -211,16 +213,24 @@ text-align: left;
 }
 .wrapperCase .rightSide{
   width: 65%;
+  display: grid;
+  /* flex-direction: column; */
   background:#fff ;
   border-top-right-radius:5px ;
   border-bottom-right-radius:5px ;
   padding:30px 25px  ;
+  /* display: grid;
+  grid-template-columns: repeat(,1fr); */
 }
 
 .wrapperCase .rightSide .infoCompany,
 .wrapperCase .rightSide .infoCase{
-margin-bottom:25px ;
+/* margin-bottom:25px ; */
 }
+/* .wrapperCase .rightSide .infoCase{
+  display: flex;
+  flex-direction: column;
+} */
 
 .wrapperCase .rightSide .infoCompany h3,
 .wrapperCase .rightSide .infoCase h3{
@@ -237,9 +247,16 @@ font-style: italic;
 .wrapperCase .rightSide .info_data,
 .wrapperCase .rightSide .case_data{
 display: flex;
-justify-content: space-between;
+justify-content:space-between;
 }
-
+.wrapperCase .rightSide .case_data{
+  display: flex;
+  flex-direction: column;
+}
+.wrapperCase .rightSide .info_data{
+  display: flex;
+  flex-direction: row;
+}
 
 .wrapperCase .rightSide .info_data .data,
 .wrapperCase .rightSide .case_data .data{
@@ -256,12 +273,20 @@ justify-content: space-between;
 .wrapperCase .rightSide .info_data .data p,
 .wrapperCase .rightSide .case_data .data p{
 font-size: 20px;
-margin-bottom: 10px;
+/* margin-bottom: 3px; */
 color:rgb(38,37,36);
 font-style: italic;
 
 }
 
+.wrapperCase .rightSide .info_data .data p span{
+  font-size: 18px;
+ 
+  /* margin-top: 15px; */
+/* margin-bottom: 10px; */
+color:#F0D304;
+font-style: italic;
+}
 
 .wrapperCase .donateForCase ul{
   display: flex;
