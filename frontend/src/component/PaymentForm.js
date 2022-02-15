@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useDispatch, useSelector } from "react-redux";
-
+import Model from "react-modal";
 import axios from "axios";
 import { setCase } from "../reducer/cases/index";
 import { useParams } from "react-router-dom";
@@ -24,6 +24,17 @@ const CARD_OPTIONS = {
     },
   },
 };
+const customStyles2 = {
+  content: {
+    //   background: "rgba(yellow, 0, 0, 0.7)",
+    top: "40%",
+    left: "30%",
+    right: "69%",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-10%, -30%)",
+  },
+};
 
 export default function PaymentForm() {
   const state = useSelector((state) => {
@@ -41,7 +52,7 @@ export default function PaymentForm() {
   const { id } = useParams();
   const [title, seTitle] = useState([]);
   const [isClosed, setIsClosed] = useState(true);
-
+  const [donateIsOpen, setDonateIsOpen] = useState(false);
   const getbyid = async () => {
     try {
       const result = await axios.get(`http://localhost:5000/cases/${id}`);
@@ -90,31 +101,73 @@ export default function PaymentForm() {
   return (
     <>
       {!success ? (
-        <form onSubmit={handleSubmit}>
-          <fieldset className="FormGroup">
-            <div className="FormRow">
-              <CardElement options={CARD_OPTIONS} />
+        <Model
+          style={customStyles2}
+          isOpen={!donateIsOpen}
+          onRequestClose={() => setDonateIsOpen(true)}
+        >
+          <form className="containerPayment" onSubmit={handleSubmit}>
+            <h1>Confirm Donation </h1>
+            <div className="divInfoName">
+              <div className="Fname">
+                <h3>First name</h3>
+                <div className="input-filed">
+                  <input  placeholder="First Name...." type="text"></input>
+                </div>
+              </div>
+              <div className="Lname">
+                <h3>Last name</h3>
+                <div className="input-filed">
+                  <input placeholder="Last Name...." type="text"></input>
+                </div>
+              </div>
             </div>
-          </fieldset>
-          <input
-            className="IBAN"
-            type="text"
-            placeholder="how match"
-            onChange={(e) => {
-              setAmount(e.target.value);
-            }}
-          ></input>
-          <button
-            className={"Pay"}
-            onClick={() => {
-              getbyid();
-            }}
-          >
-            Donate
-          </button>
-        </form>
+
+            {/*  */}
+            <div className="divInfoCard">
+              <div className="card-number">
+                <h3>Card information</h3>
+                <div className="inputs-filed">
+                  <fieldset className="FormGroup">
+                    <div className="FormRow">
+                      <CardElement options={CARD_OPTIONS} />
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            <div className="how-match">
+              <h3>How Much</h3>
+              <div className="Selection">
+            <div className="input-filed">
+                <input
+                  type="text"
+                  placeholder="How match...."
+                  onChange={(e) => {
+                    setAmount(e.target.value);
+                  }}
+                ></input>
+                </div>
+                <div className="cardsImage">
+                  <img src="../image/visa.png"/>
+                  <img src="../image/masterd.png"/>
+                  <img src="../image/payPal.png" />
+                </div>
+              </div>
+            </div>
+
+            <button
+               className="APay"
+              onClick={() => {
+                getbyid();
+              }}
+            >
+              Donate
+            </button>
+          </form>
+        </Model>
       ) : (
-        <div>
+        <div className="successDonate">
           <h2>the donation has been created successfully</h2>
         </div>
       )}
