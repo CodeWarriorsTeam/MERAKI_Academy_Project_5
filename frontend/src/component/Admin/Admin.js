@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { RiDeleteBinLine } from "react-icons/ri";
-import { BiEdit, BiUpload } from "react-icons/bi";
+import { RiImageAddLine } from "react-icons/ri";
+import { BiEdit, BiAccessibility, BiUpload } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
 import { IoMdArrowBack } from "react-icons/io";
 import { ImImages } from "react-icons/im";
-import { MdOutlineVolunteerActivism ,MdOutlineCases} from "react-icons/md";
+
+import {
+  MdVolunteerActivism,
+  MdOutlineVolunteerActivism,
+  MdOutlineCases,
+} from "react-icons/md";
 
 import Model from "react-modal";
 import {
@@ -42,9 +47,10 @@ const Admin = ({ searchCase }) => {
   const [message, setMessage] = useState("");
   const [imageselected, setImageSelected] = useState("");
   const [numUser, setNumUser] = useState(0);
+  const [numCase, setNumCase] = useState(0);
+  const [numVolunteer, setNumVolunteer] = useState(0);
   const [numPage, setNumPage] = useState(1);
   const [image_1, setImage_1] = useState("");
-
   const [imageIsOpen, setImageIsOpen] = useState(false);
   const [emergency, setEmergency] = useState("");
   console.log(emergency);
@@ -250,7 +256,6 @@ const Admin = ({ searchCase }) => {
       console.log(err);
     }
   };
-
   useEffect(() => {
     getAllVolunteers();
   }, []);
@@ -289,6 +294,38 @@ const Admin = ({ searchCase }) => {
       transform: "translate(-50%, -50%)",
     },
   };
+  const conutCases = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/admin/countCase
+`
+      );
+
+      if (res.data.success) {
+        setNumCase(res.data.result[0].CountCase);
+      }
+    } catch (error) {}
+  };
+  useEffect(() => {
+    conutCases();
+  }, []);
+  // ------------------------------------------------
+  const countVolunteer = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/admin/countVolunteer
+  `
+      );
+
+      if (res.data.success) {
+        setNumVolunteer(res.data.result[0].CountVolunteer);
+        console.log(res.data.result[0].CountVolunteer);
+      }
+    } catch (error) {}
+  };
+  useEffect(() => {
+    countVolunteer();
+  }, []);
   // ------------------------------------------------
   const conutUsers = async () => {
     try {
@@ -308,66 +345,66 @@ const Admin = ({ searchCase }) => {
   return (
     <div className="alll">
       {" "}
-      <br />
-      <br />
-      <br />
-      <br />
       <div className="links2">
         <ul>
           <li>
             {" "}
-           <MdOutlineCases className="caseicon"></MdOutlineCases> <Link className="caselink" to="/admin/cases">
-               Cases
+            <MdOutlineCases className="caseicon"></MdOutlineCases>{" "}
+            <Link className="caselink" to="/admin/cases">
+              Cases
             </Link>
           </li>
           <li>
             {" "}
             <FiUsers className="usericon"></FiUsers>
- <Link className="userlink" to="/admin/users">
-               Users
+            <Link className="userlink" to="/admin/users">
+              Users
             </Link>
           </li>
           <li>
             {" "}
-           <MdOutlineVolunteerActivism className="volicon3"></MdOutlineVolunteerActivism> <Link className="voluntlink" to="/admin/volunteers">
-               Volunteers
+            <MdOutlineVolunteerActivism className="volicon3"></MdOutlineVolunteerActivism>{" "}
+            <Link className="voluntlink" to="/admin/volunteers">
+              Volunteers
             </Link>
+            
           </li>
-        </ul>
-      </div>
-      {/* <SideBar/> */}
-      <div className="images3">
-        <p
+           <RiImageAddLine className="imageIcon5"></RiImageAddLine> <p
           onClick={() => {
             setImageIsOpen(true);
             console.log(imageIsOpen);
           }}
-          className="imageIcon"
+          className="imageIcon4"
           title="Add Image"
-          // style={{ width: "10%", height: "1.4em" }}
         >
           {" "}
-          Add Image <p className="i"> > </p>
-        </p>
+          Add Image 
+        </p> 
+              
+        </ul>
       </div>
-      <div className="images4">
-      <FiUsers className="countUser"></FiUsers>
-     <p className="countUserPrg">{numUser}</p>  </div>
-      <></>
+      <div className="allLinks">
+      <div className="images3">
+        <MdVolunteerActivism className="countVolunteer"></MdVolunteerActivism>
+              <p className="countVolunteer2" >{numVolunteer}</p> 
+            
+      <p className="volunter">Volunteers</p> 
+       <p className="line2"></p>
      
-      {/* <p className="alert">
-        {(alert = "add New Case")} */}
-        <div className="images5">
-          <p  onClick={() => setModelIsOpen(true)} style={{color:"white" , fontSize:"1em", transform:"translate(1.4em,1em)", cursor:"pointer"}}>Add New Case</p>
-      <p
-        onClick={() => setModelIsOpen(true)}
-        className="plus"
-        title="Add New Case"
-      >></p></div>
-      {/* </p> */}
-      <br />
-      <br />
-      <br />
+ </div>     
+      <div className="images4">
+        <FiUsers className="countUser"></FiUsers>
+        <p className="countUserPrg">{numUser}</p>{" "}
+        <p className="user2">Users</p>
+        <p className="line"></p>
+      </div>
+      <div className="images5">
+        <MdOutlineCases className="countCase"></MdOutlineCases>
+        <p className="countCase2">{numCase}</p>
+        <p className="case">Cases</p>
+        <p className="line1"></p>
+</div>
+      </div>
       {/* <table className="table">
         {" "} */}
       {/* <tr className="head">
@@ -522,8 +559,6 @@ const Admin = ({ searchCase }) => {
               );
             })}
       </table> */}
-      {/* const data = [{name: "cases", value: element.cases},{name: "users", value:element.CountUser},{name: "volunteers", value: element.volunteers}] */}
-
       {numPage == 1 ? (
         <></>
       ) : (
@@ -543,7 +578,6 @@ const Admin = ({ searchCase }) => {
         className="next"
       >
         <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
-        {/* <GrLinkNext className="nextIcon"></GrLinkNext> */}
       </button>
       <div className="model">
         <Model
@@ -552,9 +586,6 @@ const Admin = ({ searchCase }) => {
           onRequestClose={() => setModelIsOpen(false)}
         >
           <div className="newPage">
-            {/* 
-            <br />
-            <br /> */}
             <br />
             <>
               <input
@@ -624,7 +655,7 @@ const Admin = ({ searchCase }) => {
           </div>
         </Model>
       </div>
-      <div >
+      <div>
         <Model
           style={customStyles3}
           isOpen={imageIsOpen}

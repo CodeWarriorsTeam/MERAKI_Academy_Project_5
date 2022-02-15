@@ -9,26 +9,85 @@
 .head {
   font-size: 100%;
 }
-.caseicon2{
-    font-size: 1.4em;
-    color: rgb(128, 127, 127);
-transform: translate(1.4em,5.4em);    
+.addImage1 {
+  transform: translate(2em, 24em);
 }
-.usericon2{
-    font-size: 1.4em;
-    color: rgb(128, 127, 127);
-transform: translate(-1.1em,6.1em);    
+.imageLink6 {
+  color: rgb(128, 127, 127);
+  text-decoration: none;
+  font-size: 1.3em;
+  /* float: left; */
+  transform: translate(1.3em, 12.8em);
 }
-.volicon2{
-    font-size: 1.4em;
-    color: rgb(128, 127, 127);
-transform: translate(-0.98em,6.7em);    
+.imageIcon6 { 
+   cursor: pointer; 
+
+  font-size: 1.2em;
+  color: rgb(128, 127, 127);
+  transform: translate(3.2em, 12.6em);
+}
+.imageIcon2 {
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+  transform: translate(1.2em, 15em);
+}
+.imageIcon3 {
+  font-size: 1.3em;
+  color: rgb(128, 127, 127);
+  transform: translate(3.2em, 14.8em);
+}
+.voluntlink2 {
+  color: rgb(128, 127, 127);
+  text-decoration: none;
+  font-size: 1.2em;
+  float: left;
+  transform: translate(3.4em, 2.2em);
+}
+.userlink2 {
+  color: rgb(128, 127, 127);
+  text-decoration: none;
+  font-size: 1.2em;
+  float: left;
+  transform: translate(3.4em, 1.9em);
+}
+.caselink2 {
+  color: rgb(128, 127, 127);
+  text-decoration: none;
+  font-size: 1.2em;
+  float: left;
+  transform: translate(3.4em, 1.4em);
+}
+.caseicon2 {
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+  transform: translate(0em, 2.4em);
+}
+.usericon2 {
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+  transform: translate(-1.1em, 2.7em);
+}
+.volicon2 {
+  font-size: 1.4em;
+  color: rgb(128, 127, 127);
+  transform: translate(-0.98em, 2.9em);
+}
+.add {
+  font-size: 2em;
+  transform: translate(8.5em, 1.7em);
+}
+.add:active {
+  color: #f0d304;
+}
+.add:hover {
+  cursor: pointer;
 }
 .table {
   /* width: 10%; */
   /* margin-top: 3%; */
-  margin-left: 19%;
+  margin-left: 16.5%;
   width: 20%;
+  transform: translate(0em,-2em);
   /* margin-right: 10%; */
   /* position: relative; */
   /* justify-content: center; */
@@ -43,38 +102,15 @@ td {
   cursor: pointer;
   float: left;
 }
-.voluntlink2{
-    color: rgb(128, 127, 127);
-    text-decoration: none;
-    font-size: 1.2em;
-    float: left;
-    transform: translate(3.4em,6.6em); 
-  
-}
-.userlink2{
-    color: rgb(128, 127, 127);
-    text-decoration: none;
-    font-size: 1.2em;
-    float: left;
-    transform: translate(3.4em,5.95em); 
-      
-}
-.caselink2{
-    color: rgb(128, 127, 127);
-text-decoration: none;
-font-size: 1.2em;
-float: left;
-transform: translate(3.4em,5.1em); 
 
-}
 .deleteIcon {
   /* transform: translate(0.4em, 0em); */
   font-size: 1.1em;
   color: red;
   float: left;
 }
-.imag{
-    font-size: 0.8em;
+.imag {
+  font-size: 0.8em;
 }
 .editIcon {
   float: right;
@@ -99,13 +135,13 @@ transform: translate(3.4em,5.1em);
   width: 9%;
   font-size: 0.8em;
 }
-.tit{
-    font-size: 0.8em;
+.tit {
+  font-size: 0.8em;
 }
 .amout {
   font-size: 0.8em;
 
-  width: 11%;
+  width: 12%;
 }
 .img2 {
   width: 30%;
@@ -113,7 +149,6 @@ transform: translate(3.4em,5.1em);
 }
 .descr {
   font-size: 0.8em;
-
   width: 15%;
 }
 .donatio {

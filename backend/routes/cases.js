@@ -7,7 +7,7 @@ const {
   updateCaseById,
   deleteCaseById,
   getCasesByCategory,
-  updateTheAmountRequired,
+  updateTheAmountRequired,getCountCase
 } = require("../controllers/cases");
 
 const casesRouter = express.Router();
@@ -19,5 +19,6 @@ casesRouter.put("/:id", updateCaseById);
 casesRouter.put("/", updateTheAmountRequired);
 casesRouter.delete("/:id", deleteCaseById);
 casesRouter.get("/page/category", getCasesByCategory);
+
 
 module.exports = casesRouter;
