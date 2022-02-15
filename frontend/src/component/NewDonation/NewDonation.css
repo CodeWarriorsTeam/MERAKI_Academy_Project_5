@@ -150,3 +150,140 @@
     transform: scale(1);
   }
 }
+
+
+.wrapperCase{
+  margin-top: 3.8%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+   width: 100%;
+  height:100%;
+  transform:translate(-50%,-50%) ;
+  /* width: 450px; */
+  display: flex;
+  box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  z-index: -1;
+  overflow: hidden;;
+}
+
+
+.wrapperCase .leftSide{
+  width: 35%;
+  background: linear-gradient(to right ,#F0D304,#f0d4049a);
+  padding: 30px  25px ;
+  border-top-left-radius:5px ;
+  border-bottom-left-radius: 5px;
+  /* text-align: center; */
+  color: rgb(38,37,36);
+}
+.wrapperCase .leftSide img {
+  height:50%;
+  width: 70%;
+  margin-bottom: 7px;
+  border-radius: 5px;
+  text-align: left;
+  justify-items: left;
+  justify-content: left;
+
+}
+
+.wrapperCase .leftSide h4{
+  /* margin-bottom: 10px; */
+  text-align: left;
+  line-height: 20px;
+  font-style: italic;
+  
+}
+
+.wrapperCase .leftSide p{
+  font-style: italic;
+font-size: 15px;
+font-size: 20px;
+line-height: 35px;
+text-align: left;
+
+}
+
+
+.wrapperCase .leftSide p span{
+  font-weight: bold;
+}
+.wrapperCase .rightSide{
+  width: 65%;
+  background:#fff ;
+  border-top-right-radius:5px ;
+  border-bottom-right-radius:5px ;
+  padding:30px 25px  ;
+}
+
+.wrapperCase .rightSide .infoCompany,
+.wrapperCase .rightSide .infoCase{
+margin-bottom:25px ;
+}
+
+.wrapperCase .rightSide .infoCompany h3,
+.wrapperCase .rightSide .infoCase h3{
+margin-bottom: 15px;
+padding-bottom:5px ;
+border-bottom: 1px solid #F0D304;
+color:rgb(38,37,36) ;
+text-transform: uppercase;
+letter-spacing: 5px;
+font-style: italic;
+}
+
+
+.wrapperCase .rightSide .info_data,
+.wrapperCase .rightSide .case_data{
+display: flex;
+justify-content: space-between;
+}
+
+
+.wrapperCase .rightSide .info_data .data,
+.wrapperCase .rightSide .case_data .data{
+  width: 45%;
+}
+
+.wrapperCase .rightSide .info_data .data h4,
+.wrapperCase .rightSide .case_data .data h4{
+  color: #F0D304;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.wrapperCase .rightSide .info_data .data p,
+.wrapperCase .rightSide .case_data .data p{
+font-size: 20px;
+margin-bottom: 10px;
+color:rgb(38,37,36);
+font-style: italic;
+
+}
+
+
+.wrapperCase .donateForCase ul{
+  display: flex;
+  list-style: none;
+  margin-bottom: 20px;
+
+
+}
+
+.wrapperCase .donateForCase ul li {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(to right ,#F0D304,#f0d4049a);
+  margin-right:10px ;
+  border-radius: 5px;
+  line-height: 70px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.wrapperCase .donateForCase ul li a{
+  color: #fff;
+  display: block;
+  font-size:30px ;
+}
