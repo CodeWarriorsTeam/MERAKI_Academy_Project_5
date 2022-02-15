@@ -720,14 +720,15 @@ footer {
 .vFormConatiner {
   /* height: 400px; */
   height: 27em;
-  margin-left: 25px;
-  /* text-align: center; */
+  /* margin-left: 25px; */
+  text-align: center;
   /* display: grid; */
   /* justify-content: center;  */
 }
 
 .headerV {
   padding-top: 50px;
+  text-align: center;
 }
 
 .span1 {
@@ -744,44 +745,81 @@ footer {
   color: red;
 }
 
+.fullLabelV {
+  margin-right: 150px;
+}
+
+
+.emailLabelV{
+  margin-right: 161px;
+
+}
+
+.addressLabelV{
+  margin-right: 161px;
+
+}
+
+.phoneNumberLabelV{
+  margin-right: 95px;
+
+}
+
+
 .firstNameV {
   height: 1.8em;
 
   width: 8em;
   margin-right: 20px;
   margin-top: 5px;
+  padding: 1em;
+
+  
 }
 
 .lastNameV {
   height: 1.8em;
   width: 8em;
+  padding: 1em;
+
 }
 
 .emailV {
   height: 1.8em;
+  width: 17.5em;
 
   margin-top: 5px;
+  padding: 1em;
+
 }
 
 .addressV {
   height: 1.8em;
+  width: 17.5em;
 
   margin-top: 5px;
+  padding: 1em;
+
 }
 
 .phoneNumberV {
   height: 1.8em;
+  width: 17.5em;
 
   margin-top: 5px;
+  padding: 1em;
+
 }
 
 .volunteerButton{
   margin-top: 0.5em;
-  height: 2.5em;
+  height: 2em;
   width: 6em;
   font-size: large;
-  background-color: black;
-  color: white;
+  background-color: #F0D304;
+  color: black;
+  border: none;
+  
 }
 
 .volunteerButton:hover{
