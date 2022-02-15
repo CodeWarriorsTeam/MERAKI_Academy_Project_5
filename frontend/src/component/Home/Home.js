@@ -13,8 +13,9 @@ import { BsInstagram } from "react-icons/bs";
 import { AiFillLinkedin } from "react-icons/ai";
 import { BsSnapchat } from "react-icons/bs";
 import { FaTwitterSquare } from "react-icons/fa";
-import {MdEmail} from "react-icons/md"
-import {ImPhone} from "react-icons/im"
+import { MdEmail } from "react-icons/md";
+import { ImPhone } from "react-icons/im";
+import { setCase } from "../../reducer/cases/index";
 const Home = ({
   setCategory,
   setAllCase,
@@ -26,18 +27,21 @@ const Home = ({
   numRebuilding,
   setNumMedicalSupplies,
   numMedicalSupplies,
+  inputEmergency1,
 }) => {
   const dispatch = useDispatch();
-
+  
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
       volunteers: state.volunteerReducer.volunteers,
+      caseById:state.casesReducer.caseById,
     };
   });
 
   console.log(state.volunteers);
-
+console.log(localStorage.getItem("emergencyId"));
+console.log(state.caseById);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -51,6 +55,18 @@ const Home = ({
   // console.log(email);
   // console.log(address_1);
   // console.log(phonenumber);
+  const getCaseById = async () => {
+    try {
+      const result = await axios.get(
+        `http://localhost:5000/cases/${localStorage.getItem("emergencyId")}`
+      );
+      dispatch(setCase(result.data.result));
+
+      console.log(result.data.result[0].title);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
 
   const countNumEducation = async () => {
     try {
@@ -114,8 +130,11 @@ const Home = ({
   useEffect(() => {
     countNumMedSupplies();
   }, []);
-
-  //------------------------------------------------------------
+  useEffect(() => {
+    getCaseById();
+  }, []);
+//
+  //getCaseById------------------------------------------------------------
 
   const addNewVolunteer = () => {
     axios
@@ -331,74 +350,76 @@ const Home = ({
             }}
           >
             <div className="vFormConatiner">
-              
-            <h2 className="headerV">Volunteering Form</h2>
-            <br/>
-            <label for="FirstName" className="fullLabel">
-              {" "}
-              Full Name<span className="span1"> *</span>
-            </label>
-            <br />
-            <input
-              className="firstNameV"
-              type="text"
-              placeholder="First Name"
-              onChange={(e) => {
-                setFirstName(e.target.value);
-              }}
-            ></input>
-            <input
-              className="lastNameV"
-              type="text"
-              placeholder="Last Name"
-              onChange={(e) => {
-                setLastName(e.target.value);
-              }}
-            ></input>
-            <br /> <br />
-            <label for="email">
-              {" "}
-              Email<span className="span2"> *</span> <MdEmail></MdEmail>
-            </label>
-            <br />
-            <input
-              className="emailV"
-              type="email"
-              placeholder="Email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            ></input>
-            <br /> <br />
-            <label for="address">
-              {" "}
-              Address<span className="span3"> *</span>
-            </label>
-            <br />
-            <input
-              className="addressV"
-              type="text"
-              placeholder="Address"
-              onChange={(e) => {
-                setAddress_1(e.target.value);
-              }}
-            ></input>
-            <br /> <br/>
-            <label for="phonenumber">
-              {" "}
-              Phone Number<span className="span4"> *</span> <ImPhone></ImPhone>
-            </label>
-            <br />
-            <input
-              className="phoneNumberV"
-              type="text"
-              placeholder="Phone Number"
-              onChange={(e) => {
-                setPhoneNumber(e.target.value);
-              }}
-            ></input>
-            <br /> <br />
-            <button onClick={addNewVolunteer} className="volunteerButton">Submit</button>
+              <h2 className="headerV">Volunteering Form</h2>
+              <br />
+              <label for="FirstName" className="fullLabel">
+                {" "}
+                Full Name<span className="span1"> *</span>
+              </label>
+              <br />
+              <input
+                className="firstNameV"
+                type="text"
+                placeholder="First Name"
+                onChange={(e) => {
+                  setFirstName(e.target.value);
+                }}
+              ></input>
+              <input
+                className="lastNameV"
+                type="text"
+                placeholder="Last Name"
+                onChange={(e) => {
+                  setLastName(e.target.value);
+                }}
+              ></input>
+              <br /> <br />
+              <label for="email">
+                {" "}
+                Email<span className="span2"> *</span> <MdEmail></MdEmail>
+              </label>
+              <br />
+              <input
+                className="emailV"
+                type="email"
+                placeholder="Email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              ></input>
+              <br /> <br />
+              <label for="address">
+                {" "}
+                Address<span className="span3"> *</span>
+              </label>
+              <br />
+              <input
+                className="addressV"
+                type="text"
+                placeholder="Address"
+                onChange={(e) => {
+                  setAddress_1(e.target.value);
+                }}
+              ></input>
+              <br /> <br />
+              <label for="phonenumber">
+                {" "}
+                Phone Number<span className="span4"> *</span>{" "}
+                <ImPhone></ImPhone>
+              </label>
+              <br />
+              <input
+                className="phoneNumberV"
+                type="text"
+                placeholder="Phone Number"
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
+                }}
+              ></input>
+              <br /> <br />
+              <button onClick={addNewVolunteer} className="volunteerButton">
+                Submit
+              </button>
             </div>
           </Model>
 
@@ -468,7 +489,7 @@ const Home = ({
           <p className="titleFooter">
             Amman Gardens Street next to City Center Company
             <br />
-            Contact Number 06555555
+            Contact Number 06-555555
             <br />
             Email safeHouse@official.edj
           </p>

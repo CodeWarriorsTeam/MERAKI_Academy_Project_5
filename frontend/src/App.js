@@ -27,6 +27,9 @@ function App() {
   const [numFood, setNumFood] = useState(0);
   const [numRebuilding, setNumRebuilding] = useState(0);
   const [numMedicalSupplies, setNumMedicalSupplies] = useState(0);
+
+  const [inputEmergency1, setInputEmergency1] = useState(20);
+  const [inputEmergency2, setInputEmergency2] = useState(23);
   
   //--------------------------------- STORE
   const [isAdmin, setIsAdmin] = useState("");
@@ -67,6 +70,7 @@ function App() {
               numRebuilding={numRebuilding}
               setNumMedicalSupplies={setNumMedicalSupplies}
               numMedicalSupplies={numMedicalSupplies}
+              inputEmergency1={inputEmergency1}
             />
           }
         />
@@ -100,10 +104,12 @@ function App() {
         />
         <Route
           path="/casedetails/:id"
-          element={<NewDonation isAdmin={isAdmin} />}
+          element={<NewDonation isAdmin={isAdmin} numFood={numFood}setNumFood={setNumFood}setNumRebuilding={setNumRebuilding}numRebuilding={numRebuilding} 
+          setNumEducation={setNumEducation}
+          numEducation={numEducation}setNumMedicalSupplies={setNumMedicalSupplies}numMedicalSupplies={numMedicalSupplies}/>}
         />
 
-<Route path="/admin/cases" element={<Cases searchCase={searchCase} />} />
+<Route path="/admin/cases" element={<Cases searchCase={searchCase}setInputEmergency1={setInputEmergency1} inputEmergency1={inputEmergency1}/>} />
 
 
 <Route path="/admin/users" element={<Users searchCase={searchCase} />} />

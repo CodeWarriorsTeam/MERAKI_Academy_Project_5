@@ -1,11 +1,15 @@
 //
 const initialState = {
   cases: [],
+  caseById: [],
 };
 const casesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "SET_CASES":
       return { ...state, cases: payload };
+
+      case "SET_CASE":
+        return { ...state.caseById, caseById: payload };
 
     case "ADD_CASE":
       return { ...state, cases: [...state.cases, payload] };
@@ -53,4 +57,11 @@ export const updateCases = (updateCase) => {
 
 export const deleteCase = (id) => {
   return { type: "DELETE_CASE", payload: id };
+};
+
+export const setCase = (caseById) => {
+  return {
+    type: "SET_CASE",
+    payload: caseById,
+  };
 };

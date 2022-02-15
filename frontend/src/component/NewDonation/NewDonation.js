@@ -5,20 +5,39 @@ import { useDispatch, useSelector } from "react-redux";
 import { addDonation } from "../../reducer/donation";
 import "./NewDonation.css";
 import Model from "react-modal";
+import { FcDonate } from "react-icons/fc";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { useParams } from "react-router-dom";
-import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
+import {
+  setCases,
+  updateCases,
+  deleteCase,
+  setCase,
+} from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
 import StripeContainer from "../StripeContainer";
 import PaymentForm from "../PaymentForm";
 
-const NewDonation = ({ isAdmin }) => {
+const NewDonation = ({
+  isAdmin,
+  numFood,
+  setNumFood,
+  setNumRebuilding,
+  numRebuilding,
+  setNumEducation,
+  numEducation,
+  setNumMedicalSupplies,
+  numMedicalSupplies,
+}) => {
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
       cases: state.casesReducer.cases,
+      caseById: state.casesReducer.caseById,
       donations: state.donationReducer.donations,
     };
   });
+
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -40,17 +59,14 @@ const NewDonation = ({ isAdmin }) => {
   const getbyid = async () => {
     try {
       const result = await axios.get(`http://localhost:5000/cases/${id}`);
-      setDetails(result.data.result);
+      dispatch(setCase(result.data.result));
+
       console.log(result.data.result[0].title);
       setIsClosed(result.data.result[0].TheAmountRequired);
     } catch (error) {
       console.log(error.response);
     }
   };
-
-  useEffect(() => {
-    getbyid();
-  }, []);
 
   const handleUpdateClick = (element) => {
     setUpdateBox(!updateBox);
@@ -62,9 +78,6 @@ const NewDonation = ({ isAdmin }) => {
     if (updateBox) updateCaseById(element.id);
   };
   const updateCaseById = async (id) => {
-    console.log("res", id);
-    console.log("gggg");
-    console.log(id);
     try {
       const result = await axios.put(`http://localhost:5000/cases/${id}`, {
         case_image,
@@ -125,42 +138,214 @@ const NewDonation = ({ isAdmin }) => {
     },
   };
 
+  // --------------
+  const countNumFood = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/admin/cuntFood
+ `
+      );
+
+      if (res.data.success) {
+        setNumFood(res.data.result[0].countFood);
+      }
+    } catch (error) {}
+  };
+  ////------
+  const countNumRebuilding = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/admin/cuntReb
+ `
+      );
+
+      if (res.data.success) {
+        setNumRebuilding(res.data.result[0].CountRebuilding);
+      }
+    } catch (error) {}
+  };
+
+  ///-------------
+  ///-----
+  const countNumEducation = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/admin/cuntEdu
+ `
+      );
+
+      if (res.data.success) {
+        setNumEducation(res.data.result[0].countEducation);
+      }
+    } catch (error) {}
+  };
+  ///--
+  //-----
+  const countNumMedSupplies = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/admin/cuntMedSupp
+`
+      );
+
+      if (res.data.success) {
+        setNumMedicalSupplies(res.data.result[0].CountMedSupplies);
+      }
+    } catch (error) {}
+  };
+  //--
+  useEffect(() => {
+    getbyid();
+    countNumFood();
+    countNumEducation();
+    countNumRebuilding();
+    countNumMedSupplies();
+  }, []);
   return (
     <>
-      <br />
-      <br />
-      <br />
-      {details &&
-        details.map((element, i) => (
-          <>
-            <div className="detailpage" key={i}>
-              {/* <br></br> */}
-              <img src={element.case_image} className="image3" />
-              {/* <p className="category3"> category: {element.category}</p> */}
-              <p className="title3"> {element.title}</p>
-              <p className="amount3">{element.TheAmountRequired}$</p>
-              <p className="description3">{element.case_description}</p>
-              {isClosed && isClosed > 0 ? (
-                <>
-                  {showItem ? (
-                    <StripeContainer />
-                  ) : (
-                    <>
-                      <button
-                        className="Pay"
-                        onClick={() => {
-                          setShowItem(true);
-                        }}
-                      >
-                        Donate Now
-                      </button>
-                    </>
-                  )}
-                </>
-              ) : (
-                <></>
-              )}
-              {isAdmin ? (
+
+      <div className="wrapperCase">
+        {state.caseById &&
+          state.caseById.map((element, i) => (
+            <>
+              <div className="leftSide">
+                <img src={element.case_image} alt="caseImage" width="100" />
+
+                <h4>Category : {element.category}</h4>
+                {element.category.toLowerCase() == "food" ? (
+                  <>
+                    <p>
+                      Help us reach the goal, feed<span> 1,000 </span>poor
+                      people
+                    </p>
+                    <p>
+                      We have achieved so far<span> {numFood}</span>
+                    </p>
+                    <p>
+                      The remaining <span>{1000 - numFood}</span>
+                    </p>
+                  </>
+                ) : (
+                  <></>
+                )}
+                {element.category.toLowerCase() == "rebuilding" ? (
+                  <>
+                    <p>
+                      Help us reach the goal, Repairing<span> 500</span>{" "}
+                      facilities that were destroyed due to the war
+                    </p>
+                    <p>
+                      We have achieved so far<span> {numRebuilding}</span>
+                    </p>
+                    <p>
+                      The remaining <span>{500 - numRebuilding}</span>
+                    </p>
+                  </>
+                ) : (
+                  <></>
+                )}
+                {element.category.toLowerCase() == "education" ? (
+                  <>
+                    <p>
+                      Help us reach the goal, Educating<span> 1000</span>{" "}
+                      students
+                    </p>
+                    <p>
+                      We have achieved so far<span> {numEducation}</span>
+                    </p>
+                    <p>
+                      The remaining <span>{1000 - numEducation}</span>
+                    </p>
+                  </>
+                ) : (
+                  <></>
+                )}
+                {element.category.toLowerCase() == "medical supplies" ? (
+                  <>
+                    <p>
+                      Help us reach the goal, Educating<span> 1000</span>{" "}
+                      students
+                    </p>
+                    <p>
+                      We have achieved so far<span> {numMedicalSupplies}</span>
+                    </p>
+                    <p>
+                      The remaining <span>{1000 - numMedicalSupplies}</span>
+                    </p>
+                  </>
+                ) : (
+                  <></>
+                )}
+                <br />
+                <h4>Case</h4>
+                <p>{element.title}</p>
+              </div>
+              <div className="rightSide">
+                <div className="infoCase">
+                  <h3>Case Details</h3>
+                  <div className="case_data">
+                    <div className="data">
+                      <h4>Description</h4>
+                      <div style={{ width: "80%",wordBreak:"break-all",whiteSpace:"pre-wrap" }}>
+                        {" "}
+                        <p>{element.case_description}</p>
+                      </div>
+                    </div>
+                    <div className="data">
+                      <h4>Required</h4>
+                      <p>{element.TheAmountRequired}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="donateForCase">
+                  <ul>
+                    {isClosed && isClosed > 0 ? (
+                      <>
+                        {showItem ? (
+                          <StripeContainer />
+                        ) : (
+                          <>
+                            <li title="DonateNow">
+                              <a
+                                onClick={() => {
+                                  setShowItem(true);
+                                }}
+                              >
+                                <FcDonate></FcDonate>
+                              </a>
+                            </li>
+                          </>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        <li>
+                          {" "}
+                          <a title="Close case">
+                            <IoCheckmarkDoneSharp></IoCheckmarkDoneSharp>
+                          </a>
+                        </li>
+                      </>
+                    )}
+                  </ul>
+                </div>
+                <div className="infoCompany">
+                  <h3>To Contact Us</h3>
+                  <div className="info_data">
+                    <div className="data">
+                      <h4>Email</h4>
+                      <p>safeHouse@official.edj</p>
+                    </div>
+                    <div className="data">
+                      <h4>Phone</h4>
+                      <p>06-555555</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* {isAdmin ? (
                 <>
                   {updateBox && caseId === element.id && (
                     <form>
@@ -198,61 +383,62 @@ const NewDonation = ({ isAdmin }) => {
                 </>
               ) : (
                 <></>
-              )}
+              )} */}
+            </>
+          ))}
+
+        <>
+          {/* {isClosed && isClosed > 0 ? (
+            <div className="contenerDonation">
+              <Model
+                style={customStyles2}
+                isOpen={donateIsOpen}
+                onRequestClose={() => setDonateIsOpen(false)}
+              >
+                <input type="checkbox" id="inputOpenDonation"></input>
+                <div className="modalDonation">
+                  <h1 id="headerModal">Thanks</h1>
+                  <p id="prgModel">
+                    {" "}
+                    If you do not have money, then smiling in the face of your
+                    brother is charity
+                  </p>
+                  <br></br>
+                  <input
+                    className="IBAN"
+                    type="text"
+                    placeholder="card"
+                    onChange={(e) => {
+                      setIBAN(e.target.value);
+                    }}
+                  ></input>{" "}
+                  <br />
+                  <br />
+                  <input
+                    className="IBAN"
+                    type="text"
+                    placeholder="Enter Donation Amount"
+                    onChange={(e) => {
+                      setDonations(e.target.value);
+                    }}
+                  ></input>
+                  <button
+                    className="addDonation"
+                    onClick={() => {
+                      addNewDonation();
+                    }}
+                  >
+                    Donate
+                  </button>
+                  {message}
+                </div>
+              </Model>
             </div>
-          </>
-        ))}
-      <>
-        {isClosed && isClosed > 0 ? (
-          <div className="contenerDonation">
-            <Model
-              style={customStyles2}
-              isOpen={donateIsOpen}
-              onRequestClose={() => setDonateIsOpen(false)}
-            >
-              <input type="checkbox" id="inputOpenDonation"></input>
-              <div className="modalDonation">
-                <h1 id="headerModal">Thanks</h1>
-                <p id="prgModel">
-                  {" "}
-                  If you do not have money, then smiling in the face of your
-                  brother is charity
-                </p>
-                <br></br>
-                <input
-                  className="IBAN"
-                  type="text"
-                  placeholder="card"
-                  onChange={(e) => {
-                    setIBAN(e.target.value);
-                  }}
-                ></input>{" "}
-                <br />
-                <br />
-                <input
-                  className="IBAN"
-                  type="text"
-                  placeholder="Enter Donation Amount"
-                  onChange={(e) => {
-                    setDonations(e.target.value);
-                  }}
-                ></input>
-                <button
-                  className="addDonation"
-                  onClick={() => {
-                    addNewDonation();
-                  }}
-                >
-                  Donate
-                </button>
-                {message}
-              </div>
-            </Model>
-          </div>
-        ) : (
-          <>Close</>
-        )}
-      </>
+          ) : (
+            <>Close</>
+          )} */}
+        </>
+      </div>
     </>
   );
 };

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { useDispatch, useSelector } from "react-redux";
+
 import axios from "axios";
+import { setCase } from "../reducer/cases/index";
 import { useParams } from "react-router-dom";
 const CARD_OPTIONS = {
   iconStyle: "solid",
@@ -23,6 +26,14 @@ const CARD_OPTIONS = {
 };
 
 export default function PaymentForm() {
+  const state = useSelector((state) => {
+    return {
+      token: state.loginReducer.token,
+
+      caseById: state.casesReducer.caseById,
+    };
+  });
+  const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
   const [success, setSuccess] = useState(false);
@@ -35,10 +46,10 @@ export default function PaymentForm() {
     try {
       const result = await axios.get(`http://localhost:5000/cases/${id}`);
       seTitle(result.data.result[0].title);
-      console.log(result.data.result);
-      console.log(88888);
+      // console.log(result.data.result);
+      dispatch(setCase(result.data.result));
+
       setIsClosed(result.data.result[0].TheAmountRequired);
-      getbyid();
     } catch (error) {
       console.log(error.response);
     }
@@ -93,7 +104,12 @@ export default function PaymentForm() {
               setAmount(e.target.value);
             }}
           ></input>
-          <button className={"Pay"} onClick={getbyid()}>
+          <button
+            className={"Pay"}
+            onClick={() => {
+              getbyid();
+            }}
+          >
             Donate
           </button>
         </form>

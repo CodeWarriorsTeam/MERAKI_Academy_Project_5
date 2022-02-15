@@ -8,13 +8,14 @@ import { useNavigate } from "react-router-dom";
 import Model from "react-modal";
 import { BiEdit, BiUpload } from "react-icons/bi";
 import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
-import { MdOutlineVolunteerActivism ,MdOutlineCases} from "react-icons/md";
-import {FiUsers} from "react-icons/fi"
-import {IoMdArrowBack} from "react-icons/io"
+import { MdOutlineVolunteerActivism, MdOutlineCases } from "react-icons/md";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
+import { FiUsers } from "react-icons/fi";
+import { IoMdArrowBack } from "react-icons/io";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { deleteCase, updateCases } from "../../reducer/cases";
 import { Link } from "react-router-dom";
-const Cases = ({searchCase}) => {
+const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
   const [num, setNum] = useState(1);
   const [updateIsOpen, setUpdateIsOpen] = useState(false);
   const [caseId, setCaseId] = useState("");
@@ -37,7 +38,6 @@ const Cases = ({searchCase}) => {
     return { token: state.loginReducer.token, cases: state.casesReducer.cases };
   });
 
-
   //----------------------------------------------------------
   const uploadImage = (imageFile) => {
     const formData = new FormData();
@@ -54,7 +54,7 @@ const Cases = ({searchCase}) => {
         console.log(err.response);
       });
   };
-
+  console.log(inputEmergency1);
   //------------------------------------------------------------
   const getAllCases = async () => {
     try {
@@ -140,172 +140,215 @@ const Cases = ({searchCase}) => {
   };
 
   return (
-      <div className="all">
-     
+    <div className="all">
       <>
         <ul>
-       {/* MdOutlineVolunteerActivism ,MdOutlineCases} from "react-icons/md";
+          {/* MdOutlineVolunteerActivism ,MdOutlineCases} from "react-icons/md";
 FiUsers */}
-
-<MdOutlineCases className="caseicon2"></MdOutlineCases> <li> <Link  className="caselink2" to="/admin/cases">Cases</Link></li>
-
-   <FiUsers className="usericon2"></FiUsers>   <li>  <Link className="userlink2" to="/admin/users">Users</Link></li>
-      <MdOutlineVolunteerActivism className="volicon2"></MdOutlineVolunteerActivism> <li> <Link className="voluntlink2" to="/admin/volunteers">Volunteers</Link></li>
+          <MdOutlineCases className="caseicon2"></MdOutlineCases>{" "}
+          <li>
+            {" "}
+            <Link className="caselink2" to="/admin/cases">
+              Cases
+            </Link>
+          </li>
+          <FiUsers className="usericon2"></FiUsers>{" "}
+          <li>
+            {" "}
+            <Link className="userlink2" to="/admin/users">
+              Users
+            </Link>
+          </li>
+          <MdOutlineVolunteerActivism className="volicon2"></MdOutlineVolunteerActivism>{" "}
+          <li>
+            {" "}
+            <Link className="voluntlink2" to="/admin/volunteers">
+              Volunteers
+            </Link>
+          </li>
         </ul>
-        </>
-        <br/>
-    <table className="table">
-      {" "}
-      <tr className="head">
-        <th className="id">
-          id
-          {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-        </th>
-        <th className="categor">
-          {" "}
-          category
-          {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-        </th>
-        <th className="tit1">
-          title
-          {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-        </th>
-        <th className="amout">
-          amount
-          {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-        </th>
-        <th className="img2">
-          image
-          {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-        </th>
-        <th className="descr">
-          description{" "}
-          {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-        </th>
+      </>
+      <br />
+      <table className="table">
+        {" "}
+        <tr className="head">
+          <th className="id">
+            id
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th className="categor">
+            {" "}
+            category
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th className="tit1">
+            title
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th className="amout">
+            amount
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th className="img2">
+            image
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th className="descr">
+            description{" "}
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
 
-        <th className="donatio">
-          donation
-          {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-        </th>
-        <th className="don">
-          donor
-          {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-        </th>
-        <th className="oper">
-          Actions
-          {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-        </th>
-      </tr>{" "}
-      {state.cases &&
-        state.cases
-          .filter((caseInformation) => {
-            if (searchCase == "") {
-              return caseInformation;
-            } else if (
-              caseInformation.category
-                .toLowerCase()
-                .includes(searchCase.toLowerCase()) ||
-              caseInformation.title
-                .toLowerCase()
-                .includes(searchCase.toLowerCase())
-            ) {
-              return caseInformation;
-            }
-          })
-          .map((element, i) => {
-            return (
-              <>
-                <tr key={i} className="ttt">
-                  <td className="id">{element.id}</td>
-                  <td className="categor">{element.category}</td>
-                  <td className="tit">{element.title}</td>
-                  <td className="req"> {element.TheAmountRequired} $</td>
-                  <td className="imag">{element.case_image}</td>
-                  <td className="descr">{element.case_description}</td>
-                  <td className="donation">{element.donations}</td>
-                  <td className="donor">{element.donor}</td>
-                  <td className="button">
-                    {" "}
-                    <RiDeleteBinLine
-                      onClick={() => deleteCseById(element.id)}
-                      className="deleteIcon"
-                    />{" "}
-                    <BiEdit
-                      onClick={() => {
-                        setUpdateIsOpen(true);
-                        setCaseId(element.id);
-                      }}
-                      className="editIcon"
-                    />
-                  </td>
-     
-                  <div>
-                    <Model
-                      style={customStyles2}
-                      isOpen={updateIsOpen}
-                      onRequestClose={() => setUpdateIsOpen(false)}
-                    >
-                      <input
-                        type="text"
-                        placeholder="category"
-                        defaultValue={element.category}
-                        onChange={(e) => setCategory(e.target.value)}
-                      ></input>{" "}
-                      <br />
-                      <br />
-                      <input
-                        type="file"
-                        className="image"
-                        onChange={(e) => {
-                          setImageSelected(e.target.files[0]);
+          <th className="donatio">
+            donation
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th className="don">
+            donor
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th className="oper">
+            Actions
+            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
+          </th>
+          <th className="oper">Emergency</th>
+        </tr>{" "}
+        {state.cases &&
+          state.cases
+            .filter((caseInformation) => {
+              if (searchCase == "") {
+                return caseInformation;
+              } else if (
+                caseInformation.category
+                  .toLowerCase()
+                  .includes(searchCase.toLowerCase()) ||
+                caseInformation.title
+                  .toLowerCase()
+                  .includes(searchCase.toLowerCase())
+              ) {
+                return caseInformation;
+              }
+            })
+            .map((element, i) => {
+              return (
+                <>
+                  <tr key={i} className="ttt">
+                    <td className="id">{element.id}</td>
+                    <td className="categor">{element.category}</td>
+                    <td className="tit">{element.title}</td>
+                    <td className="req"> {element.TheAmountRequired} $</td>
+                    <td className="imag">{element.case_image}</td>
+                    <td className="descr">{element.case_description}</td>
+                    <td className="donation">{element.donations}</td>
+                    <td className="donor">{element.donor}</td>
+                    <td className="button">
+                      {" "}
+                      <RiDeleteBinLine
+                        onClick={() => deleteCseById(element.id)}
+                        className="deleteIcon"
+                      />{" "}
+                      <BiEdit
+                        onClick={() => {
+                          setUpdateIsOpen(true);
+                          setCaseId(element.id);
                         }}
-                      ></input>
-                      <button onClick={() => uploadImage(imageselected)}>
-                        <BiUpload className="upload1"></BiUpload>
-                      </button>
-                      <br />
-                      <br />
-                      <input
-                        type="text"
-                        placeholder="title"
-                        defaultValue={element.title}
-                        onChange={(e) => setTitle(e.target.value)}
-                      ></input>{" "}
-                      <br />
-                      <br />
-                      <input
-                        type="text"
-                        placeholder="description"
-                        defaultValue={element.case_description}
-                        onChange={(e) => setCase_Description(e.target.value)}
-                      ></input>{" "}
-                      <br />
-                      <br />
-                      <input
-                        type="text"
-                        placeholder="amount"
-                        defaultValue={element.TheAmountRequired}
-                        onChange={(e) => setTheAmountRequired(e.target.value)}
-                      ></input>{" "}
-                      <br />
-                      <br />
-                      <button
-                        className="update1"
-                        onClick={() => updateCaseById(caseId)}
+                        className="editIcon"
+                      />
+                    </td>
+                    <td className={element.id}>
+                      {inputEmergency1 == 20 ? (
+                        <input
+                          onClick={() => {
+                            setInputEmergency1(element.id);
+                          }}
+                          type="checkbox"
+                        />
+                      ) : element.id == inputEmergency1 ? (
+                        <>
+                          <IoCheckmarkDoneSharp
+                         
+                          ></IoCheckmarkDoneSharp>
+                        </>
+                      ) : (
+                        <input
+                          onClick={() => {
+                            setInputEmergency1(element.id);
+                            localStorage.setItem(
+                              "emergencyId",
+                              element.id
+                            );
+                          }}
+                          type="checkbox"
+                        />
+                      )}
+                    </td>
+
+                    <div>
+                      <Model
+                        style={customStyles2}
+                        isOpen={updateIsOpen}
+                        onRequestClose={() => setUpdateIsOpen(false)}
                       >
-                        <GrUpdate
-                          style={{ width: "95%", height: "1.4em" }}
-                        ></GrUpdate>
-                      </button>
-                      <br />
-                    </Model>
-                  </div>
-                </tr>
-              </>
-            );
-          })}
-    </table>
-    {numPage == 1 ? (
+                        <input
+                          type="text"
+                          placeholder="category"
+                          defaultValue={element.category}
+                          onChange={(e) => setCategory(e.target.value)}
+                        ></input>{" "}
+                        <br />
+                        <br />
+                        <input
+                          type="file"
+                          className="image"
+                          onChange={(e) => {
+                            setImageSelected(e.target.files[0]);
+                          }}
+                        ></input>
+                        <button onClick={() => uploadImage(imageselected)}>
+                          <BiUpload className="upload1"></BiUpload>
+                        </button>
+                        <br />
+                        <br />
+                        <input
+                          type="text"
+                          placeholder="title"
+                          defaultValue={element.title}
+                          onChange={(e) => setTitle(e.target.value)}
+                        ></input>{" "}
+                        <br />
+                        <br />
+                        <input
+                          type="text"
+                          placeholder="description"
+                          defaultValue={element.case_description}
+                          onChange={(e) => setCase_Description(e.target.value)}
+                        ></input>{" "}
+                        <br />
+                        <br />
+                        <input
+                          type="text"
+                          placeholder="amount"
+                          defaultValue={element.TheAmountRequired}
+                          onChange={(e) => setTheAmountRequired(e.target.value)}
+                        ></input>{" "}
+                        <br />
+                        <br />
+                        <button
+                          className="update1"
+                          onClick={() => updateCaseById(caseId)}
+                        >
+                          <GrUpdate
+                            style={{ width: "95%", height: "1.4em" }}
+                          ></GrUpdate>
+                        </button>
+                        <br />
+                      </Model>
+                    </div>
+                  </tr>
+                </>
+              );
+            })}
+      </table>
+      {numPage == 1 ? (
         <></>
       ) : (
         <button
@@ -326,14 +369,19 @@ FiUsers */}
         <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
         {/* <GrLinkNext className="nextIcon"></GrLinkNext> */}
       </button>
-    <br/>
-      <br/><br/>
-      <br/><br/>
-      <br/><br/>
-      <br/><br/>
-      <br/><br/>
-      <br/><br/>
-
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
