@@ -1,21 +1,63 @@
-.registerPage {
+/* .registerPage {
   height: 100%;
   background: linear-gradient(to left, #fcfcfc 60%, #f0d304 40%);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+} */
+
+.registerPage {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
+
+
+
+.left-register{
+  flex: 1;
+  background-color: #04f010;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  height: 90.5vh ;
+
+  /* margin-top: 16.8rem; */
+  margin-top: 59px;
+
+}
+
+.right-register{
+  flex: 1.5;
+  /* background-color: rgb(0, 26, 255); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 59px;
+
+}
+
+
+
+
 .accountUp{
   font-size: 1.7ch;
   font-family: system-ui;
   color: rgb(117, 117, 117); 
 }
 .signup {
-  margin-left: 60%;
+  /* margin-left: 60%; */
   font-size: 3.7ch;
   color: #25211d;
   font-family: "Gill Sans", sans-serif;
+  margin-top: 20px;
 }
 
 .firstName:hover {
@@ -26,15 +68,20 @@
 }
 .firstName {
   /* margin-top: 2%; */
-  margin-left: 57%;
+  /* margin-left: 57%; */
   height: 30px;
-  width: 23%;
+  /* width: 23%; */
+  height: 3em;
+  width: 21em;
+
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
   border-radius: 5px;
+  margin-top: 20px;
+
 }
 
 .password:hover {
@@ -45,15 +92,19 @@
 }
 .password {
   /* margin-top: 2%; */
-  margin-left: 57%;
-  height: 30px;
-  width: 23%;
+  /* margin-left: 57%; */
+  /* height: 30px; */
+  /* width: 23%; */
+  height: 3em;
+  width: 21em;
+
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
   border-radius: 5px;
+
 }
 
 .lastName:hover {
@@ -63,9 +114,12 @@
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .lastName {
-  margin-left: 57%;
+  /* margin-left: 57%; */
   height: 30px;
-  width: 23%;
+  /* width: 23%; */
+  height: 3em;
+  width: 21em;
+
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -81,9 +135,12 @@
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .country {
-  margin-left: 57%;
-  height: 30px;
-  width: 23%;
+  /* margin-left: 57%; */
+  /* height: 30px; */
+  height: 3em;
+  width: 21em;
+
+  /* width: 23%; */
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -93,16 +150,18 @@
 }
 
 .image {
-  margin-left: 57%;
+  /* margin-left: 57%; */
   cursor: pointer;
+
 }
 
 .uploadButton {
-  margin-left:78.1%;
-  transform: translate(0em,-1.4em);
+  /* margin-left:78.1%; */
+  transform: translate(7em,-1.6em);
   height: 1.4em;
-  width: 2%;
+  /* width: 2%; */
   font-size: 100%;
+
 }
 
 .uploadButton:hover {
@@ -120,9 +179,13 @@
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .email {
-  margin-left: 57%;
-  height: 30px;
-  width: 23%;
+  /* margin-left: 57%; */
+  /* height: 30px; */
+  height: 3em;
+
+  /* width: 23%; */
+  width: 21em;
+
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -135,10 +198,10 @@
 }
 .sent1 {
       font-size: 1.7ch;
-    transform: translate(12em, -11em);
+    /* transform: translate(12em, -11em); */
     /* border-radius: 20px; */
     border-radius: 5px;
-
+margin-top: 250px;
     border-top: 1px rgba(116, 105, 105, 0.342) solid;
     border-right: 1px rgba(138, 127, 127, 0.342) solid;
     border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -146,13 +209,14 @@
     background-color: white;
     color: black;
      height: 35px;
-    width: 10%;
+    /* width: 10%; */
+    width: 8em;
     /* margin-left: 64%; */
-  
   /* font-size: 1.5ch;
   font-family: system-ui;
   margin: 2%;
   color: rgb(117, 117, 117); */
+  
 }
 .registerButton:hover {
   border-top: 1px rgb(0, 0, 0) solid;
@@ -196,8 +260,10 @@
   background-color: #f0d304;
   color: black;
    height: 35px;
-  width: 10%;
-  margin-left: 64%;
+  /* width: 10%; */
+  /* margin-left: 64%; */
+  width: 8em;
+
 }
 
 .message{
