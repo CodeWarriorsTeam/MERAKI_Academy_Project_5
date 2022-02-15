@@ -1,6 +1,40 @@
+.loginpage {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.left-login {
+  flex: 2;
+  /* background-color: rgb(0, 26, 255); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.right-login {
+  flex: 1.5;
+  background-color: #f0d304;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  height: 90.5vh ;
+
+  /* margin-top: 16.8rem; */
+  margin-top: 59px;
+  
+}
+
+
+
 .loginpage,
 .sss {
-  height: 100%;
+  /* height: 100%; */
   /* margin-left:0%; */
   /* margin-right: 10%; */
   /* margin-top: 0%; */
@@ -8,11 +42,13 @@
   /* background-repeat: ;
   background-size: 50% auto; */
   /* margin-bottom: 20%; */
-  background: linear-gradient(to right, #fcfcfc 60%, #f0d304 40%);
+  /* background: linear-gradient(to right, #fcfcfc 60%, #f0d304 40%); */
+
+  /*   
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
   /* margin-left: 10%; */
   /* width: 100%; */
   /* /* border-right-color: rgb(170, 50, 220, .6); */
@@ -24,21 +60,29 @@
 /* .sss{margin-bottom: 20%;} */
 /* .sss{margin-bottom: 5%;} */
 .google {
-  margin-left: 20%;
-  margin-top: 1%;
-  width: 20%;
+  /* margin-left: 20%;
+  margin-top: 1%; */
+  /* width: 30%; */
+  width:20em
+
 }
 
 .sign {
   color: #25211d;
   font-size: 3.7ch;
-  margin-left: 17%;
-  margin-bottom: 2%;
+  /* margin-left: 2em; */
+  /* margin-left: 17%; */
+  /* margin-bottom: 2%; */
 
   /* margin-top: 3%; */
+/* display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center; */
+ 
   font-family: "Gill Sans", sans-serif;
 }
-.link{
+.link {
   color: black;
 }
 .sent:hover {
@@ -49,23 +93,28 @@
   cursor: pointer;
 }
 .sent {
-  transform: translate(12em, -10em);
-  margin-left: 60%;
-  width: 10%;
+  /* transform: translate(12em, -10em); */
+  /* margin-left: 60%; */
+  /* width: 10%; */
+  width: 8em;
   background-color: white;
   /* font-size: 1.3em; */
   /* font-family: system-ui;  */
   font-family: system-ui;
   height: 35px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
+  border-radius: 5px;
+
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
   font-size: 1.7ch;
-}
+  margin-top: 40px;
 
+
+}
 
 .account {
   font-size: 1.7ch;
@@ -79,11 +128,15 @@
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .emai {
-  height: 30px;
-  width: 20%;
-  margin-left: 20%;
+  /* height: 30px; */
+  margin-top: 20px;
+  height: 3em;
+  /* width: 20%; */
+  width: 21em;
+  padding:5px;
+  /* margin-left: 20%; */
   text-align: left;
-  margin-top: 2%;
+  /* margin-top: 2%; */
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -99,28 +152,43 @@
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .newhere {
-  margin-left: 70%;
+  /* margin-left: 70%; */
   font-size: 2.4em;
-  transform: translate(1em, 4em);
-  color: white;
+  /* transform: translate(1em, 4em); */
+  color: #25211d;
   /* padding-top: 1%; */
   /* margin-top: 5%; */
   font-family: sans-serif;
+  /* margin-bottom: 3em; */
+  /* margin-bottom: 100px; */
+  margin-top: 150px
 }
 .wordSign {
-  transform: translate(0em, 11em);
-  margin-left: 61%;
+  /* transform: translate(0em, 11em); */
+  /* margin-left: 61%; */
   color: white;
   font-size: 1.3em;
   font-family: system-ui;
+  text-align: center;
+  /* margin-top: 30px; */
+  margin-top: 2em;
+  
+
+}
+
+input {
+  padding:5px;
 }
 
 .pass {
   text-align: left;
-  height: 30px;
-  width: 20%;
-  margin-left: 20%;
-  margin-top: 1%;
+  /* height: 30px; */
+  height: 3em;
+  padding:5px;
+  /* width: 20%; */
+  width: 21em;
+  /* margin-left: 20%; */
+  /* margin-top: 1%; */
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -136,12 +204,37 @@
   cursor: pointer;
 }
 .or {
-  margin-left: 19.7%;
-  margin-top: 2%;
+  /* margin-left: 19.7%; */
+  /* margin-top: 2%; */
+  
 }
+
+
+.or{
+  width: 35%; 
+  text-align: center; 
+  border-bottom: 1px solid #000; 
+  line-height: 0.1em;
+  margin: 12px 0 12px; 
+} 
+
+.or span { 
+   background:#fff; 
+   padding:0 10px; 
+}
+
+
+
+
+
+
+
+
 .signgoogle {
-  margin-left: 25%;
-  margin-top: 1%;
+  /* margin-left: 25%; */
+  /* margin-top: 1%; */
+    margin-top: 10px;
+
   color: #b8b6b5;
   font-size: 1em;
   /* F0D304 gold
@@ -153,12 +246,17 @@ rgb(38,37,36)  black for words
 }
 .but {
   height: 35px;
-  width: 10%;
-  margin-left: 23.5%;
-  margin-top: 2%;
+  /* width: 10%; */
+  /* margin-left: 23.5%; */
+  /* margin-top: 2%; */
+  width: 8em;
+
   font-size: 1.7ch;
-  transform: translate(1em, 1.3em);
-  border-radius: 20px;
+
+  /* transform: translate(1em, 1.3em); */
+  /* border-radius: 20px; */
+  border-radius: 5px;
+
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -167,7 +265,7 @@ rgb(38,37,36)  black for words
   color: black;
 }
 .message {
-  margin-top: 1.5%;
+  /* margin-top: 1.5%; */
   color: red;
   font-size: 1.2em;
 }

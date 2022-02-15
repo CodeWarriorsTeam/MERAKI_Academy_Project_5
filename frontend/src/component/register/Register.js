@@ -86,7 +86,7 @@ const Register = () => {
     <>
       <div className="registerPage">
         <br />
-        <div className="">
+        <div className="reg">
           {" "}
           <p className="welcome">Welcome Back!</p>
       

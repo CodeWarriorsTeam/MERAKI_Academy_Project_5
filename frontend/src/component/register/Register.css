@@ -136,7 +136,9 @@
 .sent1 {
       font-size: 1.7ch;
     transform: translate(12em, -11em);
-    border-radius: 20px;
+    /* border-radius: 20px; */
+    border-radius: 5px;
+
     border-top: 1px rgba(116, 105, 105, 0.342) solid;
     border-right: 1px rgba(138, 127, 127, 0.342) solid;
     border-left: 1px rgba(138, 127, 127, 0.342) solid;
@@ -184,7 +186,9 @@
   margin-top: 1%;
   font-size: 1.7ch;
   transform: translate(0em, 0em);
-  border-radius: 20px;
+  /* border-radius: 20px; */
+  border-radius: 5px;
+
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
   border-left: 1px rgba(138, 127, 127, 0.342) solid;
