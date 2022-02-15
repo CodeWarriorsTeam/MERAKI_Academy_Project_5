@@ -85,18 +85,25 @@ const Register = () => {
   return (
     <>
       <div className="registerPage">
-        <br />
-        <div className="reg">
+        <div className="left-register">
           {" "}
           <p className="welcome">Welcome Back!</p>
       
           <p className="word"> To keep connected with us please 
           </p><p className="word2">login with your personal info</p>
+
+          <button className="sent1">
+          <Link className="login" to="/login" className="link">
+            SIGN IN
+          </Link>
+        </button>
         </div>
-        <br />
+        {/* <br /> */}
+        <div className="right-register">
+        {/* <div className="right-register"> */}
         <h1 className="signup">Create Account</h1>
         {/* <h5 className="accountUp">Sign up your account</h5> */}
-        <br></br>
+        {/* <br></br> */}
 
         <input
           onChange={(e) => {
@@ -107,7 +114,7 @@ const Register = () => {
           className="firstName"
         ></input>
         <br />
-        <br />
+        {/* <br /> */}
         <input
           onChange={(e) => {
             setLastName(e.target.value);
@@ -117,7 +124,7 @@ const Register = () => {
           className="lastName"
         ></input>
         <br />
-        <br />
+        {/* <br /> */}
         <input
           onChange={(e) => {
             setCountry(e.target.value);
@@ -128,7 +135,7 @@ const Register = () => {
         ></input>
 
         <br />
-        <br />
+        {/* <br /> */}
         <input
           type="file"
           className="image"
@@ -152,7 +159,7 @@ const Register = () => {
           placeholder=" Email"
           className="email"
         ></input>
-        <br />
+        {/* <br /> */}
         <br />
         <input
           onChange={(e) => {
@@ -163,18 +170,21 @@ const Register = () => {
           className="password"
         ></input>
         <br />
-        <br />
+        {/* <br /> */}
         <button onClick={checkFormValidation} className="registerButton">
           SIGN UP
         </button>
+        {/* </div> */}
+
         <br />
-        <br />
+        {/* <br /> */}
         <p className="message">{paragraph}</p>
-        <button className="sent1">
+        {/* <button className="sent1">
           <Link className="login" to="/login" className="link">
             SIGN IN
           </Link>
-        </button>
+        </button> */}
+        </div>
       </div>
     </>
   );
