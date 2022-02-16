@@ -2,6 +2,8 @@
 const initialState = {
   cases: [],
   caseById: [],
+  caseEmergency1:[],
+  caseEmergency2:[],
 };
 const casesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -10,6 +12,10 @@ const casesReducer = (state = initialState, { type, payload }) => {
 
       case "SET_CASE":
         return { ...state.caseById, caseById: payload };
+        case "SET_CASE1":
+        return { ...state.caseById, caseEmergency1: payload };
+        case "SET_CASE2":
+        return { ...state.caseById, caseEmergency2: payload };
 
     case "ADD_CASE":
       return { ...state, cases: [...state.cases, payload] };
@@ -62,6 +68,20 @@ export const deleteCase = (id) => {
 export const setCase = (caseById) => {
   return {
     type: "SET_CASE",
+    payload: caseById,
+  };
+};
+
+export const setCaseEmergency1 = (caseById) => {
+  return {
+    type: "SET_CASE1",
+    payload: caseById,
+  };
+};
+
+export const setCaseEmergency2 = (caseById) => {
+  return {
+    type: "SET_CASE2",
     payload: caseById,
   };
 };

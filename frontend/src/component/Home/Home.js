@@ -15,7 +15,12 @@ import { BsSnapchat } from "react-icons/bs";
 import { FaTwitterSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { ImPhone } from "react-icons/im";
-import { setCase } from "../../reducer/cases/index";
+import { useNavigate } from "react-router-dom";
+import {
+  setCase,
+  setCaseEmergency1,
+  setCaseEmergency2,
+} from "../../reducer/cases/index";
 const Home = ({
   setCategory,
   setAllCase,
@@ -30,37 +35,55 @@ const Home = ({
   inputEmergency1,
 }) => {
   const dispatch = useDispatch();
-  
+
+
+const navigate=useNavigate()
+
+
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
       volunteers: state.volunteerReducer.volunteers,
-      caseById:state.casesReducer.caseById,
+      caseById: state.casesReducer.caseById,
+      caseEmergency1: state.casesReducer.caseEmergency1,
+      caseEmergency2: state.casesReducer.caseEmergency2,
     };
   });
 
-  console.log(state.volunteers);
-console.log(localStorage.getItem("emergencyId"));
-console.log(state.caseById);
+  console.log(state.caseEmergency1);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [address_1, setAddress_1] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
+  const [test, setTest] = useState(state.caseEmergency2);
   const [joinIsOpen, setJoinIsOpen] = useState(false);
-
+  console.log(test);
   // console.log(firstName);
   // console.log(lastName);
   // console.log(email);
   // console.log(address_1);
   // console.log(phonenumber);
-  const getCaseById = async () => {
+  const getEmergency1CaseById = async () => {
     try {
       const result = await axios.get(
-        `http://localhost:5000/cases/${localStorage.getItem("emergencyId")}`
+        `http://localhost:5000/cases/${localStorage.getItem("emergencyId1")}`
       );
-      dispatch(setCase(result.data.result));
+      dispatch(setCaseEmergency1(result.data.result));
+
+      console.log(result.data.result[0].title);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+  const getEmergency2CaseById = async () => {
+    try {
+      const result = await axios.get(
+        `http://localhost:5000/cases/${localStorage.getItem("emergencyId2")}`
+      );
+      dispatch(setCaseEmergency2(result.data.result));
 
       console.log(result.data.result[0].title);
     } catch (error) {
@@ -130,10 +153,11 @@ console.log(state.caseById);
   useEffect(() => {
     countNumMedSupplies();
   }, []);
+ 
   useEffect(() => {
-    getCaseById();
+    getEmergency1CaseById();
   }, []);
-//
+  //
   //getCaseById------------------------------------------------------------
 
   const addNewVolunteer = () => {
@@ -162,6 +186,10 @@ console.log(state.caseById);
       });
   };
 
+  ///----
+  const convertToCase = (id) => {
+    navigate(`/casedetails/${id}`);
+  };
   //--------------------------------
 
   const customStyles = {
@@ -196,9 +224,9 @@ console.log(state.caseById);
               Our Team
             </a>
 
-            <Link className="login" to="/login">
-              <a id="Login">Login</a>
-            </Link>
+           
+              <a href="/#sectionEmergence" id="Login" >Emergency</a>
+           
           </section>
         </main>
       </header>
@@ -283,6 +311,40 @@ console.log(state.caseById);
           </div>
         </div>
       </section>
+      {/*  */}
+      <section className="sectionEmergence" id="sectionEmergence">
+        <div className="titleEmergence">
+          <h1>Emergency cases</h1>
+          <div className="lineBen"></div>
+        </div>
+
+        <div className="rowEmergency">
+       
+              <>
+                <div  className="colEmergency">
+                  <img  src="./image/case1.jpg"/>
+                  <h4>ttttt</h4>
+                  <p>Very urgent cases, help support them as soon as possible</p>
+                  <button className="ctn">Donate Now</button>
+                </div>
+              </>
+          
+              {state.caseEmergency1 &&
+            state.caseEmergency1.map((element, index) => (
+              <>
+                <div key={index} className="colEmergency">
+                  <img  src={element.case_image}/>
+                  <h4>{element.title}</h4>
+                  <p>Very urgent cases, help support them as soon as possible</p>
+                  <button  className="ctn" onClick={()=>{
+                    convertToCase(element.id)
+                  }}>Donate Now</button>
+                </div>
+              </>
+            ))}
+        </div>
+      </section>
+      {/*  */}
       {/* //----------- */}
       <div className="SectionVolunteering" id="volunteeringSection">
         <div className="containerVolunteering">
