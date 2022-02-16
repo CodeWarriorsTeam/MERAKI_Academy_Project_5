@@ -46,16 +46,16 @@ const Register = () => {
 
     if (
       regEx.test(email) &&
-      email != null &&
-      pass != "" &&
-      firstName != "" &&
-      lastName != "" &&
-      country != ""
+      email !== null &&
+      pass !== "" &&
+      firstName !== "" &&
+      lastName !== "" &&
+      country !== ""
     ) {
       register();
     }
 
-    // if (email != null) {
+    // if (email !== null) {
 
     //   register();
     // }

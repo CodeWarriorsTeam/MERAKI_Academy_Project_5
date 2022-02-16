@@ -45,7 +45,7 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
           result.data.result[0].role_name.toLowerCase() === "admin"
         );
         console.log(isAdmin);
-        result.data.result[0].role_name == "admin"
+        result.data.result[0].role_name === "admin"
           ? navigate("/admin")
           : navigate("/");
 
