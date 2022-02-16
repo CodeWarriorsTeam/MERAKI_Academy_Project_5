@@ -313,7 +313,7 @@ const NewDonation = ({
                     </div>
                     <div className="data">
                       <h4>Required</h4>
-                      <p>{element.TheAmountRequired}</p>
+                      <p>{element.TheAmountRequired}$</p>
                     </div>
                   </div>
                 </div>

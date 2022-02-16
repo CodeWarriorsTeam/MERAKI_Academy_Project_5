@@ -195,7 +195,7 @@ const AllCases = ({
                       <div className="type">Case</div>
                     </div>
                     <div className="stat border">
-                      <div className="value">{element.TheAmountRequired}</div>
+                      <div className="value">{element.TheAmountRequired}$</div>
                       <div className="type">required</div>
                     </div>
                     <div className="stat">
