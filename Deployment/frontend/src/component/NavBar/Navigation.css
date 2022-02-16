@@ -1,0 +1,433 @@
+/* .num {
+  color: #666;
+  float: left;
+  font-size: 1.3em;
+  transform: translate(1em, 0.8em);
+}
+.email22 {
+  transform: translate(-0.3em, 0.2em);
+}
+#Logout{
+  font-size: 1.3em;
+  float: right;
+  transform: translate(-1em, -2.6em);
+  text-decoration: none;
+  color: #666;
+  font-family: sans-serif;
+}
+#Logout{
+  color: #f5c323; 
+}
+.word {
+  font-size: 1.3em;
+  transform: translate(2.7em, 0.8em);
+  color: #666;
+  float: left;
+}
+.menu {
+ transform: translate(0em, 2em);
+}
+.safeHouse {
+  transform: translate(-20.9em, 1.3em);
+  color: rgb(31, 31, 31);
+  font-size: 2em;
+  font-family: fantasy;
+}
+.safeHouseLink{
+   text-decoration: none;
+
+}
+.logo {
+  width: 5%;
+  float: left;
+  transform: translate(-18em, 2em);
+}
+.admin{
+  font-size: 1.3em;
+  float: right;
+  transform: translate(-22em, 0.5em);
+  text-decoration: none;
+  color: #666;
+  font-family: sans-serif;   
+}
+.login {
+  font-size: 1.3em;
+  float: right;
+  transform: translate(1em, -2.6em);
+  text-decoration: none;
+  color: #666;
+  font-family: sans-serif;
+}
+.login:hover {
+  color: #f5c323;
+}
+
+.register {
+  font-size: 1.3em;
+  float: right;
+  transform: translate(-6em, -2.5em);
+  text-decoration: none;
+  color: #666;
+  font-family: sans-serif;
+}
+.register:hover {
+  color: #f5c323;
+}
+
+#searchInput:hover {
+  border-top: 1px rgb(0, 0, 0) solid;
+  border-right: 1px rgb(0, 0, 0) solid;
+  border-left: 1px rgb(0, 0, 0) solid;
+  border-bottom: 1px rgb(0, 0, 0) solid;
+}
+#searchInput::placeholder{
+color:black;
+}
+#searchInput {
+  height: 30px;
+  transform: translate(-28em, 0.8em);
+  width: 20%;
+  /* border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid; */
+/* color: black;
+  border-radius: 5px;
+}
+.Home {
+  float: left;
+  text-decoration: none;
+  font-size: 1.1em;
+  transform: translate(28em, 0.8em);
+  color: #666;
+  font-family: sans-serif;
+}
+.Home:hover {
+  color: #f5c323;
+}
+#AllCases {
+  float: left;
+  text-decoration: none;
+  font-size: 1.1em;
+  transform: translate(29em, 0.8em);
+  color: #666;
+  font-family: sans-serif;
+}
+#AllCases:hover {
+  color: #f5c323;
+}
+
+.education {
+   float: left;
+   text-decoration: none;
+   font-size: 1.1em;
+   transform: translate(30em, 0.8em);
+   color: #666;
+   font-family: sans-serif;
+ }
+ .education:hover {
+   color: #f5c323;
+ } 
+
+ #kids {
+   float: left;
+   text-decoration: none;
+   font-size: 1.1em;
+   transform: translate(31em, 0.8em);
+   color: #666;
+   font-family: sans-serif;
+ }
+ #kids:hover {
+   color: #f5c323;
+ } 
+ #newCase {
+   float: left;
+   text-decoration: none;
+   font-size: 1.1em;
+   transform: translate(32em, 0.8em);
+   color: #666;
+   font-family: sans-serif;
+ }
+ #newCase:hover {
+   color: #f5c323;
+ }  */
+
+/* AllCases */
+
+/* .NavBar{
+    display: flex;
+    position: absolute;
+    top:0px;
+    margin: 0px;
+    width: 100%;
+    height:50px;
+    background: white;
+    color: white; 
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    border: transparent solid ;
+}
+
+nav .logo{
+    width: 25%;
+    text-align: center;
+}
+
+
+#searchInput{
+      height: 30%;
+    
+    border-top: 1px rgba(116, 105, 105, 0.342) solid;
+    border-right: 1px rgba(138, 127, 127, 0.342) solid;
+    border-left: 1px rgba(138, 127, 127, 0.342) solid;
+    border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+    color: black;
+    border-radius: 5px
+}
+ nav .menu{
+     width: 60%;
+ 
+     display: flex;
+     justify-content: space-around;
+ 
+
+ }
+ nav .menu a{
+     position: relative;
+     width: 25%;
+     text-decoration: none;
+     color: white;
+     font-weight: bold;
+     font-size: 15px;
+     text-transform: uppercase;
+     z-index: 1;
+    
+ }
+
+
+
+ nav .menu #Home{
+     color:#000000  ;
+   
+ }
+ 
+ nav .menu #AllCases{
+    color:#F5C323
+ }
+
+
+ nav .menu #education{
+    color:#000000
+ }
+ nav .menu #kids{
+    color:#F5C323
+ }
+
+ nav .menu #newCase{
+    color:#000000
+ }
+
+ nav .menu #RegisterNav{
+    color:#F5C323
+ }
+ nav .menu #LoginNav{
+    color:#000000
+ }
+ nav .menu #Logout{
+    color:#000000
+ }
+ #headerLogo {
+   color: black;
+  } */
+
+/* .wrapper {
+  background: #222;
+  width: 100%;
+  height: 100vh;
+} */
+.admin{
+  color: white;
+  text-decoration: none;
+  font-size: 1.3em;
+  margin-top: 10%;
+  margin-left: 2.5%;
+}
+
+.nav {
+  /* top: 0;
+  left: 0; */
+  position: absolute;
+  /* position: sticky; */
+  /* top: 0; */
+  width: 100%;
+  box-sizing: border-box;
+  background: rgb(43, 41, 41);
+  opacity: 0.6;
+}
+
+.nav:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.a:hover {
+  color: #f0d40470;
+}
+
+.iconHome {
+  color: rgb(207, 194, 12);
+}
+
+
+.titleLogo {
+  color: #fff;
+  float: left;
+  padding: 0.6em;
+  margin-left: 5%;
+}
+
+/* .titleLogo:hover{
+  background: #d3bb06;
+} */
+
+.ul {
+  margin-right: 5%;
+  float: right;
+}
+
+.ul li {
+  display: inline-block;
+  list-style: none;
+  position: relative;
+}
+
+.ul li a {
+  display: inline-block;
+  color: #fff;
+  padding: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logoutAdmin{
+  font-size: 1.5em;
+  color: white;
+  float: right;
+ 
+  transform: translate(-1em,0.4em);
+}
+
+#Logout{
+  height: 58.4px;
+  display: inline-block;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+ 
+ 
+}
+.iconLogout{
+  font-size: 1.5em;
+  color: white;
+  transform: translate(0.5em,0.3em);
+ 
+ 
+}
+.iconLogout:hover{
+  cursor: pointer;
+}
+.logoutAdmin:hover{
+  cursor: pointer;
+}
+.dashicon{
+ font-size: 1.5em;
+transform: translate(1em,0.2em);
+color: white;
+}
+
+/* .ul li .a { */
+/* display: inline-block;
+  height: 1.5em;
+  width: 2em;
+  transform: translate(1em, 0.5em);
+  cursor: pointer; */
+/* } */
+
+.ul li:hover {
+  background: #F0D304;
+}
+.ul li:hover .drop {
+  display: block;
+}
+.ul .drop li:hover {
+  background: #00000070;
+}
+.drop {
+  background: #F0D304;
+  position: absolute;
+  display: none;
+  top: 57px;
+  left: 0px;
+  z-index: 10;
+  width: 165px;
+  color: #000;
+}
+
+.drop li {
+  border: 1px solid rgb(0, 0, 0);
+  display: block;
+  color: rgb(0, 0, 0);
+}
+
+#searchInputNav {
+
+  /* margin: 220px auto; */
+  background: transparent;
+  /* display: inline-block; */
+  height: 30px;
+  width: 50px;
+  border-radius: 5px;
+margin-left: 7%;
+
+  /* display: flex; */
+  align-items: center;
+  transition: 1s;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+#searchInputNav:hover  {
+  width: 200px;
+  height:30px;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  /* padding: 20px; */
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+#searchInputNav {
+  margin-top: 15px;
+  text-align: center;
+  background: transparent;
+  border: solid gray 1px;
+  outline: none;
+  width: 55px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 1s;
+}
+
+.iconHome {
+  color: #ffef14;
+}
+
+.searchInputNav::placeholder{
+ color: white;
+ text-align: center;
+ 
+}
