@@ -65,21 +65,21 @@
 
 .whatDo #Register {
   margin: 100px;
-  background: #f5c323;
-  color: #000000;
+  background: #000000;
+  color: #f5c323;
 }
 
 #Register:hover {
-  background: #000000;
-  color: #f5c323;
-}
-.whatDo #Login {
-  background: #000000;
-  color: #f5c323;
-}
-#Login:hover {
   background: #f5c323;
   color: #000000;
+}
+.whatDo #Login {
+  background: #f5c323;
+  color: #000000;
+}
+#Login:hover {
+  background: #000000;
+  color: #f5c323;
 }
 .change_content:after {
   content: "";
@@ -124,7 +124,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
 }
 
 .target .boxContainer {
@@ -846,4 +846,95 @@ footer {
 
 .volunteerButton:hover{
   cursor: pointer;
+}
+
+
+
+
+.sectionEmergence{
+  width: 100%;
+  /* margin: 70px auto ; */
+  margin:  25px;
+  
+}
+
+
+.titleEmergence{
+  /* padding-top: 10px; */
+  text-align: center;
+  text-transform: uppercase;
+  /* font-size: 35px; */
+  color: #25211d;
+  font-size: 1.3rem;
+ 
+  font-weight: bold;
+}
+
+.titleEmergence:after{
+  content: "";
+  height: 5px;
+  width: 250px;
+  /* margin-bottom: 10px; */
+  
+  background-color: #f0d304;
+  border-radius: 25px;
+  display: block;
+  margin: auto;
+}
+
+.rowEmergency{
+  /* padding-top: 30px; */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+
+}
+.rowEmergency .colEmergency {
+ display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+
+
+.sectionEmergence .rowEmergency{
+  margin-top: 50px;
+}
+
+
+.rowEmergency .colEmergency img{
+  width: 300px;
+  height: 300px;
+}
+.colEmergency h4{
+  font-size: 3vmin;
+  color: rgb(38,37,36) ;
+  margin: 20px auto;
+}
+
+.colEmergency p{
+  color: rgb(38,37,36);
+  padding:0px 40px ;
+}
+
+.sectionEmergence .ctn{
+  margin-top: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #f0d304;
+  border-radius: 20px;
+  color: #000000;
+  font-style: italic;
+  letter-spacing: 1.5px;
+
+ 
+
+  padding: 7px 15px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 5px;
 }

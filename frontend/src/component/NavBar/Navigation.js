@@ -35,13 +35,14 @@ const Navigation = ({
 
   const logout = () => {
     state.isLoggedIn = false;
-    localStorage.clear();
+    localStorage.removeItem('isAdmin');
+    localStorage.removeItem('token');
     dispatch(logoutUser());
     navigate(`/`);
     setUserId("");
     setIsAdmin(false);
   };
-  console.log(isAdmin);
+  
   return (
     <>
       {isAdmin ||
@@ -69,7 +70,7 @@ const Navigation = ({
                 setSearchCase(e.target.value);
               }}
             ></input>
-                 <RiLogoutBoxLine className="a" onClick={logout}> 
+                 <RiLogoutBoxLine className="logoutAdmin" onClick={logout}> 
                     Logout
                   </RiLogoutBoxLine>
                 <br/><br/>
@@ -228,17 +229,17 @@ const Navigation = ({
                 </li>
               ) : (
                 <>
-                  <li>
+                  {/* <li>
                     <Link className="register" to="/register">
                       Register{" "}
                     </Link>
-                  </li>
-                  {/* <li>
+                  </li> */}
+                  <li>
                     {" "}
                     <Link className="login" to="/login" title="Login">
                       Login{" "}
                     </Link>
-                  </li> */}
+                  </li>
                 </>
               )}
             </ul>
