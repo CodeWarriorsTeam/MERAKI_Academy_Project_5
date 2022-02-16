@@ -311,9 +311,7 @@ nav .logo{
   text-decoration: none;
   cursor: pointer;
 }
-.logoutAdmin:hover{
-background-color: #F0D304;
-}
+
 .logoutAdmin{
   font-size: 1.5em;
   color: white;
@@ -392,7 +390,7 @@ color: white;
   /* display: inline-block; */
   height: 30px;
   width: 50px;
-  border-radius: 20px;
+  border-radius: 5px;
 margin-left: 7%;
 
   /* display: flex; */
