@@ -32,7 +32,7 @@ import "./Admin.css";
 import { Link } from "react-router-dom";
 import { setVolunteers } from "../../reducer/volunteer";
 import SideBar from "../SideBar";
-import { ResponsiveBar } from '@nivo/bar'
+// import { ResponsiveBar } from '@nivo/bar'
 
 const Admin = ({ searchCase }) => {
   const [num, setNum] = useState(1);
