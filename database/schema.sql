@@ -1,7 +1,7 @@
- DROP DATABASE codeWarriors;
-CREATE DATABASE codeWarriors;
+ DROP DATABASE sql11473349;
+CREATE DATABASE sql11473349;
 
- USE codeWarriors;
+ USE sql11473349;
 
 
 CREATE TABLE roles (

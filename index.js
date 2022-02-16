@@ -5,10 +5,16 @@ const app = express();
 const db = require("./database/db");
 const stripe=require("stripe")(process.env.STRIPE_SECRET_TEST)
 const bodyParser=require("body-parser")
+const path = require("path");
+
 app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(express.json());
+
+
+
+
 
 
 const roleRouter = require("./routes/role")
@@ -45,6 +51,13 @@ const volunteerRouter = require("./routes/volunteer");
 
 app.use("/volunteer",volunteerRouter);
 
+
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('frontend/build'));
+}
+app.get('*',(req, res) => {
+  res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+});
 
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
