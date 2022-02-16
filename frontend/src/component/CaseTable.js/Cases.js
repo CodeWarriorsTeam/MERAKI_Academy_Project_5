@@ -347,7 +347,8 @@ const Cases = ({
                         width: "500px",
                       }}
                     >
-                      {element.case_description}
+                      {element.case_description.split(" ")[0]}
+                      {console.log(element.case_description.split(" ,"))}
                     </td>
                     <td className="donation">{element.donations}</td>
                     <td className="button">
