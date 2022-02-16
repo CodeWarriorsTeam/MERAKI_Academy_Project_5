@@ -272,9 +272,10 @@ const AllCases = ({
         {/* </div>
         </div>
       </section> */}
+     
       </section>
 
-      {num == 1 ? (
+    <div className="divPagination">  {num == 1 ? (
         <></>
       ) : (
         <button
@@ -283,17 +284,17 @@ const AllCases = ({
           }}
           className="backPaginationButton"
         >
-          <IoMdArrowBack className="backButtonIcon"></IoMdArrowBack>
+          <IoMdArrowBack className="buttonIconPag"></IoMdArrowBack>
         </button>
       )}
       <button
-        className="pageinationButton"
+        className="PaginationButton"
         onClick={() => {
           setNum(num + 1);
         }}
       >
-        <GrFormNextLink className="buttonIcon"></GrFormNextLink>
-      </button>
+        <GrFormNextLink className="buttonIconPag"></GrFormNextLink>
+      </button></div>
 
       {/* {message && <div>{message}</div>}
       <button className="up"><AiOutlineArrowUp onClick={scrollToTop} style={{display: visible ? 'inline':'none', fontSize:"1.8em"}}></AiOutlineArrowUp></button> */}
