@@ -12,6 +12,7 @@
 .addImage1 {
   transform: translate(2em, 24em);
 }
+
 .imageLink6 {
   color: rgb(128, 127, 127);
   text-decoration: none;
@@ -19,8 +20,8 @@
   /* float: left; */
   transform: translate(1.3em, 12.8em);
 }
-.imageIcon6 { 
-   cursor: pointer; 
+.imageIcon6 {
+  cursor: pointer;
 
   font-size: 1.2em;
   color: rgb(128, 127, 127);
@@ -74,24 +75,25 @@
 }
 .add {
   font-size: 2em;
-  transform: translate(8.5em, 1.7em);
+  transform: translate(8.7em, 1.8em);
 }
 .add:active {
   color: #f0d304;
+}
+.back {
+  transform: translate(47em, -13em);
+}
+.next {
+  transform: translate(14em,-13em);
+  margin-left: 40%;
 }
 .add:hover {
   cursor: pointer;
 }
 .table {
-  /* width: 10%; */
-  /* margin-top: 3%; */
-  margin-left: 16.5%;
+  margin-left: 20%;
   width: 20%;
-  transform: translate(0em,-2em);
-  /* margin-right: 10%; */
-  /* position: relative; */
-  /* justify-content: center; */
-  /* text-align: center; */
+  transform: translate(0em, -15em);
 }
 th,
 td {
@@ -110,7 +112,7 @@ td {
   float: left;
 }
 .imag {
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 .editIcon {
   float: right;
@@ -148,8 +150,8 @@ td {
   font-size: 0.8em;
 }
 .descr {
-  font-size: 0.8em;
-  width: 15%;
+
+  font-size: 0.7em;
 }
 .donatio {
   font-size: 0.8em;
@@ -163,4 +165,7 @@ td {
 }
 .oper {
   font-size: 0.8em;
+}
+.link22{
+  margin-bottom: 15%;
 }
