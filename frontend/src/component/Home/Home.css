@@ -51,7 +51,7 @@
 }
 
 .whatDo a {
-  padding: 12px 30px;
+  padding: 12px 25px; 
   border-radius: 4px;
   outline: none;
   text-transform: uppercase;
@@ -64,7 +64,8 @@
 }
 
 .whatDo #Register {
-  margin: 100px;
+  /* padding: 12px 25px; */
+  margin-right: 90px;
   background: #000000;
   color: #f5c323;
 }
@@ -74,6 +75,9 @@
   color: #000000;
 }
 .whatDo #Login {
+  
+  /* padding: 12px 20px; */
+
   background: #f5c323;
   color: #000000;
 }
@@ -223,23 +227,19 @@
   text-decoration: none;
   font-weight: bold;
   background-color: #f0d304;
-  /* border-radius: 20px; */
   border-radius: 5px;
   color: #000000;
   font-style: italic;
   letter-spacing: 1.5px;
-
   position: absolute;
   left: 50%;
-
   transform: translate(-50%);
   bottom: -15px;
-
   padding: 7px 15px;
   border: 0;
   outline: none;
   cursor: pointer;
-  margin-bottom: 5px;
+  margin-bottom: -10px;
 }
 /* 
 .volunteering {
@@ -561,12 +561,10 @@
 .contentAbout .contentText h1::after {
   content: "";
   height: 5px;
-  width: 130px;
-
+  width: 160px;
   background-color: #f0d304;
   border-radius: 25px;
   display: block;
-  /* margin: auto; */
 }
 
 .ourTeam {
@@ -589,15 +587,13 @@
 .headerTeam::after {
   content: "";
   height: 5px;
-  /* width: 130px; */
-
   background-color: #f0d304;
   border-radius: 25px;
   display: block;
   content: "";
   position: absolute;
   width: 10%;
-  height: 7px;
+  height: 5px;
   background-image: linear-gradient(to left, transparent 5%, #f0d304);
   bottom: -12px;
   left: 50%;
@@ -677,7 +673,7 @@ footer {
   text-transform: capitalize;
   line-height: 3rem;
   color: #f0d304;
-  opacity: 0.4;
+  opacity: 0.8;
 }
 
 .footerContent p {
@@ -722,16 +718,25 @@ footer {
   margin-left: 0;
   object-fit: cover;
 }
-
 .footerBottom p {
   font-size: 14px;
   word-spacing: 2px;
   text-transform: capitalize;
 }
 
+.up{
+  background: -webkit-linear-gradient(left,#000000,#e9bf3d 50%,#000);
+  cursor: pointer;
+  float: right;
+  width: 3%;
+  color: black;
+  opacity: 0.8;
+  background-color: #faf604;
+  transform: translate(-5.7em,-8em);
+}
 .footerBottom span {
   text-transform: uppercase;
-  opacity: 0.4;
+  opacity: 0.8;
   color: #f0d304;
   font-weight: 200;
 }
@@ -828,30 +833,21 @@ footer {
 .emailV {
   height: 1.8em;
   width: 17.5em;
-
   margin-top: 5px;
   padding: 1em;
-
 }
-
 .addressV {
   height: 1.8em;
   width: 17.5em;
-
   margin-top: 5px;
   padding: 1em;
-
 }
-
 .phoneNumberV {
   height: 1.8em;
   width: 17.5em;
-
   margin-top: 5px;
   padding: 1em;
-
 }
-
 .volunteerButton{
   margin-top: 0.5em;
   height: 2em;
@@ -861,24 +857,14 @@ footer {
   color: black;
   border: none;
   border-radius: 5px;
-  
 }
-
 .volunteerButton:hover{
   cursor: pointer;
 }
-
-
-
-
 .sectionEmergence{
   width: 100%;
-  /* margin: 70px auto ; */
-  margin:  25px;
-  
+  margin:  25px;  
 }
-
-
 .titleEmergence{
   /* padding-top: 10px; */
   text-align: center;
@@ -893,9 +879,7 @@ footer {
 .titleEmergence:after{
   content: "";
   height: 5px;
-  width: 250px;
-  /* margin-bottom: 10px; */
-  
+  width: 250px;  
   background-color: #f0d304;
   border-radius: 25px;
   display: block;
@@ -903,7 +887,6 @@ footer {
 }
 
 .rowEmergency{
-  /* padding-top: 30px; */
   display: flex;
   align-items: center;
   width: 100%;
@@ -940,7 +923,7 @@ align-items: center;
 }
 
 .sectionEmergence .ctn{
-  margin-top: 30px;
+  margin-top: 35px;
   cursor: pointer;
   text-decoration: none;
   font-weight: bold;

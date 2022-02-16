@@ -61,12 +61,6 @@ const navigate=useNavigate()
   const [message, setMessage] = useState("");
   const [test, setTest] = useState(state.caseEmergency2);
   const [joinIsOpen, setJoinIsOpen] = useState(false);
-  console.log(test);
-  // console.log(firstName);
-  // console.log(lastName);
-  // console.log(email);
-  // console.log(address_1);
-  // console.log(phonenumber);
   const getEmergency1CaseById = async () => {
     try {
       const result = await axios.get(
@@ -255,7 +249,7 @@ const navigate=useNavigate()
               <div className="cardImage"></div>
               <div className="targetTitle">Educating 1000 students</div>
               <div className="targetCount">
-                Covered number for this moment:<span>{numEducation} </span>
+                Covered number for this moment:<span style={{marginLeft:"5px"}}>{numEducation} </span>
               </div>
               <Link
                 to="/allcases"
@@ -272,8 +266,8 @@ const navigate=useNavigate()
             <div className="box">
               <div className="cardImage"></div>
               <div className="targetTitle">Feeding 1000 poor</div>
-              <div className="targetCount">
-                Covered number for this moment:<span>{numFood}</span>
+              <div className="targetCount" style={{marginTop:"28px"}}>
+                Covered number for this moment:<span style={{marginLeft:"5px"}}>{numFood}</span>
               </div>
               <Link
                 to="/allcases"
@@ -291,7 +285,7 @@ const navigate=useNavigate()
               <div className="cardImage"></div>
               <div className="targetTitle">Repairing 500 facilities</div>
               <div className="targetCount">
-                Covered number for this moment:<span>{numRebuilding} </span>
+                Covered number for this moment:<span style={{marginLeft:"5px"}}>{numRebuilding} </span>
               </div>
               <Link
                 to="/allcases"
@@ -312,7 +306,7 @@ const navigate=useNavigate()
               </div>
               <div className="targetCount">
                 Covered number for this moment:
-                <span>{numMedicalSupplies} </span>
+                <span style={{marginLeft:"5px"}}>{numMedicalSupplies} </span>
               </div>
               <Link
                 to="/allcases"
@@ -328,7 +322,6 @@ const navigate=useNavigate()
           </div>
         </div>
       </section>
-      {/*  */}
       <section className="sectionEmergence" id="sectionEmergence">
         <div className="titleEmergence">
           <h1>Emergency cases</h1>
@@ -340,7 +333,7 @@ const navigate=useNavigate()
               <>
                 <div  className="colEmergency">
                   <img  src="./image/case1.jpg"/>
-                  <h4>ttttt</h4>
+                  <h4>Food</h4>
                   <p>Very urgent cases, help support them as soon as possible</p>
                   <button className="ctn">Donate Now</button>
                 </div>
@@ -361,8 +354,6 @@ const navigate=useNavigate()
             ))}
         </div>
       </section>
-      {/*  */}
-      {/* //----------- */}
       <div className="SectionVolunteering" id="volunteeringSection">
         <div className="containerVolunteering">
           <div className="volunteeringTitle">
@@ -524,7 +515,7 @@ const navigate=useNavigate()
       </section>
 
       <section className="ourTeam" id="ourTeam">
-        <h1 className="headerTeam">Our Team</h1>
+        <h1 className="headerTeam">OUR TEAM</h1>
         <div className="infoTeam">
           {/* Hamza */}
           <div className="member">
@@ -544,8 +535,8 @@ const navigate=useNavigate()
             <h2 className="name">Anas Naamneh</h2>
             <br></br>
             <p className="descriptionMember">
-              بسبوس عاشق بسة ويدلعها بسبوسه , بسبوس عاشق بسة ويدلعها
-              بسبوسه,يلحقها من بيت البيت ويقلها اعطيني بوسه
+            A student at Meraki Academy, and a full stack
+              developer soon
             </p>
           </div>
           {/* batool */}
@@ -554,9 +545,9 @@ const navigate=useNavigate()
             <br></br>
             <h2 className="name">Batool Abusneneh</h2>
             <br></br>
-            <p className="descriptionMember">
-              دبدوب عاشق دبة ويدلعها دبدوبة , دبدوب عاشق دبة ويدلعها
-              دبدوبة,يلحقها من بيت البيت ويقلها اعطيني بوسه
+            <p className="descriptionMember2">
+            A student at Meraki Academy 
+            <p> and a full stack developer</p>
             </p>
           </div>
         </div>
