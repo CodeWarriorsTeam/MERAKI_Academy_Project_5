@@ -28,11 +28,11 @@ const customStyles2 = {
   content: {
     //   background: "rgba(yellow, 0, 0, 0.7)",
     top: "40%",
-    left: "30%",
+    left: "23%",
     right: "69%",
     bottom: "auto",
     marginRight: "-50%",
-    transform: "translate(-10%, -30%)",
+    transform: "translate(-1%, -35%)",
   },
 };
 
