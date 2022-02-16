@@ -63,7 +63,7 @@ const Register = () => {
 
   const register = () => {
     axios
-      .post(`http://localhost:5000/user`, {
+      .post(`/user`, {
         firstName,
         lastName,
         country,
@@ -88,98 +88,96 @@ const Register = () => {
         <div className="left-register">
           {" "}
           <p className="welcome">Welcome Back!</p>
-      
-          <p className="word"> To keep connected with us please 
-          </p><p className="word2">login with your personal info</p>
-
+          <p className="word"> To keep connected with us please</p>
+          <p className="word2">login with your personal info</p>
           <button className="sent1">
-          <Link className="login" to="/login" className="link">
-            SIGN IN
-          </Link>
-        </button>
+            <Link className="login" to="/login" className="link">
+              SIGN IN
+            </Link>
+          </button>
         </div>
         {/* <br /> */}
         <div className="right-register">
-        {/* <div className="right-register"> */}
-        <h1 className="signup">Create Account</h1>
-        {/* <h5 className="accountUp">Sign up your account</h5> */}
-        {/* <br></br> */}
+          {/* <div className="right-register"> */}
+          <h1 className="signup">Create Account</h1>
+          {/* <h5 className="accountUp">Sign up your account</h5> */}
+          {/* <br></br> */}
 
-        <input
-          onChange={(e) => {
-            setFirstName(e.target.value);
-          }}
-          type="text"
-          placeholder=" First Name"
-          className="firstName"
-        ></input>
-        <br />
-        {/* <br /> */}
-        <input
-          onChange={(e) => {
-            setLastName(e.target.value);
-          }}
-          type="text"
-          placeholder=" Last Name"
-          className="lastName"
-        ></input>
-        <br />
-        {/* <br /> */}
-        <input
-          onChange={(e) => {
-            setCountry(e.target.value);
-          }}
-          type="text"
-          placeholder=" Country"
-          className="country"
-        ></input>
+          <input
+            onChange={(e) => {
+              setFirstName(e.target.value);
+            }}
+            type="text"
+            placeholder=" First Name"
+            className="firstName"
+          ></input>
+          <br />
+          {/* <br /> */}
+          <input
+            onChange={(e) => {
+              setLastName(e.target.value);
+            }}
+            type="text"
+            placeholder=" Last Name"
+            className="lastName"
+          ></input>
+          <br />
+          {/* <br /> */}
+          <input
+            onChange={(e) => {
+              setCountry(e.target.value);
+            }}
+            type="text"
+            placeholder=" Country"
+            className="country"
+          ></input>
 
-        <br />
-        {/* <br /> */}
-        <input
-          type="file"
-          className="image"
-          style={{ width: "23%" }}
-          onChange={(e) => {
-            setImageSelected(e.target.files[0]);
-          }}
-        ></input>
-        <button
-          onClick={() => uploadImage(imageselected)}
-          className="uploadButton"
-        >
-          <BiUpload></BiUpload>
-        </button>
-        <br />
-        <input
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          type="email"
-          placeholder=" Email"
-          className="email"
-        ></input>
-        {/* <br /> */}
-        <br />
-        <input
-          onChange={(e) => {
-            setPass(e.target.value);
-          }}
-          type="password"
-          placeholder=" Password"
-          className="password"
-        ></input>
-        <br />
-        {/* <br /> */}
-        <button onClick={checkFormValidation} className="registerButton">
-          SIGN UP
-        </button>
-        {/* </div> */}
+          <br />
+          {/* <br /> */}
+          <input
+            type="file"
+            className="image"
+            style={{ width: "23%" }}
+            onChange={(e) => {
+              setImageSelected(e.target.files[0]);
+            }}
+          ></input>
+          <button
+            onClick={() => uploadImage(imageselected)}
+            className="uploadButton"
+          >
+            <BiUpload></BiUpload>
+          </button>
+          <br />
+          <input
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            type="email"
+            placeholder=" Email"
+            className="email"
+          ></input>
+          {/* <br /> */}
+          <br />
+          <input
+            onChange={(e) => {
+              setPass(e.target.value);
+            }}
+            type="password"
+            placeholder=" Password"
+            className="password"
+          ></input>
+          <br />
+          {/* <br /> */}
+          <button onClick={checkFormValidation} className="registerButton">
+            SIGN UP
+          </button>
+          {/* </div> */}
 
-        <br />
-        {/* <br /> */}
-        <p className="message">{paragraph}</p>
-        {/* <button className="sent1">
+          <br />
+          {/* <br /> */}
+          <p className="message">{paragraph}</p>
+          {/* <button className="sent1">
           <Link className="login" to="/login" className="link">
             SIGN IN
           </Link>

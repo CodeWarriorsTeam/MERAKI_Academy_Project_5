@@ -61,7 +61,7 @@ const NewDonation = ({
   const [isClosed, setIsClosed] = useState(true);
   const getbyid = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/cases/${id}`);
+      const result = await axios.get(`/cases/${id}`);
       dispatch(setCase(result.data.result));
 
       console.log(result.data.result[0].title);
@@ -82,7 +82,7 @@ const NewDonation = ({
   };
   const updateCaseById = async (id) => {
     try {
-      const result = await axios.put(`http://localhost:5000/cases/${id}`, {
+      const result = await axios.put(`/cases/${id}`, {
         case_image,
         title,
         case_description,
@@ -99,7 +99,7 @@ const NewDonation = ({
 
   const deleteCseById = async () => {
     try {
-      await axios.delete(`http://localhost:5000/cases/${id}`);
+      await axios.delete(`/cases/${id}`);
       dispatch(deleteCase(id));
       getbyid();
       navigate(`/allcases`);
@@ -111,7 +111,7 @@ const NewDonation = ({
   const addNewDonation = () => {
     axios
       .put(
-        `http://localhost:5000/cases`,
+        `/cases`,
         { id, donations },
         {
           headers: {
@@ -145,7 +145,7 @@ const NewDonation = ({
   const countNumFood = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/cuntFood
+        `/admin/cuntFood
  `
       );
 
@@ -158,7 +158,7 @@ const NewDonation = ({
   const countNumRebuilding = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/cuntReb
+        `/admin/cuntReb
  `
       );
 
@@ -173,7 +173,7 @@ const NewDonation = ({
   const countNumEducation = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/cuntEdu
+        `/admin/cuntEdu
  `
       );
 
@@ -187,7 +187,7 @@ const NewDonation = ({
   const countNumMedSupplies = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/cuntMedSupp
+        `/admin/cuntMedSupp
 `
       );
 

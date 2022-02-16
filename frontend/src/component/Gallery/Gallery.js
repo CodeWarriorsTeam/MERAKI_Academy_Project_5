@@ -19,7 +19,7 @@ const Gallery = () => {
   const getAllImage = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/gallery
+        `/gallery
      `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );

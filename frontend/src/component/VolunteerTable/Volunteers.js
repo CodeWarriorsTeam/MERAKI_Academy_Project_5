@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import Model from "react-modal";
@@ -9,7 +9,7 @@ import { MdOutlineVolunteerActivism, MdOutlineCases } from "react-icons/md";
 import { FiUsers } from "react-icons/fi";
 import { addImage } from "../../reducer/image/index";
 import { RiImageAddLine } from "react-icons/ri";
-import {  BiUpload } from "react-icons/bi";
+import { BiUpload } from "react-icons/bi";
 import { setUsers } from "../../reducer/users/index";
 
 import "./volunteer.css";
@@ -30,49 +30,49 @@ const Volunteers = () => {
       volunteers: state.volunteerReducer.volunteers,
     };
   });
- //----------------------------------------------------------
- const getAllImage = async () => {
-  try {
-    const res = await axios.get(
-      `http://localhost:5000/gallery
+  //----------------------------------------------------------
+  const getAllImage = async () => {
+    try {
+      const res = await axios.get(
+        `/gallery
    `,
-      { headers: { Authorization: `Bearer ${state.token}` } }
-    );
-
-    if (res.data.success) {
-      dispatch(setUsers(res.data.result));
-      // setGallery(res.data.result);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-useEffect(() => {
-  getAllImage();
-}, []);
-//----------------------------------------------------------
-const addNewImage = () => {
-  axios
-    .post(
-      "http://localhost:5000/gallery",
-      { image_1 },
-      { headers: { Authorization: `Bearer ${state.token}` } }
-    )
-
-    .then((result) => {
-      // console.log(image_1);
-      dispatch(
-        addImage({
-          image_1,
-        })
+        { headers: { Authorization: `Bearer ${state.token}` } }
       );
-      getAllImage();
-      setImageIsOpen(false);
-    })
-    .catch((err) => {
-      setMessage(err.response.data.message);
-    });
-};
+
+      if (res.data.success) {
+        dispatch(setUsers(res.data.result));
+        // setGallery(res.data.result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getAllImage();
+  }, []);
+  //----------------------------------------------------------
+  const addNewImage = () => {
+    axios
+      .post(
+        "/gallery",
+        { image_1 },
+        { headers: { Authorization: `Bearer ${state.token}` } }
+      )
+
+      .then((result) => {
+        // console.log(image_1);
+        dispatch(
+          addImage({
+            image_1,
+          })
+        );
+        getAllImage();
+        setImageIsOpen(false);
+      })
+      .catch((err) => {
+        setMessage(err.response.data.message);
+      });
+  };
 
   //----------------------------------------------------------
   const customStyles3 = {
@@ -85,28 +85,28 @@ const addNewImage = () => {
       transform: "translate(-50%, -50%)",
     },
   };
-    //----------------------------------------------------------
-    const uploadImage = (imageFile) => {
-      const formData = new FormData();
-      formData.append("file", imageFile);
-      formData.append("upload_preset", "nfrmsteq");
-      axios
-        .post("https://api.cloudinary.com/v1_1/dxw4t7j0p/image/upload", formData)
-  
-        .then((result) => {
-          setCase_Image(result.data.secure_url);
-          setImage_1(result.data.secure_url);
-        })
-        .catch((err) => {
-          console.log(err.response);
-        });
-    };
-    //------------------------------------------------------------
-  
+  //----------------------------------------------------------
+  const uploadImage = (imageFile) => {
+    const formData = new FormData();
+    formData.append("file", imageFile);
+    formData.append("upload_preset", "nfrmsteq");
+    axios
+      .post("https://api.cloudinary.com/v1_1/dxw4t7j0p/image/upload", formData)
+
+      .then((result) => {
+        setCase_Image(result.data.secure_url);
+        setImage_1(result.data.secure_url);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+  //------------------------------------------------------------
+
   const getAllVolunteers = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/volunteer
+        `/volunteer
       `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
@@ -124,7 +124,7 @@ const addNewImage = () => {
 
   return (
     <div className="all2">
-       <div className="links5">
+      <div className="links5">
         <Model
           style={customStyles3}
           isOpen={imageIsOpen}
@@ -150,7 +150,8 @@ const addNewImage = () => {
         </Model>
       </div>
       <ul>
-      <RiImageAddLine className="imageIcon9"></RiImageAddLine> <p
+        <RiImageAddLine className="imageIcon9"></RiImageAddLine>{" "}
+        <p
           onClick={() => {
             setImageIsOpen(true);
             console.log(imageIsOpen);
@@ -159,9 +160,8 @@ const addNewImage = () => {
           title="Add Image"
         >
           {" "}
-          Add Image 
-        </p> 
-            
+          Add Image
+        </p>
         <MdOutlineCases className="casicon7"></MdOutlineCases>{" "}
         <Link className="caselink7" to="/admin/cases">
           {" "}
@@ -233,7 +233,6 @@ const addNewImage = () => {
       <br />
       <br />
       <br />
-     
     </div>
   );
 };

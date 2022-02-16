@@ -78,7 +78,7 @@ const Admin = ({ searchCase }) => {
   const getAllCases = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/page?page=${numPage}
+        `/admin/page?page=${numPage}
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
@@ -98,7 +98,7 @@ const Admin = ({ searchCase }) => {
   // ------------------------------------------------
   const updateCaseById = async (id) => {
     try {
-      const result = await axios.put(`http://localhost:5000/cases/${id}`, {
+      const result = await axios.put(`/cases/${id}`, {
         case_image,
         title,
         case_description,
@@ -117,7 +117,7 @@ const Admin = ({ searchCase }) => {
 
   const deleteCseById = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/cases/${id}`);
+      await axios.delete(`/cases/${id}`);
       dispatch(deleteCase(id));
       getAllCases();
       //   navigate(`/allcases`);
@@ -145,7 +145,7 @@ const Admin = ({ searchCase }) => {
   const addNewCase = () => {
     axios
       .post(
-        "http://localhost:5000/cases",
+        "/cases",
         { category, case_image, title, case_description, TheAmountRequired },
         {
           headers: {
@@ -182,7 +182,7 @@ const Admin = ({ searchCase }) => {
   const getAllImage = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/gallery
+        `/gallery
      `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
@@ -203,7 +203,7 @@ const Admin = ({ searchCase }) => {
   const addNewImage = () => {
     axios
       .post(
-        "http://localhost:5000/gallery",
+        "/gallery",
         { image_1 },
         { headers: { Authorization: `Bearer ${state.token}` } }
       )
@@ -226,7 +226,7 @@ const Admin = ({ searchCase }) => {
   const getAllUsers = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/user/all
+        `/user/all
      `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
@@ -247,7 +247,7 @@ const Admin = ({ searchCase }) => {
   const getAllVolunteers = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/volunteer
+        `/volunteer
     `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
@@ -288,7 +288,7 @@ const Admin = ({ searchCase }) => {
   const conutCases = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/countCase
+        `/admin/countCase
 `
       );
 
@@ -304,7 +304,7 @@ const Admin = ({ searchCase }) => {
   const countVolunteer = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/countVolunteer
+        `/admin/countVolunteer
   `
       );
 
@@ -321,7 +321,7 @@ const Admin = ({ searchCase }) => {
   const conutUsers = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/cuntUser
+        `/admin/cuntUser
 `
       );
 
@@ -358,43 +358,41 @@ const Admin = ({ searchCase }) => {
             <Link className="voluntlink" to="/admin/volunteers">
               Volunteers
             </Link>
-            
           </li>
-           <RiImageAddLine className="imageIcon5"></RiImageAddLine> <p
-          onClick={() => {
-            setImageIsOpen(true);
-            console.log(imageIsOpen);
-          }}
-          className="imageIcon4"
-          title="Add Image"
-        >
-          {" "}
-          Add Image 
-        </p> 
-              
+          <RiImageAddLine className="imageIcon5"></RiImageAddLine>{" "}
+          <p
+            onClick={() => {
+              setImageIsOpen(true);
+              console.log(imageIsOpen);
+            }}
+            className="imageIcon4"
+            title="Add Image"
+          >
+            {" "}
+            Add Image
+          </p>
         </ul>
       </div>
       <div className="allLinks">
-      <div className="images3">
-        <MdVolunteerActivism className="countVolunteer"></MdVolunteerActivism>
-              <p className="countVolunteer2" >{numVolunteer}</p> 
-            
-      <p className="volunter">Volunteers</p> 
-       <p className="line2"></p>
-     
- </div>     
-      <div className="images4">
-        <FiUsers className="countUser"></FiUsers>
-        <p className="countUserPrg">{numUser}</p>{" "}
-        <p className="user2">Users</p>
-        <p className="line"></p>
-      </div>
-      <div className="images5">
-        <MdOutlineCases className="countCase"></MdOutlineCases>
-        <p className="countCase2">{numCase}</p>
-        <p className="case">Cases</p>
-        <p className="line1"></p>
-</div>
+        <div className="images3">
+          <MdVolunteerActivism className="countVolunteer"></MdVolunteerActivism>
+          <p className="countVolunteer2">{numVolunteer}</p>
+
+          <p className="volunter">Volunteers</p>
+          <p className="line2"></p>
+        </div>
+        <div className="images4">
+          <FiUsers className="countUser"></FiUsers>
+          <p className="countUserPrg">{numUser}</p>{" "}
+          <p className="user2">Users</p>
+          <p className="line"></p>
+        </div>
+        <div className="images5">
+          <MdOutlineCases className="countCase"></MdOutlineCases>
+          <p className="countCase2">{numCase}</p>
+          <p className="case">Cases</p>
+          <p className="line1"></p>
+        </div>
       </div>
       {/* <img className="imm" src="https://msdh.ms.gov/msdhsite/_static/images/graphics/covid19-chart-cases-compare-2022-02-14.png"></img> */}
       {/* <table className="table">
@@ -571,7 +569,6 @@ const Admin = ({ searchCase }) => {
       >
         <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
       </button> */}
-    
       <div className="model">
         <Model
           isOpen={modelIsOpen}

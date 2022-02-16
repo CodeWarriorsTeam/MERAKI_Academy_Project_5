@@ -10,7 +10,7 @@ import { MdOutlineVolunteerActivism } from "react-icons/md";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { GrFacebook } from "react-icons/gr";
 import { BsInstagram } from "react-icons/bs";
-import { AiFillLinkedin,AiOutlineArrowUp } from "react-icons/ai";
+import { AiFillLinkedin, AiOutlineArrowUp } from "react-icons/ai";
 import { BsSnapchat } from "react-icons/bs";
 import { FaTwitterSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -36,9 +36,7 @@ const Home = ({
 }) => {
   const dispatch = useDispatch();
 
-
-const navigate=useNavigate()
-
+  const navigate = useNavigate();
 
   const state = useSelector((state) => {
     return {
@@ -64,7 +62,7 @@ const navigate=useNavigate()
   const getEmergency1CaseById = async () => {
     try {
       const result = await axios.get(
-        `http://localhost:5000/cases/${localStorage.getItem("emergencyId1")}`
+        `/cases/${localStorage.getItem("emergencyId1")}`
       );
       dispatch(setCaseEmergency1(result.data.result));
 
@@ -76,7 +74,7 @@ const navigate=useNavigate()
   const getEmergency2CaseById = async () => {
     try {
       const result = await axios.get(
-        `http://localhost:5000/cases/${localStorage.getItem("emergencyId2")}`
+        `/cases/${localStorage.getItem("emergencyId2")}`
       );
       dispatch(setCaseEmergency2(result.data.result));
 
@@ -89,7 +87,7 @@ const navigate=useNavigate()
   const countNumEducation = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/cuntEdu
+        `/admin/cuntEdu
  `
       );
 
@@ -102,7 +100,7 @@ const navigate=useNavigate()
   const countNumFood = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/cuntFood
+        `/admin/cuntFood
  `
       );
 
@@ -114,7 +112,7 @@ const navigate=useNavigate()
   const countNumRebuilding = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/cuntReb
+        `/admin/cuntReb
  `
       );
 
@@ -127,7 +125,7 @@ const navigate=useNavigate()
   const countNumMedSupplies = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/cuntMedSupp
+        `/admin/cuntMedSupp
  `
       );
 
@@ -148,7 +146,7 @@ const navigate=useNavigate()
   useEffect(() => {
     countNumMedSupplies();
   }, []);
- 
+
   useEffect(() => {
     getEmergency1CaseById();
   }, []);
@@ -158,7 +156,7 @@ const navigate=useNavigate()
   const addNewVolunteer = () => {
     axios
       .post(
-        "http://localhost:5000/volunteer",
+        "/volunteer",
         { firstName, lastName, email, address_1, phonenumber },
         { headers: { Authorization: `Bearer ${state.token}` } }
       )
@@ -197,7 +195,7 @@ const navigate=useNavigate()
     });
   };
   window.addEventListener("scroll", toggleVisible);
-///----
+  ///----
   const convertToCase = (id) => {
     navigate(`/casedetails/${id}`);
   };
@@ -235,9 +233,9 @@ const navigate=useNavigate()
               Our Team
             </a>
 
-           
-              <a href="/#sectionEmergence" id="Login" >Emergency</a>
-           
+            <a href="/#sectionEmergence" id="Login">
+              Emergency
+            </a>
           </section>
         </main>
       </header>
@@ -249,7 +247,8 @@ const navigate=useNavigate()
               <div className="cardImage"></div>
               <div className="targetTitle">Educating 1000 students</div>
               <div className="targetCount">
-                Covered number for this moment:<span style={{marginLeft:"5px"}}>{numEducation} </span>
+                Covered number for this moment:
+                <span style={{ marginLeft: "5px" }}>{numEducation} </span>
               </div>
               <Link
                 to="/allcases"
@@ -266,8 +265,9 @@ const navigate=useNavigate()
             <div className="box">
               <div className="cardImage"></div>
               <div className="targetTitle">Feeding 1000 poor</div>
-              <div className="targetCount" style={{marginTop:"28px"}}>
-                Covered number for this moment:<span style={{marginLeft:"5px"}}>{numFood}</span>
+              <div className="targetCount" style={{ marginTop: "28px" }}>
+                Covered number for this moment:
+                <span style={{ marginLeft: "5px" }}>{numFood}</span>
               </div>
               <Link
                 to="/allcases"
@@ -285,7 +285,8 @@ const navigate=useNavigate()
               <div className="cardImage"></div>
               <div className="targetTitle">Repairing 500 facilities</div>
               <div className="targetCount">
-                Covered number for this moment:<span style={{marginLeft:"5px"}}>{numRebuilding} </span>
+                Covered number for this moment:
+                <span style={{ marginLeft: "5px" }}>{numRebuilding} </span>
               </div>
               <Link
                 to="/allcases"
@@ -306,7 +307,7 @@ const navigate=useNavigate()
               </div>
               <div className="targetCount">
                 Covered number for this moment:
-                <span style={{marginLeft:"5px"}}>{numMedicalSupplies} </span>
+                <span style={{ marginLeft: "5px" }}>{numMedicalSupplies} </span>
               </div>
               <Link
                 to="/allcases"
@@ -329,26 +330,32 @@ const navigate=useNavigate()
         </div>
 
         <div className="rowEmergency">
-       
-              <>
-                <div  className="colEmergency">
-                  <img  src="./image/case1.jpg"/>
-                  <h4>Food</h4>
-                  <p>Very urgent cases, help support them as soon as possible</p>
-                  <button className="ctn">Donate Now</button>
-                </div>
-              </>
-          
-              {state.caseEmergency1 &&
+          <>
+            <div className="colEmergency">
+              <img src="./image/case1.jpg" />
+              <h4>Food</h4>
+              <p>Very urgent cases, help support them as soon as possible</p>
+              <button className="ctn">Donate Now</button>
+            </div>
+          </>
+
+          {state.caseEmergency1 &&
             state.caseEmergency1.map((element, index) => (
               <>
                 <div key={index} className="colEmergency">
-                  <img  src={element.case_image}/>
+                  <img src={element.case_image} />
                   <h4>{element.title}</h4>
-                  <p>Very urgent cases, help support them as soon as possible</p>
-                  <button  className="ctn" onClick={()=>{
-                    convertToCase(element.id)
-                  }}>Donate Now</button>
+                  <p>
+                    Very urgent cases, help support them as soon as possible
+                  </p>
+                  <button
+                    className="ctn"
+                    onClick={() => {
+                      convertToCase(element.id);
+                    }}
+                  >
+                    Donate Now
+                  </button>
                 </div>
               </>
             ))}
@@ -535,8 +542,7 @@ const navigate=useNavigate()
             <h2 className="name">Anas Naamneh</h2>
             <br></br>
             <p className="descriptionMember">
-            A student at Meraki Academy, and a full stack
-              developer soon
+              A student at Meraki Academy, and a full stack developer soon
             </p>
           </div>
           {/* batool */}
@@ -546,13 +552,18 @@ const navigate=useNavigate()
             <h2 className="name">Batool Abusneneh</h2>
             <br></br>
             <p className="descriptionMember2">
-            A student at Meraki Academy 
-            <p> and a full stack developer</p>
+              A student at Meraki Academy
+              <p> and a full stack developer</p>
             </p>
           </div>
         </div>
       </section>
-    <button className="up"><AiOutlineArrowUp onClick={scrollToTop} style={{display: visible ? 'inline':'none', fontSize:"1.8em"}}></AiOutlineArrowUp></button> 
+      <button className="up">
+        <AiOutlineArrowUp
+          onClick={scrollToTop}
+          style={{ display: visible ? "inline" : "none", fontSize: "1.8em" }}
+        ></AiOutlineArrowUp>
+      </button>
 
       <footer className="footer">
         <div className="footerContent">
@@ -592,7 +603,7 @@ const navigate=useNavigate()
             </li>
           </ul>
         </div>
-        
+
         <div className="footerBottom">
           <p>
             copyright &copy; 2022 Safe House ..Designed by{" "}
@@ -601,7 +612,6 @@ const navigate=useNavigate()
         </div>
       </footer>
       {/* <ul className="smothscroll"><li><a href="#scrool"><AiOutlineArrowUp className="up">::before</AiOutlineArrowUp></a> </li></ul> */}
-
     </>
   );
 };
