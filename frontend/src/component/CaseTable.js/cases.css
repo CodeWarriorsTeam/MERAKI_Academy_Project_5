@@ -18,14 +18,18 @@
   text-decoration: none;
   font-size: 1.3em;
   /* float: left; */
-  transform: translate(1.3em, 12.8em);
+  transform: translate(1.5em, 12.5em);
 }
+ textarea{padding: 0px 45px;}
+ .title {padding: 0px 93px;} 
+ /* .amount{padding: 5px 40px;} */
+  .description{padding: 5px 70px;}
+.category {padding: 0px 80px;} 
 .imageIcon6 {
   cursor: pointer;
-
   font-size: 1.2em;
   color: rgb(128, 127, 127);
-  transform: translate(3.2em, 12.6em);
+  transform: translate(3.6em, 12.2em);
 }
 .imageIcon2 {
   font-size: 1.4em;
@@ -42,36 +46,36 @@
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(3.4em, 2.2em);
+  transform: translate(3.5em, 1.9em);
 }
 .userlink2 {
   color: rgb(128, 127, 127);
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(3.4em, 1.9em);
+  transform: translate(3.6em, 1.5em);
 }
 .caselink2 {
   color: rgb(128, 127, 127);
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(3.4em, 1.4em);
+  transform: translate(3.6em, 1.2em);
 }
 .caseicon2 {
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(0em, 2.4em);
+  transform: translate(0em, 2.1em);
 }
 .usericon2 {
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(-1.1em, 2.7em);
+  transform: translate(-1em, 2.4em);
 }
 .volicon2 {
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(-0.98em, 2.9em);
+  transform: translate(-0.8em, 2.6em);
 }
 .add {
   font-size: 2em;
@@ -81,10 +85,10 @@
   color: #f0d304;
 }
 .back {
-  transform: translate(47em, -13em);
+  transform: translate(47em, -20em);
 }
 .next {
-  transform: translate(14em,-13em);
+  transform: translate(14em,-20em);
   margin-left: 40%;
 }
 .add:hover {
@@ -93,7 +97,7 @@
 .table {
   margin-left: 20%;
   width: 20%;
-  transform: translate(0em, -15em);
+  transform: translate(0em, -24em);
 }
 th,
 td {
@@ -167,5 +171,5 @@ td {
   font-size: 0.8em;
 }
 .link22{
-  margin-bottom: 15%;
+  margin-bottom: 26%;
 }

@@ -446,7 +446,7 @@ const Cases = ({
                             <input
                               className="category"
                               type="text"
-                              placeholder="category"
+                              placeholder="Category"
                               onChange={(e) => {
                                 setCategory(e.target.value);
                               }}
@@ -466,7 +466,7 @@ const Cases = ({
                             <input
                               className="amount"
                               type="number"
-                              placeholder="The amount required"
+                              placeholder="Amount"
                               onChange={(e) => {
                                 setTheAmountRequired(e.target.value);
                               }}

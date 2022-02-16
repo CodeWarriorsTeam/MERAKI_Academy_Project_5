@@ -1,21 +1,10 @@
-/* .table,
-th,
-td { */
-/* margin-right: 20%; */
-/* margin-left: 20%; */
-/* width: 80%; */
-/* border-collapse: separate; */
-/* border-spacing: 2% 2%; */
-/* border: 1px solid rgba(17, 17, 17, 0.377); */
-/* } */
-
 .links2{
-  margin-bottom: 6.1%;
+  margin-bottom: 18%;
 }
 .images5 {
   background-color: yellow;
   margin-top: 5%;
-  transform: translate(40em, -24.3em);
+  transform: translate(40em, -33em);
   width: 20%;
   height: 80px;
   border-radius: 4px;
@@ -23,7 +12,7 @@ td { */
 .images4 {
   background-color: rgb(0, 216, 0);
   margin-top: 5%;
-  transform: translate(62em, -15.3em);
+  transform: translate(62em, -23.9em);
   width: 20%;
   height: 80px;
   border-radius: 4px;
@@ -38,19 +27,17 @@ td { */
 }
 .images3 {
   background-color: rgb(255, 122, 211);
-  /* margin: 5%; */
   margin-top: 5%;
-  transform: translate(18em, -6em);
+  transform: translate(18em, -14.6em);
   width: 20%;
   height: 80px;
   border-radius: 4px;
-  /* float: right; */
 }
 .imageIcon5{
 
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(-3.1em, 8em);
+  transform: translate(-2.9em, 8em);
 }
 .imageIcon4{
   cursor: pointer; 
@@ -59,19 +46,19 @@ td { */
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(3em, 9.5em);
+  transform: translate(3.5em, 9.5em);
 }
 .voluntlink {
   color: rgb(128, 127, 127);
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(3em, 8.1em);
+  transform: translate(3.5em, 8.1em);
 }
 .usericon {
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(-1em, 5.8em);
+  transform: translate(-0.8em, 5.6em);
 }
 .allLinks{
   margin-bottom: 2.8%;
@@ -79,19 +66,19 @@ td { */
 .caseicon {
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(-1.1em, 4.6em);
+  transform: translate(-1em, 4.6em);
 }
 .userlink {
   color: rgb(128, 127, 127);
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(3.3em, 7em);
+  transform: translate(3.6em, 6.7em);
 }
 .volicon3 {
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(-2.9em, 6.8em);
+  transform: translate(-2.7em, 6.8em);
 }
 
 .caselink {
@@ -99,37 +86,12 @@ td { */
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(3.3em, 5.4em);
+  transform: translate(3.6em, 5.5em);
 }
-/* .voluntlink {
-  color: white;
-  text-decoration: none;
-  font-size: 1em;
-  float: left;
-  transform: translate(2.6em, 6.8em);
-}
-.userlink {
-  color: white;
-  text-decoration: none;
-  font-size: 1em;
-  float: left;
-  transform: translate(2.7em, 4.5em);
-}
-.caselink {
-  color: white;
-  text-decoration: none;
-  font-size: 1em;
-  float: left;
-  transform: translate(2.7em, 2.4em);
-} */
-/* .oper { */
-/* width: 5%; */
-/* } */
 .uplo {
   width: 7%;
-  height: 5%;
+  height: 29px;
   cursor: pointer;
-  /* margin-right: 10%; */
 }
 .update1 {
   width: 10%;
@@ -148,6 +110,7 @@ td { */
 
 .imaget {
   margin-left: 8%;
+  height: 32px;
   margin-top: 5%;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
@@ -155,7 +118,7 @@ td { */
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
   border-radius: 5px;
-  width: 54%;
+  width: 50%;
 }
 .i {
   transform: translate(11.4em, -1em);
@@ -164,9 +127,6 @@ td { */
 .imageIcon {
   font-size: 2em;
   color: white;
-  /* transform: translate(1.5em, 1em); */
-  /* transform: translate(30em, 0.9em); */
-  /* display: grid; */
 }
 
 .imageIcon:hover {
@@ -174,31 +134,32 @@ td { */
 }
 
 .uploadIcon {
+  font-size: 1.3em;
   height: 1em;
-  margin-left: 0.2em;
 }
 
 .uploadIcon:hover {
   cursor: pointer;
 }
-
-/* .uploadIcon:active {
-  background-color: #039214;
-} */
 .uploadImageButton {
-  width: 5%;
+  width: 7%;
+  height: 28px;
+  margin-left: 10px; 
 }
 .uploadImageButton:active {
-  background-color: yellow;
+  background-color: #F0D304;
 }
 
 .addImage {
-  height: 22px;
+  height: 30px;
   margin-left: 25%;
-  transform: translate(20em, -1.7em);
-  width: 15%;
+  transform: translate(18em, -2.5em);
+  width: 17%;
 }
-
+/* .imm{
+  width: 50%;
+  height: 50%;
+} */
 .addImage:hover {
   cursor: pointer;
 }
@@ -228,28 +189,10 @@ th {
   font-size: 100%;
 }
 .next {
-  /* float: right; */
   width: 3%;
   background-color: #ebebeb;
   font-size: 100%;
 }
-/* 
-.table {
-  width: 80%;
-  margin-left: 2%;
-  position: relative;
-  justify-content: center;
-  text-align: center;
-}
-th,
-td {
-  text-align: right;
-  padding: 8px;
-  text-align: left;
-} */
-/* .head {
-  font-size: 100%;
-} */
 .arrow {
   float: right;
 }
@@ -323,7 +266,7 @@ td {
   color: black;
   border-radius: 5px;
   width: 54%;
-  height: 25px;
+  height: 32px;
   margin-left: 18%;
 }
 
@@ -400,7 +343,7 @@ td {
 }
 .new {
   height: 30px;
-  width: 45%;
+  width: 60%;
   border-radius: 5px;
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
@@ -409,7 +352,7 @@ td {
   background-color: rgba(136, 128, 128, 0.342);
   color: black;
   font-size: 2ch;
-  margin-left: 26%;
+  margin-left: 18%;
 }
 
 .countUser {
@@ -429,12 +372,10 @@ td {
 }
 .line2 {
   border-bottom: 1px solid rgb(2, 2, 2);
-  /* padding-bottom: 27px; */
   transform: translate(0em,-2em);
 
 }.line1 {
   border-bottom: 1px solid rgb(0, 0, 0);
-  /* padding-bottom: -20px; */
   transform: translate(0em,-2.1em);
 }
 

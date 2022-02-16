@@ -7,6 +7,7 @@ import { FiUsers } from "react-icons/fi";
 import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
 import { IoMdArrowBack } from "react-icons/io";
 import { ImImages } from "react-icons/im";
+// import { ResponsiveBar } from '@nivo/bar'
 
 import {
   MdVolunteerActivism,
@@ -31,6 +32,7 @@ import "./Admin.css";
 import { Link } from "react-router-dom";
 import { setVolunteers } from "../../reducer/volunteer";
 import SideBar from "../SideBar";
+import { ResponsiveBar } from '@nivo/bar'
 
 const Admin = ({ searchCase }) => {
   const [num, setNum] = useState(1);
@@ -272,17 +274,6 @@ const Admin = ({ searchCase }) => {
       transform: "translate(-50%, -50%)",
     },
   };
-  const customStyles2 = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "60%",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-    },
-  };
-
   const customStyles3 = {
     content: {
       //   background: "rgba(yellow, 0, 0, 0.7)",
@@ -405,6 +396,7 @@ const Admin = ({ searchCase }) => {
         <p className="line1"></p>
 </div>
       </div>
+      {/* <img className="imm" src="https://msdh.ms.gov/msdhsite/_static/images/graphics/covid19-chart-cases-compare-2022-02-14.png"></img> */}
       {/* <table className="table">
         {" "} */}
       {/* <tr className="head">
@@ -579,6 +571,7 @@ const Admin = ({ searchCase }) => {
       >
         <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
       </button> */}
+    
       <div className="model">
         <Model
           isOpen={modelIsOpen}
