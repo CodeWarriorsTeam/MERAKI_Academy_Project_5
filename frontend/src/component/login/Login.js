@@ -34,7 +34,7 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
 
   const login = () => {
     axios
-      .post("http://localhost:5000/login", userLogin)
+      .post("/login", userLogin)
 
       .then(async (result) => {
         console.log(result.data.result);
@@ -70,7 +70,7 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
         <div className="left-login">
           <h1 className="sign">Login to Your Account</h1>
           <h3 className="signgoogle">Login using google</h3>
-          <br /> 
+          <br />
           <GoogleLogin
             className="google"
             clientId="776623589420-erpi2vgpt6n8ncgv3gqc7ddcpphibjs5.apps.googleusercontent.com"
@@ -79,7 +79,7 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
             onFailure={responseGoogle}
             cookiePolicy={"single_host_origin"}
           />{" "}
-          <br /> 
+          <br />
           <p className="or">
             <span>OR</span>
           </p>
@@ -91,7 +91,7 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
               setEmail(e.target.value);
             }}
           ></input>
-          <br /> 
+          <br />
           <input
             type="password"
             placeholder=" Password"

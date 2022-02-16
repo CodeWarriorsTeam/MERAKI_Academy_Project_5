@@ -53,7 +53,7 @@ const Cases = ({
   const getAllImage = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/gallery
+        `/gallery
      `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
@@ -73,7 +73,7 @@ const Cases = ({
   const addNewImage = () => {
     axios
       .post(
-        "http://localhost:5000/gallery",
+        "/gallery",
         { image_1 },
         { headers: { Authorization: `Bearer ${state.token}` } }
       )
@@ -97,7 +97,7 @@ const Cases = ({
   const addNewCase = () => {
     axios
       .post(
-        "http://localhost:5000/cases",
+        "/cases",
         { category, case_image, title, case_description, TheAmountRequired },
         {
           headers: {
@@ -148,7 +148,7 @@ const Cases = ({
   const getAllCases = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/admin/page?page=${numPage}
+        `/admin/page?page=${numPage}
      `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
@@ -168,7 +168,7 @@ const Cases = ({
   //---------------------------------------------------------------------------
   const updateCaseById = async (id) => {
     try {
-      const result = await axios.put(`http://localhost:5000/cases/${id}`, {
+      const result = await axios.put(`/cases/${id}`, {
         case_image,
         title,
         case_description,
@@ -186,7 +186,7 @@ const Cases = ({
   //------------------------------------------------------------------------------
   const deleteCseById = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/cases/${id}`);
+      await axios.delete(`/cases/${id}`);
       dispatch(deleteCase(id));
       getAllCases();
       //   navigate(`/allcases`);
@@ -441,7 +441,7 @@ const Cases = ({
                         onRequestClose={() => setModelIsOpen(false)}
                       >
                         <div className="newPage">
-                   <br />
+                          <br />
                           <>
                             <input
                               className="category"

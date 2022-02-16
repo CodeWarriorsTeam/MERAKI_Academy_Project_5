@@ -46,7 +46,7 @@ const AllCases = ({
   const getAllCases = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/cases/page?page=${num}
+        `/cases/page?page=${num}
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
@@ -81,7 +81,7 @@ const AllCases = ({
   const getAllCasesByCategory = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/cases/page/category?page=${num}&category=${categoryNav}
+        `/cases/page/category?page=${num}&category=${categoryNav}
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
@@ -161,10 +161,13 @@ const AllCases = ({
             .map((element, i) => (
               <>
                 <div key={i} className="cardCases">
-                  <img className="cardImage" src={element.case_image}
-                   onClick={() => {
-                    convertToCase(element.id);
-                  }}>
+                  <img
+                    className="cardImage"
+                    src={element.case_image}
+                    onClick={() => {
+                      convertToCase(element.id);
+                    }}
+                  >
                     {/* <img src={element.case_image}/> */}
                   </img>
                   <div className="cardText">
@@ -172,7 +175,6 @@ const AllCases = ({
                     <h2 style={{ width: "100%", wordBreak: "break-all" }}>
                       {element.title}
                     </h2>
-                   
                   </div>
                   <div className="cardState">
                     <div className="stat">
@@ -184,14 +186,17 @@ const AllCases = ({
                       <div className="type">required</div>
                     </div>
                     <div className="stat">
-                      
-                        {element.TheAmountRequired &&
-                        element.TheAmountRequired > 0 ? (
-                          <div className="value"style={{ color: "green" }}>Open </div>
-                        ) : (
-                          <div className="value" style={{ color: "red" }}>close</div>
-                        )}
-                     
+                      {element.TheAmountRequired &&
+                      element.TheAmountRequired > 0 ? (
+                        <div className="value" style={{ color: "green" }}>
+                          Open{" "}
+                        </div>
+                      ) : (
+                        <div className="value" style={{ color: "red" }}>
+                          close
+                        </div>
+                      )}
+
                       <div className="type">State</div>
                     </div>
                   </div>
@@ -257,29 +262,31 @@ const AllCases = ({
         {/* </div>
         </div>
       </section> */}
-     
       </section>
 
-    <div className="divPagination">  {num == 1 ? (
-        <></>
-      ) : (
+      <div className="divPagination">
+        {" "}
+        {num == 1 ? (
+          <></>
+        ) : (
+          <button
+            onClick={() => {
+              setNum(num - 1);
+            }}
+            className="backPaginationButton"
+          >
+            <IoMdArrowBack className="buttonIconPag"></IoMdArrowBack>
+          </button>
+        )}
         <button
+          className="PaginationButton"
           onClick={() => {
-            setNum(num - 1);
+            setNum(num + 1);
           }}
-          className="backPaginationButton"
         >
-          <IoMdArrowBack className="buttonIconPag"></IoMdArrowBack>
+          <GrFormNextLink className="buttonIconPag"></GrFormNextLink>
         </button>
-      )}
-      <button
-        className="PaginationButton"
-        onClick={() => {
-          setNum(num + 1);
-        }}
-      >
-        <GrFormNextLink className="buttonIconPag"></GrFormNextLink>
-      </button></div>
+      </div>
 
       {/* {message && <div>{message}</div>}
       <button className="up"><AiOutlineArrowUp onClick={scrollToTop} style={{display: visible ? 'inline':'none', fontSize:"1.8em"}}></AiOutlineArrowUp></button> */}

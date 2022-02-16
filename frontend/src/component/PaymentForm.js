@@ -55,7 +55,7 @@ export default function PaymentForm() {
   const [donateIsOpen, setDonateIsOpen] = useState(false);
   const getbyid = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/cases/${id}`);
+      const result = await axios.get(`/cases/${id}`);
       seTitle(result.data.result[0].title);
       // console.log(result.data.result);
       dispatch(setCase(result.data.result));
@@ -80,7 +80,7 @@ export default function PaymentForm() {
     if (!error) {
       try {
         const { id } = paymentMethod;
-        const response = await axios.post(`http://localhost:5000/payment`, {
+        const response = await axios.post(`/payment`, {
           amount,
           id,
           title,
@@ -112,7 +112,7 @@ export default function PaymentForm() {
               <div className="Fname">
                 <h3>First name</h3>
                 <div className="input-filed">
-                  <input  placeholder="First Name...." type="text"></input>
+                  <input placeholder="First Name...." type="text"></input>
                 </div>
               </div>
               <div className="Lname">
@@ -139,25 +139,25 @@ export default function PaymentForm() {
             <div className="how-match">
               <h3>How Much</h3>
               <div className="Selection">
-            <div className="input-filed">
-                <input
-                  type="text"
-                  placeholder="How match...."
-                  onChange={(e) => {
-                    setAmount(e.target.value);
-                  }}
-                ></input>
+                <div className="input-filed">
+                  <input
+                    type="text"
+                    placeholder="How match...."
+                    onChange={(e) => {
+                      setAmount(e.target.value);
+                    }}
+                  ></input>
                 </div>
                 <div className="cardsImage">
-                  <img src="../image/visa.png"/>
-                  <img src="../image/masterd.png"/>
+                  <img src="../image/visa.png" />
+                  <img src="../image/masterd.png" />
                   <img src="../image/payPal.png" />
                 </div>
               </div>
             </div>
 
             <button
-               className="APay"
+              className="APay"
               onClick={() => {
                 getbyid();
               }}

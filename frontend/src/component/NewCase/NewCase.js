@@ -50,7 +50,7 @@
 //   const addNewCase = () => {
 //     axios
 //       .post(
-//         "http://localhost:5000/cases",
+//         "/cases",
 //         { category, case_image, title, case_description, TheAmountRequired },
 //         {
 //           headers: {
@@ -106,8 +106,8 @@
 //           }}
 //         ></input> */}
 
-//         <input 
-//           type="file" className="image"  
+//         <input
+//           type="file" className="image"
 //           onChange={(e) => {
 //             setImageSelected(e.target.files[0]);
 //           }}
