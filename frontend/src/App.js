@@ -109,7 +109,7 @@ function App() {
           numEducation={numEducation}setNumMedicalSupplies={setNumMedicalSupplies}numMedicalSupplies={numMedicalSupplies}/>}
         />
 
-<Route path="/admin/cases" element={isAdmin ? <Cases searchCase={searchCase}setInputEmergency1={setInputEmergency1} inputEmergency1={inputEmergency1} />:<p>Not Authorized</p>} />
+<Route path="/admin/cases" element={isAdmin ? <Cases searchCase={searchCase}setInputEmergency1={setInputEmergency1} inputEmergency1={inputEmergency1}setInputEmergency2={setInputEmergency2}inputEmergency2={inputEmergency2} />:<p>Not Authorized</p>} />
 
 
 <Route path="/admin/users" element={<Users searchCase={searchCase} />} />

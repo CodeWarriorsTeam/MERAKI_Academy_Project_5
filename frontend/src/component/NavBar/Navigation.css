@@ -259,6 +259,8 @@ nav .logo{
   /* top: 0;
   left: 0; */
   position: absolute;
+  /* position: sticky; */
+  /* top: 0; */
   width: 100%;
   box-sizing: border-box;
   background: rgb(43, 41, 41);
@@ -310,11 +312,36 @@ nav .logo{
   cursor: pointer;
   /* transform: translate(1em, 0.1em); */
 }
-.a{
+.logoutAdmin{
   font-size: 1.5em;
   color: white;
   float: right;
-  transform: translate(-1em,0em);
+ 
+  transform: translate(-1em,0.4em);
+}
+
+#Logout{
+  height: 58.4px;
+  display: inline-block;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+ 
+ 
+}
+.iconLogout{
+  font-size: 1.5em;
+  color: white;
+  transform: translate(0.5em,0.3em);
+ 
+ 
+}
+.iconLogout:hover{
+  cursor: pointer;
+}
+.logoutAdmin:hover{
+  cursor: pointer;
 }
 .dashicon{
  font-size: 1.5em;

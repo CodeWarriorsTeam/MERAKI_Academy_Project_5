@@ -141,6 +141,7 @@ const AllCases = ({
       <br />
       <br />
       <section className="allCasesSection">
+        {/* <section className="allCasesSection">
         <div className="containerAllCases">
           <div className="row my-3">
             <div className="col my-3">
@@ -155,59 +156,92 @@ const AllCases = ({
             </div>
           </div>
 
-          <div className="row-cases">
-            {state.cases &&
-              state.cases
-                .filter((caseInformation) => {
-                  if (searchCase == "") {
-                    return caseInformation;
-                  } else if (
-                    caseInformation.category
-                      .toLowerCase()
-                      .includes(searchCase.toLowerCase()) ||
-                    caseInformation.title
-                      .toLowerCase()
-                      .includes(searchCase.toLowerCase())
-                  ) {
-                    return caseInformation;
-                  }
-                })
-                .map((element, i) => (
-                  <>
-                    <div key={i} className="col-cases" >
-                      <div  className="containerCase outline">
-                   <img
-                          className="caseImage"
-                          title="Case Image"
-                          onClick={() => {
-                            convertToCase(element.id);
-                          }}
-                          src={element.case_image}
-                        />
+          <div className="row-cases"> */}
+        {state.cases &&
+          state.cases
+            .filter((caseInformation) => {
+              if (searchCase == "") {
+                return caseInformation;
+              } else if (
+                caseInformation.category
+                  .toLowerCase()
+                  .includes(searchCase.toLowerCase()) ||
+                caseInformation.title
+                  .toLowerCase()
+                  .includes(searchCase.toLowerCase())
+              ) {
+                return caseInformation;
+              }
+            })
+            .map((element, i) => (
+              <>
+                <div key={i} className="cardCases">
+                  <img className="cardImage" src={element.case_image}
+                   onClick={() => {
+                    convertToCase(element.id);
+                  }}>
+                    {/* <img src={element.case_image}/> */}
+                  </img>
+                  <div className="cardText">
+                    <span className="dataSpan">{element.category}</span>
+                    <h2 style={{ width: "100%", wordBreak: "break-all" }}>
+                      {element.title}
+                    </h2>
+                   
+                  </div>
+                  <div className="cardState">
+                    <div className="stat">
+                      <div className="value">{element.id}</div>
+                      <div className="type">Case</div>
+                    </div>
+                    <div className="stat border">
+                      <div className="value">{element.TheAmountRequired}</div>
+                      <div className="type">required</div>
+                    </div>
+                    <div className="stat">
+                      
                         {element.TheAmountRequired &&
                         element.TheAmountRequired > 0 ? (
-                          <>
-                            <a className="donationNow">Open</a>
-                          </>
+                          <div className="value"style={{ color: "green" }}>Open </div>
                         ) : (
-                          <a
-                            className="donationNow"
-                            style={{ background: "red" }}
-                          >
-                            close
-                          </a>
+                          <div className="value" style={{ color: "red" }}>close</div>
                         )}
-                      </div>
-                      <p className="titleCase">{element.title}</p>
-                      <h6 className="required">{element.TheAmountRequired}$</h6>
-                      <div className="contBtn">
-                      <div className="BtnDetailsCase"  onClick={() => {
-                          convertToCase(element.id);
-                        }}>
-                  Details
-                      </div>
-                      </div>
-                      {/* <button className="detailsCase"
+                     
+                      <div className="type">State</div>
+                    </div>
+                  </div>
+                  {/* <img
+                    className="caseImage"
+                    title="Case Image"
+                    onClick={() => {
+                      convertToCase(element.id);
+                    }}
+                    src={element.case_image}
+                  /> */}
+                  {/* {element.TheAmountRequired &&
+                  element.TheAmountRequired > 0 ? (
+                    <>
+                      <a className="donationNow">Open</a>
+                    </>
+                  ) : (
+                    <a className="donationNow" style={{ background: "red" }}>
+                      close
+                    </a>
+                  )} */}
+                </div>
+                {/* <p className="titleCase">{element.title}</p>
+                <h6 className="required">{element.TheAmountRequired}$</h6>
+                <div className="contBtn">
+                  <div
+                    className="BtnDetailsCase"
+                    onClick={() => {
+                      convertToCase(element.id);
+                    }}
+                  >
+                    Details
+                  </div>
+                </div> */}
+                {/* <button className="detailsCase"
                         onClick={() => {
                           convertToCase(element.id);
                         }}
@@ -215,13 +249,13 @@ const AllCases = ({
                       >
                         Details
                       </button> */}
-                    </div>
-                    {/* <div className="caseInfo"> */}
-                    {/* <p className="allcasesTitle">{element.title}</p>
+
+                {/* <div className="caseInfo"> */}
+                {/* <p className="allcasesTitle">{element.title}</p>
                     <p className="TheAmountReguired">
                       {element.TheAmountRequired}$
                     </p> */}
-                    {/* {element.TheAmountRequired &&
+                {/* {element.TheAmountRequired &&
                     element.TheAmountRequired > 0 ? (
                       <>
                         <a className="donationNow">Open</a>
@@ -232,11 +266,12 @@ const AllCases = ({
                       </a>
                     )} */}
 
-                    {/* </div> */}
-                  </>
-                ))}
-          </div>
+                {/* </div> */}
+              </>
+            ))}
+        {/* </div>
         </div>
+      </section> */}
       </section>
 
       {num == 1 ? (

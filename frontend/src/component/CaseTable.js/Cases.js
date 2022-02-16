@@ -19,7 +19,7 @@ import { IoMdArrowBack } from "react-icons/io";
 import { RiDeleteBinLine,RiImageAddLine } from "react-icons/ri";
 import {AddCase, deleteCase, updateCases } from "../../reducer/cases";
 import { Link } from "react-router-dom";
-const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
+const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmergency2,inputEmergency2}) => {
   const [num, setNum] = useState(1);
   const [updateIsOpen, setUpdateIsOpen] = useState(false);
   const [caseId, setCaseId] = useState("");
@@ -141,6 +141,7 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
   //------------------------------------------------------------
   const getAllCases = async () => {
     try {
+   
       const res = await axios.get(
         `http://localhost:5000/admin/page?page=${numPage}
      `,
@@ -222,6 +223,9 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
     },
   };
 
+  useEffect(() => {
+    getAllCases();
+  }, [numPage]);
   return (
     <div className="all">
       <>
@@ -301,7 +305,8 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
             Actions
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th className="oper">Emergency</th>
+          <th className="oper">Emergency1</th>
+          <th className="oper">Emergency2</th>
         </tr>{" "}
         {state.cases &&
           state.cases
@@ -365,7 +370,34 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 }) => {
                           onClick={() => {
                             setInputEmergency1(element.id);
                             localStorage.setItem(
-                              "emergencyId",
+                              "emergencyId1",
+                              element.id
+                            );
+                          }}
+                          type="checkbox"
+                        />
+                      )}
+                    </td>
+                    <td className={element.id}>
+                      {inputEmergency2 == 23 ? (
+                        <input
+                          onClick={() => {
+                            setInputEmergency2(element.id);
+                          }}
+                          type="checkbox"
+                        />
+                      ) : element.id == inputEmergency2 ? (
+                        <>
+                          <IoCheckmarkDoneSharp
+                         
+                          ></IoCheckmarkDoneSharp>
+                        </>
+                      ) : (
+                        <input
+                          onClick={() => {
+                            setInputEmergency2(element.id);
+                            localStorage.setItem(
+                              "emergencyId2",
                               element.id
                             );
                           }}

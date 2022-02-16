@@ -559,7 +559,7 @@ const Admin = ({ searchCase }) => {
               );
             })}
       </table> */}
-      {numPage == 1 ? (
+      {/* {numPage == 1 ? (
         <></>
       ) : (
         <button
@@ -578,7 +578,7 @@ const Admin = ({ searchCase }) => {
         className="next"
       >
         <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
-      </button>
+      </button> */}
       <div className="model">
         <Model
           isOpen={modelIsOpen}
