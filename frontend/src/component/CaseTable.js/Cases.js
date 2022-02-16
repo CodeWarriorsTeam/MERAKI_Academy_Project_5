@@ -10,16 +10,22 @@ import { setCases } from "../../reducer/cases";
 import { useNavigate } from "react-router-dom";
 import Model from "react-modal";
 import { BiEdit, BiUpload } from "react-icons/bi";
-import{ BsPlusCircle} from "react-icons/bs"
+import { BsPlusCircle } from "react-icons/bs";
 import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
 import { MdOutlineVolunteerActivism, MdOutlineCases } from "react-icons/md";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { FiUsers } from "react-icons/fi";
 import { IoMdArrowBack } from "react-icons/io";
-import { RiDeleteBinLine,RiImageAddLine } from "react-icons/ri";
-import {AddCase, deleteCase, updateCases } from "../../reducer/cases";
+import { RiDeleteBinLine, RiImageAddLine } from "react-icons/ri";
+import { AddCase, deleteCase, updateCases } from "../../reducer/cases";
 import { Link } from "react-router-dom";
-const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmergency2,inputEmergency2}) => {
+const Cases = ({
+  searchCase,
+  setInputEmergency1,
+  inputEmergency1,
+  setInputEmergency2,
+  inputEmergency2,
+}) => {
   const [num, setNum] = useState(1);
   const [updateIsOpen, setUpdateIsOpen] = useState(false);
   const [caseId, setCaseId] = useState("");
@@ -43,7 +49,7 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmerge
   const state = useSelector((state) => {
     return { token: state.loginReducer.token, cases: state.casesReducer.cases };
   });
-    //----------------------------------------------------------
+  //----------------------------------------------------------
   const getAllImage = async () => {
     try {
       const res = await axios.get(
@@ -86,7 +92,7 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmerge
         setMessage(err.response.data.message);
       });
   };
-    //----------------------------------------------------------
+  //----------------------------------------------------------
 
   const addNewCase = () => {
     axios
@@ -141,7 +147,6 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmerge
   //------------------------------------------------------------
   const getAllCases = async () => {
     try {
-   
       const res = await axios.get(
         `http://localhost:5000/admin/page?page=${numPage}
      `,
@@ -228,19 +233,25 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmerge
   }, [numPage]);
   return (
     <div className="all">
-      <>
-        <ul> <RiImageAddLine className="imageLink6"></RiImageAddLine> <p
-          onClick={() => {
-            setImageIsOpen(true);
-            console.log(imageIsOpen);
-          }}
-          className="imageIcon6"
-          title="Add Image"
-        >
+      <div className="link22">
+        <ul>
           {" "}
-          Add Image 
-        </p> 
-        <BsPlusCircle onClick={() => setModelIsOpen(true)} className="add"></BsPlusCircle>
+          <RiImageAddLine className="imageLink6"></RiImageAddLine>{" "}
+          <p
+            onClick={() => {
+              setImageIsOpen(true);
+              console.log(imageIsOpen);
+            }}
+            className="imageIcon6"
+            title="Add Image"
+          >
+            {" "}
+            Add Image
+          </p>
+          <BsPlusCircle
+            onClick={() => setModelIsOpen(true)}
+            className="add"
+          ></BsPlusCircle>
           <MdOutlineCases className="caseicon2"></MdOutlineCases>{" "}
           <li>
             {" "}
@@ -263,7 +274,7 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmerge
             </Link>
           </li>
         </ul>
-      </>
+      </div>
       <table className="table">
         {" "}
         <tr className="head">
@@ -297,16 +308,12 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmerge
             donation
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th className="don">
-            donor
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
           <th className="oper">
             Actions
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th className="oper">Emergency1</th>
-          <th className="oper">Emergency2</th>
+          <th style={{ fontSize: "0.7em" }}>Emergency1</th>
+          <th style={{ fontSize: "0.7em" }}>Emergency2</th>
         </tr>{" "}
         {state.cases &&
           state.cases
@@ -333,12 +340,18 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmerge
                     <td className="tit">{element.title}</td>
                     <td className="req"> {element.TheAmountRequired}</td>
                     <td className="imag">{element.case_image}</td>
-                    <td className="descr">{element.case_description}</td>
+                    <td
+                      className="descr"
+                      style={{
+                        wordBreak: "break-all",
+                        width: "500px",
+                      }}
+                    >
+                      {element.case_description}
+                    </td>
                     <td className="donation">{element.donations}</td>
-                    <td className="donor">{element.donor}</td>
                     <td className="button">
                       {" "}
-        
                       <RiDeleteBinLine
                         onClick={() => deleteCseById(element.id)}
                         className="deleteIcon"
@@ -361,18 +374,13 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmerge
                         />
                       ) : element.id == inputEmergency1 ? (
                         <>
-                          <IoCheckmarkDoneSharp
-                         
-                          ></IoCheckmarkDoneSharp>
+                          <IoCheckmarkDoneSharp></IoCheckmarkDoneSharp>
                         </>
                       ) : (
                         <input
                           onClick={() => {
                             setInputEmergency1(element.id);
-                            localStorage.setItem(
-                              "emergencyId1",
-                              element.id
-                            );
+                            localStorage.setItem("emergencyId1", element.id);
                           }}
                           type="checkbox"
                         />
@@ -388,132 +396,119 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmerge
                         />
                       ) : element.id == inputEmergency2 ? (
                         <>
-                          <IoCheckmarkDoneSharp
-                         
-                          ></IoCheckmarkDoneSharp>
+                          <IoCheckmarkDoneSharp></IoCheckmarkDoneSharp>
                         </>
                       ) : (
                         <input
                           onClick={() => {
                             setInputEmergency2(element.id);
-                            localStorage.setItem(
-                              "emergencyId2",
-                              element.id
-                            );
+                            localStorage.setItem("emergencyId2", element.id);
                           }}
                           type="checkbox"
                         />
                       )}
                     </td>
                     <div>
-        <Model
-          style={customStyles3}
-          isOpen={imageIsOpen}
-          onRequestClose={() => setImageIsOpen(false)}
-        >
-          <input
-            type="file"
-            className="imaget"
-            onChange={(e) => {
-              setImageSelected(e.target.files[0]);
-            }}
-          ></input>
-          <button
-            onClick={() => uploadImage(imageselected)}
-            className="uploadImageButton"
-          >
-            {" "}
-            <BiUpload className="uploadIcon"></BiUpload>
-          </button>
-          <button onClick={addNewImage} className="addImage">
-            Add Image
-          </button>
-        </Model>
-      </div>
-      {/* <p
-        onClick={() => setModelIsOpen(true)}
-        className="plus"
-        title="Add New Case"
-      >></p> */}
+                      <Model
+                        style={customStyles3}
+                        isOpen={imageIsOpen}
+                        onRequestClose={() => setImageIsOpen(false)}
+                      >
+                        <input
+                          type="file"
+                          className="imaget"
+                          onChange={(e) => {
+                            setImageSelected(e.target.files[0]);
+                          }}
+                        ></input>
+                        <button
+                          onClick={() => uploadImage(imageselected)}
+                          className="uploadImageButton"
+                        >
+                          {" "}
+                          <BiUpload className="uploadIcon"></BiUpload>
+                        </button>
+                        <button onClick={addNewImage} className="addImage">
+                          Add Image
+                        </button>
+                      </Model>
+                    </div>
                     <div className="model">
-        <Model
-          isOpen={modelIsOpen}
-          style={customStyles}
-          onRequestClose={() => setModelIsOpen(false)}
-        >
-          <div className="newPage">
-            {/* 
-            <br />
-            <br /> */}
-            <br />
-            <>
-              <input
-                className="category"
-                type="text"
-                placeholder="category"
-                onChange={(e) => {
-                  setCategory(e.target.value);
-                }}
-              ></input>
-              <br />
-              <br />
-              <input
-                className="title"
-                type="text"
-                placeholder="Title"
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                }}
-              ></input>{" "}
-              <br />
-              <br />
-              <input
-                className="amount"
-                type="number"
-                placeholder="The amount required"
-                onChange={(e) => {
-                  setTheAmountRequired(e.target.value);
-                }}
-              ></input>
-              <br />
-              <br />
-              <input
-                type="file"
-                className="image22"
-                onChange={(e) => {
-                  setImageSelected(e.target.files[0]);
-                }}
-              ></input>
-              <button
-                className="uplo"
-                onClick={() => uploadImage(imageselected)}
-              >
-                {" "}
-                <BiUpload className="uploadIcon"></BiUpload>
-              </button>
-              <br />
-              <br />
-              <textarea
-                className="description"
-                type="text"
-                placeholder="Description"
-                onChange={(e) => {
-                  setCase_Description(e.target.value);
-                }}
-              ></textarea>
-              <br />
-              <br />
-              <button className="new" onClick={addNewCase}>
-                New Case
-              </button>
-              <br />
-              <br />
-            </>
+                      <Model
+                        isOpen={modelIsOpen}
+                        style={customStyles}
+                        onRequestClose={() => setModelIsOpen(false)}
+                      >
+                        <div className="newPage">
+                   <br />
+                          <>
+                            <input
+                              className="category"
+                              type="text"
+                              placeholder="category"
+                              onChange={(e) => {
+                                setCategory(e.target.value);
+                              }}
+                            ></input>
+                            <br />
+                            <br />
+                            <input
+                              className="title"
+                              type="text"
+                              placeholder="Title"
+                              onChange={(e) => {
+                                setTitle(e.target.value);
+                              }}
+                            ></input>{" "}
+                            <br />
+                            <br />
+                            <input
+                              className="amount"
+                              type="number"
+                              placeholder="The amount required"
+                              onChange={(e) => {
+                                setTheAmountRequired(e.target.value);
+                              }}
+                            ></input>
+                            <br />
+                            <br />
+                            <input
+                              type="file"
+                              className="image22"
+                              onChange={(e) => {
+                                setImageSelected(e.target.files[0]);
+                              }}
+                            ></input>
+                            <button
+                              className="uplo"
+                              onClick={() => uploadImage(imageselected)}
+                            >
+                              {" "}
+                              <BiUpload className="uploadIcon"></BiUpload>
+                            </button>
+                            <br />
+                            <br />
+                            <textarea
+                              className="description"
+                              type="text"
+                              placeholder="Description"
+                              onChange={(e) => {
+                                setCase_Description(e.target.value);
+                              }}
+                            ></textarea>
+                            <br />
+                            <br />
+                            <button className="new" onClick={addNewCase}>
+                              New Case
+                            </button>
+                            <br />
+                            <br />
+                          </>
 
-            {message}
-          </div>
-        </Model>
-      </div>
+                          {message}
+                        </div>
+                      </Model>
+                    </div>
                     <div>
                       <Model
                         style={customStyles2}
@@ -599,21 +594,7 @@ const Cases = ({ searchCase, setInputEmergency1, inputEmergency1 ,setInputEmerge
         className="next"
       >
         <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
-        {/* <GrLinkNext className="nextIcon"></GrLinkNext> */}
       </button>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   );
 };
