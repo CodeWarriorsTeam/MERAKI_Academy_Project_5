@@ -49,15 +49,6 @@ const Navigation = ({
       (localStorage.getItem("isAdmin") == "admin" && state.isLoggedIn) ? (
         <>
           <nav className="nav">
-            {/* <Link className="safeHouseLink" to="/">
-          </Link> */}
-              {/* <ul>
-        <li> <Link to="/admin/cases" >Manage Cases</Link></li>
-
-      <li>  <Link to="/admin/users">Manage Users</Link></li>
-       <li> <Link to="/admin/volunteers">Manage Volunteers</Link></li> */}
-              {/* </ul> */}
-              {/* <ul><li> */}
               <br/>
                <AiOutlineDashboard className="dashicon"></AiOutlineDashboard> <Link className="admin" to="/admin">
                   Dashboard
@@ -70,7 +61,7 @@ const Navigation = ({
                 setSearchCase(e.target.value);
               }}
             ></input>
-                 <RiLogoutBoxLine className="logoutAdmin" onClick={logout}> 
+           <RiLogoutBoxLine className="logoutAdmin" onClick={logout}> 
                     Logout
                   </RiLogoutBoxLine>
                 <br/><br/>

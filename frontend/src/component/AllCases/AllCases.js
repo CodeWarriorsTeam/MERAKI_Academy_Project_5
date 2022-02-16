@@ -120,21 +120,6 @@ const AllCases = ({
       getAllCases();
     }
   }, [allCase, num]);
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 100) {
-      setVisible(true);
-    } else if (scrolled <= 100) {
-      setVisible(false);
-    }
-  };
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-  window.addEventListener("scroll", toggleVisible);
   return (
     <>
       <br />

@@ -10,7 +10,7 @@ import { MdOutlineVolunteerActivism } from "react-icons/md";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { GrFacebook } from "react-icons/gr";
 import { BsInstagram } from "react-icons/bs";
-import { AiFillLinkedin } from "react-icons/ai";
+import { AiFillLinkedin,AiOutlineArrowUp } from "react-icons/ai";
 import { BsSnapchat } from "react-icons/bs";
 import { FaTwitterSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -51,6 +51,7 @@ const navigate=useNavigate()
   });
 
   console.log(state.caseEmergency1);
+  const [visible, setVisible] = useState(false);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -187,6 +188,22 @@ const navigate=useNavigate()
   };
 
   ///----
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 100) {
+      setVisible(true);
+    } else if (scrolled <= 100) {
+      setVisible(false);
+    }
+  };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  window.addEventListener("scroll", toggleVisible);
+///----
   const convertToCase = (id) => {
     navigate(`/casedetails/${id}`);
   };
@@ -544,6 +561,7 @@ const navigate=useNavigate()
           </div>
         </div>
       </section>
+    <button className="up"><AiOutlineArrowUp onClick={scrollToTop} style={{display: visible ? 'inline':'none', fontSize:"1.8em"}}></AiOutlineArrowUp></button> 
 
       <footer className="footer">
         <div className="footerContent">
@@ -583,6 +601,7 @@ const navigate=useNavigate()
             </li>
           </ul>
         </div>
+        
         <div className="footerBottom">
           <p>
             copyright &copy; 2022 Safe House ..Designed by{" "}
@@ -590,6 +609,8 @@ const navigate=useNavigate()
           </p>
         </div>
       </footer>
+      {/* <ul className="smothscroll"><li><a href="#scrool"><AiOutlineArrowUp className="up">::before</AiOutlineArrowUp></a> </li></ul> */}
+
     </>
   );
 };
