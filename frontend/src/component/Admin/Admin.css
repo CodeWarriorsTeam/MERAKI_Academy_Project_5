@@ -93,12 +93,15 @@
   height: 29px;
   cursor: pointer;
 }
+.uplo:active{
+  background-color: #F0D304;
+}
 .update1 {
   width: 10%;
   cursor: pointer;
 }
 .update1:hover {
-  background-color: yellow;
+  background-color: #F0D304;
 }
 .imaget:hover {
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
@@ -354,6 +357,7 @@ th {
   color: black;
   font-size: 2ch;
   margin-left: 18%;
+  background-color: #F0D304;
 }
 
 .countUser {
