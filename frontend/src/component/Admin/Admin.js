@@ -32,7 +32,6 @@ import "./Admin.css";
 import { Link } from "react-router-dom";
 import { setVolunteers } from "../../reducer/volunteer";
 import SideBar from "../SideBar";
-// import { ResponsiveBar } from '@nivo/bar'
 
 const Admin = ({ searchCase }) => {
   const [num, setNum] = useState(1);
@@ -394,7 +393,8 @@ const Admin = ({ searchCase }) => {
           <p className="line1"></p>
         </div>
       </div>
-      {/* <img className="imm" src="https://msdh.ms.gov/msdhsite/_static/images/graphics/covid19-chart-cases-compare-2022-02-14.png"></img> */}
+      <img className="imm" src="./image/chartpie.png"/>
+
       {/* <table className="table">
         {" "} */}
       {/* <tr className="head">

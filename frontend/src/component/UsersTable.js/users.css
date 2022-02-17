@@ -18,14 +18,13 @@ td {
   font-size: 1.1em;
   float: left;
   cursor: pointer; 
-
-  transform: translate(-13em,10.4em);
+  transform: translate(-11em,10.4em);
 }
 .imageIcon8 {
 
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(-12em, 9.2em);
+  transform: translate(-10.5em, 9.2em);
 }
 .links4 {
   margin-bottom: 32%;
@@ -35,29 +34,29 @@ td {
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(-11.9em, 3.3em);
+  transform: translate(-10.2em, 3.3em);
 }
 .usicon {
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(-14.3em, 4.6em);
+  transform: translate(-12.6em, 4.6em);
 }
 .casicon {
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(-13em, 2.3em);
+  transform: translate(-11.4em, 2.3em);
 }
 .userlink3 {
   color: rgb(128, 127, 127);
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(-11.8em, 2em);
+  transform: translate(-10em, 2em);
 }
 .volicon {
   font-size: 1.4em;
   color: rgb(128, 127, 127);
-  transform: translate(-14.4em, 4.7em);
+  transform: translate(-12.8em, 4.7em);
 }
 .imageLink7 {
   color: rgb(128, 127, 127);
@@ -76,15 +75,16 @@ td {
   text-decoration: none;
   font-size: 1.2em;
   float: left;
-  transform: translate(-11.9em, 0.4em);
+  transform: translate(-10em, 0.4em);
 }
 .tttt:nth-child(even) {
   background-color: #ebebeb;
 }
 .table2 {
+  
   padding-left: 22%;
   padding-right: 7%;
-  transform: translate(0em, -25em);
+  transform: translate(-2.5em, -25em);
 }
 .id {
   font-size: 1em;

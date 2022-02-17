@@ -20,16 +20,54 @@
   /* float: left; */
   transform: translate(1.5em, 12.5em);
 }
- textarea{padding: 0px 45px;}
+ /* textarea{padding: 0px 45px;}
  .title {padding: 0px 93px;} 
  /* .amount{padding: 5px 40px;} */
-  .description{padding: 5px 70px;}
-.category {padding: 0px 80px;} 
+  /* .description{padding: 5px 70px;}
+.category {padding: 0px 80px;}   */
 .imageIcon6 {
   cursor: pointer;
   font-size: 1.2em;
   color: rgb(128, 127, 127);
   transform: translate(3.6em, 12.2em);
+}
+.imaget1:hover {
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+}
+.upload2{
+  margin-left: 1%;
+  transform: translate(0em,0.2em);
+  height: 30px;
+  color: black;
+  border-radius: 5px;
+  width: 10%;
+}
+.updater{
+  width: 60%;
+  height: 30px;
+  margin-left: 18%;
+}
+
+.upload2:active{
+  background-color: yellow;
+}
+.upload1{
+font-size: 1.3em;
+}
+.imaget1 {
+  margin-left: 18%;
+  height: 32px;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  color: black;
+  border-radius: 5px;
+  width: 50%;
 }
 .imageIcon2 {
   font-size: 1.4em;
