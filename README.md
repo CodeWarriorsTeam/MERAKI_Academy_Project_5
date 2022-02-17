@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://media.istockphoto.com/vectors/safe-house-gradient-icon-vector-id1352036690?s=612x612" alt="Project logo"></a>
+ <img width=200px height=200px src="https://media.istockphoto.com/vectors/safe-house-gradient-icon-vector-id1352036690?k=20&m=1352036690&s=612x612&w=0&h=9mErdZvi0yxqa26ZCKzTGlSw31NqFqUwaqvgIBGdfek=" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Safe House</h3>
