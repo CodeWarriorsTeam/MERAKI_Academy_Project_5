@@ -83,10 +83,10 @@ const Home = ({
   window.addEventListener("scroll", checkScrollTop);
 
   //------------------------
-  const getEmergency2CaseById = async () => {
+  const getAllCasesEmergency = async () => {
     try {
       const result = await axios.get(
-        `/cases/${localStorage.getItem("emergencyId2")}`
+        `/admin/emergency`
       );
       dispatch(setCaseEmergency2(result.data.result));
 
@@ -160,7 +160,7 @@ const Home = ({
   }, []);
 
   useEffect(() => {
-    getEmergency1CaseById();
+    getAllCasesEmergency();
   }, []);
   //
   //getCaseById------------------------------------------------------------
@@ -327,16 +327,16 @@ const Home = ({
 
         <div className="rowEmergency">
           <>
-            <div className="colEmergency">
+            {/* <div className="colEmergency">
               <img src="./image/case1.jpg" />
               <h4>Food</h4>
               <p>Very urgent cases, help support them as soon as possible</p>
               <button className="ctn">Donate Now</button>
-            </div>
+            </div> */}
           </>
 
-          {state.caseEmergency1 &&
-            state.caseEmergency1.map((element, index) => (
+          {state.caseEmergency2 &&
+            state.caseEmergency2.map((element, index) => (
               <>
                 <div key={index} className="colEmergency">
                   <img src={element.case_image} />

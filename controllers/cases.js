@@ -8,8 +8,9 @@ const createNewCase = (req, res) => {
     case_description,
     TheAmountRequired,
     donations,
+    emergency
   } = req.body;
-  const query = `INSERT INTO cases (category, case_image,title, case_description,TheAmountRequired,donations) VALUES (?,?,?,?,?,?); `;
+  const query = `INSERT INTO cases (category, case_image,title, case_description,TheAmountRequired,donations,emergency) VALUES (?,?,?,?,?,?,?); `;
 
   const data = [
     category,
@@ -18,6 +19,7 @@ const createNewCase = (req, res) => {
     case_description,
     TheAmountRequired,
     donations,
+    emergency
   ];
 
   connection.query(query, data, (err, result) => {

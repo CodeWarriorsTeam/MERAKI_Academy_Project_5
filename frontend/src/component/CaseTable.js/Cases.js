@@ -38,6 +38,8 @@ const Cases = ({
   const [message, setMessage] = useState("");
   const [imageselected, setImageSelected] = useState("");
   const [numUser, setNumUser] = useState(0);
+  const [emergency, setEmergency] = useState('false');
+  
   const [numPage, setNumPage] = useState(1);
   const [image_1, setImage_1] = useState("");
   const [imageIsOpen, setImageIsOpen] = useState(false);
@@ -98,7 +100,7 @@ const Cases = ({
     axios
       .post(
         "/cases",
-        { category, case_image, title, case_description, TheAmountRequired },
+        { category, case_image, title, case_description, TheAmountRequired ,emergency},
         {
           headers: {
             Authorization: `Bearer ${state.token}`,
@@ -114,6 +116,7 @@ const Cases = ({
             title,
             case_description,
             TheAmountRequired,
+            emergency
           })
         );
         getAllCases();
@@ -194,7 +197,38 @@ const Cases = ({
       console.log(error);
     }
   };
-  //------------------------------------------------------------------------------------
+  //
+  ////------------------------------------------------------------------------------------
+  const updateCaseByIdForEmergency = async (id) => {
+    try {
+      
+      const result = await axios.put(`/admin/emergency/${id}`, {
+       emergency:"true"
+      });
+      // dispatch(updateCases(result.data.results));
+      getAllCases();
+      // setUpdateIsOpen(false);
+      // navigate(`/admin`);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+/////----
+const updateCaseByIdForNotEmergency = async (id) => {
+  try {
+    
+    const result = await axios.put(`/admin/emergency/${id}`, {
+     emergency:"false"
+    });
+    // dispatch(updateCases(result.data.results));
+    getAllCases();
+    // setUpdateIsOpen(false);
+    // navigate(`/admin`);
+  } catch (error) {
+    console.log(error.response);
+  }
+};
+  /////--
   const customStyles = {
     content: {
       top: "50%",
@@ -312,8 +346,8 @@ const Cases = ({
             Actions
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
-          <th style={{ fontSize: "0.7em" }}>Emergency1</th>
-          <th style={{ fontSize: "0.7em" }}>Emergency2</th>
+          <th style={{ fontSize: "0.7em" }}>Emergency</th>
+         
         </tr>{" "}
         {state.cases &&
           state.cases
@@ -366,13 +400,18 @@ const Cases = ({
                       />
                     </td>
                     <td className={element.id}>
-                      {inputEmergency1 == 20 ? (
-                        <input
+                      {element.emergency=='true'?( <>
+                          <IoCheckmarkDoneSharp onClick={()=>{
+                            updateCaseByIdForNotEmergency(element.id)
+                          }}></IoCheckmarkDoneSharp>
+                        </>):( <input
                           onClick={() => {
-                            setInputEmergency1(element.id);
+                            updateCaseByIdForEmergency(element.id);
                           }}
                           type="checkbox"
-                        />
+                        />)}
+                      {/* {inputEmergency1 == 20 ? (
+                       
                       ) : element.id == inputEmergency1 ? (
                         <>
                           <IoCheckmarkDoneSharp></IoCheckmarkDoneSharp>
@@ -385,9 +424,9 @@ const Cases = ({
                           }}
                           type="checkbox"
                         />
-                      )}
+                      )} */}
                     </td>
-                    <td className={element.id}>
+                    {/* <td className={element.id}>
                       {inputEmergency2 == 23 ? (
                         <input
                           onClick={() => {
@@ -408,7 +447,7 @@ const Cases = ({
                           type="checkbox"
                         />
                       )}
-                    </td>
+                    </td> */}
                     <div>
                       <Model
                         style={customStyles3}
