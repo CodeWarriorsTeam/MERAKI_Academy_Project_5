@@ -50,7 +50,6 @@ const getAllCases = (req, res) => {
 
   connection.query(query, async (err, result) => {
     if (err) {
-      console.log(err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -75,7 +74,6 @@ const getAllCases = (req, res) => {
     //   })
     //   // return resultUpdate
     // })
-    // console.log(result.length);
     // for (let i = 0; i < result.length; i++) {
     //   if(result[i].case_id==array[i].case_id){
     //     resultUpdate.push(result[i])
@@ -83,8 +81,6 @@ const getAllCases = (req, res) => {
     //   return resultUpdate
     // }
 
-    // console.log(element);
-    // console.log(array.includes(element.case_id));
     // if(!array.includes(element.case_id)){
     //   array.push(element)
     // }
@@ -105,7 +101,6 @@ const getAllCases = (req, res) => {
     //       });
     //     }
     //   });
-    console.log(resultUpdate.length);
     res.status(200).json({
       success: true,
       message: `all cases`,
@@ -148,7 +143,6 @@ const updateCaseById = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      console.log(err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -210,7 +204,6 @@ const getCasesByCategory = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      console.log(err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -254,7 +247,6 @@ const updateTheAmountRequired = (req, res) => {
   const query = `SELECT * FROM cases  WHERE id=? and is_deleted=0`;
   connection.query(query, id, (err, result) => {
     if (err) {
-      console.log("errrr", err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
