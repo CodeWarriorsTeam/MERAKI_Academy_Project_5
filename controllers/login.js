@@ -10,7 +10,7 @@ const login = (req, res) => {
   const data = [email];
 
   connection.query(query, data, async (err, result) => {
-  console.log("result",result);
+  
     if (err) {
       res.status(500).json({
         success: false,

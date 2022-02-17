@@ -53,7 +53,7 @@ const Admin = ({ searchCase }) => {
   const [numPage, setNumPage] = useState(1);
   const [image_1, setImage_1] = useState("");
   const [imageIsOpen, setImageIsOpen] = useState(false);
-  const [emergency, setEmergency] = useState("");
+  const [emergency, setEmergency] = useState("false");
   console.log(emergency);
   // ------------------------------------------------
 
@@ -145,7 +145,7 @@ const Admin = ({ searchCase }) => {
     axios
       .post(
         "/cases",
-        { category, case_image, title, case_description, TheAmountRequired },
+        { category, case_image, title, case_description, TheAmountRequired,emergency},
         {
           headers: {
             Authorization: `Bearer ${state.token}`,
@@ -161,6 +161,7 @@ const Admin = ({ searchCase }) => {
             title,
             case_description,
             TheAmountRequired,
+            emergency
           })
         );
         getAllCases();
