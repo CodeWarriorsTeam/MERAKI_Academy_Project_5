@@ -42,6 +42,7 @@ const AllCases = ({
   const [updateBox, setUpdateBox] = useState(false);
   const [caseId, setCaseId] = useState(false);
   const [userId, setUserId] = useState("");
+  const [length, setLength] = useState("");
 
   const getAllCases = async () => {
     try {
@@ -50,7 +51,8 @@ const AllCases = ({
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
-      console.log(res.data.result);
+      
+      setLength(res.data.result.length)
       if (!res.data.result) {
         if (num == 0) {
           setNum(num + 1);
@@ -109,6 +111,7 @@ const AllCases = ({
     }
   };
 
+ 
   useEffect(() => {
     if (categoryNav) {
       getAllCasesByCategory();
@@ -278,14 +281,15 @@ const AllCases = ({
             <IoMdArrowBack className="buttonIconPag"></IoMdArrowBack>
           </button>
         )}
-        <button
+      {state.cases &&
+          state.cases.length==8?(<button
           className="PaginationButton"
           onClick={() => {
             setNum(num + 1);
           }}
         >
           <GrFormNextLink className="buttonIconPag"></GrFormNextLink>
-        </button>
+        </button>):(<></>)}  
       </div>
 
       {/* {message && <div>{message}</div>}
