@@ -25,7 +25,7 @@
 - [Author](#author)
 - [Acknowlegments](#acknowlegments)
 
-- [User Story](#user_story)
+-[User Story](#user_story)
 - [Guided By](#guided_by)
 
 ## 🧐 About <a name = "about"></a>
