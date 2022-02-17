@@ -10,7 +10,7 @@ const login = (req, res) => {
   const data = [email];
 
   connection.query(query, data, async (err, result) => {
-  
+  console.log("result",result);
     if (err) {
       res.status(500).json({
         success: false,
@@ -18,7 +18,10 @@ const login = (req, res) => {
         err: err,
       });
     }
-
+if (result == undefined) {
+  res.json({message: "await"})
+  
+}
     if (!result[0]) {
       
       return res.status(404).json({

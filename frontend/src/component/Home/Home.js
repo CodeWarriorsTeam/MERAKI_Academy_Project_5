@@ -47,10 +47,7 @@ const Home = ({
       caseEmergency2: state.casesReducer.caseEmergency2,
     };
   });
-
-  console.log(state.caseEmergency1);
-  const [visible, setVisible] = useState(false);
-
+  const [showScroll, setShowScroll] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -71,6 +68,21 @@ const Home = ({
       console.log(error.response);
     }
   };
+  //------------------------
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 400) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 400) {
+      setShowScroll(false);
+    }
+  };
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  window.addEventListener("scroll", checkScrollTop);
+
+  //------------------------
   const getEmergency2CaseById = async () => {
     try {
       const result = await axios.get(
@@ -179,22 +191,6 @@ const Home = ({
       });
   };
 
-  ///----
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 100) {
-      setVisible(true);
-    } else if (scrolled <= 100) {
-      setVisible(false);
-    }
-  };
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-  window.addEventListener("scroll", toggleVisible);
   ///----
   const convertToCase = (id) => {
     navigate(`/casedetails/${id}`);
@@ -403,22 +399,6 @@ const Home = ({
               <FaHandHoldingHeart></FaHandHoldingHeart>{" "}
             </a>
           </div>
-          {/* <div className="volunteeringCont">
-            <h3 className="ektabas">
-              Be a volunteer to
-              <br />{" "}
-              <strong>
-                {" "}
-                Make your presence in this life more beautiful
-              </strong>{" "}
-            </h3>
-            <p className="prgVolunteering">
-              When you do any volunteer work, you will not know the meaning of
-              boredom. Everything in the world of volunteering is an exciting
-              and new experience in all respects that takes you to wide
-              horizons.
-            </p> */}
-
           <Model
             isOpen={joinIsOpen}
             style={customStyles}
@@ -499,14 +479,12 @@ const Home = ({
               </button>
             </div>
           </Model>
-
           {message}
-          {/* </div> */}
         </div>
       </div>
       <section className="about" id="about">
         <div className="contentAbout">
-          <img src="./image/about.jpeg" />
+          <img src="./image/about.jpg" />
           <div className="contentText">
             <h1>About Us</h1>
             <br />
@@ -558,12 +536,13 @@ const Home = ({
           </div>
         </div>
       </section>
-      <button className="up">
-        <AiOutlineArrowUp
-          onClick={scrollToTop}
-          style={{ display: visible ? "inline" : "none", fontSize: "1.8em" }}
-        ></AiOutlineArrowUp>
-      </button>
+    
+      <AiOutlineArrowUp
+        className="scrollTop"
+        onClick={scrollTop}
+        style={{ height: 50, display: showScroll ? "flex" : "none" }}
+      ></AiOutlineArrowUp>
+      {/* </button> */}
 
       <footer className="footer">
         <div className="footerContent">
@@ -611,7 +590,6 @@ const Home = ({
           </p>
         </div>
       </footer>
-      {/* <ul className="smothscroll"><li><a href="#scrool"><AiOutlineArrowUp className="up">::before</AiOutlineArrowUp></a> </li></ul> */}
     </>
   );
 };

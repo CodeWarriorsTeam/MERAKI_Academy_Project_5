@@ -519,7 +519,7 @@ const Cases = ({
                         <input
                           type="text"
                           placeholder="category"
-                          defaultValue={element.category}
+                          // defaultValue={element.category}
                           onChange={(e) => setCategory(e.target.value)}
                         ></input>{" "}
                         <br />
@@ -539,7 +539,7 @@ const Cases = ({
                         <input
                           type="text"
                           placeholder="title"
-                          defaultValue={element.title}
+                          // defaultValue={element.title}
                           onChange={(e) => setTitle(e.target.value)}
                         ></input>{" "}
                         <br />
@@ -547,7 +547,7 @@ const Cases = ({
                         <input
                           type="text"
                           placeholder="description"
-                          defaultValue={element.case_description}
+                          // defaultValue={element.case_description}
                           onChange={(e) => setCase_Description(e.target.value)}
                         ></input>{" "}
                         <br />
@@ -555,7 +555,7 @@ const Cases = ({
                         <input
                           type="text"
                           placeholder="amount"
-                          defaultValue={element.TheAmountRequired}
+                          // defaultValue={element.TheAmountRequired}
                           onChange={(e) => setTheAmountRequired(e.target.value)}
                         ></input>{" "}
                         <br />

@@ -1,9 +1,11 @@
 
  *{
+
   margin: 0;
   padding:0 ;
-  font-family: Arial, Helvetica, sans-serif;
-
+  /* font-weight: 300; */
+  /* font-family: "fantasy"; */
+  font-family: 'PT Sans', sans-serif;
   box-sizing: border-box;
 } 
 body,html{

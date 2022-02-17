@@ -54,8 +54,8 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
       })
 
       .catch((err) => {
-        console.log(err.response.data.message);
-
+        // console.log(err.response.data.message);
+console.log(err.response.data);
         setMessage(err.response.data.message);
       });
   };
