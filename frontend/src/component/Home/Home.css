@@ -54,6 +54,8 @@
   padding: 12px 25px; 
   border-radius: 4px;
   outline: none;
+  /* width: 100px; */
+
   text-transform: uppercase;
   font-size: 13px;
   font-weight: 500;
@@ -64,7 +66,7 @@
 }
 
 .whatDo #Register {
-  /* padding: 12px 25px; */
+  padding: 11.1px 20px;
   margin-right: 90px;
   background: #000000;
   color: #f5c323;
@@ -75,8 +77,7 @@
   color: #000000;
 }
 .whatDo #Login {
-  
-  /* padding: 12px 20px; */
+  padding: 11px 15px;
 
   background: #f5c323;
   color: #000000;
@@ -724,21 +725,35 @@ footer {
   text-transform: capitalize;
 }
 
-.up{
-  background: -webkit-linear-gradient(left,#000000,#e9bf3d 50%,#000);
-  cursor: pointer;
-  float: right;
-  width: 3%;
-  color: black;
-  opacity: 0.8;
-  background-color: #faf604;
-  transform: translate(-5.7em,-8em);
-}
+
 .footerBottom span {
   text-transform: uppercase;
   opacity: 0.8;
   color: #f0d304;
   font-weight: 200;
+}
+
+.scrollTop {
+  position: fixed; 
+  width: 100%;
+  bottom: 50px;
+  float: right;
+  transform: translate(37em,2em);
+  /* align-items: center; */
+  height: 20px;
+  /* justify-content: center; */
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+  /* opacity: 0.5; */
+  color: #f0d304
+  /* color: black; */
+}
+
+.scrollTop:hover{
+  color: yellow;
+  /* opacity: 1; */
 }
 
 .vFormConatiner {
@@ -863,16 +878,12 @@ footer {
 }
 .sectionEmergence{
   width: 100%;
-  margin:  25px;  
 }
 .titleEmergence{
-  /* padding-top: 10px; */
   text-align: center;
   text-transform: uppercase;
-  /* font-size: 35px; */
   color: #25211d;
   font-size: 1.3rem;
- 
   font-weight: bold;
 }
 
