@@ -209,7 +209,7 @@ const Cases = ({
     content: {
       top: "50%",
       left: "50%",
-      right: "60%",
+      right: "70%",
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
@@ -518,6 +518,7 @@ const Cases = ({
                       >
                         <input
                           type="text"
+                          className="category"
                           placeholder="category"
                           // defaultValue={element.category}
                           onChange={(e) => setCategory(e.target.value)}
@@ -526,18 +527,19 @@ const Cases = ({
                         <br />
                         <input
                           type="file"
-                          className="image"
+                          className="imaget1"
                           onChange={(e) => {
                             setImageSelected(e.target.files[0]);
                           }}
                         ></input>
-                        <button onClick={() => uploadImage(imageselected)}>
+                        <button className="upload2" onClick={() => uploadImage(imageselected)}>
                           <BiUpload className="upload1"></BiUpload>
                         </button>
                         <br />
                         <br />
                         <input
                           type="text"
+                          className="title"
                           placeholder="title"
                           // defaultValue={element.title}
                           onChange={(e) => setTitle(e.target.value)}
@@ -545,6 +547,7 @@ const Cases = ({
                         <br />
                         <br />
                         <input
+                        className="description"
                           type="text"
                           placeholder="description"
                           // defaultValue={element.case_description}
@@ -554,6 +557,7 @@ const Cases = ({
                         <br />
                         <input
                           type="text"
+                          className="amount"
                           placeholder="amount"
                           // defaultValue={element.TheAmountRequired}
                           onChange={(e) => setTheAmountRequired(e.target.value)}
@@ -561,12 +565,12 @@ const Cases = ({
                         <br />
                         <br />
                         <button
-                          className="update1"
+                          className="updater"
                           onClick={() => updateCaseById(caseId)}
-                        >
-                          <GrUpdate
+                        > Update Case
+                          {/* <GrUpdate
                             style={{ width: "95%", height: "1.4em" }}
-                          ></GrUpdate>
+                          ></GrUpdate> */}
                         </button>
                         <br />
                       </Model>

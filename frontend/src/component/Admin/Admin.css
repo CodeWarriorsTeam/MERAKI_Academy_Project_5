@@ -156,10 +156,11 @@
   transform: translate(18em, -2.5em);
   width: 17%;
 }
-/* .imm{
-  width: 50%;
-  height: 50%;
-} */
+.imm{
+  transform: translate(17em,-35em);
+  width: 40%;
+  height: 40%;
+}
 .addImage:hover {
   cursor: pointer;
 }
