@@ -393,6 +393,8 @@ const Admin = ({ searchCase }) => {
           <p className="line1"></p>
         </div>
       </div>
+      <img className="imm" src="./image/chartpie.png"/>
+
       {/* <table className="table">
         {" "} */}
       {/* <tr className="head">

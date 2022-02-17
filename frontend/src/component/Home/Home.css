@@ -108,11 +108,12 @@
 }
 
 .headerTarget {
-  width: 300px;
-  border-bottom: 3px solid #f5c323;
+  color:  #25211D;
+  width: 287px;
+  border-bottom: 5px solid #f5c323;
   text-align: center;
   font-size: 2rem;
-  font-weight: 200;
+  /* font-weight: 200; */
   margin: 0 auto 50px;
   position: relative;
   padding: 10px 0;
@@ -357,13 +358,14 @@
   font-size: 35px;
   color: #25211d;
   font-size: 2rem;
-  font-weight: 200;
+  /* font-weight: 200; */
 }
 
 .containerVolunteering .volunteeringTitle h1::after {
   content: "";
   height: 5px;
-  width: 300px;
+  width: 332px;
+  /* #25211D */
 
   background-color: #f0d304;
   border-radius: 25px;
@@ -520,9 +522,9 @@
 .contentText h1 {
   text-transform: uppercase;
   font-size: 35px;
-  color: #25211d;
+  color: #25211D;
   font-size: 2rem;
-  font-weight: 200;
+  /* font-weight: 200; */
 }
 
 .contentText h5 {
@@ -562,7 +564,7 @@
 .contentAbout .contentText h1::after {
   content: "";
   height: 5px;
-  width: 160px;
+  width: 170px;
   background-color: #f0d304;
   border-radius: 25px;
   display: block;
@@ -571,6 +573,8 @@
 .ourTeam {
   width: 100%;
   height: 100vh;
+  color: #25211D;
+  font-size: 1.3em;
   background-color: #fff;
   /* display: flex; */
   justify-content: center;
@@ -593,7 +597,7 @@
   display: block;
   content: "";
   position: absolute;
-  width: 10%;
+  width: 13%;
   height: 5px;
   background-image: linear-gradient(to left, transparent 5%, #f0d304);
   bottom: -12px;
@@ -781,7 +785,7 @@ footer {
 .headerV:after{
   content: "";
   height: 5px;
-  width: 150px;
+  width: 233px;
   /* margin-bottom: 10px; */
   
   background-color: #f0d304;
@@ -890,7 +894,7 @@ footer {
 .titleEmergence:after{
   content: "";
   height: 5px;
-  width: 250px;  
+  width: 318px;  
   background-color: #f0d304;
   border-radius: 25px;
   display: block;
