@@ -506,7 +506,7 @@ const Cases = ({
                             <br />
                           </>
 
-                          {message}
+                          {/* {message} */}
                         </div>
                       </Model>
                     </div>
