@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { RiImageAddLine } from "react-icons/ri";
-import { BiEdit, BiAccessibility, BiUpload } from "react-icons/bi";
+import { BiUpload } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
-import { GrLinkNext, GrFormNextLink, GrUpdate } from "react-icons/gr";
-import { IoMdArrowBack } from "react-icons/io";
-import { ImImages } from "react-icons/im";
-// import { ResponsiveBar } from '@nivo/bar'
 
 import {
   MdVolunteerActivism,
@@ -54,7 +50,6 @@ const Admin = ({ searchCase }) => {
   const [image_1, setImage_1] = useState("");
   const [imageIsOpen, setImageIsOpen] = useState(false);
   const [emergency, setEmergency] = useState("false");
-  console.log(emergency);
   // ------------------------------------------------
 
   const uploadImage = (imageFile) => {
@@ -209,7 +204,6 @@ const Admin = ({ searchCase }) => {
       )
 
       .then((result) => {
-        // console.log(image_1);
         dispatch(
           addImage({
             image_1,
@@ -233,8 +227,6 @@ const Admin = ({ searchCase }) => {
 
       if (res.data.success) {
         dispatch(setUsers(res.data.result));
-        // setUserIsOpen(false);
-        console.log(res.data.result);
       }
     } catch (error) {
       console.log(error);
@@ -310,7 +302,6 @@ const Admin = ({ searchCase }) => {
 
       if (res.data.success) {
         setNumVolunteer(res.data.result[0].CountVolunteer);
-        console.log(res.data.result[0].CountVolunteer);
       }
     } catch (error) {}
   };
@@ -363,7 +354,6 @@ const Admin = ({ searchCase }) => {
           <p
             onClick={() => {
               setImageIsOpen(true);
-              console.log(imageIsOpen);
             }}
             className="imageIcon4"
             title="Add Image"
@@ -396,180 +386,6 @@ const Admin = ({ searchCase }) => {
       </div>
 
 
-      {/* <table className="table">
-        {" "} */}
-      {/* <tr className="head">
-          <th className="id">
-            id */}
-      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-      {/* </th>
-          <th className="categor">
-            {" "}
-            category */}
-      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-      {/* </th>
-          <th className="tit1">
-            title */}
-      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-      {/* </th>
-          <th className="amout">
-            amount */}
-      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-      {/* </th>
-          <th className="img2">
-            image */}
-      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-      {/* </th>
-          <th className="descr">
-            description{" "} */}
-      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-      {/* </th> */}
-      {/* <th className="donatio">
-            donation */}
-      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-      {/* </th>
-          <th className="don">
-            donor */}
-      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-      {/* </th>
-          <th className="oper">
-            Actions */}
-      {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-      {/* </th>
-        </tr>{" "}
-        {state.cases &&
-          state.cases
-            .filter((caseInformation) => {
-              if (searchCase == "") {
-                return caseInformation;
-              } else if (
-                caseInformation.category
-                  .toLowerCase()
-                  .includes(searchCase.toLowerCase()) ||
-                caseInformation.title
-                  .toLowerCase()
-                  .includes(searchCase.toLowerCase())
-              ) {
-                return caseInformation;
-              }
-            })
-            .map((element, i) => {
-              return (
-                <>
-                  <tr key={i} className="ttt">
-                    <td className="id">{element.id}</td>
-                    <td className="categor">{element.category}</td>
-                    <td className="tit">{element.title}</td>
-                    <td className="req"> {element.TheAmountRequired} $</td>
-                    <td className="imag">{element.case_image}</td>
-                    <td className="descr">{element.case_description}</td>
-
-                    <td className="donation">{element.donations}</td>
-                    <td className="donor">{element.donor}</td>
-                    <td className="button">
-                      {" "}
-                      <RiDeleteBinLine
-                        onClick={() => deleteCseById(element.id)}
-                        className="deleteIcon"
-                      />{" "}
-                      <BiEdit
-                        onClick={() => {
-                          setUpdateIsOpen(true);
-                          setCaseId(element.id);
-                        }}
-                        className="editIcon"
-                      />
-                    </td>
-                    <td className="id" onClick={()=>{
-                      setEmergency(element.id)
-                    }}><input type="checkbox"/></td>
-                    <div>
-                      <Model
-                        style={customStyles2}
-                        isOpen={updateIsOpen}
-                        onRequestClose={() => setUpdateIsOpen(false)}
-                      >
-                        <input
-                          type="text"
-                          placeholder="category"
-                          defaultValue={element.category}
-                          onChange={(e) => setCategory(e.target.value)}
-                        ></input>{" "}
-                        <br />
-                        <br />
-                        <input
-                          type="file"
-                          className="image"
-                          onChange={(e) => {
-                            setImageSelected(e.target.files[0]);
-                          }}
-                        ></input>
-                        <button onClick={() => uploadImage(imageselected)}>
-                          <BiUpload className="upload1"></BiUpload>
-                        </button>
-                        <br />
-                        <br />
-                        <input
-                          type="text"
-                          placeholder="title"
-                          defaultValue={element.title}
-                          onChange={(e) => setTitle(e.target.value)}
-                        ></input>{" "}
-                        <br />
-                        <br />
-                        <input
-                          type="text"
-                          placeholder="description"
-                          defaultValue={element.case_description}
-                          onChange={(e) => setCase_Description(e.target.value)}
-                        ></input>{" "}
-                        <br />
-                        <br />
-                        <input
-                          type="text"
-                          placeholder="amount"
-                          defaultValue={element.TheAmountRequired}
-                          onChange={(e) => setTheAmountRequired(e.target.value)}
-                        ></input>{" "}
-                        <br />
-                        <br />
-                        <button
-                          className="update1"
-                          onClick={() => updateCaseById(caseId)}
-                        >
-                          <GrUpdate
-                            style={{ width: "95%", height: "1.4em" }}
-                          ></GrUpdate>
-                        </button>
-                        <br />
-                      </Model>
-                    </div>
-                    
-                  </tr>
-                </>
-              );
-            })}
-      </table> */}
-      {/* {numPage == 1 ? (
-        <></>
-      ) : (
-        <button
-          className="back"
-          onClick={() => {
-            setNumPage(numPage - 1);
-          }}
-        >
-          <IoMdArrowBack className="backIcon"></IoMdArrowBack>
-        </button>
-      )}
-      <button
-        onClick={() => {
-          setNumPage(numPage + 1);
-        }}
-        className="next"
-      >
-        <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
-      </button> */}
       <div className="model">
         <Model
           isOpen={modelIsOpen}
@@ -671,67 +487,7 @@ const Admin = ({ searchCase }) => {
           </button>
         </Model>
       </div>
-      {/* <table>
-        <tr>
-          <th>id</th>
-          <th>profile_image</th>
-          <th>firstName</th>
-          <th>lastName</th>
-          <th>country</th>
-          <th>email</th>
-        </tr> */}
-      {/* {state.users &&
-          state.users.map((element, i) => {
-            // console.log();
-            return (
-              <div key={i}>
-                <button
-                  onClick={() => {
-                    getAllUsers();
-                    // setUsers(true);
-                  }}
-                >
-                  {" "}
-                  user name
-                </button>
-
-                <tr>
-                  <td>{element.id}</td>
-                  <td>{element.profile_image}</td>
-                  <td>{element.firstName}</td>
-                  <td>{element.lastName}</td>
-                  <td>{element.country}</td>
-                  <td>{element.email}</td>
-                </tr>
-
-             
-              </div>
-            );
-          })}
-      </table> */}
-      {/* <table>
-        <tr>
-          <th>id</th>
-          <th>firstName</th>
-          <th>lastName</th>
-          <th>email</th>
-          <th>address_1</th>
-          <th>phonenumber</th>
-        </tr>
-        {state.volunteers &&
-          state.volunteers.map((element) => {
-            return (
-              <tr>
-                <td>{element.id}</td>
-                <td>{element.firstName}</td>
-                <td>{element.lastName}</td>
-                <td>{element.email}</td>
-                <td>{element.address_1}</td>
-                <td>{element.phonenumber}</td>
-              </tr>
-            );
-          })}
-      </table> */}
+     
     </div>
   );
 };

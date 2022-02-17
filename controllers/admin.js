@@ -138,7 +138,6 @@ const getCountUser = (req, res) => {
 
   connection.query(query, async (err, result) => {
     if (err) {
-      console.log(err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -164,7 +163,6 @@ const getCountCase = (req, res) => {
 
   connection.query(query, async (err, result) => {
     if (err) {
-      console.log(err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -190,7 +188,6 @@ const getCountVolunteer = (req, res) => {
 
   connection.query(query, async (err, result) => {
     if (err) {
-      console.log(err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
