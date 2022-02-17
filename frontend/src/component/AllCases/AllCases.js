@@ -51,8 +51,10 @@ const AllCases = ({
  `,
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
+
       
       setLength(res.data.result.length)
+
       if (!res.data.result) {
         if (num == 0) {
           setNum(num + 1);
@@ -129,22 +131,7 @@ const AllCases = ({
       <br />
       <br />
       <section className="allCasesSection">
-        {/* <section className="allCasesSection">
-        <div className="containerAllCases">
-          <div className="row my-3">
-            <div className="col my-3">
-              <h1 className="headerAllCases">
-                Goodness does not stop until the Hour of Resurrection
-              </h1> 
-              <p className="prgAllCases">
-                "If the Final Hour comes while you have a shoot of a plant in
-                your hands and it is possible to plant it before the Hour comes,
-                you should plant it"
-              </p> 
-            </div>
-          </div>
-
-          <div className="row-cases"> */}
+      
         {state.cases &&
           state.cases
             .filter((caseInformation) => {
@@ -171,7 +158,6 @@ const AllCases = ({
                       convertToCase(element.id);
                     }}
                   >
-                    {/* <img src={element.case_image}/> */}
                   </img>
                   <div className="cardText">
                     <span className="dataSpan">{element.category}</span>
@@ -203,68 +189,14 @@ const AllCases = ({
                       <div className="type">State</div>
                     </div>
                   </div>
-                  {/* <img
-                    className="caseImage"
-                    title="Case Image"
-                    onClick={() => {
-                      convertToCase(element.id);
-                    }}
-                    src={element.case_image}
-                  /> */}
-                  {/* {element.TheAmountRequired &&
-                  element.TheAmountRequired > 0 ? (
-                    <>
-                      <a className="donationNow">Open</a>
-                    </>
-                  ) : (
-                    <a className="donationNow" style={{ background: "red" }}>
-                      close
-                    </a>
-                  )} */}
+                 
                 </div>
-                {/* <p className="titleCase">{element.title}</p>
-                <h6 className="required">{element.TheAmountRequired}$</h6>
-                <div className="contBtn">
-                  <div
-                    className="BtnDetailsCase"
-                    onClick={() => {
-                      convertToCase(element.id);
-                    }}
-                  >
-                    Details
-                  </div>
-                </div> */}
-                {/* <button className="detailsCase"
-                        onClick={() => {
-                          convertToCase(element.id);
-                        }}
-                        title="Case Details"
-                      >
-                        Details
-                      </button> */}
+              
 
-                {/* <div className="caseInfo"> */}
-                {/* <p className="allcasesTitle">{element.title}</p>
-                    <p className="TheAmountReguired">
-                      {element.TheAmountRequired}$
-                    </p> */}
-                {/* {element.TheAmountRequired &&
-                    element.TheAmountRequired > 0 ? (
-                      <>
-                        <a className="donationNow">Open</a>
-                      </>
-                    ) : (
-                      <a className="donationNow" style={{ background: "red" }}>
-                        close
-                      </a>
-                    )} */}
-
-                {/* </div> */}
+               
               </>
             ))}
-        {/* </div>
-        </div>
-      </section> */}
+       
       </section>
 
       <div className="divPagination">
@@ -292,9 +224,7 @@ const AllCases = ({
         </button>):(<></>)}  
       </div>
 
-      {/* {message && <div>{message}</div>}
-      <button className="up"><AiOutlineArrowUp onClick={scrollToTop} style={{display: visible ? 'inline':'none', fontSize:"1.8em"}}></AiOutlineArrowUp></button> */}
-      {/* <ul className="smothscroll"><li><a href="#scrool"><AiOutlineArrowUp className="up">::before</AiOutlineArrowUp></a> </li></ul> */}
+    
     </>
   );
 };

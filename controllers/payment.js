@@ -26,13 +26,10 @@ const donateByPayment= async(req,res)=>{
     confirm:true
   
   })
-  console.log(req.body.id);
   const title= [req.body.title];
-  console.log(amount);
   const query = `SELECT * FROM cases  WHERE title=? and is_deleted=0`;
   connection.query(query, title, (err, result) => {
     if (err) {
-      console.log("errrr", err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -77,7 +74,6 @@ const donateByPayment= async(req,res)=>{
     }
   });
   
-//   console.log("Payment",payment.amount);
 //   res.json({
 //     message:"Thanks for your donation",
 //     success:true
@@ -87,7 +83,6 @@ const donateByPayment= async(req,res)=>{
   
   
     catch (error){
-  console.log("ee",error);
   res.json({
     message:"The operation failed",
     success:false
