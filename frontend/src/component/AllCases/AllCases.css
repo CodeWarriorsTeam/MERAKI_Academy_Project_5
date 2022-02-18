@@ -120,3 +120,7 @@ grid-row: 4/4;
 width: 50px;
 grid-row: 4/4;
 }
+.cardText p {
+  font-size: 25px;
+  margin-bottom: 5px;
+}

@@ -367,7 +367,7 @@ color: white;
   background: #00000070;
 }
 .drop {
-  background: #F0D304;
+  background: #ffe101;
   position: absolute;
   display: none;
   top: 57px;
@@ -378,6 +378,7 @@ color: white;
 }
 
 .drop li {
+  /* font-weight: bold; */
   border: 1px solid rgb(0, 0, 0);
   display: block;
   color: rgb(0, 0, 0);
