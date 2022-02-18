@@ -406,7 +406,7 @@ const Admin = ({ searchCase }) => {
               <textarea
                 className="description"
                 type="text"
-                placeholder="Description"
+                placeholder="  Description"
                 onChange={(e) => {
                   setCase_Description(e.target.value);
                 }}

@@ -239,9 +239,11 @@ th {
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .category::placeholder {
-  text-align: center;
+  /* text-align: center; */
 }
-
+textarea {
+  padding: 5px;
+}
 .category {
   border-top: 1px rgba(116, 105, 105, 0.342) solid;
   border-right: 1px rgba(138, 127, 127, 0.342) solid;
@@ -280,7 +282,7 @@ th {
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .title::placeholder {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .title {
@@ -301,7 +303,7 @@ th {
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .amount::placeholder {
-  text-align: center;
+  /* text-align: center; */
 }
 .amount {
   width: 60%;
@@ -322,7 +324,7 @@ th {
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
 .description::placeholder {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .description {
