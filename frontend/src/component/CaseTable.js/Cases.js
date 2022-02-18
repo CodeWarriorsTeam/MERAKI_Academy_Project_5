@@ -372,7 +372,7 @@ const updateCaseByIdForNotEmergency = async (id) => {
                     <td className="id">{element.id}</td>
                     <td className="categor">{element.category}</td>
                     <td className="tit">{element.title}</td>
-                    <td className="req"> {element.TheAmountRequired}</td>
+                    <td className="req"> {element.TheAmountRequired}$</td>
                     <td className="imag">{element.case_image}</td>
                     <td
                       className="descr"
@@ -381,10 +381,9 @@ const updateCaseByIdForNotEmergency = async (id) => {
                         width: "500px",
                       }}
                     >
-                      {element.case_description.split(" ")[0]}
-                      {console.log(element.case_description.split(" ,"))}
+                      {element.case_description.split(" ")[0]}...
                     </td>
-                    <td className="donation">{element.donations}</td>
+                    <td className="donation">{element.donations}$</td>
                     <td className="button">
                       {" "}
                       <RiDeleteBinLine

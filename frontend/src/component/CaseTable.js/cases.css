@@ -1,4 +1,4 @@
-.all {
+updater.all {
   height: 100%;
   background: linear-gradient(to left, #fcfcfc 85%, rgb(56, 52, 52) 15%);
   -webkit-background-size: cover;
@@ -47,9 +47,26 @@
   width: 10%;
 }
 .updater{
-  width: 60%;
+  /* width: 60%;
   height: 30px;
   margin-left: 18%;
+  background-color: #f0d304; */
+
+
+  height: 30px;
+  width: 60%;
+  border-radius: 5px;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  background-color: rgba(136, 128, 128, 0.342);
+  color: black;
+  font-size: 2ch;
+  margin-left: 18%;
+  background-color: #F0D304;
+
+
  
 }
 
