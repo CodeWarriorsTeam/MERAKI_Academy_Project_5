@@ -42,9 +42,6 @@ updater.all {
   width: 10%;
 }
 .updater{
-
-
-
   height: 30px;
   width: 60%;
   border-radius: 5px;
@@ -57,11 +54,7 @@ updater.all {
   font-size: 2ch;
   margin-left: 18%;
   background-color: #F0D304;
-
-
- 
 }
-
 .upload2:active{
   background-color: yellow;
 }
@@ -127,7 +120,7 @@ font-size: 1.3em;
 }
 .add {
   font-size: 2em;
-  transform: translate(8.7em, 1.8em);
+  transform: translate(9.4em, 1.8em);
 }
 .add:active {
   color: #f0d304;
@@ -143,7 +136,7 @@ font-size: 1.3em;
   cursor: pointer;
 }
 .table {
-  margin-left: 20%;
+  margin-left: 22%;
   width: 20%;
   transform: translate(0em, -24em);
 }
@@ -201,8 +194,7 @@ td {
   font-size: 0.8em;
 }
 .descr {
-
-  font-size: 0.7em;
+  font-size: 0.9em;
 }
 .donatio {
   font-size: 0.8em;
