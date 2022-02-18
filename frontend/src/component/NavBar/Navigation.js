@@ -8,7 +8,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { AiOutlineDashboard } from "react-icons/ai";
 
-import { RiLoginBoxLine } from "react-icons/ri";
+import { RiLoginBoxLine,RiLogoutBoxRLine } from "react-icons/ri";
 import { FaRegRegistered } from "react-icons/fa";
 
 import { BsFillHouseFill } from "react-icons/bs";
@@ -61,9 +61,9 @@ const Navigation = ({
                 setSearchCase(e.target.value);
               }}
             ></input>
-           <RiLogoutBoxLine className="logoutAdmin" onClick={logout}> 
+           <RiLogoutBoxRLine className="logoutAdmin" onClick={logout}> 
                     Logout
-                  </RiLogoutBoxLine>
+                  </RiLogoutBoxRLine>
                 <br/><br/>
        {/* </li> 
               <li>                 */}
@@ -215,7 +215,7 @@ const Navigation = ({
                 <li>
                   {" "}
                   <a id="Logout" onClick={logout}>
-                    <RiLogoutBoxLine className="iconLogout"></RiLogoutBoxLine>{" "}
+                    <RiLogoutBoxRLine className="iconLogout"></RiLogoutBoxRLine>{" "}
                   </a>
                 </li>
               ) : (
