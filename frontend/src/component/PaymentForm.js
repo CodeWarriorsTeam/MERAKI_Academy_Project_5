@@ -5,6 +5,10 @@ import Model from "react-modal";
 import axios from "axios";
 import { setCase } from "../reducer/cases/index";
 import { useParams } from "react-router-dom";
+import {toast} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
+
+toast.configure()
 const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
@@ -88,6 +92,7 @@ export default function PaymentForm() {
         if (response.data.success) {
           console.log("SuccessFull payment");
           setSuccess(true);
+          toast.success('success',{className:"success-Donate",position:toast.POSITION.TOP_CENTER,autoClose: 8000})
         }
 
         getbyid();
@@ -167,7 +172,7 @@ export default function PaymentForm() {
           </form>
         </Model>
       ) : (
-        <div className="successDonate">
+        <div className="successDonate" >
           <h2>the donation has been created successfully</h2>
         </div>
       )}

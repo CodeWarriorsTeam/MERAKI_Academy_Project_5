@@ -185,3 +185,21 @@ h3 {
   text-align: center;
   font-style: italic;
 }
+
+
+
+
+
+.success-Donate{
+background-color: #F0D304;
+font-size: 30px;
+color: #F0D304;
+border: #e298d8 solid;
+}
+
+.Toastify{
+	background-color: #F0D304;
+
+color: #F0D304;
+}
+
