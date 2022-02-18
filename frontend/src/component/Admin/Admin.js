@@ -15,26 +15,18 @@ import Model from "react-modal";
 import {
   AddCase,
   setCases,
-  updateCases,
-  deleteCase,
+  
 } from "../../reducer/cases/index";
 import { setUsers } from "../../reducer/users/index";
-import { addImage, setImages } from "../../reducer/image/index";
+import { addImage } from "../../reducer/image/index";
 
-import { useParams } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import { Link } from "react-router-dom";
 import { setVolunteers } from "../../reducer/volunteer";
-import SideBar from "../SideBar";
 
 const Admin = ({ searchCase }) => {
-  const [num, setNum] = useState(1);
-  const [userIsOpen, setUserIsOpen] = useState(false);
-  const [updateIsOpen, setUpdateIsOpen] = useState(false);
-  const [caseId, setCaseId] = useState("");
-  const [userId, setUserId] = useState("");
   const [modelIsOpen, setModelIsOpen] = useState(false);
   const [case_image, setCase_Image] = useState("");
   const [category, setCategory] = useState("");
@@ -89,37 +81,7 @@ const Admin = ({ searchCase }) => {
       }
     }
   };
-  // ------------------------------------------------
-  const updateCaseById = async (id) => {
-    try {
-      const result = await axios.put(`/cases/${id}`, {
-        case_image,
-        title,
-        case_description,
-        TheAmountRequired,
-        category,
-      });
-      dispatch(updateCases(result.data.results));
-      getAllCases();
-      setUpdateIsOpen(false);
-      navigate(`/admin`);
-    } catch (error) {
-      console.log(error.response);
-    }
-  };
-  // ------------------------------------------------
-
-  const deleteCseById = async (id) => {
-    try {
-      await axios.delete(`/cases/${id}`);
-      dispatch(deleteCase(id));
-      getAllCases();
-      //   navigate(`/allcases`);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  // ------------------------------------------------
+ 
 
   const navigate = useNavigate();
 

@@ -8,7 +8,7 @@ const createNewCase = (req, res) => {
     case_description,
     TheAmountRequired,
     donations,
-    emergency
+    emergency,
   } = req.body;
   const query = `INSERT INTO cases (category, case_image,title, case_description,TheAmountRequired,donations,emergency) VALUES (?,?,?,?,?,?,?); `;
 
@@ -19,7 +19,7 @@ const createNewCase = (req, res) => {
     case_description,
     TheAmountRequired,
     donations,
-    emergency
+    emergency,
   ];
 
   connection.query(query, data, (err, result) => {
@@ -291,12 +291,6 @@ const updateTheAmountRequired = (req, res) => {
   });
 };
 
-
-
-
-
-
-
 module.exports = {
   createNewCase,
   getAllCases,
@@ -304,6 +298,5 @@ module.exports = {
   updateCaseById,
   deleteCaseById,
   getCasesByCategory,
-  updateTheAmountRequired
-  
+  updateTheAmountRequired,
 };

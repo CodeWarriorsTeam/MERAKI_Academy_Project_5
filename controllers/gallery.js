@@ -26,9 +26,7 @@ const addImageToGallery = (req, res) => {
 
 
    const getAllImage = (req, res) => {
-    // const limit = 6;
-    // const page = req.query.page;
-    // const offset = (page - 1) * limit;
+   
     const query = `SELECT * FROM gallery   WHERE gallery.is_deleted=0  `;
   
     connection.query(query, async (err, result) => {

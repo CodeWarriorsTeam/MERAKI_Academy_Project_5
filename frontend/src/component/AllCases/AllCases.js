@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
+import { setCases } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
 import "./AllCases.css";
 import { GrFormNextLink } from "react-icons/gr";
-import { BiArrowBack } from "react-icons/bi";
 import { IoMdArrowBack } from "react-icons/io";
-import { AiOutlineArrowUp } from "react-icons/ai";
 
 const AllCases = ({
   searchCase,
