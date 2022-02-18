@@ -214,7 +214,6 @@ const getAllCasesEmergency = (req, res) => {
 
   connection.query(query, async (err, result) => {
     if (err) {
-     
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -222,7 +221,6 @@ const getAllCasesEmergency = (req, res) => {
     }
 
     if (!result[0]) {
-    
       return res.status(200).json({
         success: false,
         message: `no cases yet`,
@@ -237,7 +235,6 @@ const getAllCasesEmergency = (req, res) => {
   });
 };
 
-
 const updateCaseByIdForEmergency = (req, res) => {
   const { emergency } = req.body;
   const id = req.params.id;
@@ -247,7 +244,6 @@ const updateCaseByIdForEmergency = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-     
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -278,5 +274,5 @@ module.exports = {
   getCountCase,
   getCountVolunteer,
   getAllCasesEmergency,
-  updateCaseByIdForEmergency
+  updateCaseByIdForEmergency,
 };
