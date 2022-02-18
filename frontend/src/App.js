@@ -8,7 +8,7 @@ import AllCases from "./component/AllCases/AllCases";
 import Login from "./component/login/Login";
 import NewCase from "./component/NewCase/NewCase";
 import NewDonation from "./component/NewDonation/NewDonation";
-
+import KommunicateChat from "./component/chat"
 import Home from "./component/Home/Home";
 
 import Gallery from "./component/Gallery/Gallery";
@@ -52,9 +52,11 @@ function App() {
         setNum={setNum}
         numEducation={numEducation}
       />
-
+<KommunicateChat></KommunicateChat>
       <Routes>
-        
+
+      {/* <Route path="/chat" element={<KommunicateChat />} /> */}
+
         <Route path="/admin" element={<Admin searchCase={searchCase}  />} />
         <Route
           path="/"
