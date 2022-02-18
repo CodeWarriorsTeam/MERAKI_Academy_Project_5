@@ -74,10 +74,7 @@ const donateByPayment= async(req,res)=>{
     }
   });
   
-//   res.json({
-//     message:"Thanks for your donation",
-//     success:true
-//   })
+
   
     }
   

@@ -1,4 +1,4 @@
-.all {
+updater.all {
   height: 100%;
   background: linear-gradient(to left, #fcfcfc 85%, rgb(56, 52, 52) 15%);
   -webkit-background-size: cover;
@@ -17,14 +17,9 @@
   color: rgb(128, 127, 127);
   text-decoration: none;
   font-size: 1.3em;
-  /* float: left; */
   transform: translate(1.5em, 12.5em);
 }
- /* textarea{padding: 0px 45px;}
- .title {padding: 0px 93px;} 
- /* .amount{padding: 5px 40px;} */
-  /* .description{padding: 5px 70px;}
-.category {padding: 0px 80px;}   */
+ 
 .imageIcon6 {
   cursor: pointer;
   font-size: 1.2em;
@@ -47,12 +42,19 @@
   width: 10%;
 }
 .updater{
-  width: 60%;
   height: 30px;
+  width: 60%;
+  border-radius: 5px;
+  border-top: 1px rgba(116, 105, 105, 0.342) solid;
+  border-right: 1px rgba(138, 127, 127, 0.342) solid;
+  border-left: 1px rgba(138, 127, 127, 0.342) solid;
+  border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
+  background-color: rgba(136, 128, 128, 0.342);
+  color: black;
+  font-size: 2ch;
   margin-left: 18%;
- 
+  background-color: #F0D304;
 }
-
 .upload2:active{
   background-color: yellow;
 }
@@ -118,7 +120,7 @@ font-size: 1.3em;
 }
 .add {
   font-size: 2em;
-  transform: translate(8.7em, 1.8em);
+  transform: translate(9.4em, 1.8em);
 }
 .add:active {
   color: #f0d304;
@@ -134,7 +136,7 @@ font-size: 1.3em;
   cursor: pointer;
 }
 .table {
-  margin-left: 20%;
+  margin-left: 22%;
   width: 20%;
   transform: translate(0em, -24em);
 }
@@ -149,7 +151,6 @@ td {
 }
 
 .deleteIcon {
-  /* transform: translate(0.4em, 0em); */
   font-size: 1.1em;
   color: red;
   float: left;
@@ -193,8 +194,7 @@ td {
   font-size: 0.8em;
 }
 .descr {
-
-  font-size: 0.7em;
+  font-size: 0.9em;
 }
 .donatio {
   font-size: 0.8em;

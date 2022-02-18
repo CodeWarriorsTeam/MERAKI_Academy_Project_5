@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setCases, updateCases, deleteCase } from "../../reducer/cases/index";
+import { setCases } from "../../reducer/cases/index";
 import { useNavigate } from "react-router-dom";
 import "./AllCases.css";
 import { GrFormNextLink } from "react-icons/gr";
-import { BiArrowBack } from "react-icons/bi";
 import { IoMdArrowBack } from "react-icons/io";
-import { AiOutlineArrowUp } from "react-icons/ai";
 
 const AllCases = ({
   searchCase,
@@ -160,10 +158,11 @@ const AllCases = ({
                   >
                   </img>
                   <div className="cardText">
-                    <span className="dataSpan">{element.category}</span>
-                    <h2 style={{ width: "100%", wordBreak: "break-all" }}>
+                    <p style={{ width: "100%", wordBreak: "break-all" }}>
                       {element.title}
-                    </h2>
+                    </p>
+                    <span className="dataSpan">{element.category}</span>
+
                   </div>
                   <div className="cardState">
                     <div className="stat">

@@ -4,7 +4,6 @@ const connection = require("../database/db");
 const createDonation = (req, res) => {
    const casesId=req.params.case_id
     const { IBAN, amount } = req.body;
-    // const donor_id = req.token.userId;
     const query = `INSERT INTO donation (IBAN, amount,case_id) VALUES (?,?,?);`;
   
     const data = [IBAN, amount,casesId];
