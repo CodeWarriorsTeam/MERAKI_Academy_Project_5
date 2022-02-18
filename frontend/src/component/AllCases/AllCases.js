@@ -160,10 +160,11 @@ const AllCases = ({
                   >
                   </img>
                   <div className="cardText">
-                    <span className="dataSpan">{element.category}</span>
-                    <h2 style={{ width: "100%", wordBreak: "break-all" }}>
+                    <p style={{ width: "100%", wordBreak: "break-all" }}>
                       {element.title}
-                    </h2>
+                    </p>
+                    <span className="dataSpan">{element.category}</span>
+
                   </div>
                   <div className="cardState">
                     <div className="stat">
