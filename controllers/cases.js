@@ -163,7 +163,7 @@ const getCasesByCategory = (req, res) => {
 
   const data = [req.query.category.toLowerCase()];
 
-  const query = `SELECT * FROM cases WHERE cases.is_deleted=0 AND category=? limit ${limit} OFFSET ${offset} `;
+  const query = `SELECT * FROM cases WHERE cases.is_deleted=0 AND category=? ORDER BY TheAmountRequired DESC limit ${limit} OFFSET ${offset} `;
 
   connection.query(query, data, (err, result) => {
     if (err) {
