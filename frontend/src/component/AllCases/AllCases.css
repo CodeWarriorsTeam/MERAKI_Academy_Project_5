@@ -106,21 +106,13 @@
   cursor: pointer;
   gap: 10px;
 }
-/* .PaginationButton{
-grid-column: 3/3;
-width: 50px;
-grid-row: 4/4;
-} */
+
 
 .buttonIconPag{
   font-size: 20px;
 }
 
-/* .backPaginationButton{
-  grid-column: 3/3;
-width: 50px;
-grid-row: 4/4;
-} */
+
 
 .cardText p {
   font-size: 25px;
@@ -131,7 +123,6 @@ grid-row: 4/4;
 
 .PaginationButton{
   padding: 5px 20px;
-  /* font-size: 40px; */
   color: rgb(38,37,36);
   background-color: #F0D304;
   text-decoration: none;
@@ -143,7 +134,6 @@ grid-row: 4/4;
 
 .backPaginationButton{
   padding: 5px 20px;
-  /* font-size: 40px; */
   color: rgb(38,37,36);
   background-color: #F0D304;
   text-decoration: none;

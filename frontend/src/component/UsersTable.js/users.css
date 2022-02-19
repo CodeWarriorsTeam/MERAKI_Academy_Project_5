@@ -17,11 +17,10 @@ td {
   text-decoration: none;
   font-size: 1.1em;
   float: left;
-  cursor: pointer; 
-  transform: translate(-11em,10.4em);
+  cursor: pointer;
+  transform: translate(-11em, 10.4em);
 }
 .imageIcon8 {
-
   font-size: 1.4em;
   color: rgb(128, 127, 127);
   transform: translate(-10.5em, 9.2em);
@@ -81,7 +80,6 @@ td {
   background-color: #ebebeb;
 }
 .table2 {
-  
   padding-left: 22%;
   padding-right: 7%;
   transform: translate(-2.5em, -25em);

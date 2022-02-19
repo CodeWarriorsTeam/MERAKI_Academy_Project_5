@@ -19,7 +19,7 @@ updater.all {
   font-size: 1.3em;
   transform: translate(1.5em, 12.5em);
 }
- 
+
 .imageIcon6 {
   cursor: pointer;
   font-size: 1.2em;
@@ -33,15 +33,15 @@ updater.all {
   border-bottom: 1px rgba(138, 127, 127, 0.342) solid;
   color: black;
 }
-.upload2{
+.upload2 {
   margin-left: 1%;
-  transform: translate(0em,0.2em);
+  transform: translate(0em, 0.2em);
   height: 30px;
   color: black;
   border-radius: 5px;
   width: 10%;
 }
-.updater{
+.updater {
   height: 30px;
   width: 60%;
   border-radius: 5px;
@@ -53,13 +53,13 @@ updater.all {
   color: black;
   font-size: 2ch;
   margin-left: 18%;
-  background-color: #F0D304;
+  background-color: #f0d304;
 }
-.upload2:active{
+.upload2:active {
   background-color: yellow;
 }
-.upload1{
-font-size: 1.3em;
+.upload1 {
+  font-size: 1.3em;
 }
 .imaget1 {
   margin-left: 18%;
@@ -129,7 +129,7 @@ font-size: 1.3em;
   transform: translate(47em, -20em);
 }
 .next {
-  transform: translate(14em,-20em);
+  transform: translate(14em, -20em);
   margin-left: 40%;
 }
 .add:hover {
@@ -209,14 +209,13 @@ td {
 .oper {
   font-size: 0.8em;
 }
-.link22{
+.link22 {
   margin-bottom: 26%;
 }
 
-
-.divPaginationAdmin{
+.divPaginationAdmin {
   margin-bottom: 2%;
-  margin-top:25%;
+  margin-top: 25%;
 
   width: 100%;
   display: flex;
@@ -224,39 +223,32 @@ td {
   align-items: center !important;
   cursor: pointer;
   gap: 10px;
-
 }
 
-
-.PaginationButtonAdmin{
- transform: translate(28em,3em);
+.PaginationButtonAdmin {
+  transform: translate(28em, 3em);
   padding: 3px 10px;
-  /* font-size: 40px; */
-  color: #F5EFED;
-  background-color: #25211D;
+  color: #f5efed;
+  background-color: #25211d;
   text-decoration: none;
   font-weight: 900;
   box-shadow: 6px 6px 0 #000;
   transition: 0.5s;
-  /* transform: skewX(15deg); */
 }
 
-.backPaginationButtonAdmin{
+.backPaginationButtonAdmin {
   padding: 3px 10px;
-  /* font-size: 40px; */
-  transform: translate(28em,3em);
+  transform: translate(28em, 3em);
 
-  color: #F5EFED;
-  background-color: #25211D;
+  color: #f5efed;
+  background-color: #25211d;
   text-decoration: none;
   font-weight: 900;
   box-shadow: 6px 6px 0 #000;
   transition: 0.5s;
-  /* transform: skewX(15deg); */
 }
 
-.divPagination a:hover{
-padding: 3px 13px;
-box-shadow: 7px 7px 0 #424240;
+.divPagination a:hover {
+  padding: 3px 13px;
+  box-shadow: 7px 7px 0 #424240;
 }
-

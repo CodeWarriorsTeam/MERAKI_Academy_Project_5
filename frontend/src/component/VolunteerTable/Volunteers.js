@@ -41,7 +41,6 @@ const Volunteers = () => {
 
       if (res.data.success) {
         dispatch(setUsers(res.data.result));
-        // setGallery(res.data.result);
       }
     } catch (error) {
       console.log(error);
@@ -60,7 +59,6 @@ const Volunteers = () => {
       )
 
       .then((result) => {
-        // console.log(image_1);
         dispatch(
           addImage({
             image_1,
@@ -154,7 +152,6 @@ const Volunteers = () => {
         <p
           onClick={() => {
             setImageIsOpen(true);
-            console.log(imageIsOpen);
           }}
           className="imageLink9"
           title="Add Image"

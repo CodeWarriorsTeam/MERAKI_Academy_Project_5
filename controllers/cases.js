@@ -37,22 +37,18 @@ const createNewCase = (req, res) => {
     });
   });
 };
-///////SELECT * FROM roles INNER JOIN users ON users.role_id=roles.id WHERE email=?
-////SELECT cases.*, donation.* FROM cases LEFT JOIN donation ON donation.case_id=cases.id WHERE cases.is_deleted=0
-//TheAmountRequired
+
 const getAllCases = (req, res) => {
   const limit = 8;
   const page = req.query.page;
   const offset = (page - 1) * limit;
   
-  // const query = `SELECT donation.IBAN,donation.amount,donation.case_id,cases.* FROM donation RIGHT JOIN cases ON cases.id=donation.case_id WHERE cases.is_deleted=0  `;
-  // const query = `SELECT donation.IBAN,donation.amount,donation.case_id,cases.* FROM donation RIGHT JOIN cases ON cases.id=donation.case_id WHERE cases.is_deleted=0 `;
+  
 
   const query = `SELECT * FROM cases  WHERE cases.is_deleted=0 ORDER BY TheAmountRequired DESC limit ${limit} OFFSET ${offset} `;
 
   connection.query(query, async (err, result) => {
     if (err) {
-      console.log(err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -66,44 +62,10 @@ const getAllCases = (req, res) => {
       });
     }
 
-    let array = [];
-    let resultUpdate = [];
+    
 
-    //  result.forEach((element)=>{
-    //  array.forEach((element2)=>{
-    //     if(!element.case_id==element2.case_id){
-    //     resultUpdate.push(element)
-    //     }
-    //   })
-    //   // return resultUpdate
-    // })
-    // for (let i = 0; i < result.length; i++) {
-    //   if(result[i].case_id==array[i].case_id){
-    //     resultUpdate.push(result[i])
-    //   }
-    //   return resultUpdate
-    // }
-
-    // if(!array.includes(element.case_id)){
-    //   array.push(element)
-    // }
-    // -----------
-    //   let f = [];
-    //  await result.forEach((element) => {
-    //     if (!array.includes(element.case_id)) {
-    //       array.push(element.case_id);
-    //       element.donations += element.amount;
-    //       element.TheAmountRequired -= element.amount;
-    //       resultUpdate.push(element);
-    //     } else {
-    //       resultUpdate.forEach((ele) => {
-    //         if (ele.case_id == element.case_id) {
-    //           ele.donations += element.amount;
-    //           ele.TheAmountRequired -= element.amount;
-    //         }
-    //       });
-    //     }
-    //   });
+    
+   
     res.status(200).json({
       success: true,
       message: `all cases`,
@@ -201,8 +163,6 @@ const getCasesByCategory = (req, res) => {
 
   const data = [req.query.category.toLowerCase()];
 
-  // SELECT * FROM donation RIGHT JOIN cases ON case_id=cases.id  WHERE cases.is_deleted=0
-  //SELECT * FROM cases   WHERE cases.is_deleted=0
   const query = `SELECT * FROM cases WHERE cases.is_deleted=0 AND category=? limit ${limit} OFFSET ${offset} `;
 
   connection.query(query, data, (err, result) => {
@@ -219,23 +179,7 @@ const getCasesByCategory = (req, res) => {
         message: `no cases in this category ==>${data} `,
       });
     }
-    // let array = [];
-    // let resultUpdate = [];
-    // result.forEach((element) => {
-    //   if (!array.includes(element.case_id)) {
-    //     array.push(element.case_id);
-    //     element.donations += element.amount;
-    //     element.TheAmountRequired -= element.amount;
-    //     resultUpdate.push(element);
-    //   } else {
-    //     resultUpdate.forEach((ele) => {
-    //       if (ele.case_id == element.case_id) {
-    //         ele.donations += element.amount;
-    //         ele.TheAmountRequired -= element.amount;
-    //       }
-    //     });
-    //   }
-    // });
+    
 
     res.status(200).json({
       success: true,

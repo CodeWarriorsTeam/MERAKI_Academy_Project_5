@@ -16,7 +16,7 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { ImPhone } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 
 import {
   setCase,
@@ -24,7 +24,7 @@ import {
   setCaseEmergency2,
 } from "../../reducer/cases/index";
 
-toast.configure()
+toast.configure();
 const Home = ({
   setCategory,
   setAllCase,
@@ -66,8 +66,6 @@ const Home = ({
         `/cases/${localStorage.getItem("emergencyId1")}`
       );
       dispatch(setCaseEmergency1(result.data.result));
-
-      console.log(result.data.result[0].title);
     } catch (error) {
       console.log(error.response);
     }
@@ -89,12 +87,8 @@ const Home = ({
   //------------------------
   const getAllCasesEmergency = async () => {
     try {
-      const result = await axios.get(
-        `/admin/emergency`
-      );
+      const result = await axios.get(`/admin/emergency`);
       dispatch(setCaseEmergency2(result.data.result));
-
-      console.log(result.data.result[0].title);
     } catch (error) {
       console.log(error.response);
     }
@@ -166,8 +160,8 @@ const Home = ({
   useEffect(() => {
     getAllCasesEmergency();
   }, []);
-  //
-  //getCaseById------------------------------------------------------------
+
+  //------------------------------------------------------------
 
   const addNewVolunteer = () => {
     axios
@@ -188,7 +182,10 @@ const Home = ({
           })
         );
         setJoinIsOpen(false);
-        toast.success(`Thank you, ${firstName}, for your volunteering. We will contact you as soon as possible`,{autoClose:10000,className:"notSuccess"})
+        toast.success(
+          `Thank you, ${firstName}, for your volunteering. We will contact you as soon as possible`,
+          { autoClose: 10000, className: "notSuccess" }
+        );
       })
       .catch((err) => {
         console.log(err.response);
@@ -196,7 +193,6 @@ const Home = ({
       });
   };
 
-  ///----
   const convertToCase = (id) => {
     navigate(`/casedetails/${id}`);
   };
@@ -331,14 +327,7 @@ const Home = ({
         </div>
 
         <div className="rowEmergency">
-          <>
-            {/* <div className="colEmergency">
-              <img src="./image/case1.jpg" />
-              <h4>Food</h4>
-              <p>Very urgent cases, help support them as soon as possible</p>
-              <button className="ctn">Donate Now</button>
-            </div> */}
-          </>
+          <></>
 
           {state.caseEmergency2 &&
             state.caseEmergency2.map((element, index) => (
@@ -541,13 +530,12 @@ const Home = ({
           </div>
         </div>
       </section>
-    
+
       <AiOutlineArrowUp
         className="scrollTop"
         onClick={scrollTop}
         style={{ height: 50, display: showScroll ? "flex" : "none" }}
       ></AiOutlineArrowUp>
-      {/* </button> */}
 
       <footer className="footer">
         <div className="footerContent">

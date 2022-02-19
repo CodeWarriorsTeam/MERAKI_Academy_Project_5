@@ -8,7 +8,6 @@
 }
 
 .table1 {
-  
   margin-top: 9%;
   padding-left: 22%;
   padding-right: 7%;
@@ -20,18 +19,18 @@ td {
   white-space: 20px;
   text-align: left;
 }
-.imageIcon9{
+.imageIcon9 {
   font-size: 1.4em;
   color: rgb(128, 127, 127);
- transform: translate(-11.5em, 11.5em);
+  transform: translate(-11.5em, 11.5em);
 }
-.imageLink9{
-   cursor: pointer; 
+.imageLink9 {
+  cursor: pointer;
 
   color: rgb(128, 127, 127);
   text-decoration: none;
   font-size: 1.2em;
-  
+
   float: left;
   transform: translate(3.5em, 13.5em);
 }

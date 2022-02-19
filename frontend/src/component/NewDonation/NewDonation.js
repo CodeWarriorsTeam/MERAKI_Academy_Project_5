@@ -10,7 +10,6 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 import { SiMinutemailer } from "react-icons/si";
 import { BsFillTelephoneOutboundFill } from "react-icons/bs";
-//GrGallery
 import { GrGallery } from "react-icons/gr";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -66,7 +65,6 @@ const NewDonation = ({
       const result = await axios.get(`/cases/${id}`);
       dispatch(setCase(result.data.result));
 
-      console.log(result.data.result[0].title);
       setIsClosed(result.data.result[0].TheAmountRequired);
     } catch (error) {
       console.log(error.response);
@@ -90,7 +88,6 @@ const NewDonation = ({
         case_description,
         category,
       });
-      console.log(result.data.results);
       dispatch(updateCases(result.data.results));
 
       getbyid();
@@ -122,7 +119,6 @@ const NewDonation = ({
         }
       )
       .then((result) => {
-        // console.log(result.data.result);
         dispatch(addDonation({ id, donations }));
         setMessage(" the donation has been created successfully");
       })
@@ -171,7 +167,6 @@ const NewDonation = ({
   };
 
   ///-------------
-  ///-----
   const countNumEducation = async () => {
     try {
       const res = await axios.get(
@@ -219,73 +214,7 @@ const NewDonation = ({
                 width="100%"
               />
 
-              {/* {element.category.toLowerCase() == "food" ? (
-                  <>
-                    <p>
-                      Help us reach the goal, feed<span> 1,000 </span>poor
-                      people
-                    </p>
-                    <p>
-                      We have achieved so far<span> {numFood}</span>
-                    </p>
-                    <p>
-                      The remaining <span>{1000 - numFood}</span>
-                    </p>
-                  </>
-                ) : (
-                  <></>
-                )}
-                {element.category.toLowerCase() == "rebuilding" ? (
-                  <>
-                    <p>
-                      Help us reach the goal, Repairing<span> 500</span>{" "}
-                      facilities that were destroyed due to the war
-                    </p>
-                    <p>
-                      We have achieved so far<span> {numRebuilding}</span>
-                    </p>
-                    <p>
-                      The remaining <span>{500 - numRebuilding}</span>
-                    </p>
-                  </>
-                ) : (
-                  <></>
-                )}
-                {element.category.toLowerCase() == "education" ? (
-                  <>
-                    <p>
-                      Help us reach the goal, Educating<span> 1000</span>{" "}
-                      students
-                    </p>
-                    <p>
-                      We have achieved so far<span> {numEducation}</span>
-                    </p>
-                    <p>
-                      The remaining <span>{1000 - numEducation}</span>
-                    </p>
-                  </>
-                ) : (
-                  <></>
-                )}
-                {element.category.toLowerCase() == "medical supplies" ? (
-                  <>
-                    <p>
-                      Help us reach the goal, Educating<span> 1000</span>{" "}
-                      students
-                    </p>
-                    <p>
-                      We have achieved so far<span> {numMedicalSupplies}</span>
-                    </p>
-                    <p>
-                      The remaining <span>{1000 - numMedicalSupplies}</span>
-                    </p>
-                  </>
-                ) : (
-                  <></>
-                )}
-                <br /> */}
-              {/*  <h4>Case</h4>
-                <p>{element.title}</p> */}
+             
 
               <div className="rightSide">
                 <div className="infoCase">
@@ -380,7 +309,6 @@ const NewDonation = ({
                           }}
                         >
                           {" "}
-                          {/* //GrGallery */}
                           <a title="Close case">
                             <IoCheckmarkDoneSharp></IoCheckmarkDoneSharp>
                           </a>
@@ -405,10 +333,8 @@ const NewDonation = ({
                   </ul>
                 </div>
                 <div className="infoCompany">
-                  {/* <h3>To Contact Us</h3> */}
                   <div className="info_data">
                     <div className="data">
-                      {/* <h4>Email</h4> */}
                       <p>
                         <span>
                           <SiMinutemailer></SiMinutemailer>{" "}
@@ -417,7 +343,6 @@ const NewDonation = ({
                       </p>
                     </div>
                     <div className="data">
-                      {/* <h4>Phone</h4> */}
                       <p>
                         <span>
                           <BsFillTelephoneOutboundFill></BsFillTelephoneOutboundFill>
@@ -429,98 +354,12 @@ const NewDonation = ({
                 </div>
               </div>
 
-              {/* {isAdmin ? (
-                <>
-                  {updateBox && caseId === element.id && (
-                    <form>
-                      <input
-                        type="text"
-                        defaultValue={element.case_description}
-                        onChange={(e) => setCase_Description(e.target.value)}
-                      ></input>
-                      <input
-                        type="text"
-                        defaultValue={element.title}
-                        onChange={(e) => setTitle(e.target.value)}
-                      ></input>
-                      <input
-                        type="text"
-                        defaultValue={element.category}
-                        onChange={(e) => setCategory(e.target.value)}
-                      ></input>
-                      <input
-                        type="text"
-                        defaultValue={element.case_image}
-                        onChange={(e) => setCase_image(e.target.value)}
-                      ></input>
-                    </form>
-                  )}
-                  <button
-                    className="update"
-                    onClick={() => handleUpdateClick(element)}
-                  >
-                    update
-                  </button>
-                  <button className="delete" onClick={() => deleteCseById()}>
-                    X
-                  </button>
-                </>
-              ) : (
-                <></>
-              )} */}
+              
             </>
           ))}
 
         <>
-          {/* {isClosed && isClosed > 0 ? (
-            <div className="contenerDonation">
-              <Model
-                style={customStyles2}
-                isOpen={donateIsOpen}
-                onRequestClose={() => setDonateIsOpen(false)}
-              >
-                <input type="checkbox" id="inputOpenDonation"></input>
-                <div className="modalDonation">
-                  <h1 id="headerModal">Thanks</h1>
-                  <p id="prgModel">
-                    {" "}
-                    If you do not have money, then smiling in the face of your
-                    brother is charity
-                  </p>
-                  <br></br>
-                  <input
-                    className="IBAN"
-                    type="text"
-                    placeholder="card"
-                    onChange={(e) => {
-                      setIBAN(e.target.value);
-                    }}
-                  ></input>{" "}
-                  <br />
-                  <br />
-                  <input
-                    className="IBAN"
-                    type="text"
-                    placeholder="Enter Donation Amount"
-                    onChange={(e) => {
-                      setDonations(e.target.value);
-                    }}
-                  ></input>
-                  <button
-                    className="addDonation"
-                    onClick={() => {
-                      addNewDonation();
-                    }}
-                  >
-                    Donate
-                  </button>
-                  {message}
-                </div>
-              </Model>
-            </div>
-          ) : (
-            <>Close</>
-          )} */}
+         
         </>
       </div>
     </>

@@ -8,13 +8,13 @@ import AllCases from "./component/AllCases/AllCases";
 import Login from "./component/login/Login";
 import NewCase from "./component/NewCase/NewCase";
 import NewDonation from "./component/NewDonation/NewDonation";
-import KommunicateChat from "./component/chat"
+import KommunicateChat from "./component/chat";
 import Home from "./component/Home/Home";
-import 'react-toastify/dist/ReactToastify.css'
+import "react-toastify/dist/ReactToastify.css";
 import Gallery from "./component/Gallery/Gallery";
 import Admin from "./component/Admin/Admin";
 import StripeContainer from "./component/StripeContainer";
-import PaymentForm from "./component/PaymentForm"
+import PaymentForm from "./component/PaymentForm";
 import Users from "./component/UsersTable.js/Users";
 import Volunteers from "./component/VolunteerTable/Volunteers";
 import Cases from "./component/CaseTable.js/Cases";
@@ -30,17 +30,12 @@ function App() {
 
   const [inputEmergency1, setInputEmergency1] = useState(20);
   const [inputEmergency2, setInputEmergency2] = useState(23);
-  
-  //--------------------------------- STORE
+
   const [isAdmin, setIsAdmin] = useState("");
   const [userId, setUserId] = useState("");
-  //--
 
-  
   return (
     <>
-     
-   
       <Navigation
         setIsAdmin={setIsAdmin}
         isAdmin={isAdmin}
@@ -52,12 +47,9 @@ function App() {
         setNum={setNum}
         numEducation={numEducation}
       />
-<KommunicateChat></KommunicateChat>
+      <KommunicateChat></KommunicateChat>
       <Routes>
-
-      {/* <Route path="/chat" element={<KommunicateChat />} /> */}
-
-        <Route path="/admin" element={<Admin searchCase={searchCase}  />} />
+        <Route path="/admin" element={<Admin searchCase={searchCase} />} />
         <Route
           path="/"
           element={
@@ -106,22 +98,47 @@ function App() {
         />
         <Route
           path="/casedetails/:id"
-          element={<NewDonation isAdmin={isAdmin} numFood={numFood}setNumFood={setNumFood}setNumRebuilding={setNumRebuilding}numRebuilding={numRebuilding} 
-          setNumEducation={setNumEducation}
-          numEducation={numEducation}setNumMedicalSupplies={setNumMedicalSupplies}numMedicalSupplies={numMedicalSupplies}/>}
+          element={
+            <NewDonation
+              isAdmin={isAdmin}
+              numFood={numFood}
+              setNumFood={setNumFood}
+              setNumRebuilding={setNumRebuilding}
+              numRebuilding={numRebuilding}
+              setNumEducation={setNumEducation}
+              numEducation={numEducation}
+              setNumMedicalSupplies={setNumMedicalSupplies}
+              numMedicalSupplies={numMedicalSupplies}
+            />
+          }
         />
 
-<Route path="/admin/cases" element={isAdmin || localStorage.getItem("isAdmin")=="admin" ? <Cases searchCase={searchCase}setInputEmergency1={setInputEmergency1} inputEmergency1={inputEmergency1}setInputEmergency2={setInputEmergency2}inputEmergency2={inputEmergency2} />:<p>Not Authorized</p>} />
+        <Route
+          path="/admin/cases"
+          element={
+            isAdmin || localStorage.getItem("isAdmin") == "admin" ? (
+              <Cases
+                searchCase={searchCase}
+                setInputEmergency1={setInputEmergency1}
+                inputEmergency1={inputEmergency1}
+                setInputEmergency2={setInputEmergency2}
+                inputEmergency2={inputEmergency2}
+              />
+            ) : (
+              <p>Not Authorized</p>
+            )
+          }
+        />
 
+        <Route
+          path="/admin/users"
+          element={<Users searchCase={searchCase} />}
+        />
 
-<Route path="/admin/users" element={<Users searchCase={searchCase} />} />
-
-
-<Route path="/admin/volunteers" element={<Volunteers searchCase={searchCase} />} />
-
-
-
-
+        <Route
+          path="/admin/volunteers"
+          element={<Volunteers searchCase={searchCase} />}
+        />
       </Routes>
     </>
   );

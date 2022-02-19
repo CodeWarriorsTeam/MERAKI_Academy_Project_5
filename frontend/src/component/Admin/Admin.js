@@ -5,11 +5,7 @@ import { RiImageAddLine } from "react-icons/ri";
 import { BiUpload } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 
-import {toast} from "react-toastify"
-
-
-
-
+import { toast } from "react-toastify";
 
 import {
   MdVolunteerActivism,
@@ -18,21 +14,16 @@ import {
 } from "react-icons/md";
 
 import Model from "react-modal";
-import {
-  AddCase,
-  setCases,
-  
-} from "../../reducer/cases/index";
+import { AddCase, setCases } from "../../reducer/cases/index";
 import { setUsers } from "../../reducer/users/index";
 import { addImage } from "../../reducer/image/index";
-
 
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import { Link } from "react-router-dom";
 import { setVolunteers } from "../../reducer/volunteer";
 
-toast.configure()
+toast.configure();
 const Admin = ({ searchCase }) => {
   const [modelIsOpen, setModelIsOpen] = useState(false);
   const [case_image, setCase_Image] = useState("");
@@ -88,7 +79,6 @@ const Admin = ({ searchCase }) => {
       }
     }
   };
- 
 
   const navigate = useNavigate();
 
@@ -109,7 +99,14 @@ const Admin = ({ searchCase }) => {
     axios
       .post(
         "/cases",
-        { category, case_image, title, case_description, TheAmountRequired,emergency},
+        {
+          category,
+          case_image,
+          title,
+          case_description,
+          TheAmountRequired,
+          emergency,
+        },
         {
           headers: {
             Authorization: `Bearer ${state.token}`,
@@ -125,7 +122,7 @@ const Admin = ({ searchCase }) => {
             title,
             case_description,
             TheAmountRequired,
-            emergency
+            emergency,
           })
         );
         getAllCases();
@@ -153,7 +150,6 @@ const Admin = ({ searchCase }) => {
 
       if (res.data.success) {
         dispatch(setUsers(res.data.result));
-        // setGallery(res.data.result);
       }
     } catch (error) {
       console.log(error);
@@ -353,8 +349,6 @@ const Admin = ({ searchCase }) => {
           <p className="line1"></p>
         </div>
       </div>
-
-
       <div className="model">
         <Model
           isOpen={modelIsOpen}
@@ -456,7 +450,6 @@ const Admin = ({ searchCase }) => {
           </button>
         </Model>
       </div>
-     
     </div>
   );
 };

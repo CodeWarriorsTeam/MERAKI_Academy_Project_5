@@ -10,7 +10,7 @@ const {
   getCountMedSupplies,
   getCountUser,
   getAllCasesEmergency,
-  updateCaseByIdForEmergency
+  updateCaseByIdForEmergency,
 } = require("../controllers/admin");
 const adminRouter = express.Router();
 

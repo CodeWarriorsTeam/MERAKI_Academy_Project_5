@@ -26,7 +26,6 @@ const Gallery = () => {
 
       if (res.data.success) {
         dispatch(setImages(res.data.result));
-        // setGallery(res.data.result);
       }
     } catch (error) {
       console.log(error);

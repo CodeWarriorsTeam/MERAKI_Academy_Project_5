@@ -1,8 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  /* font-weight: 300; */
-  /* font-family: "fantasy"; */
   font-family: "PT Sans", sans-serif;
   box-sizing: border-box;
 }
@@ -21,7 +19,7 @@ html {
 }
 
 .km-custom-widget-background-color {
-    background: #f0d304!important;
+  background: #f0d304 !important;
 }
 .FormGroup {
   padding: 0;
@@ -83,11 +81,6 @@ html {
   margin-left: 25%;
   margin-top: 5%;
   margin-right: 25%;
-}
-
-h1,
-h3 {
-  /* text-align: center; */
 }
 
 .containerPayment {
@@ -177,7 +170,6 @@ h3 {
 }
 
 .successDonate h2 {
-  /* text-transform: uppercase; */
   font-size: 35px;
   color: #25211d;
   font-size: 1.7rem;
@@ -186,43 +178,24 @@ h3 {
   font-style: italic;
 }
 
-
-
-
-
-/* .success-Donate{
-background-color: #F0D304;
-font-size: 30px;
-color: #F0D304;
-border: #e298d8 solid;
-} */
-
-/* .Toastify{
-	background-color: #F0D304;
-
-color: #F0D304;
-} */
-
-
-.notSuccess{
-  background-color: #F0D304 !important;
-  color: rgb(38,37,36) !important ;
+.notSuccess {
+  background-color: #f0d304 !important;
+  color: rgb(38, 37, 36) !important ;
 }
 
-.Toastify__progress-bar--success{
-  background-color: rgb(38,37,36) !important; 
+.Toastify__progress-bar--success {
+  background-color: rgb(38, 37, 36) !important;
 }
 
 .Toastify__toast-icon {
-  color: rgb(38,37,36) !important ;
-  
+  color: rgb(38, 37, 36) !important ;
 }
 
-.notError{
+.notError {
   background-color: #e01e1e !important;
-  color: #F5EFED !important ;
+  color: #f5efed !important ;
 }
 
-.ElementsApp .ElementsApp .InputElement{
-  color: rgb(202, 12, 12)  !important ;
+.ElementsApp .ElementsApp .InputElement {
+  color: rgb(202, 12, 12) !important ;
 }

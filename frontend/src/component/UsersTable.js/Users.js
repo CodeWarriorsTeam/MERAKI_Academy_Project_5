@@ -39,7 +39,6 @@ const Users = () => {
 
       if (res.data.success) {
         dispatch(setUsers(res.data.result));
-        // setGallery(res.data.result);
       }
     } catch (error) {
       console.log(error);
@@ -58,7 +57,6 @@ const Users = () => {
       )
 
       .then((result) => {
-        // console.log(image_1);
         dispatch(
           addImage({
             image_1,
@@ -102,7 +100,6 @@ const Users = () => {
   };
   //------------------------------------------------------------
 
-  //----------------------------------------------------------
   const getAllUsers = async () => {
     try {
       const res = await axios.get(
@@ -113,8 +110,6 @@ const Users = () => {
 
       if (res.data.success) {
         dispatch(setUsers(res.data.result));
-        // setUserIsOpen(false);
-        console.log(res.data.result);
       }
     } catch (error) {
       console.log(error);
@@ -160,7 +155,6 @@ const Users = () => {
               <p
                 onClick={() => {
                   setImageIsOpen(true);
-                  console.log(imageIsOpen);
                 }}
                 className="imageLink8"
                 title="Add Image"
@@ -192,7 +186,6 @@ const Users = () => {
           </tr>
           {state.users &&
             state.users.map((element, i) => {
-              // console.log();
               return (
                 <tr className="tttt">
                   <td className="id2">{element.id}</td>
