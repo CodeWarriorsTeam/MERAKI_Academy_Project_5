@@ -6,7 +6,7 @@ import axios from "axios";
 import { setCase } from "../reducer/cases/index";
 import { useParams } from "react-router-dom";
 import {toast} from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css'
+
 
 toast.configure()
 const CARD_OPTIONS = {
@@ -90,17 +90,19 @@ export default function PaymentForm() {
           title,
         });
         if (response.data.success) {
-          console.log("SuccessFull payment");
+         
           setSuccess(true);
-          toast.success('success',{className:"success-Donate",position:toast.POSITION.TOP_CENTER,autoClose: 8000})
+          toast.success(`Thank you for your donation of ${amount}, the amount will be deducted from your bank account`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
         }
 
         getbyid();
       } catch (error) {
+        toast.error(`opps!Please check the information entered`,{autoClose:10000,className:"notError"})
         console.log("Error", error);
       }
     } else {
       console.log(error.message);
+      toast.error(`Opps!Please check the information entered`,{autoClose:10000,className:"notError"})
     }
   };
   return (
@@ -172,9 +174,7 @@ export default function PaymentForm() {
           </form>
         </Model>
       ) : (
-        <div className="successDonate" >
-          <h2>the donation has been created successfully</h2>
-        </div>
+       <></>
       )}
     </>
   );

@@ -10,7 +10,7 @@ import NewCase from "./component/NewCase/NewCase";
 import NewDonation from "./component/NewDonation/NewDonation";
 import KommunicateChat from "./component/chat"
 import Home from "./component/Home/Home";
-
+import 'react-toastify/dist/ReactToastify.css'
 import Gallery from "./component/Gallery/Gallery";
 import Admin from "./component/Admin/Admin";
 import StripeContainer from "./component/StripeContainer";

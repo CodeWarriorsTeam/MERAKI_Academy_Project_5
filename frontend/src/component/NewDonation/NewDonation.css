@@ -308,7 +308,8 @@ font-style: italic;
 }
 
 .wrapperCase .donateForCase ul li a{
-  color: #fff;
+  /* color: white!important; */
   display: block;
   font-size:30px ;
+  
 }

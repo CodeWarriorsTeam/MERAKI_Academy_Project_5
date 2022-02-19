@@ -5,6 +5,12 @@ import { RiImageAddLine } from "react-icons/ri";
 import { BiUpload } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 
+import {toast} from "react-toastify"
+
+
+
+
+
 import {
   MdVolunteerActivism,
   MdOutlineVolunteerActivism,
@@ -26,6 +32,7 @@ import "./Admin.css";
 import { Link } from "react-router-dom";
 import { setVolunteers } from "../../reducer/volunteer";
 
+toast.configure()
 const Admin = ({ searchCase }) => {
   const [modelIsOpen, setModelIsOpen] = useState(false);
   const [case_image, setCase_Image] = useState("");

@@ -7,10 +7,12 @@ import "./NewDonation.css";
 import Model from "react-modal";
 import { FcDonate } from "react-icons/fc";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
-///BsFillTelephoneOutboundFill
+
 import { SiMinutemailer } from "react-icons/si";
 import { BsFillTelephoneOutboundFill } from "react-icons/bs";
-import { useParams } from "react-router-dom";
+//GrGallery
+import { GrGallery } from "react-icons/gr";
+import { Link, useParams } from "react-router-dom";
 import {
   setCases,
   updateCases,
@@ -322,8 +324,28 @@ const NewDonation = ({
                   <ul>
                     {isClosed && isClosed > 0 ? (
                       <>
-                        {showItem ? (
+                        {showItem ? (<>
                           <StripeContainer />
+                          <li title="DonateNow">
+                              <a
+                                onClick={() => {
+                                  setShowItem(true);
+                                }}
+                              >
+                                <FcDonate></FcDonate>
+                              </a>
+                            </li>
+                            <Link to="/gallery">
+                          {" "}
+                          <li
+                            
+                          >
+                            {" "}
+                            <a title="Gallery">
+                              <GrGallery></GrGallery>
+                            </a>
+                          </li>
+                        </Link></>
                         ) : (
                           <>
                             <li title="DonateNow">
@@ -335,6 +357,17 @@ const NewDonation = ({
                                 <FcDonate></FcDonate>
                               </a>
                             </li>
+                            <Link to="/gallery">
+                          {" "}
+                          <li
+                            
+                          >
+                            {" "}
+                            <a title="Gallery">
+                              <GrGallery></GrGallery>
+                            </a>
+                          </li>
+                        </Link>
                           </>
                         )}
                       </>
@@ -347,10 +380,26 @@ const NewDonation = ({
                           }}
                         >
                           {" "}
+                          {/* //GrGallery */}
                           <a title="Close case">
                             <IoCheckmarkDoneSharp></IoCheckmarkDoneSharp>
                           </a>
                         </li>
+
+                        <Link to="/gallery">
+                          {" "}
+                          <li
+                            style={{
+                              background:
+                                "linear-gradient(to right ,#055302,#27d1189a) ",
+                            }}
+                          >
+                            {" "}
+                            <a title="Gallery">
+                              <GrGallery></GrGallery>
+                            </a>
+                          </li>
+                        </Link>
                       </>
                     )}
                   </ul>
