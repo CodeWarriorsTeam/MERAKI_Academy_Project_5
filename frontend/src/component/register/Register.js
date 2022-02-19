@@ -73,7 +73,7 @@ const Register = () => {
         role_id,
       })
       .then((result) => {
-        console.log(66677776);
+      
         // setParagraph("The user has been created successfully");
          toast.success(`Thank you, ${firstName}, for joining the Safe Home family`,{autoClose:10000,className:"notSuccess",
         position:"top-left"})
@@ -82,7 +82,7 @@ const Register = () => {
       .catch((err) => {
         console.log(6666);
         // console.log(err.response.data.message);
-        setParagraph(err.response.data.message);
+        // setParagraph(err.response.data.message);
         toast.error(err.response.data.message,{autoClose:10000,className:"notError"})
         // setParagraph("Error happend while register, please try again");
       });
