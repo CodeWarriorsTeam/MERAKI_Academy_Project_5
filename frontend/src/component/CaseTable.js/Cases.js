@@ -22,6 +22,8 @@ import { Link } from "react-router-dom";
 
 import {toast} from "react-toastify"
 
+// toast.success(`Welcome`, { autoClose: 10000, className: "notSuccess" , position:"top-left" });
+// toast.error(err.response.data.message,{autoClose:10000,className:"notError"})
 
 
 
@@ -97,9 +99,13 @@ const Cases = ({
         );
         getAllImage();
         setImageIsOpen(false);
+        toast.success(`The Image has been created successfully`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
+
       })
       .catch((err) => {
-        setMessage(err.response.data.message);
+        toast.error(err.response.data.message,{autoClose:10000,className:"notError"})
+
+        // setMessage(err.response.data.message);
       });
   };
   //----------------------------------------------------------
@@ -135,14 +141,18 @@ const Cases = ({
           })
         );
         getAllCases();
-        setMessage("the case has been created successfully");
+        toast.success(`the case has been created successfully`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
+
+        // setMessage("the case has been created successfully");
         setModelIsOpen(false);
-        navigate(`/admin`);
+        // navigate(`/admin`);
 
         // navigate(`/allcases`);
       })
       .catch((err) => {
-        setMessage(err.response.data.message);
+        toast.error(err.response.data.message,{autoClose:10000,className:"notError"})
+
+        // setMessage(err.response.data.message);
       });
   };
   //----------------------------------------------------------
@@ -196,9 +206,13 @@ const Cases = ({
       dispatch(updateCases(result.data.results));
       getAllCases();
       setUpdateIsOpen(false);
-      navigate(`/admin`);
+      // navigate(`/admin`);
+      toast.success(`case updated`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
+
     } catch (error) {
-      console.log(error.response);
+      toast.error(error.response.data.message,{autoClose:10000,className:"notError"})
+
+      // console.log(error.response);
     }
   };
   //------------------------------------------------------------------------------
@@ -207,8 +221,12 @@ const Cases = ({
       await axios.delete(`/cases/${id}`);
       dispatch(deleteCase(id));
       getAllCases();
+      toast.success(`case deleted`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
+
       //   navigate(`/allcases`);
     } catch (error) {
+      toast.error(error.response.data.message,{autoClose:10000,className:"notError"})
+
       console.log(error);
     }
   };
