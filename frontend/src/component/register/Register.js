@@ -4,9 +4,8 @@ import "./Register.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BiUpload } from "react-icons/bi";
-import {toast} from "react-toastify"
-toast.configure()
-//////
+import { toast } from "react-toastify";
+toast.configure();
 const Register = () => {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
@@ -18,13 +17,6 @@ const Register = () => {
   const [paragraph, setParagraph] = useState("");
   const [imageselected, setImageSelected] = useState("");
   const [role_id, setRole_id] = useState(2);
-
-  // regex -> regular expression -> email is valid : b@b no
-  // regex -> regular expression -> password is valid : 1234BABSjdn , length = 6
-  // Check length -> IBAN
-  // so important
-
-
 
   const uploadImage = (imageFile) => {
     const formData = new FormData();
@@ -54,11 +46,6 @@ const Register = () => {
     ) {
       register();
     }
-
-    // if (email !== null) {
-
-    //   register();
-    // }
   };
 
   const register = () => {
@@ -73,18 +60,17 @@ const Register = () => {
         role_id,
       })
       .then((result) => {
-      
-        // setParagraph("The user has been created successfully");
-         toast.success(`Thank you, ${firstName}, for joining the Safe Home family`,{autoClose:10000,className:"notSuccess",
-        position:"top-left"})
+        toast.success(
+          `Thank you, ${firstName}, for joining the Safe Home family`,
+          { autoClose: 10000, className: "notSuccess", position: "top-left" }
+        );
         navigate("/login");
       })
       .catch((err) => {
-        console.log(6666);
-        // console.log(err.response.data.message);
-        // setParagraph(err.response.data.message);
-        toast.error(err.response.data.message,{autoClose:10000,className:"notError"})
-        // setParagraph("Error happend while register, please try again");
+        toast.error(err.response.data.message, {
+          autoClose: 10000,
+          className: "notError",
+        });
       });
   };
   return (
@@ -101,12 +87,8 @@ const Register = () => {
             </Link>
           </button>
         </div>
-        {/* <br /> */}
         <div className="right-register">
-          {/* <div className="right-register"> */}
           <h1 className="signup">Create Account</h1>
-          {/* <h5 className="accountUp">Sign up your account</h5> */}
-          {/* <br></br> */}
 
           <input
             onChange={(e) => {
@@ -117,7 +99,6 @@ const Register = () => {
             className="firstName"
           ></input>
           <br />
-          {/* <br /> */}
           <input
             onChange={(e) => {
               setLastName(e.target.value);
@@ -127,7 +108,6 @@ const Register = () => {
             className="lastName"
           ></input>
           <br />
-          {/* <br /> */}
           <input
             onChange={(e) => {
               setCountry(e.target.value);
@@ -138,7 +118,6 @@ const Register = () => {
           ></input>
 
           <br />
-          {/* <br /> */}
           <input
             type="file"
             className="image"
@@ -162,7 +141,6 @@ const Register = () => {
             placeholder=" Email"
             className="email"
           ></input>
-          {/* <br /> */}
           <br />
           <input
             onChange={(e) => {
@@ -173,20 +151,12 @@ const Register = () => {
             className="password"
           ></input>
           <br />
-          {/* <br /> */}
           <button onClick={checkFormValidation} className="registerButton">
             SIGN UP
           </button>
-          {/* </div> */}
 
           <br />
-          {/* <br /> */}
           <p className="message">{paragraph}</p>
-          {/* <button className="sent1">
-          <Link className="login" to="/login" className="link">
-            SIGN IN
-          </Link>
-        </button> */}
         </div>
       </div>
     </>

@@ -238,9 +238,7 @@ th {
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
-.category::placeholder {
-  /* text-align: center; */
-}
+
 textarea {
   padding: 5px;
 }
@@ -281,9 +279,6 @@ textarea {
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
-.title::placeholder {
-  /* text-align: center; */
-}
 
 .title {
   width: 60%;
@@ -302,9 +297,7 @@ textarea {
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
 }
-.amount::placeholder {
-  /* text-align: center; */
-}
+
 .amount {
   width: 60%;
   height: 30px;
@@ -322,9 +315,6 @@ textarea {
   border-right: 1px rgb(0, 0, 0) solid;
   border-left: 1px rgb(0, 0, 0) solid;
   border-bottom: 1px rgb(0, 0, 0) solid;
-}
-.description::placeholder {
-  /* text-align: center; */
 }
 
 .description {

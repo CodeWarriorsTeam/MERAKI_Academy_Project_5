@@ -20,14 +20,9 @@ import { RiDeleteBinLine, RiImageAddLine } from "react-icons/ri";
 import { AddCase, deleteCase, updateCases } from "../../reducer/cases";
 import { Link } from "react-router-dom";
 
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 
-// toast.success(`Welcome`, { autoClose: 10000, className: "notSuccess" , position:"top-left" });
-// toast.error(err.response.data.message,{autoClose:10000,className:"notError"})
-
-
-
-toast.configure()
+toast.configure();
 
 const Cases = ({
   searchCase,
@@ -72,7 +67,6 @@ const Cases = ({
 
       if (res.data.success) {
         dispatch(setUsers(res.data.result));
-        // setGallery(res.data.result);
       }
     } catch (error) {
       console.log(error);
@@ -91,7 +85,6 @@ const Cases = ({
       )
 
       .then((result) => {
-        // console.log(image_1);
         dispatch(
           addImage({
             image_1,
@@ -99,13 +92,17 @@ const Cases = ({
         );
         getAllImage();
         setImageIsOpen(false);
-        toast.success(`The Image has been created successfully`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
-
+        toast.success(`The Image has been created successfully`, {
+          autoClose: 10000,
+          className: "notSuccess",
+          position: "top-right",
+        });
       })
       .catch((err) => {
-        toast.error(err.response.data.message,{autoClose:10000,className:"notError"})
-
-        // setMessage(err.response.data.message);
+        toast.error(err.response.data.message, {
+          autoClose: 10000,
+          className: "notError",
+        });
       });
   };
   //----------------------------------------------------------
@@ -141,18 +138,19 @@ const Cases = ({
           })
         );
         getAllCases();
-        toast.success(`the case has been created successfully`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
+        toast.success(`the case has been created successfully`, {
+          autoClose: 10000,
+          className: "notSuccess",
+          position: "top-right",
+        });
 
-        // setMessage("the case has been created successfully");
         setModelIsOpen(false);
-        // navigate(`/admin`);
-
-        // navigate(`/allcases`);
       })
       .catch((err) => {
-        toast.error(err.response.data.message,{autoClose:10000,className:"notError"})
-
-        // setMessage(err.response.data.message);
+        toast.error(err.response.data.message, {
+          autoClose: 10000,
+          className: "notError",
+        });
       });
   };
   //----------------------------------------------------------
@@ -171,7 +169,6 @@ const Cases = ({
         console.log(err.response);
       });
   };
-  console.log(inputEmergency1);
   //------------------------------------------------------------
   const getAllCases = async () => {
     try {
@@ -206,13 +203,16 @@ const Cases = ({
       dispatch(updateCases(result.data.results));
       getAllCases();
       setUpdateIsOpen(false);
-      // navigate(`/admin`);
-      toast.success(`case updated`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
-
+      toast.success(`case updated`, {
+        autoClose: 10000,
+        className: "notSuccess",
+        position: "top-right",
+      });
     } catch (error) {
-      toast.error(error.response.data.message,{autoClose:10000,className:"notError"})
-
-      // console.log(error.response);
+      toast.error(error.response.data.message, {
+        autoClose: 10000,
+        className: "notError",
+      });
     }
   };
   //------------------------------------------------------------------------------
@@ -221,11 +221,16 @@ const Cases = ({
       await axios.delete(`/cases/${id}`);
       dispatch(deleteCase(id));
       getAllCases();
-      toast.success(`case deleted`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
-
-      //   navigate(`/allcases`);
+      toast.success(`case deleted`, {
+        autoClose: 10000,
+        className: "notSuccess",
+        position: "top-right",
+      });
     } catch (error) {
-      toast.error(error.response.data.message,{autoClose:10000,className:"notError"})
+      toast.error(error.response.data.message, {
+        autoClose: 10000,
+        className: "notError",
+      });
 
       console.log(error);
     }
@@ -237,10 +242,7 @@ const Cases = ({
       const result = await axios.put(`/admin/emergency/${id}`, {
         emergency: "true",
       });
-      // dispatch(updateCases(result.data.results));
       getAllCases();
-      // setUpdateIsOpen(false);
-      // navigate(`/admin`);
     } catch (error) {
       console.log(error.response);
     }
@@ -251,10 +253,7 @@ const Cases = ({
       const result = await axios.put(`/admin/emergency/${id}`, {
         emergency: "false",
       });
-      // dispatch(updateCases(result.data.results));
       getAllCases();
-      // setUpdateIsOpen(false);
-      // navigate(`/admin`);
     } catch (error) {
       console.log(error.response);
     }
@@ -305,7 +304,6 @@ const Cases = ({
           <p
             onClick={() => {
               setImageIsOpen(true);
-              console.log(imageIsOpen);
             }}
             className="imageIcon6"
             title="Add Image"
@@ -343,40 +341,15 @@ const Cases = ({
       <table className="table">
         {" "}
         <tr className="head">
-          <th className="id">
-            id
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
-          <th className="categor">
-            {" "}
-            category
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
-          <th className="tit1">
-            title
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
-          <th className="amout">
-            amount
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
-          <th className="img2">
-            image
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
-          <th className="descr">
-            description{" "}
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          <th className="id">id</th>
+          <th className="categor"> category</th>
+          <th className="tit1">title</th>
+          <th className="amout">amount</th>
+          <th className="img2">image</th>
+          <th className="descr">description </th>
 
-          <th className="donatio">
-            donation
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
-          <th className="oper">
-            Actions
-            {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
-          </th>
+          <th className="donatio">donation</th>
+          <th className="oper">Actions</th>
           <th style={{ fontSize: "0.7em" }}>Emergency</th>
         </tr>{" "}
         {state.cases &&
@@ -445,44 +418,8 @@ const Cases = ({
                           type="checkbox"
                         />
                       )}
-                      {/* {inputEmergency1 == 20 ? (
-                       
-                      ) : element.id == inputEmergency1 ? (
-                        <>
-                          <IoCheckmarkDoneSharp></IoCheckmarkDoneSharp>
-                        </>
-                      ) : (
-                        <input
-                          onClick={() => {
-                            setInputEmergency1(element.id);
-                            localStorage.setItem("emergencyId1", element.id);
-                          }}
-                          type="checkbox"
-                        />
-                      )} */}
                     </td>
-                    {/* <td className={element.id}>
-                      {inputEmergency2 == 23 ? (
-                        <input
-                          onClick={() => {
-                            setInputEmergency2(element.id);
-                          }}
-                          type="checkbox"
-                        />
-                      ) : element.id == inputEmergency2 ? (
-                        <>
-                          <IoCheckmarkDoneSharp></IoCheckmarkDoneSharp>
-                        </>
-                      ) : (
-                        <input
-                          onClick={() => {
-                            setInputEmergency2(element.id);
-                            localStorage.setItem("emergencyId2", element.id);
-                          }}
-                          type="checkbox"
-                        />
-                      )}
-                    </td> */}
+
                     <div>
                       <Model
                         style={customStyles3}
@@ -579,8 +516,6 @@ const Cases = ({
                             <br />
                             <br />
                           </>
-
-                          {/* {message} */}
                         </div>
                       </Model>
                     </div>
@@ -594,7 +529,6 @@ const Cases = ({
                           type="text"
                           className="category"
                           placeholder="category"
-                          // defaultValue={element.category}
                           onChange={(e) => setCategory(e.target.value)}
                         ></input>{" "}
                         <br />
@@ -627,7 +561,6 @@ const Cases = ({
                           className="description"
                           type="text"
                           placeholder="description"
-                          // defaultValue={element.case_description}
                           onChange={(e) => setCase_Description(e.target.value)}
                         ></input>{" "}
                         <br />
@@ -636,7 +569,6 @@ const Cases = ({
                           type="text"
                           className="amount"
                           placeholder="amount"
-                          // defaultValue={element.TheAmountRequired}
                           onChange={(e) => setTheAmountRequired(e.target.value)}
                         ></input>{" "}
                         <br />
@@ -647,9 +579,6 @@ const Cases = ({
                         >
                           {" "}
                           Update Case
-                          {/* <GrUpdate
-                            style={{ width: "95%", height: "1.4em" }}
-                          ></GrUpdate> */}
                         </button>
                         <br />
                       </Model>
@@ -658,31 +587,30 @@ const Cases = ({
                 </>
               );
             })}
-             <div className="divPaginationAdmin">
-        {" "}
-        {numPage == 1 ? (
-          <></>
-        ) : (
+        <div className="divPaginationAdmin">
+          {" "}
+          {numPage == 1 ? (
+            <></>
+          ) : (
+            <a
+              onClick={() => {
+                setNumPage(numPage - 1);
+              }}
+              className="backPaginationButtonAdmin"
+            >
+              <span>BACK</span>
+            </a>
+          )}
           <a
+            className="PaginationButtonAdmin"
             onClick={() => {
-              setNumPage(numPage - 1);
+              setNumPage(numPage + 1);
             }}
-            className="backPaginationButtonAdmin"
           >
-            <span>BACK</span>
+            <span>NEXT</span>
           </a>
-        )}
-        <a
-          className="PaginationButtonAdmin"
-          onClick={() => {
-            setNumPage(numPage + 1);
-          }}
-        >
-          <span>NEXT</span>
-        </a>
-      </div>
+        </div>
       </table>
-     
     </div>
   );
 };

@@ -40,7 +40,6 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
 
       .then(async (result) => {
         dispatch(loginUser(result.data.token));
-        //  isAdmin ? navigate("/admin") : navigate("/allcases");
 
         await setIsAdmin(
           result.data.result[0].role_name.toLowerCase() === "admin"
@@ -56,7 +55,6 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
       })
 
       .catch((err) => {
-        // console.log(err.response.data.message);
         console.log(err.response.data);
         
         toast.error(err.response.data.message,{autoClose:10000,className:"notError",position:"top-left" })
@@ -66,10 +64,7 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
   return (
     <>
       <div className="loginpage">
-        {/* <br />
-        
-        <br /> */}
-        {/* <h1 ></h1> */}
+       
         <div className="left-login">
           <h1 className="sign">Login to Your Account</h1>
           <h3 className="signgoogle">Login using google</h3>
@@ -110,11 +105,7 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
           <br />
           <div className="message">{message}</div>
           <br />
-          {/* <button className="sent">
-            <Link to="/register" className="link">
-              Sign up
-            </Link>
-          </button> */}
+         
         </div>
         <div className="right-login">
           {" "}
@@ -127,8 +118,7 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
               Sign up
             </Link>
           </button>
-          {/* <br />
-          <br /> */}
+         
         </div>
       </div>
     </>

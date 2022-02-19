@@ -1,14 +1,14 @@
 const express = require("express");
 
-const {createNewVolunteer, getAllVolunteers} = require("../controllers/volunteer");
+const {
+  createNewVolunteer,
+  getAllVolunteers,
+} = require("../controllers/volunteer");
 
+const volunteerRouter = express.Router();
 
-const volunteerRouter = express.Router()
+volunteerRouter.post("/", createNewVolunteer);
 
-
-volunteerRouter.post("/",createNewVolunteer);
-
-volunteerRouter.get("/",getAllVolunteers)
-
+volunteerRouter.get("/", getAllVolunteers);
 
 module.exports = volunteerRouter;

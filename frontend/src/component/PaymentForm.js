@@ -5,10 +5,9 @@ import Model from "react-modal";
 import axios from "axios";
 import { setCase } from "../reducer/cases/index";
 import { useParams } from "react-router-dom";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 
-
-toast.configure()
+toast.configure();
 const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
@@ -30,7 +29,6 @@ const CARD_OPTIONS = {
 };
 const customStyles2 = {
   content: {
-    //   background: "rgba(yellow, 0, 0, 0.7)",
     top: "40%",
     left: "23%",
     right: "69%",
@@ -61,7 +59,6 @@ export default function PaymentForm() {
     try {
       const result = await axios.get(`/cases/${id}`);
       seTitle(result.data.result[0].title);
-      // console.log(result.data.result);
       dispatch(setCase(result.data.result));
 
       setIsClosed(result.data.result[0].TheAmountRequired);
@@ -90,19 +87,27 @@ export default function PaymentForm() {
           title,
         });
         if (response.data.success) {
-         
           setSuccess(true);
-          toast.success(`Thank you for your donation of ${amount}$, the amount will be deducted from your bank account`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
+          toast.success(
+            `Thank you for your donation of ${amount}$, the amount will be deducted from your bank account`,
+            { autoClose: 10000, className: "notSuccess", position: "top-right" }
+          );
         }
 
         getbyid();
       } catch (error) {
-        toast.error(`opps!Please check the information entered`,{autoClose:10000,className:"notError"})
+        toast.error(`opps!Please check the information entered`, {
+          autoClose: 10000,
+          className: "notError",
+        });
         console.log("Error", error);
       }
     } else {
       console.log(error.message);
-      toast.error(`Opps!Please check the information entered`,{autoClose:10000,className:"notError"})
+      toast.error(`Opps!Please check the information entered`, {
+        autoClose: 10000,
+        className: "notError",
+      });
     }
   };
   return (
@@ -174,7 +179,7 @@ export default function PaymentForm() {
           </form>
         </Model>
       ) : (
-       <></>
+        <></>
       )}
     </>
   );
