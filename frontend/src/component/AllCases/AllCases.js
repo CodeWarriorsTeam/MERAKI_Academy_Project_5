@@ -157,7 +157,7 @@ const AllCases = ({
                     }}
                   ></img>
                   <div className="cardText">
-                    <p style={{ width: "100%", wordBreak: "break-all" }}>
+                    <p style={{ width: "100%"}}>
                       {element.title}
                     </p>
                     <span className="dataSpan">{element.category}</span>
