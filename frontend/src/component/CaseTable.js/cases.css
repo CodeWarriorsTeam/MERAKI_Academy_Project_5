@@ -54,9 +54,11 @@ updater.all {
   font-size: 2ch;
   margin-left: 18%;
   background-color: #f0d304;
+  cursor: pointer;
 }
+
 .upload2:active {
-  background-color: yellow;
+  background-color: #f0d304;
 }
 .upload1 {
   font-size: 1.3em;
