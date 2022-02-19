@@ -229,7 +229,7 @@ td {
 
 
 .PaginationButtonAdmin{
- 
+ transform: translate(28em,3em);
   padding: 3px 10px;
   /* font-size: 40px; */
   color: #F5EFED;
@@ -238,19 +238,21 @@ td {
   font-weight: 900;
   box-shadow: 6px 6px 0 #000;
   transition: 0.5s;
-  transform: skewX(15deg);
+  /* transform: skewX(15deg); */
 }
 
 .backPaginationButtonAdmin{
   padding: 3px 10px;
   /* font-size: 40px; */
+  transform: translate(28em,3em);
+
   color: #F5EFED;
   background-color: #25211D;
   text-decoration: none;
   font-weight: 900;
   box-shadow: 6px 6px 0 #000;
   transition: 0.5s;
-  transform: skewX(15deg);
+  /* transform: skewX(15deg); */
 }
 
 .divPagination a:hover{
