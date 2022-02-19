@@ -50,8 +50,7 @@ const AllCases = ({
         { headers: { Authorization: `Bearer ${state.token}` } }
       );
 
-      
-      setLength(res.data.result.length)
+      setLength(res.data.result.length);
 
       if (!res.data.result) {
         if (num == 0) {
@@ -111,7 +110,6 @@ const AllCases = ({
     }
   };
 
- 
   useEffect(() => {
     if (categoryNav) {
       getAllCasesByCategory();
@@ -129,10 +127,10 @@ const AllCases = ({
       <br />
       <br />
       <section className="allCasesSection">
-      
         {state.cases &&
           state.cases
             .filter((caseInformation) => {
+         
               if (searchCase == "") {
                 return caseInformation;
               } else if (
@@ -141,13 +139,15 @@ const AllCases = ({
                   .includes(searchCase.toLowerCase()) ||
                 caseInformation.title
                   .toLowerCase()
-                  .includes(searchCase.toLowerCase())
+                  .includes(searchCase.toLowerCase()) ||
+                caseInformation.id.toString().includes(searchCase)
               ) {
                 return caseInformation;
               }
             })
             .map((element, i) => (
               <>
+             
                 <div key={i} className="cardCases">
                   <img
                     className="cardImage"
@@ -155,14 +155,12 @@ const AllCases = ({
                     onClick={() => {
                       convertToCase(element.id);
                     }}
-                  >
-                  </img>
+                  ></img>
                   <div className="cardText">
                     <p style={{ width: "100%", wordBreak: "break-all" }}>
                       {element.title}
                     </p>
                     <span className="dataSpan">{element.category}</span>
-
                   </div>
                   <div className="cardState">
                     <div className="stat">
@@ -188,14 +186,9 @@ const AllCases = ({
                       <div className="type">State</div>
                     </div>
                   </div>
-                 
                 </div>
-              
-
-               
               </>
             ))}
-       
       </section>
 
       <div className="divPagination">
@@ -203,27 +196,28 @@ const AllCases = ({
         {num == 1 ? (
           <></>
         ) : (
-          <button
+          <a
             onClick={() => {
               setNum(num - 1);
             }}
             className="backPaginationButton"
           >
-            <IoMdArrowBack className="buttonIconPag"></IoMdArrowBack>
-          </button>
+           <span>BACK</span>
+          </a>
         )}
-      {state.cases &&
-          state.cases.length==8?(<button
-          className="PaginationButton"
-          onClick={() => {
-            setNum(num + 1);
-          }}
-        >
-          <GrFormNextLink className="buttonIconPag"></GrFormNextLink>
-        </button>):(<></>)}  
+        {state.cases && state.cases.length == 8 ? (
+          <a
+            className="PaginationButton"
+            onClick={() => {
+              setNum(num + 1);
+            }}
+          >
+           <span>NEXT</span>
+          </a>
+        ) : (
+          <></>
+        )}
       </div>
-
-    
     </>
   );
 };

@@ -104,23 +104,59 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  gap: 10px;
 }
-.PaginationButton{
+/* .PaginationButton{
 grid-column: 3/3;
 width: 50px;
 grid-row: 4/4;
-}
+} */
 
 .buttonIconPag{
   font-size: 20px;
 }
 
-.backPaginationButton{
+/* .backPaginationButton{
   grid-column: 3/3;
 width: 50px;
 grid-row: 4/4;
-}
+} */
+
 .cardText p {
   font-size: 25px;
   margin-bottom: 5px;
 }
+
+
+
+.PaginationButton{
+  padding: 5px 20px;
+  /* font-size: 40px; */
+  color: rgb(38,37,36);
+  background-color: #F0D304;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 6px 6px 0 #000;
+  transition: 0.5s;
+  transform: skewX(15deg);
+}
+
+.backPaginationButton{
+  padding: 5px 20px;
+  /* font-size: 40px; */
+  color: rgb(38,37,36);
+  background-color: #F0D304;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 6px 6px 0 #000;
+  transition: 0.5s;
+  transform: skewX(15deg);
+}
+
+.divPagination a:hover{
+padding: 5px 22px;
+box-shadow: 7px 7px 0 #F0D304;
+}
+
+
+

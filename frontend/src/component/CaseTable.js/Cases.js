@@ -19,6 +19,14 @@ import { IoMdArrowBack } from "react-icons/io";
 import { RiDeleteBinLine, RiImageAddLine } from "react-icons/ri";
 import { AddCase, deleteCase, updateCases } from "../../reducer/cases";
 import { Link } from "react-router-dom";
+
+import {toast} from "react-toastify"
+
+
+
+
+toast.configure()
+
 const Cases = ({
   searchCase,
   setInputEmergency1,
@@ -38,8 +46,8 @@ const Cases = ({
   const [message, setMessage] = useState("");
   const [imageselected, setImageSelected] = useState("");
   const [numUser, setNumUser] = useState(0);
-  const [emergency, setEmergency] = useState('false');
-  
+  const [emergency, setEmergency] = useState("false");
+
   const [numPage, setNumPage] = useState(1);
   const [image_1, setImage_1] = useState("");
   const [imageIsOpen, setImageIsOpen] = useState(false);
@@ -100,7 +108,14 @@ const Cases = ({
     axios
       .post(
         "/cases",
-        { category, case_image, title, case_description, TheAmountRequired ,emergency},
+        {
+          category,
+          case_image,
+          title,
+          case_description,
+          TheAmountRequired,
+          emergency,
+        },
         {
           headers: {
             Authorization: `Bearer ${state.token}`,
@@ -116,7 +131,7 @@ const Cases = ({
             title,
             case_description,
             TheAmountRequired,
-            emergency
+            emergency,
           })
         );
         getAllCases();
@@ -201,9 +216,8 @@ const Cases = ({
   ////------------------------------------------------------------------------------------
   const updateCaseByIdForEmergency = async (id) => {
     try {
-      
       const result = await axios.put(`/admin/emergency/${id}`, {
-       emergency:"true"
+        emergency: "true",
       });
       // dispatch(updateCases(result.data.results));
       getAllCases();
@@ -213,21 +227,20 @@ const Cases = ({
       console.log(error.response);
     }
   };
-/////----
-const updateCaseByIdForNotEmergency = async (id) => {
-  try {
-    
-    const result = await axios.put(`/admin/emergency/${id}`, {
-     emergency:"false"
-    });
-    // dispatch(updateCases(result.data.results));
-    getAllCases();
-    // setUpdateIsOpen(false);
-    // navigate(`/admin`);
-  } catch (error) {
-    console.log(error.response);
-  }
-};
+  /////----
+  const updateCaseByIdForNotEmergency = async (id) => {
+    try {
+      const result = await axios.put(`/admin/emergency/${id}`, {
+        emergency: "false",
+      });
+      // dispatch(updateCases(result.data.results));
+      getAllCases();
+      // setUpdateIsOpen(false);
+      // navigate(`/admin`);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
   /////--
   const customStyles = {
     content: {
@@ -347,7 +360,6 @@ const updateCaseByIdForNotEmergency = async (id) => {
             {/* <RiArrowUpDownFill className="arrow"></RiArrowUpDownFill> */}
           </th>
           <th style={{ fontSize: "0.7em" }}>Emergency</th>
-         
         </tr>{" "}
         {state.cases &&
           state.cases
@@ -399,16 +411,22 @@ const updateCaseByIdForNotEmergency = async (id) => {
                       />
                     </td>
                     <td className={element.id}>
-                      {element.emergency=='true'?( <>
-                          <IoCheckmarkDoneSharp onClick={()=>{
-                            updateCaseByIdForNotEmergency(element.id)
-                          }}></IoCheckmarkDoneSharp>
-                        </>):( <input
+                      {element.emergency == "true" ? (
+                        <>
+                          <IoCheckmarkDoneSharp
+                            onClick={() => {
+                              updateCaseByIdForNotEmergency(element.id);
+                            }}
+                          ></IoCheckmarkDoneSharp>
+                        </>
+                      ) : (
+                        <input
                           onClick={() => {
                             updateCaseByIdForEmergency(element.id);
                           }}
                           type="checkbox"
-                        />)}
+                        />
+                      )}
                       {/* {inputEmergency1 == 20 ? (
                        
                       ) : element.id == inputEmergency1 ? (
@@ -570,7 +588,10 @@ const updateCaseByIdForNotEmergency = async (id) => {
                             setImageSelected(e.target.files[0]);
                           }}
                         ></input>
-                        <button className="upload2" onClick={() => uploadImage(imageselected)}>
+                        <button
+                          className="upload2"
+                          onClick={() => uploadImage(imageselected)}
+                        >
                           <BiUpload className="upload1"></BiUpload>
                         </button>
                         <br />
@@ -585,7 +606,7 @@ const updateCaseByIdForNotEmergency = async (id) => {
                         <br />
                         <br />
                         <input
-                        className="description"
+                          className="description"
                           type="text"
                           placeholder="description"
                           // defaultValue={element.case_description}
@@ -605,7 +626,9 @@ const updateCaseByIdForNotEmergency = async (id) => {
                         <button
                           className="updater"
                           onClick={() => updateCaseById(caseId)}
-                        > Update Case
+                        >
+                          {" "}
+                          Update Case
                           {/* <GrUpdate
                             style={{ width: "95%", height: "1.4em" }}
                           ></GrUpdate> */}
@@ -617,27 +640,31 @@ const updateCaseByIdForNotEmergency = async (id) => {
                 </>
               );
             })}
-      </table>
-      {numPage == 1 ? (
-        <></>
-      ) : (
-        <button
-          className="back"
+             <div className="divPaginationAdmin">
+        {" "}
+        {numPage == 1 ? (
+          <></>
+        ) : (
+          <a
+            onClick={() => {
+              setNumPage(numPage - 1);
+            }}
+            className="backPaginationButtonAdmin"
+          >
+            <span>BACK</span>
+          </a>
+        )}
+        <a
+          className="PaginationButtonAdmin"
           onClick={() => {
-            setNumPage(numPage - 1);
+            setNumPage(numPage + 1);
           }}
         >
-          <IoMdArrowBack className="backIcon"></IoMdArrowBack>
-        </button>
-      )}
-      <button
-        onClick={() => {
-          setNumPage(numPage + 1);
-        }}
-        className="next"
-      >
-        <GrFormNextLink style={{ width: "1.3em" }}></GrFormNextLink>
-      </button>
+          <span>NEXT</span>
+        </a>
+      </div>
+      </table>
+     
     </div>
   );
 };

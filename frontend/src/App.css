@@ -190,16 +190,39 @@ h3 {
 
 
 
-.success-Donate{
+/* .success-Donate{
 background-color: #F0D304;
 font-size: 30px;
 color: #F0D304;
 border: #e298d8 solid;
-}
+} */
 
-.Toastify{
+/* .Toastify{
 	background-color: #F0D304;
 
 color: #F0D304;
+} */
+
+
+.notSuccess{
+  background-color: #F0D304 !important;
+  color: rgb(38,37,36) !important ;
 }
 
+.Toastify__progress-bar--success{
+  background-color: rgb(38,37,36) !important; 
+}
+
+.Toastify__toast-icon {
+  color: rgb(38,37,36) !important ;
+  
+}
+
+.notError{
+  background-color: #e01e1e !important;
+  color: #F5EFED !important ;
+}
+
+.ElementsApp .ElementsApp .InputElement{
+  color: rgb(202, 12, 12)  !important ;
+}

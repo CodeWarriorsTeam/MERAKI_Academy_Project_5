@@ -16,11 +16,15 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { ImPhone } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
+import {toast} from "react-toastify"
+
 import {
   setCase,
   setCaseEmergency1,
   setCaseEmergency2,
 } from "../../reducer/cases/index";
+
+toast.configure()
 const Home = ({
   setCategory,
   setAllCase,
@@ -184,6 +188,7 @@ const Home = ({
           })
         );
         setJoinIsOpen(false);
+        toast.success(`Thank you, ${firstName}, for your volunteering. We will contact you as soon as possible`,{autoClose:10000,className:"notSuccess"})
       })
       .catch((err) => {
         console.log(err.response);

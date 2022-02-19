@@ -4,7 +4,8 @@ import "./Register.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BiUpload } from "react-icons/bi";
-
+import {toast} from "react-toastify"
+toast.configure()
 //////
 const Register = () => {
   const navigate = useNavigate();
@@ -23,8 +24,7 @@ const Register = () => {
   // Check length -> IBAN
   // so important
 
-  console.log(profile_image);
-  console.log(imageselected);
+
 
   const uploadImage = (imageFile) => {
     const formData = new FormData();
@@ -73,12 +73,17 @@ const Register = () => {
         role_id,
       })
       .then((result) => {
-        setParagraph("The user has been created successfully");
+        console.log(66677776);
+        // setParagraph("The user has been created successfully");
+         toast.success(`Thank you, ${firstName}, for joining the Safe Home family`,{autoClose:10000,className:"notSuccess",
+        position:"top-left"})
         navigate("/login");
       })
       .catch((err) => {
+        console.log(6666);
         // console.log(err.response.data.message);
         setParagraph(err.response.data.message);
+        toast.error(err.response.data.message,{autoClose:10000,className:"notError"})
         // setParagraph("Error happend while register, please try again");
       });
   };

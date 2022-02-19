@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../reducer/login";
 import "./Login.css";
 import GoogleLogin from "react-google-login";
+import { toast } from "react-toastify";
+toast.configure();
 
 const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
   const state = useSelector((state) => {
@@ -37,26 +39,27 @@ const Login = ({ setIsAdmin, setUserId, isAdmin }) => {
       .post("/login", userLogin)
 
       .then(async (result) => {
-        console.log(result.data.result);
         dispatch(loginUser(result.data.token));
         //  isAdmin ? navigate("/admin") : navigate("/allcases");
-        console.log(result.data.result[0].role_name);
+
         await setIsAdmin(
           result.data.result[0].role_name.toLowerCase() === "admin"
         );
-        console.log(isAdmin);
+
         result.data.result[0].role_name === "admin"
           ? navigate("/admin")
           : navigate("/");
 
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("isAdmin", result.data.result[0].role_name);
+        toast.success(`Welcome`, { autoClose: 10000, className: "notSuccess" , position:"top-left" });
       })
 
       .catch((err) => {
         // console.log(err.response.data.message);
-console.log(err.response.data);
-        setMessage(err.response.data.message);
+        console.log(err.response.data);
+        
+        toast.error(err.response.data.message,{autoClose:10000,className:"notError",position:"top-left" })
       });
   };
 
