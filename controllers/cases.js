@@ -39,17 +39,20 @@ const createNewCase = (req, res) => {
 };
 ///////SELECT * FROM roles INNER JOIN users ON users.role_id=roles.id WHERE email=?
 ////SELECT cases.*, donation.* FROM cases LEFT JOIN donation ON donation.case_id=cases.id WHERE cases.is_deleted=0
+//TheAmountRequired
 const getAllCases = (req, res) => {
   const limit = 8;
   const page = req.query.page;
   const offset = (page - 1) * limit;
+  
   // const query = `SELECT donation.IBAN,donation.amount,donation.case_id,cases.* FROM donation RIGHT JOIN cases ON cases.id=donation.case_id WHERE cases.is_deleted=0  `;
   // const query = `SELECT donation.IBAN,donation.amount,donation.case_id,cases.* FROM donation RIGHT JOIN cases ON cases.id=donation.case_id WHERE cases.is_deleted=0 `;
 
-  const query = `SELECT * FROM cases   WHERE cases.is_deleted=0 limit ${limit} OFFSET ${offset}`;
+  const query = `SELECT * FROM cases  WHERE cases.is_deleted=0 ORDER BY TheAmountRequired DESC limit ${limit} OFFSET ${offset} `;
 
   connection.query(query, async (err, result) => {
     if (err) {
+      console.log(err);
       return res.status(500).json({
         success: false,
         message: `Server Error`,

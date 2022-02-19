@@ -92,7 +92,7 @@ export default function PaymentForm() {
         if (response.data.success) {
          
           setSuccess(true);
-          toast.success(`Thank you for your donation of ${amount}, the amount will be deducted from your bank account`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
+          toast.success(`Thank you for your donation of ${amount}$, the amount will be deducted from your bank account`, { autoClose: 10000, className: "notSuccess" , position:"top-right" });
         }
 
         getbyid();
